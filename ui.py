@@ -358,8 +358,10 @@ class CodeGeneratorUI:
         main_frame = ttk.Frame(self.root, padding="8")
         main_frame.pack(fill=tk.BOTH, expand=True, padx=5, pady=5)
         
-        # 配置网格权重
-        main_frame.columnconfigure(1, weight=1)
+        # 配置网格权重（确保中间配置区域有足够空间）
+        main_frame.columnconfigure(0, weight=0, minsize=220)
+        main_frame.columnconfigure(1, weight=3, minsize=420)
+        main_frame.columnconfigure(2, weight=4, minsize=360)
         main_frame.rowconfigure(0, weight=1)
         
         # 左侧：模块选择树形视图
@@ -414,9 +416,12 @@ class CodeGeneratorUI:
             "<Configure>",
             lambda e: config_canvas.configure(scrollregion=config_canvas.bbox("all"))
         )
-        
-        config_canvas.create_window((0, 0), window=config_scrollable_frame, anchor="nw")
+        canvas_window = config_canvas.create_window((0, 0), window=config_scrollable_frame, anchor="nw")
         config_canvas.configure(yscrollcommand=config_scrollbar.set)
+        config_canvas.bind(
+            "<Configure>",
+            lambda e: config_canvas.itemconfig(canvas_window, width=e.width)
+        )
         
         config_canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
         config_scrollbar.pack(side=tk.RIGHT, fill=tk.Y)

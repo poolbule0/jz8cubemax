@@ -1193,12 +1193,15 @@ class CodeGeneratorUI:
         table_frame.pack(fill=tk.BOTH, expand=True, padx=10, pady=5)
         
         # 表头
-        headers = ["PWM通道", "使能", "周期(TCxPRD)", "占空比(%)", "输出引脚映射"]
+        headers = ["PWM通道", "使能", "周期(TCxPRD)", "占空比(%)", "输出引脚映射", "PWM时钟"]
         for i, header in enumerate(headers):
             ttk.Label(table_frame, text=header, font=("Arial", 10, "bold")).grid(
                 row=0, column=i, padx=10, pady=5)
         
         # PWM通道配置
+        clock_display_map = {"instruction": "指令周期", "system": "系统时钟"}
+        reverse_clock_map = {v: k for k, v in clock_display_map.items()}
+        
         for idx, pwm_name in enumerate(["PWM1", "PWM2", "PWM3", "PWM4"], 1):
             row = idx
             pwm_config = config[pwm_name]
@@ -1233,7 +1236,7 @@ class CodeGeneratorUI:
             duty_spin = ttk.Spinbox(
                 table_frame,
                 from_=0,
-                to=1023,
+                to=100,
                 textvariable=duty_var,
                 width=10,
             )
@@ -1266,6 +1269,21 @@ class CodeGeneratorUI:
                 "<<ComboboxSelected>>",
                 lambda e, p=pwm_name, v=mapping_var: self._update_pwm_mapping(p, v.get()),
             )
+            
+            clock_key = pwm_config.get("clock_source", "instruction")
+            clock_var = tk.StringVar(value=clock_display_map.get(clock_key, "指令周期"))
+            clock_combo = ttk.Combobox(
+                table_frame,
+                textvariable=clock_var,
+                values=list(clock_display_map.values()),
+                state="readonly",
+                width=10,
+            )
+            clock_combo.grid(row=row, column=5, padx=10, pady=5)
+            clock_combo.bind(
+                "<<ComboboxSelected>>",
+                lambda e, p=pwm_name, cv=clock_var: self._update_pwm_clock_source(p, reverse_clock_map.get(cv.get(), "instruction")),
+            )
     
     def _create_pwm_config_ui(self):
         """创建PWM配置界面（保留用于兼容）"""
@@ -1297,6 +1315,10 @@ class CodeGeneratorUI:
     def _update_pwm_mapping(self, pwm, pin):
         """更新PWM输出引脚映射"""
         self.controller.config_data["pwm"][pwm]["mapping"] = pin
+    
+    def _update_pwm_clock_source(self, pwm, clock_key):
+        """更新PWM时钟源（PWMCON Bit6）"""
+        self.controller.config_data["pwm"][pwm]["clock_source"] = clock_key
     
     def _create_interrupt_config_content(self, parent):
         """创建中断配置内容（用于标签页）"""

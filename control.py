@@ -85,10 +85,10 @@ class ConfigController:
                 # PWM2S: 0=P61, 1=P53
                 # PWM3S: 0=P62, 1=P54
                 # PWM4S: 0=P63, 1=P55
-                "PWM1": {"enabled": False, "period": 100, "duty": 50, "mapping": "P60"},
-                "PWM2": {"enabled": False, "period": 100, "duty": 0, "mapping": "P61"},
-                "PWM3": {"enabled": False, "period": 100, "duty": 40, "mapping": "P62"},
-                "PWM4": {"enabled": False, "period": 23,  "duty": 0,  "mapping": "P63"}
+                "PWM1": {"enabled": False, "period": 100, "duty": 50, "mapping": "P60", "clock_source": "instruction"},
+                "PWM2": {"enabled": False, "period": 100, "duty": 0, "mapping": "P61", "clock_source": "instruction"},
+                "PWM3": {"enabled": False, "period": 100, "duty": 40, "mapping": "P62", "clock_source": "instruction"},
+                "PWM4": {"enabled": False, "period": 23,  "duty": 0,  "mapping": "P63", "clock_source": "instruction"}
             },
             "interrupt": {
                 # WDTCON寄存器配置
@@ -616,13 +616,13 @@ class ConfigController:
             if os.path.exists(adc_h_path):
                 files["ADC.H"] = self._read_file_with_encoding(adc_h_path)
         
-        # 如果任意 PWM 使能（或 TC0 使能），生成 pwm.c / pwm.h（可配置周期和占空比）
+        # 如果任意 PWM 使能，生成 pwm.c / pwm.h（可配置周期和占空比）
         pwm_cfg = self.config_data.get("pwm", {})
         pwm_enabled = any(
             pwm_cfg.get(ch, {}).get("enabled")
             for ch in ["PWM1", "PWM2", "PWM3", "PWM4"]
         )
-        if pwm_enabled or self.config_data["timer"]["TC0"]["enabled"]:
+        if pwm_enabled:
             files["pwm.c"] = self.generate_pwm_code()
             files["pwm.h"] = self.generate_pwm_header()
         
@@ -634,10 +634,6 @@ class ConfigController:
     def generate_pwm_header(self) -> str:
         """生成 pwm.h 头文件（基于示例，加入可配置开关）"""
         cfg_pwm = self.config_data.get("pwm", {})
-        cfg_tc0 = self.config_data.get("timer", {}).get("TC0", {})
-        
-        def en(flag: bool) -> str:
-            return "ENABLE" if flag else "DISABLE"
         
         code: List[str] = []
         code.append("#ifndef __PWM_H__")
@@ -646,75 +642,12 @@ class ConfigController:
         code.append("#include \"type.h\"")
         code.append("#include \"main.h\"")
         code.append("")
-        code.append("//PWM定义 ")
-        code.append(f"#define     TC0_ENABLE           {en(cfg_tc0.get('enabled', False))}")
-        code.append(f"#define     PWM1_ENABLE          {en(cfg_pwm.get('PWM1', {}).get('enabled', False))}")
-        code.append(f"#define     PWM2_ENABLE          {en(cfg_pwm.get('PWM2', {}).get('enabled', False))}")
-        code.append(f"#define     PWM3_ENABLE          {en(cfg_pwm.get('PWM3', {}).get('enabled', False))}")
-        code.append(f"#define     PWM4_ENABLE          {en(cfg_pwm.get('PWM4', {}).get('enabled', False))}")
-        code.append("enum  //PWM clock config")
-        code.append("{")
-        code.append("    E_PWM_DIV_1 = 0,")
-        code.append("    E_PWM_DIV_2,")
-        code.append("    E_PWM_DIV_4,")
-        code.append("    E_PWM_DIV_8,")
-        code.append("    E_PWM_DIV_16,")
-        code.append("    E_PWM_DIV_64,")
-        code.append("    E_PWM_DIV_128,")
-        code.append("    E_PWM_DIV_256,")
-        code.append("};")
+        channel_order = [("PWM1", "fw_pwm1Init"), ("PWM2", "fw_pwm2Init"),
+                         ("PWM3", "fw_pwm3Init"), ("PWM4", "fw_pwm4Init")]
+        for ch_key, func_name in channel_order:
+            if cfg_pwm.get(ch_key, {}).get("enabled"):
+                code.append(f"void {func_name}(void);")
         code.append("")
-        code.append("enum  //TC0 clock config")
-        code.append("{")
-        code.append("    E_TC0_DIV_2,")
-        code.append("    E_TC0_DIV_4,")
-        code.append("    E_TC0_DIV_8,")
-        code.append("    E_TC0_DIV_16,")
-        code.append("    E_TC0_DIV_32,")
-        code.append("    E_TC0_DIV_64,")
-        code.append("    E_TC0_DIV_128,")
-        code.append("    E_TC0_DIV_256,")
-        code.append("};")
-        code.append("")
-        code.append("//*************** pwm1/3 freq config ********************")
-        code.append("#define    SET_PWM13_FREQ(x)      {TC1PRDTH = 0;TC1PRDL =  x;}")
-        code.append("")
-        code.append("/*************** pwm1 duty config ********************/")
-        code.append("#define    SET_PWM1_DUTY(x)      {TC1PRDTH = 0;	PWM1DTL =  x;}")
-        code.append("")
-        code.append("/*************** PWM1 enable control *****************/")
-        code.append("#define    SET_PWM1_DISABLE()      {PWM1E = DISABLE;PORT6_0 = 0;}")
-        code.append("#define    SET_PWM1_ENABLE()        {PWM1E = ENABLE;}")
-        code.append("")
-        code.append("/*************** pwm3 duty config ********************/")
-        code.append("#define    SET_PWM3_DUTY(x)      {PWM3DTH = 0;PWM3DTL =  x;}")
-        code.append("")
-        code.append("/*************** PWM3 enable control *****************/")
-        code.append("#define    SET_PWM3_DISABLE()      {PWM3E = DISABLE;PORT5_1 = 0;}")
-        code.append("#define    SET_PWM3_ENABLE()       {PWM3E = ENABLE;}")
-        code.append("")
-        code.append("//*************** pwm2/4 freq config ********************/")
-        code.append("#define    SET_PWM24_FREQ(x)      {TC2PRDTH = 0;TC2PRDL =  x;}")
-        code.append("")
-        code.append("/*************** pwm2 duty config ********************/")
-        code.append("#define    SET_PWM2_DUTY(x)      {TC2PRDTH = 0;	PWM2DTL =  x;}")
-        code.append("")
-        code.append("/*************** PWM2 enable control *****************/")
-        code.append("#define    SET_PWM2_DISABLE()      {PWM2E = DISABLE;PORT6_1 = 0;}")
-        code.append("#define    SET_PWM2_ENABLE()        {PWM2E = ENABLE;}")
-        code.append("")
-        code.append("/*************** pwm4 duty config ********************/")
-        code.append("#define    SET_PWM4_DUTY(x)      {PWM4DTH = 0;PWM4DTL =  x;}")
-        code.append("")
-        code.append("/*************** PWM4 enable control *****************/")
-        code.append("#define    SET_PWM4_DISABLE()      {IPWM4E = DISABLE;PORT5_1 = 0;}")
-        code.append("#define    SET_PWM4_ENABLE()        {IPWM4E = ENABLE;}")
-        code.append("")
-        code.append("void fw_tc0Init(void);")
-        code.append("void fw_pwm2Init(void);")
-        code.append("void fw_pwm4Init(void);")
-        code.append("void fw_pwm1Init(void);")
-        code.append("void fw_pwm3Init(void);")
         code.append("#endif")
         code.append("")
         return "\n".join(code)
@@ -722,7 +655,6 @@ class ConfigController:
     def generate_pwm_code(self) -> str:
         """生成 pwm.c 源文件，允许配置周期和占空比"""
         cfg_pwm = self.config_data.get("pwm", {})
-        cfg_tc0 = self.config_data.get("timer", {}).get("TC0", {})
         
         def _duty_to_counts(period_val: int, duty_percent: int) -> int:
             """将占空比百分比转换成计数值（0-1023）"""
@@ -732,169 +664,113 @@ class ConfigController:
             duty_counts = (period_val * duty_percent) // 100
             return min(duty_counts, 0x3FF)
 
+        def _pwm_clock_line(channel: str) -> str:
+            clock = cfg_pwm.get(channel, {}).get("clock_source", "instruction")
+            if clock == "system":
+                return "\tPWMCON |= 0x40;\t\t//PWM时钟 = 系统周期"
+            return "\tPWMCON |= 0x00;\t\t//PWM时钟 = 指令周期"
+
         code: List[str] = []
         code.append("#include \"pwm.h\"")
         code.append("")
-        code.append("/******************************************")
-        code.append(" * ")
-        code.append(" * 函数 :  fw_tc0Init")
-        code.append(" *  * 功能 : PWM 初始化")
-        code.append(" *")
-        code.append("*******************************************/")
-        code.append("#if \tTC0_ENABLE")
-        code.append("void fw_tc0Init()")
-        code.append("{")
-        code.append("\t//===========TC0初始化==============")
-        code.append("\t// TC0CON 在 init.c 中按寄存器配置生成")
-        count_val = cfg_tc0.get("count_value", 0)
-        code.append(f"\tTC0C = {count_val};\t\t//TC0计数寄存器")
-        if cfg_tc0.get("interrupt", False):
-            code.append("\tINTE0 |= 0x01;\t\t\t//中断使能")
-        code.append("}")
-        code.append("#endif")
-        code.append("/******************************************")
-        code.append(" * ")
-        code.append(" * 函数 :  fw_pwm1Init()")
-        code.append(" *  * 功能 : PWM1 初始化")
-        code.append(" *")
-        code.append("*******************************************/")
-        code.append("#if \tPWM1_ENABLE")
-        code.append("void fw_pwm1Init()")
-        code.append("{")
-        pwm1 = self.config_data.get("pwm", {}).get("PWM1", {})
-        # 10bit 周期 / 占空比，UI 用十进制，这里拆成高位和低位并以十六进制写寄存器
-        p1_period = int(pwm1.get("period", 100)) & 0x3FF
-        p1_duty = _duty_to_counts(p1_period, int(pwm1.get("duty", 0)))
-        p1_prd_low = p1_period & 0xFF
-        p1_prd_high = (p1_period >> 8) & 0x03
-        p1_dt_low = p1_duty & 0xFF
-        p1_dt_high = (p1_duty >> 8) & 0x03
-        # TC1PRDTH: Bit7..6 = PRD<9:8>, Bit3..2 = DT1<9:8>
-        tc1prdth_val = (p1_prd_high << 6) | (p1_dt_high << 2)
-        map1 = pwm1.get("mapping", "P60")
-        code.append("//===========TC1(PWM1/PWM3)初始化============")
-        # TC1CON: Bit7=TC1EN, Bit3=PWM1E, 预分频 TC1PSR<2:0>=000 (1:1)
-        code.append("\tTC1CON = 0x88;\t\t//TC1控制寄存器 (TC1EN=1, PWM1E=1)")
-        code.append(f"\tTC1PRDTH = 0x{tc1prdth_val:02X};\t//TC1周期高2位 / PWM1占空比高2位")
-        code.append(f"\tTC1PRDL = 0x{p1_prd_low:02X};\t\t//TC1（PWM1、PWM3）周期低8位")
-        code.append(f"\tPWM1DTL = 0x{p1_dt_low:02X};\t\t//PWM1占空比低8位")
-        code.append("")
-        # PWM1 映射：PWM1S 位 (Bit0): 0=P60, 1=P52
-        if map1 == "P52":
-            code.append("\tPWMIS |= 0x01;\t\t\t//PWM1 映射到 P52")
-        else:
-            code.append("\tPWMIS &= ~0x01;\t\t\t//PWM1 映射到 P60")
-        code.append("}")
-        code.append("#endif")
-        code.append("/******************************************")
-        code.append(" * ")
-        code.append(" * 函数 :  fw_pwm2Init")
-        code.append(" *  * 功能 : PWM2 初始化")
-        code.append(" *")
-        code.append("*******************************************/")
-        code.append("#if \tPWM2_ENABLE")
-        code.append("void fw_pwm2Init()")
-        code.append("{")
-        pwm2 = self.config_data.get("pwm", {}).get("PWM2", {})
-        p2_period = int(pwm2.get("period", 100)) & 0x3FF
-        p2_duty = _duty_to_counts(p2_period, int(pwm2.get("duty", 0)))
-        p2_prd_low = p2_period & 0xFF
-        p2_prd_high = (p2_period >> 8) & 0x03
-        p2_dt_low = p2_duty & 0xFF
-        p2_dt_high = (p2_duty >> 8) & 0x03
-        # TC2PRDTH: Bit7..6 = PRD<9:8>, Bit3..2 = DT2<9:8>
-        tc2prdth_val = (p2_prd_high << 6) | (p2_dt_high << 2)
-        map2 = pwm2.get("mapping", "P61")
-        code.append("//===========PWM初始化=======================")
-        code.append("\tPWMCON |= 0x00;\t\t//PWM控制寄存器 bit7:PWM1/2级联,1:使能")
-        code.append("")
-        code.append("//===========TC2(PWM2/PWM4)初始化===========")
-        # TC2CON: Bit7=TC2EN, Bit3=PWM2E, 预分频 TC2PSR<2:0>=000 (1:1)
-        code.append("\tTC2CON |= 0x88;\t\t//TC2控制寄存器 (TC2EN=1, PWM2E=1)")
-        code.append(f"\tTC2PRDTH = 0x{tc2prdth_val:02X};\t//TC2周期高2位 / PWM2占空比高2位")
-        code.append(f"\tTC2PRDL = 0x{p2_prd_low:02X};\t\t//TC2（PWM2/PWM4）周期低8位")
-        code.append(f"\tPWM2DTL = 0x{p2_dt_low:02X};\t\t//PWM2占空比低位寄存器")
-        code.append("")
-        # PWM2 映射：PWM2S 位 (Bit2): 0=P61, 1=P53
-        if map2 == "P53":
-            code.append("\tPWMIS |= 0x04;\t\t\t//PWM2 映射到 P53")
-        else:
-            code.append("\tPWMIS &= ~0x04;\t\t\t//PWM2 映射到 P61")
-        code.append("}")
-        code.append("#endif")
-        code.append("/******************************************")
-        code.append(" * ")
-        code.append(" * 函数 :  fw_pwm3Init()")
-        code.append(" *  * 功能 : PWM3 初始化")
-        code.append(" *")
-        code.append("*******************************************/")
-        code.append("#if \tPWM3_ENABLE")
-        code.append("void fw_pwm3Init()")
-        code.append("{")
-        pwm3 = self.config_data.get("pwm", {}).get("PWM3", {})
-        p3_period = int(pwm3.get("period", 100)) & 0x3FF
-        p3_duty = _duty_to_counts(p3_period, int(pwm3.get("duty", 0)))
-        p3_prd_low = p3_period & 0xFF
-        p3_prd_high = (p3_period >> 8) & 0x03
-        p3_dt_low = p3_duty & 0xFF
-        p3_dt_high = (p3_duty >> 8) & 0x03
-        # 对于 PWM3，周期共享 TC1PRD*，占空比高位在 PWM3DTH
-        map3 = pwm3.get("mapping", "P62")
-        code.append("//===========TC1(PWM1/PWM3)初始化============")
-        # TC1CON: Bit7=TC1EN, Bit5=PWM3E, 预分频 TC1PSR<2:0>=000 (1:1)
-        code.append("\tTC1CON = 0xA0;\t\t//TC1控制寄存器 (TC1EN=1, PWM3E=1)")
-        code.append(f"\tTC1PRDTH = 0x{(p3_prd_high << 6):02X};\t//TC1（PWM1、PWM3）周期高2位")
-        code.append(f"\tTC1PRDL = 0x{p3_prd_low:02X};\t\t//TC1（PWM1、PWM3）周期低8位")
-        code.append("")
-        code.append(f"\tPWM3DTH = 0x{p3_dt_high:02X};\t\t//PWM3占空比高位寄存器")
-        code.append(f"\tPWM3DTL = 0x{p3_dt_low:02X};\t\t//PWM3占空比低位寄存器")
-        code.append("")
-        # PWM3 映射：PWM3S 位 (Bit4): 0=P62, 1=P54
-        if map3 == "P54":
-            code.append("\tPWMIS |= 0x10;\t\t\t//PWM3 映射到 P54")
-        else:
-            code.append("\tPWMIS &= ~0x10;\t\t\t//PWM3 映射到 P62")
-        code.append("}")
-        code.append("#endif")
-        code.append("/******************************************")
-        code.append(" * ")
-        code.append(" * 函数 :  fw_pwm4Init()")
-        code.append(" *  * 功能 : PWM4 初始化")
-        code.append(" *")
-        code.append("*******************************************/")
-        code.append("#if \tPWM4_ENABLE")
-        code.append("void fw_pwm4Init()")
-        code.append("{")
-        pwm4 = self.config_data.get("pwm", {}).get("PWM4", {})
-        p4_period = int(pwm4.get("period", 23)) & 0x3FF
-        p4_duty = _duty_to_counts(p4_period, int(pwm4.get("duty", 0)))
-        p4_prd_low = p4_period & 0xFF
-        p4_prd_high = (p4_period >> 8) & 0x03
-        p4_dt_low = p4_duty & 0xFF
-        p4_dt_high = (p4_duty >> 8) & 0x03
-        map4 = pwm4.get("mapping", "P63")
-        code.append("//===========PWM初始化=======================")
-        code.append("\tPWMCON |= 0x04;\t\t//PWM控制寄存器 bit7:PWM1/2级联,1:使能")
-        code.append("")
-        code.append("//===========TC2(PWM2/PWM4)初始化===========")
-        # TC2CON: Bit7=TC2EN, Bit5=PWM4E, 预分频 TC2PSR<2:0>=000 (1:1)
-        code.append("\tTC2CON |= 0xA0;\t\t//TC2控制寄存器 (TC2EN=1, PWM4E=1)")
-        code.append("")
-        code.append(f"\tTC2PRDTH = 0x{(p4_prd_high << 6):02X};\t//TC2周期高2位")
-        code.append(f"\tTC2PRDL = 0x{p4_prd_low:02X};\t\t//TC2（PWM2/PWM4）周期低8位")
-        code.append("")
-        code.append(f"\tPWM4DTH = 0x{p4_dt_high:02X};\t\t//PWM4占空比高位寄存器")
-        code.append(f"\tPWM4DTL = 0x{p4_dt_low:02X};\t\t//PWM4占空比低位寄存器")
-        code.append("")
-        # PWM4 映射：PWM4S 位 (Bit6): 0=P63, 1=P55
-        if map4 == "P55":
-            code.append("\tPWMIS |= 0x40;\t\t\t//PWM4 映射到 P55")
-        else:
-            code.append("\tPWMIS &= ~0x40;\t\t\t//PWM4 映射到 P63")
-        code.append("")
-        code.append("\tDEADCON |= 0x20;\t\t//死区控制寄存器（示例默认开启 PWM2/4 死区）")
-        code.append("}")
-        code.append("#endif")
+        channel_sequence = [
+            ("PWM1", "fw_pwm1Init", "TC1(PWM1/PWM3)", "TC1CON = 0x88;\t\t//TC1控制寄存器 (TC1EN=1, PWM1E=1)", "PWM1"),
+            ("PWM2", "fw_pwm2Init", "TC2(PWM2/PWM4)", "TC2CON |= 0x88;\t\t//TC2控制寄存器 (TC2EN=1, PWM2E=1)", "PWM2"),
+            ("PWM3", "fw_pwm3Init", "TC1(PWM1/PWM3)", "TC1CON = 0xA0;\t\t//TC1控制寄存器 (TC1EN=1, PWM3E=1)", "PWM3"),
+            ("PWM4", "fw_pwm4Init", "TC2(PWM2/PWM4)", "TC2CON |= 0xA0;\t\t//TC2控制寄存器 (TC2EN=1, PWM4E=1)", "PWM4"),
+        ]
+
+        first_function = True
+        for ch_name, func_name, section_title, tc_con_line, pwm_label in channel_sequence:
+            pwm_cfg = self.config_data.get("pwm", {}).get(ch_name, {})
+            if not pwm_cfg.get("enabled"):
+                continue
+
+            if not first_function:
+                code.append("")
+            first_function = False
+
+            code.append("/******************************************")
+            code.append(" * ")
+            code.append(f" * 函数 :  {func_name}()")
+            code.append(f" *  * 功能 : {pwm_label} 初始化")
+            code.append(" *")
+            code.append("*******************************************/")
+            code.append(f"void {func_name}()")
+            code.append("{")
+            code.append(_pwm_clock_line(ch_name))
+
+            period = int(pwm_cfg.get("period", 100)) & 0x3FF
+            duty = _duty_to_counts(period, int(pwm_cfg.get("duty", 0)))
+            prd_low = period & 0xFF
+            prd_high = (period >> 8) & 0x03
+            duty_low = duty & 0xFF
+            duty_high = (duty >> 8) & 0x03
+
+            if ch_name in ("PWM1", "PWM2"):
+                tc_prdth = (prd_high << 6) | (duty_high << 2)
+            else:
+                tc_prdth = (prd_high << 6)
+
+            code.append(f"//==========={section_title}初始化============")
+            code.append(f"\t{tc_con_line}")
+
+            if ch_name in ("PWM1", "PWM2"):
+                code.append(f"\tTC1PRDTH = 0x{tc_prdth:02X};\t//TC1周期高2位 / PWM1占空比高2位" if ch_name == "PWM1"
+                            else f"\tTC2PRDTH = 0x{tc_prdth:02X};\t//TC2周期高2位 / PWM2占空比高2位")
+                code.append(f"\tTC1PRDL = 0x{prd_low:02X};\t\t//TC1（PWM1、PWM3）周期低8位" if ch_name == "PWM1"
+                            else f"\tTC2PRDL = 0x{prd_low:02X};\t\t//TC2（PWM2/PWM4）周期低8位")
+                code.append(f"\tPWM1DTL = 0x{duty_low:02X};\t\t//PWM1占空比低8位" if ch_name == "PWM1"
+                            else f"\tPWM2DTL = 0x{duty_low:02X};\t\t//PWM2占空比低位寄存器")
+            elif ch_name == "PWM3":
+                code.append(f"\tTC1PRDTH = 0x{tc_prdth:02X};\t//TC1（PWM1、PWM3）周期高2位")
+                code.append(f"\tTC1PRDL = 0x{prd_low:02X};\t\t//TC1（PWM1、PWM3）周期低8位")
+                code.append("")
+                code.append(f"\tPWM3DTH = 0x{duty_high:02X};\t\t//PWM3占空比高位寄存器")
+                code.append(f"\tPWM3DTL = 0x{duty_low:02X};\t\t//PWM3占空比低位寄存器")
+            else:  # PWM4
+                code.append("")
+                code.append(f"\tTC2PRDTH = 0x{tc_prdth:02X};\t//TC2周期高2位")
+                code.append(f"\tTC2PRDL = 0x{prd_low:02X};\t\t//TC2（PWM2/PWM4）周期低8位")
+                code.append("")
+                code.append(f"\tPWM4DTH = 0x{duty_high:02X};\t\t//PWM4占空比高位寄存器")
+                code.append(f"\tPWM4DTL = 0x{duty_low:02X};\t\t//PWM4占空比低位寄存器")
+
+            map_pin = pwm_cfg.get("mapping", "P60" if ch_name == "PWM1" else
+                                  "P61" if ch_name == "PWM2" else
+                                  "P62" if ch_name == "PWM3" else "P63")
+
+            if ch_name == "PWM1":
+                code.append("")
+                if map_pin == "P52":
+                    code.append("\tPWMIS |= 0x01;\t\t\t//PWM1 映射到 P52")
+                else:
+                    code.append("\tPWMIS &= ~0x01;\t\t\t//PWM1 映射到 P60")
+            elif ch_name == "PWM2":
+                code.append("")
+                if map_pin == "P53":
+                    code.append("\tPWMIS |= 0x04;\t\t\t//PWM2 映射到 P53")
+                else:
+                    code.append("\tPWMIS &= ~0x04;\t\t\t//PWM2 映射到 P61")
+            elif ch_name == "PWM3":
+                code.append("")
+                if map_pin == "P54":
+                    code.append("\tPWMIS |= 0x10;\t\t\t//PWM3 映射到 P54")
+                else:
+                    code.append("\tPWMIS &= ~0x10;\t\t\t//PWM3 映射到 P62")
+            else:
+                code.append("")
+                if map_pin == "P55":
+                    code.append("\tPWMIS |= 0x40;\t\t\t//PWM4 映射到 P55")
+                else:
+                    code.append("\tPWMIS &= ~0x40;\t\t\t//PWM4 映射到 P63")
+                code.append("")
+                code.append("\tDEADCON |= 0x20;\t\t//死区控制寄存器（示例默认开启 PWM2/4 死区）")
+
+            code.append("}")
+
+        if first_function:
+            code.append("// 当前未启用任何 PWM 通道")
         code.append("")
         return "\n".join(code)
     

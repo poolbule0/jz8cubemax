@@ -1,0 +1,1026 @@
+slasm-0.13.6 beta               C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm11-29-2025  11:38:52         PAGE  1
+
+
+               00001 ;--------------------------------------------------------
+               00002 ; File Created by SLCC : free open source ANSI-C Compiler
+               00003 ; Version 3.6.0 #Sep 28 2025 (MSVC)
+               00004 ;--------------------------------------------------------
+               00005 ; SL port for the RISC core
+               00006 ;--------------------------------------------------------
+               00007 ;       .file   "C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C"
+               00008         list    p=JZ8P2615
+               00009         radix dec
+               00010         include "JZ8P2615.inc"
+               00001         LIST                                                                  
+               00002 ; JZ8P2615.INC  Standard Header File, Version 1.00
+               00116         LIST
+               00011 ;--------------------------------------------------------
+               00012 ; external declarations
+               00013 ;--------------------------------------------------------
+               00014         extern  _ADC_GetValue
+               00015         extern  _sw_adcBatVal
+               00016         extern  _RSRbits
+               00017         extern  _PCHbits
+               00018         extern  _PCLbits
+               00019         extern  _STATUSbits
+               00020         extern  _TC0CONbits
+               00021         extern  _TC0Cbits
+               00022         extern  _TBRDHbits
+               00023         extern  _TBRDLbits
+               00024         extern  _CPUCONbits
+               00025         extern  _IHRCCALbits
+               00026         extern  _PORT5bits
+               00027         extern  _PORT6bits
+               00028         extern  _P5CONbits
+               00029         extern  _P6CONbits
+               00030         extern  _P5PHbits
+               00031         extern  _P6PHbits
+               00032         extern  _P5PDbits
+               00033         extern  _P6PDbits
+               00034         extern  _P6ODbits
+               00035         extern  _P6WDbits
+               00036         extern  _P5IWEbits
+               00037         extern  _P6IWEbits
+               00038         extern  _P5ADEbits
+               00039         extern  _P6ADEbits
+               00040         extern  _ADATHbits
+               00041         extern  _ADATLbits
+               00042         extern  _ADISbits
+               00043         extern  _ADCON0bits
+               00044         extern  _ADCON1bits
+               00045         extern  _WDTCONbits
+               00046         extern  _TC1CONbits
+               00047         extern  _TC1PRDLbits
+               00048         extern  _PWM1DTLbits
+               00049         extern  _TC1PRDTHbits
+               00050         extern  _TC1CHbits
+               00051         extern  _TC1CLbits
+               00052         extern  _TC2CONbits
+               00053         extern  _TC2PRDLbits
+               00054         extern  _PWM2DTLbits
+               00055         extern  _TC2PRDTHbits
+               00056         extern  _TC2CHbits
+               00057         extern  _TC2CLbits
+               00058         extern  _PWM3DTHbits
+               00059         extern  _PWM3DTLbits
+               00060         extern  _PWM4DTHbits
+               00061         extern  _PWM4DTLbits
+               00062         extern  _PWMISbits
+               00063         extern  _DEADCONbits
+               00064         extern  _PWMCONbits
+               00065         extern  _DEADT0bits
+               00066         extern  _DEADT1bits
+               00067         extern  _INTE0bits
+               00068         extern  _INTE1bits
+               00069         extern  _INTF0bits
+               00070         extern  _INTF1bits
+               00071         extern  _IARbits
+               00072         extern  _U_Flage1
+               00073         extern  _r_g_workMod
+               00074         extern  _r_g_batVal
+               00075         extern  _r_buff
+               00076         extern  _RSR
+               00077         extern  _PCH
+               00078         extern  _PCL
+               00079         extern  _STATUS
+               00080         extern  _TC0CON
+               00081         extern  _TC0C
+               00082         extern  _TBRDH
+               00083         extern  _TBRDL
+               00084         extern  _CPUCON
+               00085         extern  _IHRCCAL
+               00086         extern  _PORT5
+               00087         extern  _PORT6
+               00088         extern  _P5CON
+               00089         extern  _P6CON
+               00090         extern  _P5PH
+               00091         extern  _P6PH
+               00092         extern  _P5PD
+               00093         extern  _P6PD
+               00094         extern  _P6OD
+               00095         extern  _P6WD
+               00096         extern  _P5IWE
+               00097         extern  _P6IWE
+               00098         extern  _P5ADE
+               00099         extern  _P6ADE
+               00100         extern  _ADATH
+               00101         extern  _ADATL
+               00102         extern  _ADIS
+               00103         extern  _ADCON0
+               00104         extern  _ADCON1
+               00105         extern  _WDTCON
+               00106         extern  _TC1CON
+               00107         extern  _TC1PRDL
+               00108         extern  _PWM1DTL
+               00109         extern  _TC1PRDTH
+               00110         extern  _TC1CH
+               00111         extern  _TC1CL
+               00112         extern  _TC2CON
+               00113         extern  _TC2PRDL
+               00114         extern  _PWM2DTL
+               00115         extern  _TC2PRDTH
+               00116         extern  _TC2CH
+               00117         extern  _TC2CL
+               00118         extern  _PWM3DTH
+               00119         extern  _PWM3DTL
+               00120         extern  _PWM4DTH
+               00121         extern  _PWM4DTL
+               00122         extern  _PWMIS
+               00123         extern  _DEADCON
+               00124         extern  _PWMCON
+               00125         extern  _DEADT0
+               00126         extern  _DEADT1
+               00127         extern  _INTE0
+               00128         extern  _INTE1
+               00129         extern  _INTF0
+               00130         extern  _INTF1
+               00131         extern  _IAR
+               00132 
+               00133         extern STK06
+               00134         extern STK05
+               00135         extern STK04
+               00136         extern STK03
+               00137         extern STK02
+               00138         extern STK01
+               00139         extern STK00
+               00140 ;--------------------------------------------------------
+               00141 ; global declarations
+               00142 ;--------------------------------------------------------
+               00143         global  _SMG_Scan
+               00144         global  _SMG_Display
+               00145         global  _Flag_Led1
+               00146         global  _Flag_Led2
+               00147         global  _Flag_Led3
+               00148         global  _Flag_Led4
+               00149         global  _smg_cnt
+               00150         global  _t_ledCntTab
+               00151 
+               00152 ;--------------------------------------------------------
+               00153 ; global definitions
+               00154 ;--------------------------------------------------------
+               00155 UD_SMG_0        udata
+               00156 _Flag_Led1      res     1
+               00157 
+               00158 UD_SMG_1        udata
+               00159 _Flag_Led2      res     1
+               00160 
+               00161 UD_SMG_2        udata
+               00162 _Flag_Led3      res     1
+               00163 
+               00164 UD_SMG_3        udata
+               00165 _Flag_Led4      res     1
+               00166 
+               00167 ;--------------------------------------------------------
+               00168 ; absolute symbol definitions
+               00169 ;--------------------------------------------------------
+               00170 ;--------------------------------------------------------
+               00171 ; compiler-defined variables
+               00172 ;--------------------------------------------------------
+               00173 UDL_SMG_0       udata
+               00174 r0x1005 res     1
+               00175 r0x1006 res     1
+               00176 r0x1007 res     1
+               00177 r0x1008 res     1
+               00178 r0x1009 res     1
+               00179 r0x100A res     1
+               00180 ;--------------------------------------------------------
+               00181 ; initialized data
+               00182 ;--------------------------------------------------------
+               00183 
+               00184 ID_SMG_0        idata
+               00185 _smg_cnt
+0000 1F82      00186         add 0x182,a
+               00187         db      0x00
+               00188 
+               00189 
+               00190 ID_SMG_1        code
+0000           00191 _t_ledCntTab
+0000 1F82      00192         add 0x182,a
+0001 E03F      00193         retl 0x3f
+0002 E006      00194         retl 0x06
+0003 E05B      00195         retl 0x5b
+0004 E04F      00196         retl 0x4f
+0005 E066      00197         retl 0x66
+0006 E06D      00198         retl 0x6d
+0007 E07D      00199         retl 0x7d
+0008 E007      00200         retl 0x07
+0009 E07F      00201         retl 0x7f
+000A E06F      00202         retl 0x6f
+000B E000      00203         retl 0x00
+               00204 
+               00205 
+               00206 ;@Allocation info for local variables in function 'SMG_Display'
+               00207 ;@SMG_Display SMG_Scan                  Allocated to registers ;size:2
+               00208 ;@SMG_Display ADC_GetValue              Allocated to registers ;size:2
+               00209 ;@SMG_Display sw_adcBatVal              Allocated to registers ;size:2
+               00210 ;@SMG_Display RSRbits                   Allocated to registers ;size:1
+               00211 ;@SMG_Display PCHbits                   Allocated to registers ;size:1
+               00212 ;@SMG_Display PCLbits                   Allocated to registers ;size:1
+               00213 ;@SMG_Display STATUSbits                Allocated to registers ;size:1
+               00214 ;@SMG_Display TC0CONbits                Allocated to registers ;size:1
+               00215 ;@SMG_Display TC0Cbits                  Allocated to registers ;size:1
+               00216 ;@SMG_Display TBRDHbits                 Allocated to registers ;size:1
+               00217 ;@SMG_Display TBRDLbits                 Allocated to registers ;size:1
+               00218 ;@SMG_Display CPUCONbits                Allocated to registers ;size:1
+               00219 ;@SMG_Display IHRCCALbits               Allocated to registers ;size:1
+               00220 ;@SMG_Display PORT5bits                 Allocated to registers ;size:1
+               00221 ;@SMG_Display PORT6bits                 Allocated to registers ;size:1
+               00222 ;@SMG_Display P5CONbits                 Allocated to registers ;size:1
+               00223 ;@SMG_Display P6CONbits                 Allocated to registers ;size:1
+               00224 ;@SMG_Display P5PHbits                  Allocated to registers ;size:1
+               00225 ;@SMG_Display P6PHbits                  Allocated to registers ;size:1
+               00226 ;@SMG_Display P5PDbits                  Allocated to registers ;size:1
+               00227 ;@SMG_Display P6PDbits                  Allocated to registers ;size:1
+               00228 ;@SMG_Display P6ODbits                  Allocated to registers ;size:1
+               00229 ;@SMG_Display P6WDbits                  Allocated to registers ;size:1
+               00230 ;@SMG_Display P5IWEbits                 Allocated to registers ;size:1
+               00231 ;@SMG_Display P6IWEbits                 Allocated to registers ;size:1
+               00232 ;@SMG_Display P5ADEbits                 Allocated to registers ;size:1
+               00233 ;@SMG_Display P6ADEbits                 Allocated to registers ;size:1
+               00234 ;@SMG_Display ADATHbits                 Allocated to registers ;size:1
+               00235 ;@SMG_Display ADATLbits                 Allocated to registers ;size:1
+               00236 ;@SMG_Display ADISbits                  Allocated to registers ;size:1
+               00237 ;@SMG_Display ADCON0bits                Allocated to registers ;size:1
+               00238 ;@SMG_Display ADCON1bits                Allocated to registers ;size:1
+               00239 ;@SMG_Display WDTCONbits                Allocated to registers ;size:1
+               00240 ;@SMG_Display TC1CONbits                Allocated to registers ;size:1
+               00241 ;@SMG_Display TC1PRDLbits               Allocated to registers ;size:1
+               00242 ;@SMG_Display PWM1DTLbits               Allocated to registers ;size:1
+               00243 ;@SMG_Display TC1PRDTHbits              Allocated to registers ;size:1
+               00244 ;@SMG_Display TC1CHbits                 Allocated to registers ;size:1
+               00245 ;@SMG_Display TC1CLbits                 Allocated to registers ;size:1
+               00246 ;@SMG_Display TC2CONbits                Allocated to registers ;size:1
+               00247 ;@SMG_Display TC2PRDLbits               Allocated to registers ;size:1
+               00248 ;@SMG_Display PWM2DTLbits               Allocated to registers ;size:1
+               00249 ;@SMG_Display TC2PRDTHbits              Allocated to registers ;size:1
+               00250 ;@SMG_Display TC2CHbits                 Allocated to registers ;size:1
+               00251 ;@SMG_Display TC2CLbits                 Allocated to registers ;size:1
+               00252 ;@SMG_Display PWM3DTHbits               Allocated to registers ;size:1
+               00253 ;@SMG_Display PWM3DTLbits               Allocated to registers ;size:1
+               00254 ;@SMG_Display PWM4DTHbits               Allocated to registers ;size:1
+               00255 ;@SMG_Display PWM4DTLbits               Allocated to registers ;size:1
+               00256 ;@SMG_Display PWMISbits                 Allocated to registers ;size:1
+               00257 ;@SMG_Display DEADCONbits               Allocated to registers ;size:1
+               00258 ;@SMG_Display PWMCONbits                Allocated to registers ;size:1
+               00259 ;@SMG_Display DEADT0bits                Allocated to registers ;size:1
+               00260 ;@SMG_Display DEADT1bits                Allocated to registers ;size:1
+               00261 ;@SMG_Display INTE0bits                 Allocated to registers ;size:1
+               00262 ;@SMG_Display INTE1bits                 Allocated to registers ;size:1
+               00263 ;@SMG_Display INTF0bits                 Allocated to registers ;size:1
+               00264 ;@SMG_Display INTF1bits                 Allocated to registers ;size:1
+               00265 ;@SMG_Display IARbits                   Allocated to registers ;size:1
+               00266 ;@SMG_Display U_Flage1                  Allocated to registers ;size:1
+               00267 ;@SMG_Display r_g_workMod               Allocated to registers ;size:1
+               00268 ;@SMG_Display r_g_batVal                Allocated to registers ;size:1
+               00269 ;@SMG_Display r_buff                    Allocated to registers ;size:1
+               00270 ;@SMG_Display Flag_Led1                 Allocated to registers ;size:1
+               00271 ;@SMG_Display Flag_Led2                 Allocated to registers ;size:1
+               00272 ;@SMG_Display Flag_Led3                 Allocated to registers ;size:1
+               00273 ;@SMG_Display Flag_Led4                 Allocated to registers ;size:1
+               00274 ;@SMG_Display smg_cnt                   Allocated to registers ;size:1
+               00275 ;@SMG_Display b                         Allocated to registers ;size:1
+               00276 ;@SMG_Display a                         Allocated to registers r0x1005 ;size:1
+               00277 ;@SMG_Display smg_bai                   Allocated to registers r0x1007 ;size:1
+               00278 ;@SMG_Display smg_shi                   Allocated to registers r0x1008 ;size:1
+               00279 ;@SMG_Display smg_ge                    Allocated to registers r0x1009 ;size:1
+               00280 ;@SMG_Display smg_tu                    Allocated to registers r0x1006 ;size:1
+               00281 ;@SMG_Display smg_buff                  Allocated to registers r0x1005 ;size:1
+               00282 ;@SMG_Display RSR                       Allocated to registers ;size:1
+               00283 ;@SMG_Display PCH                       Allocated to registers ;size:1
+               00284 ;@SMG_Display PCL                       Allocated to registers ;size:1
+               00285 ;@SMG_Display STATUS                    Allocated to registers ;size:1
+               00286 ;@SMG_Display TC0CON                    Allocated to registers ;size:1
+               00287 ;@SMG_Display TC0C                      Allocated to registers ;size:1
+               00288 ;@SMG_Display TBRDH                     Allocated to registers ;size:1
+               00289 ;@SMG_Display TBRDL                     Allocated to registers ;size:1
+               00290 ;@SMG_Display CPUCON                    Allocated to registers ;size:1
+               00291 ;@SMG_Display IHRCCAL                   Allocated to registers ;size:1
+               00292 ;@SMG_Display PORT5                     Allocated to registers ;size:1
+               00293 ;@SMG_Display PORT6                     Allocated to registers ;size:1
+               00294 ;@SMG_Display P5CON                     Allocated to registers ;size:1
+               00295 ;@SMG_Display P6CON                     Allocated to registers ;size:1
+               00296 ;@SMG_Display P5PH                      Allocated to registers ;size:1
+               00297 ;@SMG_Display P6PH                      Allocated to registers ;size:1
+               00298 ;@SMG_Display P5PD                      Allocated to registers ;size:1
+               00299 ;@SMG_Display P6PD                      Allocated to registers ;size:1
+               00300 ;@SMG_Display P6OD                      Allocated to registers ;size:1
+               00301 ;@SMG_Display P6WD                      Allocated to registers ;size:1
+               00302 ;@SMG_Display P5IWE                     Allocated to registers ;size:1
+               00303 ;@SMG_Display P6IWE                     Allocated to registers ;size:1
+               00304 ;@SMG_Display P5ADE                     Allocated to registers ;size:1
+               00305 ;@SMG_Display P6ADE                     Allocated to registers ;size:1
+               00306 ;@SMG_Display ADATH                     Allocated to registers ;size:1
+               00307 ;@SMG_Display ADATL                     Allocated to registers ;size:1
+               00308 ;@SMG_Display ADIS                      Allocated to registers ;size:1
+               00309 ;@SMG_Display ADCON0                    Allocated to registers ;size:1
+               00310 ;@SMG_Display ADCON1                    Allocated to registers ;size:1
+               00311 ;@SMG_Display WDTCON                    Allocated to registers ;size:1
+               00312 ;@SMG_Display TC1CON                    Allocated to registers ;size:1
+               00313 ;@SMG_Display TC1PRDL                   Allocated to registers ;size:1
+               00314 ;@SMG_Display PWM1DTL                   Allocated to registers ;size:1
+               00315 ;@SMG_Display TC1PRDTH                  Allocated to registers ;size:1
+               00316 ;@SMG_Display TC1CH                     Allocated to registers ;size:1
+               00317 ;@SMG_Display TC1CL                     Allocated to registers ;size:1
+               00318 ;@SMG_Display TC2CON                    Allocated to registers ;size:1
+               00319 ;@SMG_Display TC2PRDL                   Allocated to registers ;size:1
+               00320 ;@SMG_Display PWM2DTL                   Allocated to registers ;size:1
+               00321 ;@SMG_Display TC2PRDTH                  Allocated to registers ;size:1
+               00322 ;@SMG_Display TC2CH                     Allocated to registers ;size:1
+               00323 ;@SMG_Display TC2CL                     Allocated to registers ;size:1
+               00324 ;@SMG_Display PWM3DTH                   Allocated to registers ;size:1
+               00325 ;@SMG_Display PWM3DTL                   Allocated to registers ;size:1
+               00326 ;@SMG_Display PWM4DTH                   Allocated to registers ;size:1
+               00327 ;@SMG_Display PWM4DTL                   Allocated to registers ;size:1
+               00328 ;@SMG_Display PWMIS                     Allocated to registers ;size:1
+               00329 ;@SMG_Display DEADCON                   Allocated to registers ;size:1
+               00330 ;@SMG_Display PWMCON                    Allocated to registers ;size:1
+               00331 ;@SMG_Display DEADT0                    Allocated to registers ;size:1
+               00332 ;@SMG_Display DEADT1                    Allocated to registers ;size:1
+               00333 ;@SMG_Display INTE0                     Allocated to registers ;size:1
+               00334 ;@SMG_Display INTE1                     Allocated to registers ;size:1
+               00335 ;@SMG_Display INTF0                     Allocated to registers ;size:1
+               00336 ;@SMG_Display INTF1                     Allocated to registers ;size:1
+               00337 ;@SMG_Display IAR                       Allocated to registers ;size:1
+               00338 ;@end Allocation info for local variables in function 'SMG_Display';
+               00339 
+               00340 ;--------------------------------------------------------
+               00341 ; overlayable items in internal ram 
+               00342 ;--------------------------------------------------------
+               00343 ;       udata_ovr
+               00344 ;--------------------------------------------------------
+               00345 ; code
+               00346 ;--------------------------------------------------------
+               00347 code_SMG        code
+               00348 ;***
+               00349 ;  pBlock Stats: dbName = C
+               00350 ;***
+               00351 ;has an exit
+               00352 ;; Starting pCode block
+               00353 S_SMG__SMG_Scan code
+0000           00354 _SMG_Scan:      ;Function start
+               00355 ; 2 exit points
+               00356 ;       .line   60; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C      IO_IN();
+0000 5400      00357         BTS     _P5CONbits,2
+0001 5200      00358         BTS     _P5CONbits,1
+0002 5000      00359         BTS     _P5CONbits,0
+0003 5E00      00360         BTS     _P6CONbits,7
+0004 5C00      00361         BTS     _P6CONbits,6
+               00362 ;;swapping arguments (AOP_TYPEs 1/3)
+               00363 ;       .line   61; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C      switch(smg_cnt)
+0005 C012      00364         MOV     A,@0x12
+0006 0800      00365         SUB     A,_smg_cnt
+0007 6183      00366         JBTC    STATUS,0
+0008 A000      00367         JMP     _00176_DS_
+0009 2000      00368         MOV     A,_smg_cnt
+000A           00369         BANKSEL PCL
+000A 1F82      00370         ADD     PCL,A
+000B A000      00371         JMP     _00121_DS_
+000C A000      00372         JMP     _00124_DS_
+000D A000      00373         JMP     _00127_DS_
+000E A000      00374         JMP     _00130_DS_
+000F A000      00375         JMP     _00133_DS_
+0010 A000      00376         JMP     _00136_DS_
+0011 A000      00377         JMP     _00139_DS_
+0012 A000      00378         JMP     _00142_DS_
+0013 A000      00379         JMP     _00145_DS_
+0014 A000      00380         JMP     _00148_DS_
+0015 A000      00381         JMP     _00151_DS_
+0016 A000      00382         JMP     _00154_DS_
+0017 A000      00383         JMP     _00157_DS_
+0018 A000      00384         JMP     _00160_DS_
+0019 A000      00385         JMP     _00163_DS_
+001A A000      00386         JMP     _00166_DS_
+001B A000      00387         JMP     _00169_DS_
+001C A000      00388         JMP     _00172_DS_
+001D           00389 _00121_DS_:
+               00390 ;       .line   64; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C      if(B1_LED)
+001D 7200      00391         JBTS    _Flag_Led1,1
+001E A000      00392         JMP     _00123_DS_
+               00393 ;       .line   66; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C      PIN3_H();
+001F 5000      00394         BTS     _PORT5bits,0
+0020 4000      00395         BTC     _P5CONbits,0
+0021 5000      00396         BTS     _PORT5bits,0
+0022           00397 _00123_DS_:
+               00398 ;       .line   68; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C      PIN4_L();
+0022 4E00      00399         BTC     _PORT6bits,7
+0023 4E00      00400         BTC     _P6CONbits,7
+0024 4E00      00401         BTC     _PORT6bits,7
+               00402 ;       .line   69; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C      break;
+0025 A000      00403         JMP     _00176_DS_
+0026           00404 _00124_DS_:
+               00405 ;       .line   71; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C      if (C1_LED)
+0026 7400      00406         JBTS    _Flag_Led1,2
+0027 A000      00407         JMP     _00126_DS_
+               00408 ;       .line   73; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C      PIN4_L();
+0028 4E00      00409         BTC     _PORT6bits,7
+0029 4E00      00410         BTC     _P6CONbits,7
+002A 4E00      00411         BTC     _PORT6bits,7
+002B           00412 _00126_DS_:
+               00413 ;       .line   75; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C      PIN2_H();
+002B 5200      00414         BTS     _PORT5bits,1
+002C 4200      00415         BTC     _P5CONbits,1
+002D 5200      00416         BTS     _PORT5bits,1
+               00417 ;       .line   76; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C      break;
+002E A000      00418         JMP     _00176_DS_
+002F           00419 _00127_DS_:
+               00420 ;       .line   78; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C      if (A2_LED)
+002F 7000      00421         JBTS    _Flag_Led2,0
+0030 A000      00422         JMP     _00129_DS_
+               00423 ;       .line   80; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C      PIN3_L();
+0031 4000      00424         BTC     _PORT5bits,0
+0032 4000      00425         BTC     _P5CONbits,0
+0033 4000      00426         BTC     _PORT5bits,0
+0034           00427 _00129_DS_:
+               00428 ;       .line   82; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C      PIN2_H();
+0034 5200      00429         BTS     _PORT5bits,1
+0035 4200      00430         BTC     _P5CONbits,1
+0036 5200      00431         BTS     _PORT5bits,1
+               00432 ;       .line   83; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C      break;
+0037 A000      00433         JMP     _00176_DS_
+0038           00434 _00130_DS_:
+               00435 ;       .line   85; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C      if (B2_LED)
+0038 7200      00436         JBTS    _Flag_Led2,1
+0039 A000      00437         JMP     _00132_DS_
+               00438 ;       .line   87; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C      PIN2_L();
+003A 4200      00439         BTC     _PORT5bits,1
+003B 4200      00440         BTC     _P5CONbits,1
+003C 4200      00441         BTC     _PORT5bits,1
+003D           00442 _00132_DS_:
+               00443 ;       .line   89; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C      PIN3_H();
+003D 5000      00444         BTS     _PORT5bits,0
+003E 4000      00445         BTC     _P5CONbits,0
+003F 5000      00446         BTS     _PORT5bits,0
+               00447 ;       .line   90; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C      break;
+0040 A000      00448         JMP     _00176_DS_
+0041           00449 _00133_DS_:
+               00450 ;       .line   92; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C      if (C2_LED)
+0041 7400      00451         JBTS    _Flag_Led2,2
+0042 A000      00452         JMP     _00135_DS_
+               00453 ;       .line   94; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C      PIN3_L();
+0043 4000      00454         BTC     _PORT5bits,0
+0044 4000      00455         BTC     _P5CONbits,0
+0045 4000      00456         BTC     _PORT5bits,0
+0046           00457 _00135_DS_:
+               00458 ;       .line   96; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C      PIN4_H();
+0046 5E00      00459         BTS     _PORT6bits,7
+0047 4E00      00460         BTC     _P6CONbits,7
+0048 5E00      00461         BTS     _PORT6bits,7
+               00462 ;       .line   97; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C      break;
+0049 A000      00463         JMP     _00176_DS_
+004A           00464 _00136_DS_:
+               00465 ;       .line   99; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C      if (D2_LED)
+004A 7600      00466         JBTS    _Flag_Led2,3
+004B A000      00467         JMP     _00138_DS_
+               00468 ;       .line   101; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     PIN2_L();
+004C 4200      00469         BTC     _PORT5bits,1
+004D 4200      00470         BTC     _P5CONbits,1
+004E 4200      00471         BTC     _PORT5bits,1
+004F           00472 _00138_DS_:
+               00473 ;       .line   103; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     PIN4_H();
+004F 5E00      00474         BTS     _PORT6bits,7
+0050 4E00      00475         BTC     _P6CONbits,7
+0051 5E00      00476         BTS     _PORT6bits,7
+               00477 ;       .line   104; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     break;
+0052 A000      00478         JMP     _00176_DS_
+0053           00479 _00139_DS_:
+               00480 ;       .line   106; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     if (E2_LED)
+0053 7800      00481         JBTS    _Flag_Led2,4
+0054 A000      00482         JMP     _00141_DS_
+               00483 ;       .line   108; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     PIN2_L();
+0055 4200      00484         BTC     _PORT5bits,1
+0056 4200      00485         BTC     _P5CONbits,1
+0057 4200      00486         BTC     _PORT5bits,1
+0058           00487 _00141_DS_:
+               00488 ;       .line   110; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     PIN5_H();
+0058 5C00      00489         BTS     _PORT6bits,6
+0059 4C00      00490         BTC     _P6CONbits,6
+005A 5C00      00491         BTS     _PORT6bits,6
+               00492 ;       .line   111; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     break;
+005B A000      00493         JMP     _00176_DS_
+005C           00494 _00142_DS_:
+               00495 ;       .line   113; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     if (F2_LED)
+005C 7A00      00496         JBTS    _Flag_Led2,5
+005D A000      00497         JMP     _00144_DS_
+               00498 ;       .line   115; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     PIN3_L();
+005E 4000      00499         BTC     _PORT5bits,0
+005F 4000      00500         BTC     _P5CONbits,0
+0060 4000      00501         BTC     _PORT5bits,0
+0061           00502 _00144_DS_:
+               00503 ;       .line   117; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     PIN5_H();
+0061 5C00      00504         BTS     _PORT6bits,6
+0062 4C00      00505         BTC     _P6CONbits,6
+0063 5C00      00506         BTS     _PORT6bits,6
+               00507 ;       .line   118; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     break;
+0064 A000      00508         JMP     _00176_DS_
+0065           00509 _00145_DS_:
+               00510 ;       .line   120; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     if (G2_LED)
+0065 7C00      00511         JBTS    _Flag_Led2,6
+0066 A000      00512         JMP     _00147_DS_
+               00513 ;       .line   122; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     PIN4_L();
+0067 4E00      00514         BTC     _PORT6bits,7
+0068 4E00      00515         BTC     _P6CONbits,7
+0069 4E00      00516         BTC     _PORT6bits,7
+006A           00517 _00147_DS_:
+               00518 ;       .line   124; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     PIN5_H();
+006A 5C00      00519         BTS     _PORT6bits,6
+006B 4C00      00520         BTC     _P6CONbits,6
+006C 5C00      00521         BTS     _PORT6bits,6
+               00522 ;       .line   125; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     break;
+006D A000      00523         JMP     _00176_DS_
+006E           00524 _00148_DS_:
+               00525 ;       .line   127; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     if (A3_LED)
+006E 7000      00526         JBTS    _Flag_Led3,0
+006F A000      00527         JMP     _00150_DS_
+               00528 ;       .line   129; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     PIN2_L();
+0070 4200      00529         BTC     _PORT5bits,1
+0071 4200      00530         BTC     _P5CONbits,1
+0072 4200      00531         BTC     _PORT5bits,1
+0073           00532 _00150_DS_:
+               00533 ;       .line   131; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     PIN1_H();
+0073 5400      00534         BTS     _PORT5bits,2
+0074 4400      00535         BTC     _P5CONbits,2
+0075 5400      00536         BTS     _PORT5bits,2
+               00537 ;       .line   132; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     break;
+0076 A000      00538         JMP     _00176_DS_
+0077           00539 _00151_DS_:
+               00540 ;       .line   134; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     if (B3_LED)
+0077 7200      00541         JBTS    _Flag_Led3,1
+0078 A000      00542         JMP     _00153_DS_
+               00543 ;       .line   136; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     PIN1_L();
+0079 4400      00544         BTC     _PORT5bits,2
+007A 4400      00545         BTC     _P5CONbits,2
+007B 4400      00546         BTC     _PORT5bits,2
+007C           00547 _00153_DS_:
+               00548 ;       .line   138; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     PIN2_H();
+007C 5200      00549         BTS     _PORT5bits,1
+007D 4200      00550         BTC     _P5CONbits,1
+007E 5200      00551         BTS     _PORT5bits,1
+               00552 ;       .line   139; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     break;
+007F A000      00553         JMP     _00176_DS_
+0080           00554 _00154_DS_:
+               00555 ;       .line   141; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     if (C3_LED)
+0080 7400      00556         JBTS    _Flag_Led3,2
+0081 A000      00557         JMP     _00156_DS_
+               00558 ;       .line   143; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     PIN3_L();
+0082 4000      00559         BTC     _PORT5bits,0
+0083 4000      00560         BTC     _P5CONbits,0
+0084 4000      00561         BTC     _PORT5bits,0
+0085           00562 _00156_DS_:
+               00563 ;       .line   145; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     PIN1_H();
+0085 5400      00564         BTS     _PORT5bits,2
+0086 4400      00565         BTC     _P5CONbits,2
+0087 5400      00566         BTS     _PORT5bits,2
+               00567 ;       .line   146; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     break;
+0088 A000      00568         JMP     _00176_DS_
+0089           00569 _00157_DS_:
+               00570 ;       .line   148; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     if (D3_LED)
+0089 7600      00571         JBTS    _Flag_Led3,3
+008A A000      00572         JMP     _00159_DS_
+               00573 ;       .line   150; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     PIN1_L();
+008B 4400      00574         BTC     _PORT5bits,2
+008C 4400      00575         BTC     _P5CONbits,2
+008D 4400      00576         BTC     _PORT5bits,2
+008E           00577 _00159_DS_:
+               00578 ;       .line   152; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     PIN3_H();
+008E 5000      00579         BTS     _PORT5bits,0
+008F 4000      00580         BTC     _P5CONbits,0
+0090 5000      00581         BTS     _PORT5bits,0
+               00582 ;       .line   153; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     break;
+0091 A000      00583         JMP     _00176_DS_
+0092           00584 _00160_DS_:
+               00585 ;       .line   155; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     if (E3_LED)
+0092 7800      00586         JBTS    _Flag_Led3,4
+0093 A000      00587         JMP     _00162_DS_
+               00588 ;       .line   157; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     PIN4_L();
+0094 4E00      00589         BTC     _PORT6bits,7
+0095 4E00      00590         BTC     _P6CONbits,7
+0096 4E00      00591         BTC     _PORT6bits,7
+0097           00592 _00162_DS_:
+               00593 ;       .line   159; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     PIN1_H();
+0097 5400      00594         BTS     _PORT5bits,2
+0098 4400      00595         BTC     _P5CONbits,2
+0099 5400      00596         BTS     _PORT5bits,2
+               00597 ;       .line   160; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     break;
+009A A000      00598         JMP     _00176_DS_
+009B           00599 _00163_DS_:
+               00600 ;       .line   162; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     if (F3_LED)
+009B 7A00      00601         JBTS    _Flag_Led3,5
+009C A000      00602         JMP     _00165_DS_
+               00603 ;       .line   164; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     PIN1_L();
+009D 4400      00604         BTC     _PORT5bits,2
+009E 4400      00605         BTC     _P5CONbits,2
+009F 4400      00606         BTC     _PORT5bits,2
+00A0           00607 _00165_DS_:
+               00608 ;       .line   166; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     PIN4_H();
+00A0 5E00      00609         BTS     _PORT6bits,7
+00A1 4E00      00610         BTC     _P6CONbits,7
+00A2 5E00      00611         BTS     _PORT6bits,7
+               00612 ;       .line   167; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     break;
+00A3 A000      00613         JMP     _00176_DS_
+00A4           00614 _00166_DS_:
+               00615 ;       .line   169; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     if (G3_LED)
+00A4 7C00      00616         JBTS    _Flag_Led3,6
+00A5 A000      00617         JMP     _00168_DS_
+               00618 ;       .line   171; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     PIN1_L();
+00A6 4400      00619         BTC     _PORT5bits,2
+00A7 4400      00620         BTC     _P5CONbits,2
+00A8 4400      00621         BTC     _PORT5bits,2
+00A9           00622 _00168_DS_:
+               00623 ;       .line   173; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     PIN5_H();
+00A9 5C00      00624         BTS     _PORT6bits,6
+00AA 4C00      00625         BTC     _P6CONbits,6
+00AB 5C00      00626         BTS     _PORT6bits,6
+               00627 ;       .line   174; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     break;
+00AC A000      00628         JMP     _00176_DS_
+00AD           00629 _00169_DS_:
+               00630 ;       .line   176; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     if (B_LED_LIGHTING)
+00AD 7000      00631         JBTS    _Flag_Led4,0
+00AE A000      00632         JMP     _00171_DS_
+               00633 ;       .line   178; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     PIN5_L();
+00AF 4C00      00634         BTC     _PORT6bits,6
+00B0 4C00      00635         BTC     _P6CONbits,6
+00B1 4C00      00636         BTC     _PORT6bits,6
+00B2           00637 _00171_DS_:
+               00638 ;       .line   180; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     PIN3_H();
+00B2 5000      00639         BTS     _PORT5bits,0
+00B3 4000      00640         BTC     _P5CONbits,0
+00B4 5000      00641         BTS     _PORT5bits,0
+               00642 ;       .line   181; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     break;
+00B5 A000      00643         JMP     _00176_DS_
+00B6           00644 _00172_DS_:
+               00645 ;       .line   183; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     if (B_LED_PERCENT_SIGNS)
+00B6 7200      00646         JBTS    _Flag_Led4,1
+00B7 A000      00647         JMP     _00174_DS_
+               00648 ;       .line   185; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     PIN5_L();
+00B8 4C00      00649         BTC     _PORT6bits,6
+00B9 4C00      00650         BTC     _P6CONbits,6
+00BA 4C00      00651         BTC     _PORT6bits,6
+00BB           00652 _00174_DS_:
+               00653 ;       .line   187; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     PIN2_H();
+00BB 5200      00654         BTS     _PORT5bits,1
+00BC 4200      00655         BTC     _P5CONbits,1
+00BD 5200      00656         BTS     _PORT5bits,1
+00BE           00657 _00176_DS_:
+               00658 ;       .line   195; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     if (++ smg_cnt > 17)
+00BE 2A00      00659         INC     _smg_cnt
+               00660 ;;swapping arguments (AOP_TYPEs 1/3)
+00BF C012      00661         MOV     A,@0x12
+00C0 0800      00662         SUB     A,_smg_cnt
+00C1 7183      00663         JBTS    STATUS,0
+00C2 A000      00664         JMP     _00179_DS_
+               00665 ;       .line   197; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     smg_cnt = 0;
+00C3 0600      00666         CLR     _smg_cnt
+               00667 ;       .line   200; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C     }
+00C4           00668 _00179_DS_:
+00C4 0082      00669         RET     
+               00670 ; exit point of _SMG_Scan
+               00671 
+               00672 ;***
+               00673 ;  pBlock Stats: dbName = C
+               00674 ;***
+               00675 ;has an exit
+               00676 ;functions called:
+               00677 ;   (_t_ledCntTab + 0)
+               00678 ;   (_t_ledCntTab + 0)
+               00679 ;   (_t_ledCntTab + 0)
+               00680 ;   (_t_ledCntTab + 0)
+               00681 ;   (_t_ledCntTab + 0)
+               00682 ;   (_t_ledCntTab + 0)
+               00683 ;7 compiler assigned registers:
+               00684 ;   r0x1005
+               00685 ;   STK00
+               00686 ;   r0x1006
+               00687 ;   r0x1007
+               00688 ;   r0x1008
+               00689 ;   r0x1009
+               00690 ;   r0x100A
+               00691 ;; Starting pCode block
+               00692 S_SMG__SMG_Display      code
+0000           00693 _SMG_Display:   ;Function start
+               00694 ; 2 exit points
+               00695 ;       .line   19; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C      void SMG_Display(uint8_t a ,uint8_t b)
+0000 0200      00696         MOV     r0x1005,A
+0001 2000      00697         MOV     A,STK00
+0002 0200      00698         MOV     r0x1006,A
+               00699 ;       .line   21; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C      uint8_t smg_bai = 10;
+0003 C00A      00700         MOV     A,@0x0a
+0004 0200      00701         MOV     r0x1007,A
+               00702 ;       .line   29; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C      if(smg_buff >= 100)
+0005 C064      00703         MOV     A,@0x64
+0006 0800      00704         SUB     A,r0x1005
+0007 7183      00705         JBTS    STATUS,0
+0008 A000      00706         JMP     _00115_DS_
+               00707 ;       .line   31; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C      smg_bai = 1;
+0009 C001      00708         MOV     A,@0x01
+000A 0200      00709         MOV     r0x1007,A
+               00710 ;       .line   32; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C      smg_shi = 0;
+000B 0600      00711         CLR     r0x1008
+               00712 ;       .line   33; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C      smg_ge = 0;
+000C 0600      00713         CLR     r0x1009
+000D A000      00714         JMP     _00110_DS_
+000E           00715 _00115_DS_:
+               00716 ;       .line   37; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C      while(smg_buff >= 10)
+000E 0600      00717         CLR     r0x100A
+000F           00718 _00105_DS_:
+000F C00A      00719         MOV     A,@0x0a
+0010 0800      00720         SUB     A,r0x1005
+0011 7183      00721         JBTS    STATUS,0
+0012 A000      00722         JMP     _00116_DS_
+               00723 ;       .line   39; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C      smg_buff -= 10;
+0013 C0F6      00724         MOV     A,@0xf6
+0014 1E00      00725         ADD     r0x1005,A
+               00726 ;       .line   40; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C      smg_shi++;
+0015 2A00      00727         INC     r0x100A
+0016 A000      00728         JMP     _00105_DS_
+0017           00729 _00116_DS_:
+0017 2000      00730         MOV     A,r0x100A
+0018 0200      00731         MOV     r0x1008,A
+               00732 ;       .line   42; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C      smg_ge = smg_buff;
+0019 2000      00733         MOV     A,r0x1005
+001A 0200      00734         MOV     r0x1009,A
+001B           00735 _00110_DS_:
+               00736 ;       .line   45; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C      smg_bai = t_ledCntTab[smg_bai];
+001B 2000      00737         MOV     A,r0x1007
+001C 8000      00738         CALL    (_t_ledCntTab + 0)
+001D 0200      00739         MOV     r0x1007,A
+               00740 ;       .line   46; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C      smg_shi = t_ledCntTab[smg_shi];
+001E 2000      00741         MOV     A,r0x1008
+001F 8000      00742         CALL    (_t_ledCntTab + 0)
+0020 0200      00743         MOV     r0x1008,A
+               00744 ;       .line   47; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C      smg_ge = t_ledCntTab[smg_ge];
+0021 2000      00745         MOV     A,r0x1009
+0022 8000      00746         CALL    (_t_ledCntTab + 0)
+0023 0200      00747         MOV     r0x1009,A
+               00748 ;;gen.c:6919: size=0, offset=0, AOP_TYPE(res)=8
+               00749 ;       .line   49; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C      SMG_BAI = smg_bai;
+0024 2000      00750         MOV     A,r0x1007
+0025 0200      00751         MOV     (_Flag_Led1 + 0),A
+               00752 ;;gen.c:6919: size=0, offset=0, AOP_TYPE(res)=8
+               00753 ;       .line   50; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C      SMG_SHI = smg_shi;
+0026 2000      00754         MOV     A,r0x1008
+0027 0200      00755         MOV     (_Flag_Led2 + 0),A
+               00756 ;;gen.c:6919: size=0, offset=0, AOP_TYPE(res)=8
+               00757 ;       .line   51; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C      SMG_GE = smg_ge;
+0028 2000      00758         MOV     A,r0x1009
+0029 0200      00759         MOV     (_Flag_Led3 + 0),A
+               00760 ;;gen.c:6919: size=0, offset=0, AOP_TYPE(res)=8
+               00761 ;       .line   52; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C      SMG_TU = smg_tu;
+002A 2000      00762         MOV     A,r0x1006
+002B 0200      00763         MOV     (_Flag_Led4 + 0),A
+               00764 ;       .line   55; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\SMG.C      }
+002C 0082      00765         RET     
+               00766 ; exit point of _SMG_Display
+               00767 
+               00768 
+               00769 ;       code size estimation:
+               00770 ;         242+    1 =   243 instructions (  488 byte)
+               00771 
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+ADATH                             000001A3
+ADATL                             000001A4
+ADCON0                            000001A6
+ADCON1                            000001A7
+ADIS                              000001A5
+CPUCON                            00000188
+DEADCON                           000001C7
+DEADT0                            000001C9
+DEADT1                            000001CA
+IAR                               000001FF
+IHRCCAL                           00000189
+INTE0                             000001D6
+INTE1                             000001D7
+INTF0                             000001DA
+INTF1                             000001DB
+P5ADE                             000001A0
+P5CON                             0000018D
+P5IWE                             0000019C
+P5PD                              00000193
+P5PH                              00000190
+P6ADE                             000001A1
+P6CON                             0000018E
+P6IWE                             0000019D
+P6OD                              00000199
+P6PD                              00000194
+P6PH                              00000191
+P6WD                              0000019A
+PCH                               00000181
+PCL                               00000182
+PORT5                             0000018A
+PORT6                             0000018B
+PWM1DTL                           000001B2
+PWM2DTL                           000001B8
+PWM3DTH                           000001BC
+PWM3DTL                           000001BD
+PWM4DTH                           000001BE
+PWM4DTL                           000001BF
+PWMCON                            000001C8
+PWMIS                             000001C6
+RSR                               00000180
+STATUS                            00000183
+STK00                             00000000
+STK01                             00000000
+STK02                             00000000
+STK03                             00000000
+STK04                             00000000
+STK05                             00000000
+STK06                             00000000
+TBRDH                             00000186
+TBRDL                             00000187
+TC0C                              00000185
+TC0CON                            00000184
+TC1CH                             000001B4
+TC1CL                             000001B5
+TC1CON                            000001B0
+TC1PRDL                           000001B1
+TC1PRDTH                          000001B3
+TC2CH                             000001BA
+TC2CL                             000001BB
+TC2CON                            000001B6
+TC2PRDL                           000001B7
+TC2PRDTH                          000001B9
+WDTCON                            000001AF
+_00105_DS_                        0000000F
+_00110_DS_                        0000001B
+_00115_DS_                        0000000E
+_00116_DS_                        00000017
+_00121_DS_                        0000001D
+_00123_DS_                        00000022
+_00124_DS_                        00000026
+_00126_DS_                        0000002B
+_00127_DS_                        0000002F
+_00129_DS_                        00000034
+_00130_DS_                        00000038
+_00132_DS_                        0000003D
+_00133_DS_                        00000041
+_00135_DS_                        00000046
+_00136_DS_                        0000004A
+_00138_DS_                        0000004F
+_00139_DS_                        00000053
+_00141_DS_                        00000058
+_00142_DS_                        0000005C
+_00144_DS_                        00000061
+_00145_DS_                        00000065
+_00147_DS_                        0000006A
+_00148_DS_                        0000006E
+_00150_DS_                        00000073
+_00151_DS_                        00000077
+_00153_DS_                        0000007C
+_00154_DS_                        00000080
+_00156_DS_                        00000085
+_00157_DS_                        00000089
+_00159_DS_                        0000008E
+_00160_DS_                        00000092
+_00162_DS_                        00000097
+_00163_DS_                        0000009B
+_00165_DS_                        000000A0
+_00166_DS_                        000000A4
+_00168_DS_                        000000A9
+_00169_DS_                        000000AD
+_00171_DS_                        000000B2
+_00172_DS_                        000000B6
+_00174_DS_                        000000BB
+_00176_DS_                        000000BE
+_00179_DS_                        000000C4
+_ADATH                            00000000
+_ADATHbits                        00000000
+_ADATL                            00000000
+_ADATLbits                        00000000
+_ADCON0                           00000000
+_ADCON0bits                       00000000
+_ADCON1                           00000000
+_ADCON1bits                       00000000
+_ADC_GetValue                     00000000
+_ADIS                             00000000
+_ADISbits                         00000000
+_CPUCON                           00000000
+_CPUCONbits                       00000000
+_DEADCON                          00000000
+_DEADCONbits                      00000000
+_DEADT0                           00000000
+_DEADT0bits                       00000000
+_DEADT1                           00000000
+_DEADT1bits                       00000000
+_Flag_Led1                        00000000
+_Flag_Led2                        00000000
+_Flag_Led3                        00000000
+_Flag_Led4                        00000000
+_IAR                              00000000
+_IARbits                          00000000
+_IHRCCAL                          00000000
+_IHRCCALbits                      00000000
+_INTE0                            00000000
+_INTE0bits                        00000000
+_INTE1                            00000000
+_INTE1bits                        00000000
+_INTF0                            00000000
+_INTF0bits                        00000000
+_INTF1                            00000000
+_INTF1bits                        00000000
+_P5ADE                            00000000
+_P5ADEbits                        00000000
+_P5CON                            00000000
+_P5CONbits                        00000000
+_P5IWE                            00000000
+_P5IWEbits                        00000000
+_P5PD                             00000000
+_P5PDbits                         00000000
+_P5PH                             00000000
+_P5PHbits                         00000000
+_P6ADE                            00000000
+_P6ADEbits                        00000000
+_P6CON                            00000000
+_P6CONbits                        00000000
+_P6IWE                            00000000
+_P6IWEbits                        00000000
+_P6OD                             00000000
+_P6ODbits                         00000000
+_P6PD                             00000000
+_P6PDbits                         00000000
+_P6PH                             00000000
+_P6PHbits                         00000000
+_P6WD                             00000000
+_P6WDbits                         00000000
+_PCH                              00000000
+_PCHbits                          00000000
+_PCL                              00000000
+_PCLbits                          00000000
+_PORT5                            00000000
+_PORT5bits                        00000000
+_PORT6                            00000000
+_PORT6bits                        00000000
+_PWM1DTL                          00000000
+_PWM1DTLbits                      00000000
+_PWM2DTL                          00000000
+_PWM2DTLbits                      00000000
+_PWM3DTH                          00000000
+_PWM3DTHbits                      00000000
+_PWM3DTL                          00000000
+_PWM3DTLbits                      00000000
+_PWM4DTH                          00000000
+_PWM4DTHbits                      00000000
+_PWM4DTL                          00000000
+_PWM4DTLbits                      00000000
+_PWMCON                           00000000
+_PWMCONbits                       00000000
+_PWMIS                            00000000
+_PWMISbits                        00000000
+_RSR                              00000000
+_RSRbits                          00000000
+_SMG_Display                      00000000
+_SMG_Scan                         00000000
+_STATUS                           00000000
+_STATUSbits                       00000000
+_TBRDH                            00000000
+_TBRDHbits                        00000000
+_TBRDL                            00000000
+_TBRDLbits                        00000000
+_TC0C                             00000000
+_TC0CON                           00000000
+_TC0CONbits                       00000000
+_TC0Cbits                         00000000
+_TC1CH                            00000000
+_TC1CHbits                        00000000
+_TC1CL                            00000000
+_TC1CLbits                        00000000
+_TC1CON                           00000000
+_TC1CONbits                       00000000
+_TC1PRDL                          00000000
+_TC1PRDLbits                      00000000
+_TC1PRDTH                         00000000
+_TC1PRDTHbits                     00000000
+_TC2CH                            00000000
+_TC2CHbits                        00000000
+_TC2CL                            00000000
+_TC2CLbits                        00000000
+_TC2CON                           00000000
+_TC2CONbits                       00000000
+_TC2PRDL                          00000000
+_TC2PRDLbits                      00000000
+_TC2PRDTH                         00000000
+_TC2PRDTHbits                     00000000
+_U_Flage1                         00000000
+_WDTCON                           00000000
+_WDTCONbits                       00000000
+__jz8p2615                        00000001
+_r_buff                           00000000
+_r_g_batVal                       00000000
+_r_g_workMod                      00000000
+_smg_cnt                          00000000
+_sw_adcBatVal                     00000000
+_t_ledCntTab                      00000000
+r0x1005                           00000000
+r0x1006                           00000001
+r0x1007                           00000002
+r0x1008                           00000003
+r0x1009                           00000004
+r0x100A                           00000005
+
+
+Errors   :       0
+Warnings :       0 reported,       0 suppressed
+Messages :       0 reported,       0 suppressed
+

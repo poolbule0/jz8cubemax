@@ -1,0 +1,795 @@
+slasm-0.13.6 beta               C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm11-29-2025  11:38:53         PAGE  1
+
+
+               00001 ;--------------------------------------------------------
+               00002 ; File Created by SLCC : free open source ANSI-C Compiler
+               00003 ; Version 3.6.0 #Sep 28 2025 (MSVC)
+               00004 ;--------------------------------------------------------
+               00005 ; SL port for the RISC core
+               00006 ;--------------------------------------------------------
+               00007 ;       .file   "C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\ADC.C"
+               00008         list    p=JZ8P2615
+               00009         radix dec
+               00010         include "JZ8P2615.inc"
+               00001         LIST                                                                  
+               00002 ; JZ8P2615.INC  Standard Header File, Version 1.00
+               00116         LIST
+               00011 ;--------------------------------------------------------
+               00012 ; external declarations
+               00013 ;--------------------------------------------------------
+               00014         extern  _RSRbits
+               00015         extern  _PCHbits
+               00016         extern  _PCLbits
+               00017         extern  _STATUSbits
+               00018         extern  _TC0CONbits
+               00019         extern  _TC0Cbits
+               00020         extern  _TBRDHbits
+               00021         extern  _TBRDLbits
+               00022         extern  _CPUCONbits
+               00023         extern  _IHRCCALbits
+               00024         extern  _PORT5bits
+               00025         extern  _PORT6bits
+               00026         extern  _P5CONbits
+               00027         extern  _P6CONbits
+               00028         extern  _P5PHbits
+               00029         extern  _P6PHbits
+               00030         extern  _P5PDbits
+               00031         extern  _P6PDbits
+               00032         extern  _P6ODbits
+               00033         extern  _P6WDbits
+               00034         extern  _P5IWEbits
+               00035         extern  _P6IWEbits
+               00036         extern  _P5ADEbits
+               00037         extern  _P6ADEbits
+               00038         extern  _ADATHbits
+               00039         extern  _ADATLbits
+               00040         extern  _ADISbits
+               00041         extern  _ADCON0bits
+               00042         extern  _ADCON1bits
+               00043         extern  _WDTCONbits
+               00044         extern  _TC1CONbits
+               00045         extern  _TC1PRDLbits
+               00046         extern  _PWM1DTLbits
+               00047         extern  _TC1PRDTHbits
+               00048         extern  _TC1CHbits
+               00049         extern  _TC1CLbits
+               00050         extern  _TC2CONbits
+               00051         extern  _TC2PRDLbits
+               00052         extern  _PWM2DTLbits
+               00053         extern  _TC2PRDTHbits
+               00054         extern  _TC2CHbits
+               00055         extern  _TC2CLbits
+               00056         extern  _PWM3DTHbits
+               00057         extern  _PWM3DTLbits
+               00058         extern  _PWM4DTHbits
+               00059         extern  _PWM4DTLbits
+               00060         extern  _PWMISbits
+               00061         extern  _DEADCONbits
+               00062         extern  _PWMCONbits
+               00063         extern  _DEADT0bits
+               00064         extern  _DEADT1bits
+               00065         extern  _INTE0bits
+               00066         extern  _INTE1bits
+               00067         extern  _INTF0bits
+               00068         extern  _INTF1bits
+               00069         extern  _IARbits
+               00070         extern  _U_Flage1
+               00071         extern  _r_g_workMod
+               00072         extern  _RSR
+               00073         extern  _PCH
+               00074         extern  _PCL
+               00075         extern  _STATUS
+               00076         extern  _TC0CON
+               00077         extern  _TC0C
+               00078         extern  _TBRDH
+               00079         extern  _TBRDL
+               00080         extern  _CPUCON
+               00081         extern  _IHRCCAL
+               00082         extern  _PORT5
+               00083         extern  _PORT6
+               00084         extern  _P5CON
+               00085         extern  _P6CON
+               00086         extern  _P5PH
+               00087         extern  _P6PH
+               00088         extern  _P5PD
+               00089         extern  _P6PD
+               00090         extern  _P6OD
+               00091         extern  _P6WD
+               00092         extern  _P5IWE
+               00093         extern  _P6IWE
+               00094         extern  _P5ADE
+               00095         extern  _P6ADE
+               00096         extern  _ADATH
+               00097         extern  _ADATL
+               00098         extern  _ADIS
+               00099         extern  _ADCON0
+               00100         extern  _ADCON1
+               00101         extern  _WDTCON
+               00102         extern  _TC1CON
+               00103         extern  _TC1PRDL
+               00104         extern  _PWM1DTL
+               00105         extern  _TC1PRDTH
+               00106         extern  _TC1CH
+               00107         extern  _TC1CL
+               00108         extern  _TC2CON
+               00109         extern  _TC2PRDL
+               00110         extern  _PWM2DTL
+               00111         extern  _TC2PRDTH
+               00112         extern  _TC2CH
+               00113         extern  _TC2CL
+               00114         extern  _PWM3DTH
+               00115         extern  _PWM3DTL
+               00116         extern  _PWM4DTH
+               00117         extern  _PWM4DTL
+               00118         extern  _PWMIS
+               00119         extern  _DEADCON
+               00120         extern  _PWMCON
+               00121         extern  _DEADT0
+               00122         extern  _DEADT1
+               00123         extern  _INTE0
+               00124         extern  _INTE1
+               00125         extern  _INTF0
+               00126         extern  _INTF1
+               00127         extern  _IAR
+               00128 
+               00129         extern STK06
+               00130         extern STK05
+               00131         extern STK04
+               00132         extern STK03
+               00133         extern STK02
+               00134         extern STK01
+               00135         extern STK00
+               00136 ;--------------------------------------------------------
+               00137 ; global declarations
+               00138 ;--------------------------------------------------------
+               00139         global  _ADC_GetValue
+               00140         global  _ADC_value
+               00141 
+               00142 ;--------------------------------------------------------
+               00143 ; global definitions
+               00144 ;--------------------------------------------------------
+               00145 UD_ADC_0        udata
+               00146 _ADC_value      res     2
+               00147 
+               00148 ;--------------------------------------------------------
+               00149 ; absolute symbol definitions
+               00150 ;--------------------------------------------------------
+               00151 ;--------------------------------------------------------
+               00152 ; compiler-defined variables
+               00153 ;--------------------------------------------------------
+               00154 UDL_ADC_0       udata
+               00155 r0x1002 res     1
+               00156 r0x1003 res     1
+               00157 r0x1004 res     1
+               00158 r0x1005 res     1
+               00159 r0x1006 res     1
+               00160 r0x1007 res     1
+               00161 r0x1008 res     1
+               00162 r0x1009 res     1
+               00163 r0x100A res     1
+               00164 r0x100B res     1
+               00165 r0x100C res     1
+               00166 r0x100D res     1
+               00167 r0x100E res     1
+               00168 r0x100F res     1
+               00169 r0x1010 res     1
+               00170 ;--------------------------------------------------------
+               00171 ; initialized data
+               00172 ;--------------------------------------------------------
+               00173 
+               00174 ;@Allocation info for local variables in function 'ADC_GetValue'
+               00175 ;@ADC_GetValue RSRbits                   Allocated to registers ;size:1
+               00176 ;@ADC_GetValue PCHbits                   Allocated to registers ;size:1
+               00177 ;@ADC_GetValue PCLbits                   Allocated to registers ;size:1
+               00178 ;@ADC_GetValue STATUSbits                Allocated to registers ;size:1
+               00179 ;@ADC_GetValue TC0CONbits                Allocated to registers ;size:1
+               00180 ;@ADC_GetValue TC0Cbits                  Allocated to registers ;size:1
+               00181 ;@ADC_GetValue TBRDHbits                 Allocated to registers ;size:1
+               00182 ;@ADC_GetValue TBRDLbits                 Allocated to registers ;size:1
+               00183 ;@ADC_GetValue CPUCONbits                Allocated to registers ;size:1
+               00184 ;@ADC_GetValue IHRCCALbits               Allocated to registers ;size:1
+               00185 ;@ADC_GetValue PORT5bits                 Allocated to registers ;size:1
+               00186 ;@ADC_GetValue PORT6bits                 Allocated to registers ;size:1
+               00187 ;@ADC_GetValue P5CONbits                 Allocated to registers ;size:1
+               00188 ;@ADC_GetValue P6CONbits                 Allocated to registers ;size:1
+               00189 ;@ADC_GetValue P5PHbits                  Allocated to registers ;size:1
+               00190 ;@ADC_GetValue P6PHbits                  Allocated to registers ;size:1
+               00191 ;@ADC_GetValue P5PDbits                  Allocated to registers ;size:1
+               00192 ;@ADC_GetValue P6PDbits                  Allocated to registers ;size:1
+               00193 ;@ADC_GetValue P6ODbits                  Allocated to registers ;size:1
+               00194 ;@ADC_GetValue P6WDbits                  Allocated to registers ;size:1
+               00195 ;@ADC_GetValue P5IWEbits                 Allocated to registers ;size:1
+               00196 ;@ADC_GetValue P6IWEbits                 Allocated to registers ;size:1
+               00197 ;@ADC_GetValue P5ADEbits                 Allocated to registers ;size:1
+               00198 ;@ADC_GetValue P6ADEbits                 Allocated to registers ;size:1
+               00199 ;@ADC_GetValue ADATHbits                 Allocated to registers ;size:1
+               00200 ;@ADC_GetValue ADATLbits                 Allocated to registers ;size:1
+               00201 ;@ADC_GetValue ADISbits                  Allocated to registers ;size:1
+               00202 ;@ADC_GetValue ADCON0bits                Allocated to registers ;size:1
+               00203 ;@ADC_GetValue ADCON1bits                Allocated to registers ;size:1
+               00204 ;@ADC_GetValue WDTCONbits                Allocated to registers ;size:1
+               00205 ;@ADC_GetValue TC1CONbits                Allocated to registers ;size:1
+               00206 ;@ADC_GetValue TC1PRDLbits               Allocated to registers ;size:1
+               00207 ;@ADC_GetValue PWM1DTLbits               Allocated to registers ;size:1
+               00208 ;@ADC_GetValue TC1PRDTHbits              Allocated to registers ;size:1
+               00209 ;@ADC_GetValue TC1CHbits                 Allocated to registers ;size:1
+               00210 ;@ADC_GetValue TC1CLbits                 Allocated to registers ;size:1
+               00211 ;@ADC_GetValue TC2CONbits                Allocated to registers ;size:1
+               00212 ;@ADC_GetValue TC2PRDLbits               Allocated to registers ;size:1
+               00213 ;@ADC_GetValue PWM2DTLbits               Allocated to registers ;size:1
+               00214 ;@ADC_GetValue TC2PRDTHbits              Allocated to registers ;size:1
+               00215 ;@ADC_GetValue TC2CHbits                 Allocated to registers ;size:1
+               00216 ;@ADC_GetValue TC2CLbits                 Allocated to registers ;size:1
+               00217 ;@ADC_GetValue PWM3DTHbits               Allocated to registers ;size:1
+               00218 ;@ADC_GetValue PWM3DTLbits               Allocated to registers ;size:1
+               00219 ;@ADC_GetValue PWM4DTHbits               Allocated to registers ;size:1
+               00220 ;@ADC_GetValue PWM4DTLbits               Allocated to registers ;size:1
+               00221 ;@ADC_GetValue PWMISbits                 Allocated to registers ;size:1
+               00222 ;@ADC_GetValue DEADCONbits               Allocated to registers ;size:1
+               00223 ;@ADC_GetValue PWMCONbits                Allocated to registers ;size:1
+               00224 ;@ADC_GetValue DEADT0bits                Allocated to registers ;size:1
+               00225 ;@ADC_GetValue DEADT1bits                Allocated to registers ;size:1
+               00226 ;@ADC_GetValue INTE0bits                 Allocated to registers ;size:1
+               00227 ;@ADC_GetValue INTE1bits                 Allocated to registers ;size:1
+               00228 ;@ADC_GetValue INTF0bits                 Allocated to registers ;size:1
+               00229 ;@ADC_GetValue INTF1bits                 Allocated to registers ;size:1
+               00230 ;@ADC_GetValue IARbits                   Allocated to registers ;size:1
+               00231 ;@ADC_GetValue U_Flage1                  Allocated to registers ;size:1
+               00232 ;@ADC_GetValue r_g_workMod               Allocated to registers ;size:1
+               00233 ;@ADC_GetValue ADC_value                 Allocated to registers ;size:2
+               00234 ;@ADC_GetValue vref                      Allocated to registers r0x1003 ;size:1
+               00235 ;@ADC_GetValue chn                       Allocated to registers r0x1002 ;size:1
+               00236 ;@ADC_GetValue delay_time                Allocated to registers r0x1003 r0x100C ;size:2
+               00237 ;@ADC_GetValue ADC_value_high            Allocated to registers r0x1004 r0x1005 ;size:2
+               00238 ;@ADC_GetValue ADC_value_low             Allocated to registers r0x1006 r0x1007 ;size:2
+               00239 ;@ADC_GetValue ADC_value_sum             Allocated to registers r0x1008 r0x1009 r0x100A r0x100B ;size:4
+               00240 ;@ADC_GetValue count                     Allocated to registers r0x1002 ;size:1
+               00241 ;@ADC_GetValue RSR                       Allocated to registers ;size:1
+               00242 ;@ADC_GetValue PCH                       Allocated to registers ;size:1
+               00243 ;@ADC_GetValue PCL                       Allocated to registers ;size:1
+               00244 ;@ADC_GetValue STATUS                    Allocated to registers ;size:1
+               00245 ;@ADC_GetValue TC0CON                    Allocated to registers ;size:1
+               00246 ;@ADC_GetValue TC0C                      Allocated to registers ;size:1
+               00247 ;@ADC_GetValue TBRDH                     Allocated to registers ;size:1
+               00248 ;@ADC_GetValue TBRDL                     Allocated to registers ;size:1
+               00249 ;@ADC_GetValue CPUCON                    Allocated to registers ;size:1
+               00250 ;@ADC_GetValue IHRCCAL                   Allocated to registers ;size:1
+               00251 ;@ADC_GetValue PORT5                     Allocated to registers ;size:1
+               00252 ;@ADC_GetValue PORT6                     Allocated to registers ;size:1
+               00253 ;@ADC_GetValue P5CON                     Allocated to registers ;size:1
+               00254 ;@ADC_GetValue P6CON                     Allocated to registers ;size:1
+               00255 ;@ADC_GetValue P5PH                      Allocated to registers ;size:1
+               00256 ;@ADC_GetValue P6PH                      Allocated to registers ;size:1
+               00257 ;@ADC_GetValue P5PD                      Allocated to registers ;size:1
+               00258 ;@ADC_GetValue P6PD                      Allocated to registers ;size:1
+               00259 ;@ADC_GetValue P6OD                      Allocated to registers ;size:1
+               00260 ;@ADC_GetValue P6WD                      Allocated to registers ;size:1
+               00261 ;@ADC_GetValue P5IWE                     Allocated to registers ;size:1
+               00262 ;@ADC_GetValue P6IWE                     Allocated to registers ;size:1
+               00263 ;@ADC_GetValue P5ADE                     Allocated to registers ;size:1
+               00264 ;@ADC_GetValue P6ADE                     Allocated to registers ;size:1
+               00265 ;@ADC_GetValue ADATH                     Allocated to registers ;size:1
+               00266 ;@ADC_GetValue ADATL                     Allocated to registers ;size:1
+               00267 ;@ADC_GetValue ADIS                      Allocated to registers ;size:1
+               00268 ;@ADC_GetValue ADCON0                    Allocated to registers ;size:1
+               00269 ;@ADC_GetValue ADCON1                    Allocated to registers ;size:1
+               00270 ;@ADC_GetValue WDTCON                    Allocated to registers ;size:1
+               00271 ;@ADC_GetValue TC1CON                    Allocated to registers ;size:1
+               00272 ;@ADC_GetValue TC1PRDL                   Allocated to registers ;size:1
+               00273 ;@ADC_GetValue PWM1DTL                   Allocated to registers ;size:1
+               00274 ;@ADC_GetValue TC1PRDTH                  Allocated to registers ;size:1
+               00275 ;@ADC_GetValue TC1CH                     Allocated to registers ;size:1
+               00276 ;@ADC_GetValue TC1CL                     Allocated to registers ;size:1
+               00277 ;@ADC_GetValue TC2CON                    Allocated to registers ;size:1
+               00278 ;@ADC_GetValue TC2PRDL                   Allocated to registers ;size:1
+               00279 ;@ADC_GetValue PWM2DTL                   Allocated to registers ;size:1
+               00280 ;@ADC_GetValue TC2PRDTH                  Allocated to registers ;size:1
+               00281 ;@ADC_GetValue TC2CH                     Allocated to registers ;size:1
+               00282 ;@ADC_GetValue TC2CL                     Allocated to registers ;size:1
+               00283 ;@ADC_GetValue PWM3DTH                   Allocated to registers ;size:1
+               00284 ;@ADC_GetValue PWM3DTL                   Allocated to registers ;size:1
+               00285 ;@ADC_GetValue PWM4DTH                   Allocated to registers ;size:1
+               00286 ;@ADC_GetValue PWM4DTL                   Allocated to registers ;size:1
+               00287 ;@ADC_GetValue PWMIS                     Allocated to registers ;size:1
+               00288 ;@ADC_GetValue DEADCON                   Allocated to registers ;size:1
+               00289 ;@ADC_GetValue PWMCON                    Allocated to registers ;size:1
+               00290 ;@ADC_GetValue DEADT0                    Allocated to registers ;size:1
+               00291 ;@ADC_GetValue DEADT1                    Allocated to registers ;size:1
+               00292 ;@ADC_GetValue INTE0                     Allocated to registers ;size:1
+               00293 ;@ADC_GetValue INTE1                     Allocated to registers ;size:1
+               00294 ;@ADC_GetValue INTF0                     Allocated to registers ;size:1
+               00295 ;@ADC_GetValue INTF1                     Allocated to registers ;size:1
+               00296 ;@ADC_GetValue IAR                       Allocated to registers ;size:1
+               00297 ;@end Allocation info for local variables in function 'ADC_GetValue';
+               00298 
+               00299 ;--------------------------------------------------------
+               00300 ; overlayable items in internal ram 
+               00301 ;--------------------------------------------------------
+               00302 ;       udata_ovr
+               00303 ;--------------------------------------------------------
+               00304 ; code
+               00305 ;--------------------------------------------------------
+               00306 code_ADC        code
+               00307 ;***
+               00308 ;  pBlock Stats: dbName = C
+               00309 ;***
+               00310 ;has an exit
+               00311 ;16 compiler assigned registers:
+               00312 ;   r0x1002
+               00313 ;   STK00
+               00314 ;   r0x1003
+               00315 ;   r0x1004
+               00316 ;   r0x1005
+               00317 ;   r0x1006
+               00318 ;   r0x1007
+               00319 ;   r0x1008
+               00320 ;   r0x1009
+               00321 ;   r0x100A
+               00322 ;   r0x100B
+               00323 ;   r0x100C
+               00324 ;   r0x100D
+               00325 ;   r0x100E
+               00326 ;   r0x100F
+               00327 ;   r0x1010
+               00328 ;; Starting pCode block
+               00329 S_ADC__ADC_GetValue     code
+0000           00330 _ADC_GetValue:  ;Function start
+               00331 ; 2 exit points
+               00332 ;       .line   5; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\ADC.C       uint16_t ADC_GetValue(uint8_t chn,uint8_t vref)
+0000 0200      00333         MOV     r0x1002,A
+0001 2000      00334         MOV     A,STK00
+0002 0200      00335         MOV     r0x1003,A
+               00336 ;       .line   9; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\ADC.C       uint16_t ADC_value_high = 0;
+0003 0600      00337         CLR     r0x1004
+0004 0600      00338         CLR     r0x1005
+               00339 ;       .line   10; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\ADC.C      uint16_t ADC_value_low = 0xffff;
+0005 C0FF      00340         MOV     A,@0xff
+0006 0200      00341         MOV     r0x1006,A
+0007 0200      00342         MOV     r0x1007,A
+               00343 ;       .line   11; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\ADC.C      uint32_t ADC_value_sum = 0;
+0008 0600      00344         CLR     r0x1008
+0009 0600      00345         CLR     r0x1009
+000A 0600      00346         CLR     r0x100A
+000B 0600      00347         CLR     r0x100B
+               00348 ;       .line   18; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\ADC.C      ADIS = (chn << 4);                      //AD采样口使能口
+000C 3800      00349         SWAPA   r0x1002
+000D D0F0      00350         AND     A,@0xf0
+000E 0200      00351         MOV     _ADIS,A
+               00352 ;       .line   19; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\ADC.C      ADCON0 = vref | C_Ckl_Div16;    //AD基准电压及分频选择,16分频
+000F 2000      00353         MOV     A,r0x1003
+0010 0200      00354         MOV     _ADCON0,A
+               00355 ;       .line   21; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\ADC.C      ADCON1 = C_ADC_START;   //AD使能，不校准
+0011 C040      00356         MOV     A,@0x40
+0012 0200      00357         MOV     _ADCON1,A
+               00358 ;       .line   27; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\ADC.C      for(count = 0; count < 10; count++)
+0013 0600      00359         CLR     r0x1002
+0014           00360 _00114_DS_:
+               00361 ;       .line   29; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\ADC.C      ADRUN = 1;
+0014 5E00      00362         BTS     _ADCON1bits,7
+               00363 ;       .line   30; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\ADC.C      delay_time = DELAY_TIME;
+0015 C0B8      00364         MOV     A,@0xb8
+0016 0200      00365         MOV     r0x1003,A
+0017 C00B      00366         MOV     A,@0x0b
+0018 0200      00367         MOV     r0x100C,A
+0019           00368 _00106_DS_:
+               00369 ;       .line   31; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\ADC.C      while(ADRUN && (--delay_time));
+0019 7E00      00370         JBTS    _ADCON1bits,7
+001A A000      00371         JMP     _00108_DS_
+001B C0FF      00372         MOV     A,@0xff
+001C 1C00      00373         ADD     A,r0x1003
+001D 0200      00374         MOV     r0x100D,A
+001E 2000      00375         MOV     A,r0x100C
+001F 6183      00376         JBTC    STATUS,0
+0020 3C00      00377         IJA     r0x100C
+0021 F8FF      00378         ADD     A,@0xff
+0022 0200      00379         MOV     r0x100C,A
+0023 0200      00380         MOV     r0x100E,A
+0024 2000      00381         MOV     A,r0x100D
+0025 0200      00382         MOV     r0x1003,A
+               00383 ;;103   MOV     A,r0x100E
+0026 2000      00384         MOV     A,r0x100D
+0027 1000      00385         OR      A,r0x100E
+0028 7583      00386         JBTS    STATUS,2
+0029 A000      00387         JMP     _00106_DS_
+002A           00388 _00108_DS_:
+               00389 ;       .line   33; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\ADC.C      ADC_value = ADIS & 0x0f;
+002A C00F      00390         MOV     A,@0x0f
+002B 1400      00391         AND     A,_ADIS
+002C 0200      00392         MOV     _ADC_value,A
+002D 0200      00393         MOV     r0x1003,A
+               00394 ;;101   MOV     A,r0x1003
+002E 0600      00395         CLR     (_ADC_value + 1)
+               00396 ;       .line   34; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\ADC.C      ADC_value = (ADC_value << 8) + ADATL;
+002F 2000      00397         MOV     A,_ADC_value
+0030 0200      00398         MOV     r0x100C,A
+0031 0600      00399         CLR     r0x1003
+0032 2000      00400         MOV     A,_ADATL
+0033 0200      00401         MOV     r0x100F,A
+0034 0200      00402         MOV     r0x100D,A
+0035 0600      00403         CLR     r0x100E
+               00404 ;;102   MOV     A,r0x100D
+0036 C000      00405         MOV     A,@0x00
+0037 0200      00406         MOV     r0x1010,A
+0038 2000      00407         MOV     A,r0x100F
+0039 1C00      00408         ADD     A,r0x1003
+003A 0200      00409         MOV     _ADC_value,A
+003B 2000      00410         MOV     A,r0x100C
+003C 0200      00411         MOV     (_ADC_value + 1),A
+003D 2000      00412         MOV     A,r0x1010
+003E 2000      00413         MOV     A,r0x1010
+003F 6183      00414         JBTC    STATUS,0
+0040 3C00      00415         IJA     r0x1010
+0041 1E00      00416         ADD     (_ADC_value + 1),A
+               00417 ;       .line   35; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\ADC.C      if(ADC_value > ADC_value_high)
+0042 2000      00418         MOV     A,(_ADC_value + 1)
+0043 0800      00419         SUB     A,r0x1005
+0044 7583      00420         JBTS    STATUS,2
+0045 A000      00421         JMP     _00137_DS_
+0046 2000      00422         MOV     A,_ADC_value
+0047 0800      00423         SUB     A,r0x1004
+0048           00424 _00137_DS_:
+0048 6183      00425         JBTC    STATUS,0
+0049 A000      00426         JMP     _00110_DS_
+               00427 ;       .line   37; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\ADC.C      ADC_value_high = ADC_value;
+004A 2000      00428         MOV     A,_ADC_value
+004B 0200      00429         MOV     r0x1004,A
+004C 2000      00430         MOV     A,(_ADC_value + 1)
+004D 0200      00431         MOV     r0x1005,A
+004E           00432 _00110_DS_:
+               00433 ;       .line   39; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\ADC.C      if(ADC_value < ADC_value_low)
+004E 2000      00434         MOV     A,r0x1007
+004F 0800      00435         SUB     A,(_ADC_value + 1)
+0050 7583      00436         JBTS    STATUS,2
+0051 A000      00437         JMP     _00138_DS_
+0052 2000      00438         MOV     A,r0x1006
+0053 0800      00439         SUB     A,_ADC_value
+0054           00440 _00138_DS_:
+0054 6183      00441         JBTC    STATUS,0
+0055 A000      00442         JMP     _00112_DS_
+               00443 ;       .line   41; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\ADC.C      ADC_value_low = ADC_value;
+0056 2000      00444         MOV     A,_ADC_value
+0057 0200      00445         MOV     r0x1006,A
+0058 2000      00446         MOV     A,(_ADC_value + 1)
+0059 0200      00447         MOV     r0x1007,A
+005A           00448 _00112_DS_:
+               00449 ;       .line   43; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\ADC.C      ADC_value_sum += ADC_value;
+005A 2000      00450         MOV     A,_ADC_value
+005B 0200      00451         MOV     r0x1003,A
+005C 2000      00452         MOV     A,(_ADC_value + 1)
+005D 0200      00453         MOV     r0x100C,A
+005E 0600      00454         CLR     r0x100D
+005F 0600      00455         CLR     r0x100E
+0060 2000      00456         MOV     A,r0x1003
+0061 1E00      00457         ADD     r0x1008,A
+0062 2000      00458         MOV     A,r0x100C
+0063 2000      00459         MOV     A,r0x100C
+0064 6183      00460         JBTC    STATUS,0
+0065 3C00      00461         IJA     r0x100C
+0066 1E00      00462         ADD     r0x1009,A
+0067 2000      00463         MOV     A,r0x100D
+0068 2000      00464         MOV     A,r0x100D
+0069 6183      00465         JBTC    STATUS,0
+006A 3C00      00466         IJA     r0x100D
+006B 1E00      00467         ADD     r0x100A,A
+006C 2000      00468         MOV     A,r0x100E
+006D 2000      00469         MOV     A,r0x100E
+006E 6183      00470         JBTC    STATUS,0
+006F 3C00      00471         IJA     r0x100E
+0070 1E00      00472         ADD     r0x100B,A
+               00473 ;       .line   27; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\ADC.C      for(count = 0; count < 10; count++)
+0071 2A00      00474         INC     r0x1002
+0072 C00A      00475         MOV     A,@0x0a
+0073 0800      00476         SUB     A,r0x1002
+0074 7183      00477         JBTS    STATUS,0
+0075 A000      00478         JMP     _00114_DS_
+               00479 ;;105   MOV     A,r0x1004
+               00480 ;       .line   46; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\ADC.C      ADC_value = (ADC_value_sum - ADC_value_high - ADC_value_low + 4) >> 3;
+0076 2000      00481         MOV     A,r0x1005
+0077 0200      00482         MOV     r0x1003,A
+0078 0600      00483         CLR     r0x100C
+0079 0600      00484         CLR     r0x100D
+               00485 ;;104   MOV     A,r0x1002
+007A 2000      00486         MOV     A,r0x1004
+007B 0200      00487         MOV     r0x1002,A
+007C 0800      00488         SUB     A,r0x1008
+007D 0200      00489         MOV     r0x1004,A
+007E 2000      00490         MOV     A,r0x1009
+007F 0200      00491         MOV     r0x1005,A
+0080 2000      00492         MOV     A,r0x1003
+0081 7183      00493         JBTS    STATUS,0
+0082 3C00      00494         IJA     r0x1003
+0083 0A00      00495         SUB     r0x1005,A
+0084 2000      00496         MOV     A,r0x100A
+0085 0200      00497         MOV     r0x100E,A
+0086 2000      00498         MOV     A,r0x100C
+0087 7183      00499         JBTS    STATUS,0
+0088 3C00      00500         IJA     r0x100C
+0089 0A00      00501         SUB     r0x100E,A
+008A 2000      00502         MOV     A,r0x100D
+008B 7183      00503         JBTS    STATUS,0
+008C 2800      00504         INCA    r0x100D
+008D 0800      00505         SUB     A,r0x100B
+008E 0200      00506         MOV     r0x100F,A
+               00507 ;;100   MOV     A,r0x1006
+008F 2000      00508         MOV     A,r0x1007
+0090 0200      00509         MOV     r0x1003,A
+0091 0600      00510         CLR     r0x1008
+0092 0600      00511         CLR     r0x1009
+               00512 ;;99    MOV     A,r0x1002
+0093 2000      00513         MOV     A,r0x1006
+0094 0200      00514         MOV     r0x1002,A
+0095 0800      00515         SUB     A,r0x1004
+0096 0200      00516         MOV     r0x1006,A
+0097 2000      00517         MOV     A,r0x1005
+0098 0200      00518         MOV     r0x1007,A
+0099 2000      00519         MOV     A,r0x1003
+009A 7183      00520         JBTS    STATUS,0
+009B 3C00      00521         IJA     r0x1003
+009C 0A00      00522         SUB     r0x1007,A
+009D 2000      00523         MOV     A,r0x100E
+009E 0200      00524         MOV     r0x100A,A
+009F 2000      00525         MOV     A,r0x1008
+00A0 7183      00526         JBTS    STATUS,0
+00A1 3C00      00527         IJA     r0x1008
+00A2 0A00      00528         SUB     r0x100A,A
+00A3 2000      00529         MOV     A,r0x1009
+00A4 7183      00530         JBTS    STATUS,0
+00A5 2800      00531         INCA    r0x1009
+00A6 0800      00532         SUB     A,r0x100F
+00A7 0200      00533         MOV     r0x100B,A
+00A8 C004      00534         MOV     A,@0x04
+00A9 1E00      00535         ADD     r0x1006,A
+00AA 6183      00536         JBTC    STATUS,0
+00AB 2A00      00537         INC     r0x1007
+00AC 6583      00538         JBTC    STATUS,2
+00AD 2A00      00539         INC     r0x100A
+00AE 6583      00540         JBTC    STATUS,2
+00AF 2A00      00541         INC     r0x100B
+00B0 4183      00542         BTC     STATUS,0
+00B1 3000      00543         RCA     r0x100B
+00B2 0200      00544         MOV     r0x1005,A
+00B3 3000      00545         RCA     r0x100A
+00B4 0200      00546         MOV     r0x1004,A
+00B5 3000      00547         RCA     r0x1007
+00B6 0200      00548         MOV     r0x1003,A
+00B7 3000      00549         RCA     r0x1006
+00B8 0200      00550         MOV     r0x1002,A
+00B9 4183      00551         BTC     STATUS,0
+00BA 3200      00552         RCR     r0x1005
+00BB 3200      00553         RCR     r0x1004
+00BC 3200      00554         RCR     r0x1003
+00BD 3200      00555         RCR     r0x1002
+00BE 4183      00556         BTC     STATUS,0
+00BF 3200      00557         RCR     r0x1005
+00C0 3200      00558         RCR     r0x1004
+00C1 3200      00559         RCR     r0x1003
+00C2 3200      00560         RCR     r0x1002
+00C3 2000      00561         MOV     A,r0x1002
+00C4 0200      00562         MOV     _ADC_value,A
+00C5 2000      00563         MOV     A,r0x1003
+00C6 0200      00564         MOV     (_ADC_value + 1),A
+               00565 ;       .line   48; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\ADC.C      return ADC_value;
+00C7 2000      00566         MOV     A,_ADC_value
+00C8 0200      00567         MOV     STK00,A
+00C9 2000      00568         MOV     A,(_ADC_value + 1)
+               00569 ;       .line   49; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\ADC.C      }
+00CA 0082      00570         RET     
+               00571 ; exit point of _ADC_GetValue
+               00572 
+               00573 
+               00574 ;       code size estimation:
+               00575 ;         203+    0 =   203 instructions (  406 byte)
+               00576 
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+ADATH                             000001A3
+ADATL                             000001A4
+ADCON0                            000001A6
+ADCON1                            000001A7
+ADIS                              000001A5
+CPUCON                            00000188
+DEADCON                           000001C7
+DEADT0                            000001C9
+DEADT1                            000001CA
+IAR                               000001FF
+IHRCCAL                           00000189
+INTE0                             000001D6
+INTE1                             000001D7
+INTF0                             000001DA
+INTF1                             000001DB
+P5ADE                             000001A0
+P5CON                             0000018D
+P5IWE                             0000019C
+P5PD                              00000193
+P5PH                              00000190
+P6ADE                             000001A1
+P6CON                             0000018E
+P6IWE                             0000019D
+P6OD                              00000199
+P6PD                              00000194
+P6PH                              00000191
+P6WD                              0000019A
+PCH                               00000181
+PCL                               00000182
+PORT5                             0000018A
+PORT6                             0000018B
+PWM1DTL                           000001B2
+PWM2DTL                           000001B8
+PWM3DTH                           000001BC
+PWM3DTL                           000001BD
+PWM4DTH                           000001BE
+PWM4DTL                           000001BF
+PWMCON                            000001C8
+PWMIS                             000001C6
+RSR                               00000180
+STATUS                            00000183
+STK00                             00000000
+STK01                             00000000
+STK02                             00000000
+STK03                             00000000
+STK04                             00000000
+STK05                             00000000
+STK06                             00000000
+TBRDH                             00000186
+TBRDL                             00000187
+TC0C                              00000185
+TC0CON                            00000184
+TC1CH                             000001B4
+TC1CL                             000001B5
+TC1CON                            000001B0
+TC1PRDL                           000001B1
+TC1PRDTH                          000001B3
+TC2CH                             000001BA
+TC2CL                             000001BB
+TC2CON                            000001B6
+TC2PRDL                           000001B7
+TC2PRDTH                          000001B9
+WDTCON                            000001AF
+_00106_DS_                        00000019
+_00108_DS_                        0000002A
+_00110_DS_                        0000004E
+_00112_DS_                        0000005A
+_00114_DS_                        00000014
+_00137_DS_                        00000048
+_00138_DS_                        00000054
+_ADATH                            00000000
+_ADATHbits                        00000000
+_ADATL                            00000000
+_ADATLbits                        00000000
+_ADCON0                           00000000
+_ADCON0bits                       00000000
+_ADCON1                           00000000
+_ADCON1bits                       00000000
+_ADC_GetValue                     00000000
+_ADC_value                        00000000
+_ADIS                             00000000
+_ADISbits                         00000000
+_CPUCON                           00000000
+_CPUCONbits                       00000000
+_DEADCON                          00000000
+_DEADCONbits                      00000000
+_DEADT0                           00000000
+_DEADT0bits                       00000000
+_DEADT1                           00000000
+_DEADT1bits                       00000000
+_IAR                              00000000
+_IARbits                          00000000
+_IHRCCAL                          00000000
+_IHRCCALbits                      00000000
+_INTE0                            00000000
+_INTE0bits                        00000000
+_INTE1                            00000000
+_INTE1bits                        00000000
+_INTF0                            00000000
+_INTF0bits                        00000000
+_INTF1                            00000000
+_INTF1bits                        00000000
+_P5ADE                            00000000
+_P5ADEbits                        00000000
+_P5CON                            00000000
+_P5CONbits                        00000000
+_P5IWE                            00000000
+_P5IWEbits                        00000000
+_P5PD                             00000000
+_P5PDbits                         00000000
+_P5PH                             00000000
+_P5PHbits                         00000000
+_P6ADE                            00000000
+_P6ADEbits                        00000000
+_P6CON                            00000000
+_P6CONbits                        00000000
+_P6IWE                            00000000
+_P6IWEbits                        00000000
+_P6OD                             00000000
+_P6ODbits                         00000000
+_P6PD                             00000000
+_P6PDbits                         00000000
+_P6PH                             00000000
+_P6PHbits                         00000000
+_P6WD                             00000000
+_P6WDbits                         00000000
+_PCH                              00000000
+_PCHbits                          00000000
+_PCL                              00000000
+_PCLbits                          00000000
+_PORT5                            00000000
+_PORT5bits                        00000000
+_PORT6                            00000000
+_PORT6bits                        00000000
+_PWM1DTL                          00000000
+_PWM1DTLbits                      00000000
+_PWM2DTL                          00000000
+_PWM2DTLbits                      00000000
+_PWM3DTH                          00000000
+_PWM3DTHbits                      00000000
+_PWM3DTL                          00000000
+_PWM3DTLbits                      00000000
+_PWM4DTH                          00000000
+_PWM4DTHbits                      00000000
+_PWM4DTL                          00000000
+_PWM4DTLbits                      00000000
+_PWMCON                           00000000
+_PWMCONbits                       00000000
+_PWMIS                            00000000
+_PWMISbits                        00000000
+_RSR                              00000000
+_RSRbits                          00000000
+_STATUS                           00000000
+_STATUSbits                       00000000
+_TBRDH                            00000000
+_TBRDHbits                        00000000
+_TBRDL                            00000000
+_TBRDLbits                        00000000
+_TC0C                             00000000
+_TC0CON                           00000000
+_TC0CONbits                       00000000
+_TC0Cbits                         00000000
+_TC1CH                            00000000
+_TC1CHbits                        00000000
+_TC1CL                            00000000
+_TC1CLbits                        00000000
+_TC1CON                           00000000
+_TC1CONbits                       00000000
+_TC1PRDL                          00000000
+_TC1PRDLbits                      00000000
+_TC1PRDTH                         00000000
+_TC1PRDTHbits                     00000000
+_TC2CH                            00000000
+_TC2CHbits                        00000000
+_TC2CL                            00000000
+_TC2CLbits                        00000000
+_TC2CON                           00000000
+_TC2CONbits                       00000000
+_TC2PRDL                          00000000
+_TC2PRDLbits                      00000000
+_TC2PRDTH                         00000000
+_TC2PRDTHbits                     00000000
+_U_Flage1                         00000000
+_WDTCON                           00000000
+_WDTCONbits                       00000000
+__jz8p2615                        00000001
+_r_g_workMod                      00000000
+r0x1002                           00000000
+r0x1003                           00000001
+r0x1004                           00000002
+r0x1005                           00000003
+r0x1006                           00000004
+r0x1007                           00000005
+r0x1008                           00000006
+r0x1009                           00000007
+r0x100A                           00000008
+r0x100B                           00000009
+r0x100C                           0000000A
+r0x100D                           0000000B
+r0x100E                           0000000C
+r0x100F                           0000000D
+r0x1010                           0000000E
+
+
+Errors   :       0
+Warnings :       0 reported,       0 suppressed
+Messages :       0 reported,       0 suppressed
+

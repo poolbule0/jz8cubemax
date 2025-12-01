@@ -1,0 +1,3463 @@
+COFF File and Optional Headers
+Processor Type       jz8p2615
+Time Stamp           Sat Nov 29 11:38:55 2025
+Number of Sections   124
+Number of Symbols    639
+Characteristics      0x2
+  File is executable.
+
+Section Header
+Name                    sharebank
+Address                 0x20
+Size of Section         7
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_MAIN_0
+Address                 0x1f
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x80
+  Uninitialized data.
+
+Section Header
+Name                    UD_MAIN_1
+Address                 0x3e
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x80
+  Uninitialized data.
+
+Section Header
+Name                    UD_MAIN_2
+Address                 0x3f
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x80
+  Uninitialized data.
+
+Section Header
+Name                    UD_MAIN_3
+Address                 0x40
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x80
+  Uninitialized data.
+
+Section Header
+Name                    UDL_MAIN_0
+Address                 0x1d
+Size of Section         2
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x80
+  Uninitialized data.
+
+Section Header
+Name                    STARTUP
+Address                 0
+Size of Section         2
+Number of Relocations   0
+Number of Line Numbers  1
+Flags                   0x1020
+  Executable code.
+  Absolute.
+
+Line Number Table
+Line     Address  Symbol
+338      0        C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+
+Section Header
+Name                    code_MAIN
+Address                 0x7
+Size of Section         0
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x20
+  Executable code.
+
+Section Header
+Name                    S_MAIN__main
+Address                 0x3b2
+Size of Section         184
+Number of Relocations   0
+Number of Line Numbers  92
+Flags                   0x20
+  Executable code.
+
+Line Number Table
+Line     Address  Symbol
+375      0x3b2    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+377      0x3b3    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+379      0x3b4    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+381      0x3b5    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+383      0x3b6    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+385      0x3b7    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+387      0x3b8    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+389      0x3b9    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+392      0x3ba    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+394      0x3bb    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+395      0x3bc    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+396      0x3bd    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+399      0x3be    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+400      0x3bf    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+401      0x3c0    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+402      0x3c1    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+403      0x3c2    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+405      0x3c3    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+407      0x3c4    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+409      0x3c5    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+410      0x3c6    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+411      0x3c7    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+412      0x3c8    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+413      0x3c9    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+414      0x3ca    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+415      0x3cb    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+416      0x3cc    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+418      0x3cd    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+419      0x3ce    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+420      0x3cf    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+421      0x3d0    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+423      0x3d1    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+424      0x3d2    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+427      0x3d3    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+428      0x3d4    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+429      0x3d5    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+430      0x3d6    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+431      0x3d7    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+432      0x3d8    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+433      0x3d9    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+436      0x3da    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+437      0x3db    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+438      0x3dc    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+439      0x3dd    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+440      0x3de    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+441      0x3df    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+442      0x3e0    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+444      0x3e1    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+445      0x3e2    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+446      0x3e3    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+447      0x3e4    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+448      0x3e5    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+450      0x3e6    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+452      0x3e7    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+453      0x3e8    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+456      0x3e9    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+457      0x3ea    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+458      0x3eb    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+459      0x3ec    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+460      0x3ed    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+461      0x3ee    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+462      0x3ef    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+464      0x3f0    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+465      0x3f1    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+468      0x3f2    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+469      0x3f3    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+470      0x3f4    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+473      0x3f5    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+474      0x3f6    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+475      0x3f7    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+476      0x3f8    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+477      0x3f9    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+479      0x3fa    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+480      0x3fb    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+481      0x3fc    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+482      0x3fd    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+484      0x3fe    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+485      0x3ff    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+488      0x400    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+491      0x401    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+492      0x402    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+493      0x403    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+496      0x404    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+497      0x405    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+498      0x406    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+499      0x407    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+500      0x408    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+502      0x409    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+504      0x40a    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+506      0x40b    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+507      0x40c    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+509      0x40d    C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+
+Section Header
+Name                    UD_SMG_0
+Address                 0x41
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x80
+  Uninitialized data.
+
+Section Header
+Name                    UD_SMG_1
+Address                 0x42
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x80
+  Uninitialized data.
+
+Section Header
+Name                    UD_SMG_2
+Address                 0x43
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x80
+  Uninitialized data.
+
+Section Header
+Name                    UD_SMG_3
+Address                 0x44
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x80
+  Uninitialized data.
+
+Section Header
+Name                    UDL_SMG_0
+Address                 0x11
+Size of Section         6
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x80
+  Uninitialized data.
+
+Section Header
+Name                    ID_SMG_0
+Address                 0x2c
+Size of Section         2
+Number of Relocations   0
+Number of Line Numbers  1
+Flags                   0x40
+  Initialized data.
+
+Line Number Table
+Line     Address  Symbol
+186      0x2c     C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+
+Section Header
+Name                    ID_SMG_0_i
+Address                 0x4fc
+Size of Section         4
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x100
+  Initialized data for ROM.
+
+Section Header
+Name                    ID_SMG_1
+Address                 0x4e5
+Size of Section         24
+Number of Relocations   0
+Number of Line Numbers  12
+Flags                   0x20
+  Executable code.
+
+Line Number Table
+Line     Address  Symbol
+192      0x4e5    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+193      0x4e6    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+194      0x4e7    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+195      0x4e8    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+196      0x4e9    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+197      0x4ea    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+198      0x4eb    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+199      0x4ec    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+200      0x4ed    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+201      0x4ee    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+202      0x4ef    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+203      0x4f0    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+
+Section Header
+Name                    code_SMG
+Address                 0x7
+Size of Section         0
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x20
+  Executable code.
+
+Section Header
+Name                    S_SMG__SMG_Scan
+Address                 0x2ed
+Size of Section         394
+Number of Relocations   0
+Number of Line Numbers  197
+Flags                   0x20
+  Executable code.
+
+Line Number Table
+Line     Address  Symbol
+357      0x2ed    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+358      0x2ee    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+359      0x2ef    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+360      0x2f0    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+361      0x2f1    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+364      0x2f2    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+365      0x2f3    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+366      0x2f4    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+367      0x2f5    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+368      0x2f6    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+370      0x2f7    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+371      0x2f8    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+372      0x2f9    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+373      0x2fa    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+374      0x2fb    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+375      0x2fc    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+376      0x2fd    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+377      0x2fe    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+378      0x2ff    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+379      0x300    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+380      0x301    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+381      0x302    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+382      0x303    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+383      0x304    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+384      0x305    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+385      0x306    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+386      0x307    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+387      0x308    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+388      0x309    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+391      0x30a    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+392      0x30b    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+394      0x30c    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+395      0x30d    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+396      0x30e    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+399      0x30f    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+400      0x310    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+401      0x311    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+403      0x312    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+406      0x313    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+407      0x314    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+409      0x315    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+410      0x316    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+411      0x317    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+414      0x318    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+415      0x319    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+416      0x31a    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+418      0x31b    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+421      0x31c    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+422      0x31d    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+424      0x31e    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+425      0x31f    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+426      0x320    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+429      0x321    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+430      0x322    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+431      0x323    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+433      0x324    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+436      0x325    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+437      0x326    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+439      0x327    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+440      0x328    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+441      0x329    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+444      0x32a    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+445      0x32b    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+446      0x32c    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+448      0x32d    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+451      0x32e    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+452      0x32f    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+454      0x330    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+455      0x331    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+456      0x332    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+459      0x333    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+460      0x334    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+461      0x335    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+463      0x336    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+466      0x337    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+467      0x338    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+469      0x339    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+470      0x33a    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+471      0x33b    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+474      0x33c    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+475      0x33d    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+476      0x33e    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+478      0x33f    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+481      0x340    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+482      0x341    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+484      0x342    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+485      0x343    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+486      0x344    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+489      0x345    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+490      0x346    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+491      0x347    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+493      0x348    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+496      0x349    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+497      0x34a    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+499      0x34b    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+500      0x34c    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+501      0x34d    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+504      0x34e    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+505      0x34f    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+506      0x350    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+508      0x351    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+511      0x352    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+512      0x353    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+514      0x354    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+515      0x355    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+516      0x356    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+519      0x357    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+520      0x358    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+521      0x359    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+523      0x35a    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+526      0x35b    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+527      0x35c    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+529      0x35d    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+530      0x35e    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+531      0x35f    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+534      0x360    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+535      0x361    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+536      0x362    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+538      0x363    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+541      0x364    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+542      0x365    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+544      0x366    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+545      0x367    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+546      0x368    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+549      0x369    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+550      0x36a    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+551      0x36b    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+553      0x36c    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+556      0x36d    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+557      0x36e    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+559      0x36f    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+560      0x370    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+561      0x371    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+564      0x372    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+565      0x373    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+566      0x374    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+568      0x375    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+571      0x376    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+572      0x377    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+574      0x378    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+575      0x379    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+576      0x37a    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+579      0x37b    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+580      0x37c    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+581      0x37d    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+583      0x37e    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+586      0x37f    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+587      0x380    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+589      0x381    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+590      0x382    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+591      0x383    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+594      0x384    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+595      0x385    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+596      0x386    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+598      0x387    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+601      0x388    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+602      0x389    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+604      0x38a    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+605      0x38b    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+606      0x38c    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+609      0x38d    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+610      0x38e    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+611      0x38f    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+613      0x390    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+616      0x391    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+617      0x392    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+619      0x393    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+620      0x394    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+621      0x395    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+624      0x396    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+625      0x397    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+626      0x398    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+628      0x399    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+631      0x39a    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+632      0x39b    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+634      0x39c    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+635      0x39d    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+636      0x39e    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+639      0x39f    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+640      0x3a0    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+641      0x3a1    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+643      0x3a2    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+646      0x3a3    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+647      0x3a4    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+649      0x3a5    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+650      0x3a6    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+651      0x3a7    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+654      0x3a8    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+655      0x3a9    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+656      0x3aa    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+659      0x3ab    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+661      0x3ac    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+662      0x3ad    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+663      0x3ae    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+664      0x3af    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+666      0x3b0    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+669      0x3b1    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+
+Section Header
+Name                    S_SMG__SMG_Display
+Address                 0x44c
+Size of Section         90
+Number of Relocations   0
+Number of Line Numbers  45
+Flags                   0x20
+  Executable code.
+
+Line Number Table
+Line     Address  Symbol
+696      0x44c    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+697      0x44d    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+698      0x44e    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+700      0x44f    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+701      0x450    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+703      0x451    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+704      0x452    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+705      0x453    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+706      0x454    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+708      0x455    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+709      0x456    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+711      0x457    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+713      0x458    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+714      0x459    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+717      0x45a    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+719      0x45b    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+720      0x45c    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+721      0x45d    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+722      0x45e    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+724      0x45f    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+725      0x460    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+727      0x461    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+728      0x462    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+730      0x463    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+731      0x464    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+733      0x465    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+734      0x466    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+737      0x467    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+738      0x468    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+739      0x469    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+741      0x46a    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+742      0x46b    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+743      0x46c    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+745      0x46d    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+746      0x46e    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+747      0x46f    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+750      0x470    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+751      0x471    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+754      0x472    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+755      0x473    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+758      0x474    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+759      0x475    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+762      0x476    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+763      0x477    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+765      0x478    C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+
+Section Header
+Name                    UD_ISR_0
+Address                 0x45
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x80
+  Uninitialized data.
+
+Section Header
+Name                    UD_ISR_1
+Address                 0x46
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x80
+  Uninitialized data.
+
+Section Header
+Name                    UD_abs_ISR_0
+Address                 0
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_ISR_1
+Address                 0x1
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UDL_ISR_0
+Address                 0x2e
+Size of Section         2
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x80
+  Uninitialized data.
+
+Section Header
+Name                    c_interrupt
+Address                 0x3
+Size of Section         0
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x1020
+  Executable code.
+  Absolute.
+
+Section Header
+Name                    .org_8
+Address                 0x8
+Size of Section         106
+Number of Relocations   0
+Number of Line Numbers  53
+Flags                   0x1020
+  Executable code.
+  Absolute.
+
+Line Number Table
+Line     Address  Symbol
+331      0x8      C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+333      0x9      C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+334      0xa      C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+335      0xb      C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+336      0xc      C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+338      0xd      C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+339      0xe      C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+340      0xf      C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+343      0x10     C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+344      0x11     C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+345      0x12     C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+346      0x13     C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+347      0x14     C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+349      0x15     C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+350      0x16     C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+352      0x17     C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+354      0x18     C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+355      0x19     C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+356      0x1a     C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+357      0x1b     C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+358      0x1c     C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+360      0x1d     C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+362      0x1e     C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+365      0x1f     C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+366      0x20     C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+367      0x21     C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+368      0x22     C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+369      0x23     C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+371      0x24     C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+373      0x25     C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+376      0x26     C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+377      0x27     C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+378      0x28     C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+379      0x29     C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+380      0x2a     C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+382      0x2b     C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+383      0x2c     C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+384      0x2d     C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+387      0x2e     C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+388      0x2f     C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+389      0x30     C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+390      0x31     C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+391      0x32     C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+394      0x33     C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+397      0x34     C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+398      0x35     C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+400      0x36     C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+402      0x37     C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+403      0x38     C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+404      0x39     C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+406      0x3a     C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+408      0x3b     C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+411      0x3c     C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+
+Section Header
+Name                    code_ISR
+Address                 0x7
+Size of Section         0
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x20
+  Executable code.
+
+Section Header
+Name                    UD_ADC_0
+Address                 0x30
+Size of Section         2
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x80
+  Uninitialized data.
+
+Section Header
+Name                    UDL_ADC_0
+Address                 0x2
+Size of Section         15
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x80
+  Uninitialized data.
+
+Section Header
+Name                    code_ADC
+Address                 0x7
+Size of Section         0
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x20
+  Executable code.
+
+Section Header
+Name                    S_ADC__ADC_GetValue
+Address                 0x157
+Size of Section         406
+Number of Relocations   0
+Number of Line Numbers  203
+Flags                   0x20
+  Executable code.
+
+Line Number Table
+Line     Address  Symbol
+333      0x157    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+334      0x158    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+335      0x159    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+337      0x15a    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+338      0x15b    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+340      0x15c    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+341      0x15d    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+342      0x15e    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+344      0x15f    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+345      0x160    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+346      0x161    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+347      0x162    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+349      0x163    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+350      0x164    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+351      0x165    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+353      0x166    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+354      0x167    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+356      0x168    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+357      0x169    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+359      0x16a    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+362      0x16b    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+364      0x16c    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+365      0x16d    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+366      0x16e    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+367      0x16f    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+370      0x170    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+371      0x171    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+372      0x172    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+373      0x173    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+374      0x174    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+375      0x175    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+376      0x176    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+377      0x177    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+378      0x178    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+379      0x179    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+380      0x17a    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+381      0x17b    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+382      0x17c    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+384      0x17d    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+385      0x17e    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+386      0x17f    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+387      0x180    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+390      0x181    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+391      0x182    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+392      0x183    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+393      0x184    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+395      0x185    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+397      0x186    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+398      0x187    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+399      0x188    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+400      0x189    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+401      0x18a    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+402      0x18b    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+403      0x18c    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+405      0x18d    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+406      0x18e    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+407      0x18f    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+408      0x190    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+409      0x191    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+410      0x192    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+411      0x193    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+412      0x194    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+413      0x195    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+414      0x196    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+415      0x197    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+416      0x198    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+418      0x199    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+419      0x19a    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+420      0x19b    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+421      0x19c    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+422      0x19d    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+423      0x19e    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+425      0x19f    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+426      0x1a0    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+428      0x1a1    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+429      0x1a2    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+430      0x1a3    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+431      0x1a4    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+434      0x1a5    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+435      0x1a6    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+436      0x1a7    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+437      0x1a8    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+438      0x1a9    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+439      0x1aa    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+441      0x1ab    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+442      0x1ac    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+444      0x1ad    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+445      0x1ae    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+446      0x1af    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+447      0x1b0    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+450      0x1b1    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+451      0x1b2    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+452      0x1b3    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+453      0x1b4    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+454      0x1b5    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+455      0x1b6    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+456      0x1b7    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+457      0x1b8    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+458      0x1b9    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+459      0x1ba    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+460      0x1bb    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+461      0x1bc    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+462      0x1bd    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+463      0x1be    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+464      0x1bf    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+465      0x1c0    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+466      0x1c1    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+467      0x1c2    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+468      0x1c3    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+469      0x1c4    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+470      0x1c5    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+471      0x1c6    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+472      0x1c7    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+474      0x1c8    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+475      0x1c9    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+476      0x1ca    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+477      0x1cb    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+478      0x1cc    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+481      0x1cd    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+482      0x1ce    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+483      0x1cf    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+484      0x1d0    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+486      0x1d1    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+487      0x1d2    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+488      0x1d3    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+489      0x1d4    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+490      0x1d5    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+491      0x1d6    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+492      0x1d7    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+493      0x1d8    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+494      0x1d9    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+495      0x1da    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+496      0x1db    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+497      0x1dc    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+498      0x1dd    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+499      0x1de    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+500      0x1df    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+501      0x1e0    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+502      0x1e1    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+503      0x1e2    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+504      0x1e3    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+505      0x1e4    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+506      0x1e5    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+508      0x1e6    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+509      0x1e7    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+510      0x1e8    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+511      0x1e9    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+513      0x1ea    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+514      0x1eb    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+515      0x1ec    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+516      0x1ed    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+517      0x1ee    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+518      0x1ef    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+519      0x1f0    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+520      0x1f1    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+521      0x1f2    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+522      0x1f3    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+523      0x1f4    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+524      0x1f5    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+525      0x1f6    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+526      0x1f7    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+527      0x1f8    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+528      0x1f9    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+529      0x1fa    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+530      0x1fb    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+531      0x1fc    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+532      0x1fd    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+533      0x1fe    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+534      0x1ff    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+535      0x200    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+536      0x201    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+537      0x202    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+538      0x203    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+539      0x204    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+540      0x205    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+541      0x206    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+542      0x207    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+543      0x208    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+544      0x209    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+545      0x20a    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+546      0x20b    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+547      0x20c    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+548      0x20d    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+549      0x20e    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+550      0x20f    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+551      0x210    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+552      0x211    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+553      0x212    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+554      0x213    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+555      0x214    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+556      0x215    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+557      0x216    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+558      0x217    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+559      0x218    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+560      0x219    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+561      0x21a    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+562      0x21b    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+563      0x21c    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+564      0x21d    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+566      0x21e    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+567      0x21f    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+568      0x220    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+570      0x221    C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+
+Section Header
+Name                    UD_BAT_0
+Address                 0x47
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x80
+  Uninitialized data.
+
+Section Header
+Name                    UD_BAT_1
+Address                 0x32
+Size of Section         2
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x80
+  Uninitialized data.
+
+Section Header
+Name                    UD_BAT_2
+Address                 0x48
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x80
+  Uninitialized data.
+
+Section Header
+Name                    UD_BAT_3
+Address                 0x49
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x80
+  Uninitialized data.
+
+Section Header
+Name                    UD_BAT_4
+Address                 0x34
+Size of Section         2
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x80
+  Uninitialized data.
+
+Section Header
+Name                    UD_BAT_5
+Address                 0x4a
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x80
+  Uninitialized data.
+
+Section Header
+Name                    UD_BAT_6
+Address                 0x4b
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x80
+  Uninitialized data.
+
+Section Header
+Name                    UD_BAT_7
+Address                 0x4c
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x80
+  Uninitialized data.
+
+Section Header
+Name                    UD_BAT_8
+Address                 0x36
+Size of Section         2
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x80
+  Uninitialized data.
+
+Section Header
+Name                    UD_BAT_9
+Address                 0x38
+Size of Section         2
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x80
+  Uninitialized data.
+
+Section Header
+Name                    UD_BAT_10
+Address                 0x3a
+Size of Section         2
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x80
+  Uninitialized data.
+
+Section Header
+Name                    UDL_BAT_0
+Address                 0x17
+Size of Section         6
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x80
+  Uninitialized data.
+
+Section Header
+Name                    ID_BAT_0
+Address                 0x222
+Size of Section         406
+Number of Relocations   0
+Number of Line Numbers  203
+Flags                   0x20
+  Executable code.
+
+Line Number Table
+Line     Address  Symbol
+210      0x222    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+211      0x223    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+212      0x224    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+213      0x225    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+214      0x226    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+215      0x227    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+216      0x228    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+217      0x229    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+218      0x22a    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+219      0x22b    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+220      0x22c    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+221      0x22d    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+222      0x22e    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+223      0x22f    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+224      0x230    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+225      0x231    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+226      0x232    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+227      0x233    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+228      0x234    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+229      0x235    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+230      0x236    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+231      0x237    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+232      0x238    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+233      0x239    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+234      0x23a    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+235      0x23b    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+236      0x23c    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+237      0x23d    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+238      0x23e    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+239      0x23f    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+240      0x240    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+241      0x241    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+242      0x242    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+243      0x243    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+244      0x244    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+245      0x245    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+246      0x246    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+247      0x247    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+248      0x248    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+249      0x249    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+250      0x24a    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+251      0x24b    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+252      0x24c    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+253      0x24d    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+254      0x24e    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+255      0x24f    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+256      0x250    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+257      0x251    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+258      0x252    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+259      0x253    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+260      0x254    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+261      0x255    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+262      0x256    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+263      0x257    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+264      0x258    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+265      0x259    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+266      0x25a    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+267      0x25b    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+268      0x25c    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+269      0x25d    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+270      0x25e    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+271      0x25f    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+272      0x260    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+273      0x261    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+274      0x262    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+275      0x263    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+276      0x264    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+277      0x265    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+278      0x266    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+279      0x267    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+280      0x268    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+281      0x269    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+282      0x26a    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+283      0x26b    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+284      0x26c    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+285      0x26d    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+286      0x26e    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+287      0x26f    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+288      0x270    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+289      0x271    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+290      0x272    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+291      0x273    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+292      0x274    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+293      0x275    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+294      0x276    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+295      0x277    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+296      0x278    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+297      0x279    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+298      0x27a    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+299      0x27b    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+300      0x27c    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+301      0x27d    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+302      0x27e    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+303      0x27f    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+304      0x280    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+305      0x281    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+306      0x282    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+307      0x283    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+308      0x284    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+309      0x285    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+310      0x286    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+311      0x287    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+312      0x288    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+313      0x289    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+314      0x28a    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+315      0x28b    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+316      0x28c    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+317      0x28d    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+318      0x28e    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+319      0x28f    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+320      0x290    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+321      0x291    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+322      0x292    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+323      0x293    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+324      0x294    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+325      0x295    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+326      0x296    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+327      0x297    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+328      0x298    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+329      0x299    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+330      0x29a    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+331      0x29b    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+332      0x29c    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+333      0x29d    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+334      0x29e    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+335      0x29f    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+336      0x2a0    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+337      0x2a1    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+338      0x2a2    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+339      0x2a3    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+340      0x2a4    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+341      0x2a5    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+342      0x2a6    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+343      0x2a7    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+344      0x2a8    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+345      0x2a9    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+346      0x2aa    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+347      0x2ab    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+348      0x2ac    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+349      0x2ad    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+350      0x2ae    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+351      0x2af    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+352      0x2b0    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+353      0x2b1    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+354      0x2b2    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+355      0x2b3    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+356      0x2b4    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+357      0x2b5    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+358      0x2b6    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+359      0x2b7    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+360      0x2b8    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+361      0x2b9    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+362      0x2ba    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+363      0x2bb    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+364      0x2bc    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+365      0x2bd    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+366      0x2be    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+367      0x2bf    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+368      0x2c0    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+369      0x2c1    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+370      0x2c2    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+371      0x2c3    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+372      0x2c4    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+373      0x2c5    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+374      0x2c6    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+375      0x2c7    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+376      0x2c8    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+377      0x2c9    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+378      0x2ca    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+379      0x2cb    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+380      0x2cc    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+381      0x2cd    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+382      0x2ce    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+383      0x2cf    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+384      0x2d0    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+385      0x2d1    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+386      0x2d2    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+387      0x2d3    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+388      0x2d4    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+389      0x2d5    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+390      0x2d6    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+391      0x2d7    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+392      0x2d8    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+393      0x2d9    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+394      0x2da    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+395      0x2db    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+396      0x2dc    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+397      0x2dd    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+398      0x2de    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+399      0x2df    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+400      0x2e0    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+401      0x2e1    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+402      0x2e2    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+403      0x2e3    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+404      0x2e4    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+405      0x2e5    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+406      0x2e6    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+407      0x2e7    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+408      0x2e8    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+409      0x2e9    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+410      0x2ea    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+411      0x2eb    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+412      0x2ec    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+
+Section Header
+Name                    code_BAT
+Address                 0x7
+Size of Section         0
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x20
+  Executable code.
+
+Section Header
+Name                    S_BAT__sw_adcBatVal
+Address                 0x3d
+Size of Section         564
+Number of Relocations   0
+Number of Line Numbers  282
+Flags                   0x20
+  Executable code.
+
+Line Number Table
+Line     Address  Symbol
+582      0x3d     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+584      0x3e     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+585      0x3f     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+587      0x40     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+588      0x41     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+589      0x42     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+590      0x43     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+591      0x44     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+592      0x45     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+593      0x46     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+596      0x47     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+597      0x48     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+598      0x49     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+600      0x4a     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+601      0x4b     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+603      0x4c     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+604      0x4d     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+605      0x4e     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+606      0x4f     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+607      0x50     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+610      0x51     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+611      0x52     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+612      0x53     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+613      0x54     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+614      0x55     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+616      0x56     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+617      0x57     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+618      0x58     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+619      0x59     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+620      0x5a     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+621      0x5b     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+622      0x5c     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+623      0x5d     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+624      0x5e     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+625      0x5f     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+626      0x60     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+627      0x61     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+629      0x62     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+630      0x63     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+632      0x64     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+633      0x65     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+634      0x66     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+637      0x67     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+638      0x68     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+639      0x69     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+642      0x6a     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+643      0x6b     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+644      0x6c     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+645      0x6d     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+647      0x6e     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+648      0x6f     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+651      0x70     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+652      0x71     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+653      0x72     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+655      0x73     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+656      0x74     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+657      0x75     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+658      0x76     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+661      0x77     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+662      0x78     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+664      0x79     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+665      0x7a     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+666      0x7b     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+667      0x7c     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+668      0x7d     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+669      0x7e     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+671      0x7f     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+672      0x80     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+673      0x81     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+674      0x82     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+675      0x83     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+677      0x84     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+679      0x85     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+680      0x86     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+681      0x87     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+682      0x88     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+684      0x89     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+685      0x8a     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+686      0x8b     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+687      0x8c     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+688      0x8d     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+689      0x8e     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+690      0x8f     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+691      0x90     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+694      0x91     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+695      0x92     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+696      0x93     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+697      0x94     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+698      0x95     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+699      0x96     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+701      0x97     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+702      0x98     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+704      0x99     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+705      0x9a     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+706      0x9b     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+709      0x9c     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+710      0x9d     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+711      0x9e     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+714      0x9f     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+715      0xa0     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+716      0xa1     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+717      0xa2     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+718      0xa3     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+720      0xa4     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+722      0xa5     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+723      0xa6     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+725      0xa7     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+726      0xa8     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+727      0xa9     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+730      0xaa     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+731      0xab     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+732      0xac     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+735      0xad     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+736      0xae     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+737      0xaf     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+738      0xb0     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+739      0xb1     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+740      0xb2     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+742      0xb3     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+743      0xb4     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+744      0xb5     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+745      0xb6     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+748      0xb7     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+750      0xb8     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+751      0xb9     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+752      0xba     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+753      0xbb     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+755      0xbc     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+756      0xbd     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+757      0xbe     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+758      0xbf     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+759      0xc0     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+760      0xc1     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+761      0xc2     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+762      0xc3     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+763      0xc4     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+765      0xc5     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+766      0xc6     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+768      0xc7     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+769      0xc8     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+772      0xc9     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+773      0xca     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+774      0xcb     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+775      0xcc     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+776      0xcd     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+777      0xce     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+779      0xcf     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+780      0xd0     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+782      0xd1     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+783      0xd2     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+787      0xd3     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+788      0xd4     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+789      0xd5     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+790      0xd6     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+791      0xd7     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+792      0xd8     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+793      0xd9     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+796      0xda     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+797      0xdb     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+798      0xdc     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+799      0xdd     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+800      0xde     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+802      0xdf     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+803      0xe0     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+804      0xe1     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+808      0xe2     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+809      0xe3     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+810      0xe4     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+811      0xe5     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+812      0xe6     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+813      0xe7     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+814      0xe8     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+815      0xe9     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+816      0xea     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+817      0xeb     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+819      0xec     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+820      0xed     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+823      0xee     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+825      0xef     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+827      0xf0     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+830      0xf1     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+831      0xf2     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+832      0xf3     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+835      0xf4     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+836      0xf5     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+837      0xf6     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+838      0xf7     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+839      0xf8     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+841      0xf9     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+842      0xfa     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+843      0xfb     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+844      0xfc     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+847      0xfd     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+848      0xfe     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+849      0xff     C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+850      0x100    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+852      0x101    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+853      0x102    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+854      0x103    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+855      0x104    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+857      0x105    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+858      0x106    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+859      0x107    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+860      0x108    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+863      0x109    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+864      0x10a    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+865      0x10b    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+868      0x10c    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+869      0x10d    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+871      0x10e    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+872      0x10f    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+874      0x110    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+875      0x111    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+876      0x112    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+877      0x113    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+878      0x114    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+879      0x115    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+882      0x116    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+883      0x117    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+884      0x118    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+885      0x119    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+886      0x11a    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+887      0x11b    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+888      0x11c    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+889      0x11d    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+890      0x11e    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+892      0x11f    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+893      0x120    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+895      0x121    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+896      0x122    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+898      0x123    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+899      0x124    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+900      0x125    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+901      0x126    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+903      0x127    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+904      0x128    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+907      0x129    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+908      0x12a    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+909      0x12b    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+910      0x12c    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+912      0x12d    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+913      0x12e    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+915      0x12f    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+916      0x130    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+917      0x131    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+918      0x132    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+920      0x133    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+921      0x134    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+922      0x135    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+923      0x136    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+924      0x137    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+925      0x138    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+926      0x139    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+927      0x13a    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+928      0x13b    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+930      0x13c    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+931      0x13d    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+933      0x13e    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+934      0x13f    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+936      0x140    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+937      0x141    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+938      0x142    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+939      0x143    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+941      0x144    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+942      0x145    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+945      0x146    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+946      0x147    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+948      0x148    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+949      0x149    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+952      0x14a    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+953      0x14b    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+954      0x14c    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+955      0x14d    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+956      0x14e    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+957      0x14f    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+958      0x150    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+959      0x151    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+960      0x152    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+961      0x153    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+963      0x154    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+965      0x155    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+968      0x156    C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+
+Section Header
+Name                    code_INIT
+Address                 0x7
+Size of Section         0
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x20
+  Executable code.
+
+Section Header
+Name                    S_INIT__file_tc0_Init
+Address                 0x1
+Size of Section         12
+Number of Relocations   0
+Number of Line Numbers  6
+Flags                   0x20
+  Executable code.
+
+Line Number Table
+Line     Address  Symbol
+292      0x1      C:\Users\Administrator\Desktop\188-prj\2\obj\INIT.asm
+293      0x2      C:\Users\Administrator\Desktop\188-prj\2\obj\INIT.asm
+295      0x3      C:\Users\Administrator\Desktop\188-prj\2\obj\INIT.asm
+296      0x4      C:\Users\Administrator\Desktop\188-prj\2\obj\INIT.asm
+298      0x5      C:\Users\Administrator\Desktop\188-prj\2\obj\INIT.asm
+300      0x6      C:\Users\Administrator\Desktop\188-prj\2\obj\INIT.asm
+
+Section Header
+Name                    S_INIT__file_init
+Address                 0x4a5
+Size of Section         50
+Number of Relocations   0
+Number of Line Numbers  25
+Flags                   0x20
+  Executable code.
+
+Line Number Table
+Line     Address  Symbol
+312      0x4a5    C:\Users\Administrator\Desktop\188-prj\2\obj\INIT.asm
+314      0x4a6    C:\Users\Administrator\Desktop\188-prj\2\obj\INIT.asm
+316      0x4a7    C:\Users\Administrator\Desktop\188-prj\2\obj\INIT.asm
+318      0x4a8    C:\Users\Administrator\Desktop\188-prj\2\obj\INIT.asm
+319      0x4a9    C:\Users\Administrator\Desktop\188-prj\2\obj\INIT.asm
+321      0x4aa    C:\Users\Administrator\Desktop\188-prj\2\obj\INIT.asm
+322      0x4ab    C:\Users\Administrator\Desktop\188-prj\2\obj\INIT.asm
+324      0x4ac    C:\Users\Administrator\Desktop\188-prj\2\obj\INIT.asm
+325      0x4ad    C:\Users\Administrator\Desktop\188-prj\2\obj\INIT.asm
+327      0x4ae    C:\Users\Administrator\Desktop\188-prj\2\obj\INIT.asm
+328      0x4af    C:\Users\Administrator\Desktop\188-prj\2\obj\INIT.asm
+330      0x4b0    C:\Users\Administrator\Desktop\188-prj\2\obj\INIT.asm
+331      0x4b1    C:\Users\Administrator\Desktop\188-prj\2\obj\INIT.asm
+333      0x4b2    C:\Users\Administrator\Desktop\188-prj\2\obj\INIT.asm
+335      0x4b3    C:\Users\Administrator\Desktop\188-prj\2\obj\INIT.asm
+337      0x4b4    C:\Users\Administrator\Desktop\188-prj\2\obj\INIT.asm
+339      0x4b5    C:\Users\Administrator\Desktop\188-prj\2\obj\INIT.asm
+340      0x4b6    C:\Users\Administrator\Desktop\188-prj\2\obj\INIT.asm
+342      0x4b7    C:\Users\Administrator\Desktop\188-prj\2\obj\INIT.asm
+344      0x4b8    C:\Users\Administrator\Desktop\188-prj\2\obj\INIT.asm
+345      0x4b9    C:\Users\Administrator\Desktop\188-prj\2\obj\INIT.asm
+347      0x4ba    C:\Users\Administrator\Desktop\188-prj\2\obj\INIT.asm
+349      0x4bb    C:\Users\Administrator\Desktop\188-prj\2\obj\INIT.asm
+351      0x4bc    C:\Users\Administrator\Desktop\188-prj\2\obj\INIT.asm
+353      0x4bd    C:\Users\Administrator\Desktop\188-prj\2\obj\INIT.asm
+
+Section Header
+Name                    S_INIT__file_clrRam
+Address                 0x4f1
+Size of Section         22
+Number of Relocations   0
+Number of Line Numbers  11
+Flags                   0x20
+  Executable code.
+
+Line Number Table
+Line     Address  Symbol
+365      0x4f1    C:\Users\Administrator\Desktop\188-prj\2\obj\INIT.asm
+366      0x4f2    C:\Users\Administrator\Desktop\188-prj\2\obj\INIT.asm
+368      0x4f3    C:\Users\Administrator\Desktop\188-prj\2\obj\INIT.asm
+369      0x4f4    C:\Users\Administrator\Desktop\188-prj\2\obj\INIT.asm
+370      0x4f5    C:\Users\Administrator\Desktop\188-prj\2\obj\INIT.asm
+371      0x4f6    C:\Users\Administrator\Desktop\188-prj\2\obj\INIT.asm
+373      0x4f7    C:\Users\Administrator\Desktop\188-prj\2\obj\INIT.asm
+375      0x4f8    C:\Users\Administrator\Desktop\188-prj\2\obj\INIT.asm
+376      0x4f9    C:\Users\Administrator\Desktop\188-prj\2\obj\INIT.asm
+379      0x4fa    C:\Users\Administrator\Desktop\188-prj\2\obj\INIT.asm
+381      0x4fb    C:\Users\Administrator\Desktop\188-prj\2\obj\INIT.asm
+
+Section Header
+Name                    UD_MODE_0
+Address                 0x4d
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x80
+  Uninitialized data.
+
+Section Header
+Name                    UD_MODE_1
+Address                 0x4e
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x80
+  Uninitialized data.
+
+Section Header
+Name                    UD_MODE_2
+Address                 0x4f
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x80
+  Uninitialized data.
+
+Section Header
+Name                    UD_MODE_3
+Address                 0x50
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x80
+  Uninitialized data.
+
+Section Header
+Name                    UD_MODE_4
+Address                 0x51
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x80
+  Uninitialized data.
+
+Section Header
+Name                    UDL_MODE_0
+Address                 0x52
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x80
+  Uninitialized data.
+
+Section Header
+Name                    code_MODE
+Address                 0x7
+Size of Section         0
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x20
+  Executable code.
+
+Section Header
+Name                    S_MODE__Mode_Check
+Address                 0x40e
+Size of Section         124
+Number of Relocations   0
+Number of Line Numbers  62
+Flags                   0x20
+  Executable code.
+
+Line Number Table
+Line     Address  Symbol
+317      0x40e    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+318      0x40f    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+320      0x410    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+321      0x411    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+322      0x412    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+323      0x413    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+324      0x414    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+326      0x415    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+328      0x416    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+330      0x417    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+331      0x418    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+334      0x419    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+336      0x41a    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+339      0x41b    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+340      0x41c    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+342      0x41d    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+343      0x41e    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+344      0x41f    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+345      0x420    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+346      0x421    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+348      0x422    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+350      0x423    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+352      0x424    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+354      0x425    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+356      0x426    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+357      0x427    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+360      0x428    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+362      0x429    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+365      0x42a    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+366      0x42b    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+368      0x42c    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+369      0x42d    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+370      0x42e    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+371      0x42f    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+372      0x430    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+374      0x431    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+375      0x432    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+376      0x433    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+379      0x434    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+381      0x435    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+384      0x436    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+385      0x437    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+386      0x438    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+387      0x439    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+388      0x43a    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+389      0x43b    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+390      0x43c    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+391      0x43d    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+393      0x43e    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+395      0x43f    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+396      0x440    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+397      0x441    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+398      0x442    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+399      0x443    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+400      0x444    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+401      0x445    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+403      0x446    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+405      0x447    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+406      0x448    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+409      0x449    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+410      0x44a    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+412      0x44b    C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+
+Section Header
+Name                    ID_SLEEP_0
+Address                 0x3c
+Size of Section         2
+Number of Relocations   0
+Number of Line Numbers  1
+Flags                   0x40
+  Initialized data.
+
+Line Number Table
+Line     Address  Symbol
+157      0x3c     C:\Users\Administrator\Desktop\188-prj\2\obj\SLEEP.asm
+
+Section Header
+Name                    ID_SLEEP_0_i
+Address                 0x4fe
+Size of Section         4
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x100
+  Initialized data for ROM.
+
+Section Header
+Name                    code_SLEEP
+Address                 0x7
+Size of Section         0
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x20
+  Executable code.
+
+Section Header
+Name                    S_SLEEP__sleep_scan
+Address                 0x479
+Size of Section         88
+Number of Relocations   0
+Number of Line Numbers  44
+Flags                   0x20
+  Executable code.
+
+Line Number Table
+Line     Address  Symbol
+296      0x479    C:\Users\Administrator\Desktop\188-prj\2\obj\SLEEP.asm
+297      0x47a    C:\Users\Administrator\Desktop\188-prj\2\obj\SLEEP.asm
+298      0x47b    C:\Users\Administrator\Desktop\188-prj\2\obj\SLEEP.asm
+299      0x47c    C:\Users\Administrator\Desktop\188-prj\2\obj\SLEEP.asm
+300      0x47d    C:\Users\Administrator\Desktop\188-prj\2\obj\SLEEP.asm
+301      0x47e    C:\Users\Administrator\Desktop\188-prj\2\obj\SLEEP.asm
+302      0x47f    C:\Users\Administrator\Desktop\188-prj\2\obj\SLEEP.asm
+303      0x480    C:\Users\Administrator\Desktop\188-prj\2\obj\SLEEP.asm
+305      0x481    C:\Users\Administrator\Desktop\188-prj\2\obj\SLEEP.asm
+306      0x482    C:\Users\Administrator\Desktop\188-prj\2\obj\SLEEP.asm
+307      0x483    C:\Users\Administrator\Desktop\188-prj\2\obj\SLEEP.asm
+308      0x484    C:\Users\Administrator\Desktop\188-prj\2\obj\SLEEP.asm
+309      0x485    C:\Users\Administrator\Desktop\188-prj\2\obj\SLEEP.asm
+311      0x486    C:\Users\Administrator\Desktop\188-prj\2\obj\SLEEP.asm
+313      0x487    C:\Users\Administrator\Desktop\188-prj\2\obj\SLEEP.asm
+315      0x488    C:\Users\Administrator\Desktop\188-prj\2\obj\SLEEP.asm
+317      0x489    C:\Users\Administrator\Desktop\188-prj\2\obj\SLEEP.asm
+319      0x48a    C:\Users\Administrator\Desktop\188-prj\2\obj\SLEEP.asm
+321      0x48b    C:\Users\Administrator\Desktop\188-prj\2\obj\SLEEP.asm
+323      0x48c    C:\Users\Administrator\Desktop\188-prj\2\obj\SLEEP.asm
+325      0x48d    C:\Users\Administrator\Desktop\188-prj\2\obj\SLEEP.asm
+327      0x48e    C:\Users\Administrator\Desktop\188-prj\2\obj\SLEEP.asm
+328      0x48f    C:\Users\Administrator\Desktop\188-prj\2\obj\SLEEP.asm
+330      0x490    C:\Users\Administrator\Desktop\188-prj\2\obj\SLEEP.asm
+332      0x491    C:\Users\Administrator\Desktop\188-prj\2\obj\SLEEP.asm
+334      0x492    C:\Users\Administrator\Desktop\188-prj\2\obj\SLEEP.asm
+336      0x493    C:\Users\Administrator\Desktop\188-prj\2\obj\SLEEP.asm
+338      0x494    C:\Users\Administrator\Desktop\188-prj\2\obj\SLEEP.asm
+340      0x495    C:\Users\Administrator\Desktop\188-prj\2\obj\SLEEP.asm
+342      0x496    C:\Users\Administrator\Desktop\188-prj\2\obj\SLEEP.asm
+344      0x497    C:\Users\Administrator\Desktop\188-prj\2\obj\SLEEP.asm
+346      0x498    C:\Users\Administrator\Desktop\188-prj\2\obj\SLEEP.asm
+348      0x499    C:\Users\Administrator\Desktop\188-prj\2\obj\SLEEP.asm
+350      0x49a    C:\Users\Administrator\Desktop\188-prj\2\obj\SLEEP.asm
+351      0x49b    C:\Users\Administrator\Desktop\188-prj\2\obj\SLEEP.asm
+353      0x49c    C:\Users\Administrator\Desktop\188-prj\2\obj\SLEEP.asm
+354      0x49d    C:\Users\Administrator\Desktop\188-prj\2\obj\SLEEP.asm
+356      0x49e    C:\Users\Administrator\Desktop\188-prj\2\obj\SLEEP.asm
+358      0x49f    C:\Users\Administrator\Desktop\188-prj\2\obj\SLEEP.asm
+360      0x4a0    C:\Users\Administrator\Desktop\188-prj\2\obj\SLEEP.asm
+362      0x4a1    C:\Users\Administrator\Desktop\188-prj\2\obj\SLEEP.asm
+363      0x4a2    C:\Users\Administrator\Desktop\188-prj\2\obj\SLEEP.asm
+366      0x4a3    C:\Users\Administrator\Desktop\188-prj\2\obj\SLEEP.asm
+369      0x4a4    C:\Users\Administrator\Desktop\188-prj\2\obj\SLEEP.asm
+
+Section Header
+Name                    UD_abs_jz8p2615_180
+Address                 0x180
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_181
+Address                 0x181
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_182
+Address                 0x182
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_183
+Address                 0x183
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_184
+Address                 0x184
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_185
+Address                 0x185
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_186
+Address                 0x186
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_187
+Address                 0x187
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_188
+Address                 0x188
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_189
+Address                 0x189
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_18a
+Address                 0x18a
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_18b
+Address                 0x18b
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_18d
+Address                 0x18d
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_18e
+Address                 0x18e
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_190
+Address                 0x190
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_191
+Address                 0x191
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_193
+Address                 0x193
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_194
+Address                 0x194
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_199
+Address                 0x199
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_19a
+Address                 0x19a
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_19c
+Address                 0x19c
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_19d
+Address                 0x19d
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_1a0
+Address                 0x1a0
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_1a1
+Address                 0x1a1
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_1a3
+Address                 0x1a3
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_1a4
+Address                 0x1a4
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_1a5
+Address                 0x1a5
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_1a6
+Address                 0x1a6
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_1a7
+Address                 0x1a7
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_1af
+Address                 0x1af
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_1b0
+Address                 0x1b0
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_1b1
+Address                 0x1b1
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_1b2
+Address                 0x1b2
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_1b3
+Address                 0x1b3
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_1b4
+Address                 0x1b4
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_1b5
+Address                 0x1b5
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_1b6
+Address                 0x1b6
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_1b7
+Address                 0x1b7
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_1b8
+Address                 0x1b8
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_1b9
+Address                 0x1b9
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_1ba
+Address                 0x1ba
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_1bb
+Address                 0x1bb
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_1bc
+Address                 0x1bc
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_1bd
+Address                 0x1bd
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_1be
+Address                 0x1be
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_1bf
+Address                 0x1bf
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_1c6
+Address                 0x1c6
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_1c7
+Address                 0x1c7
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_1c8
+Address                 0x1c8
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_1c9
+Address                 0x1c9
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_1ca
+Address                 0x1ca
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_1d6
+Address                 0x1d6
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_1d7
+Address                 0x1d7
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_1da
+Address                 0x1da
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_1db
+Address                 0x1db
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p2615_1ff
+Address                 0x1ff
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    code_jz8p2615
+Address                 0x7
+Size of Section         0
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x20
+  Executable code.
+
+Section Header
+Name                    UDL__mulchar_0
+Address                 0x27
+Size of Section         5
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x80
+  Uninitialized data.
+
+Section Header
+Name                    code__mulchar
+Address                 0x7
+Size of Section         0
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x20
+  Executable code.
+
+Section Header
+Name                    S__mulchar___mulchar
+Address                 0x4be
+Size of Section         50
+Number of Relocations   0
+Number of Line Numbers  25
+Flags                   0x20
+  Executable code.
+
+Line Number Table
+Line     Address  Symbol
+78       0x4be    _mulchar.asm
+79       0x4bf    _mulchar.asm
+80       0x4c0    _mulchar.asm
+82       0x4c1    _mulchar.asm
+84       0x4c2    _mulchar.asm
+85       0x4c3    _mulchar.asm
+88       0x4c4    _mulchar.asm
+89       0x4c5    _mulchar.asm
+90       0x4c6    _mulchar.asm
+91       0x4c7    _mulchar.asm
+94       0x4c8    _mulchar.asm
+95       0x4c9    _mulchar.asm
+97       0x4ca    _mulchar.asm
+98       0x4cb    _mulchar.asm
+99       0x4cc    _mulchar.asm
+100      0x4cd    _mulchar.asm
+102      0x4ce    _mulchar.asm
+103      0x4cf    _mulchar.asm
+104      0x4d0    _mulchar.asm
+107      0x4d1    _mulchar.asm
+108      0x4d2    _mulchar.asm
+109      0x4d3    _mulchar.asm
+110      0x4d4    _mulchar.asm
+112      0x4d5    _mulchar.asm
+114      0x4d6    _mulchar.asm
+
+Section Header
+Name                    .cinit
+Address                 0x4d7
+Size of Section         28
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x100
+  Initialized data for ROM.
+
+Symbol Table
+Name                     Section          Value      Type  Class  NumAux 
+.file                    DEBUG            0          0     103    1   
+  file = C:\Users\Administrator\Desktop\188-prj\2\obj\MAIN.asm
+  line included = 0
+.file                    DEBUG            0          0     103    1   
+  file = C:\JZIDE\JZ_C_IDE_V1.9.1.251009\include/JZ8P2615.inc
+  line included = 10
+.list                    DEBUG            0x1        0     108    0   
+.nolist                  DEBUG            0x3        0     108    0   
+.list                    DEBUG            0x74       0     108    0   
+.eof                     DEBUG            0          0     107    0   
+sharebank                sharebank        0x20       0     109    1   
+  length = 7
+  number of relocations = 0
+  number of line numbers = 0
+STK06                    sharebank        0x20       0     2      0   
+STK05                    sharebank        0x21       0     2      0   
+STK04                    sharebank        0x22       0     2      0   
+STK03                    sharebank        0x23       0     2      0   
+STK02                    sharebank        0x24       0     2      0   
+STK01                    sharebank        0x25       0     2      0   
+STK00                    sharebank        0x26       0     2      0   
+UD_MAIN_0                UD_MAIN_0        0x1f       0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_U_Flage1                UD_MAIN_0        0x1f       0     2      0   
+UD_MAIN_1                UD_MAIN_1        0x3e       0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_r_g_workMod             UD_MAIN_1        0x3e       0     2      0   
+UD_MAIN_2                UD_MAIN_2        0x3f       0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_led_turn_cnt            UD_MAIN_2        0x3f       0     2      0   
+UD_MAIN_3                UD_MAIN_3        0x40       0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_led_turn                UD_MAIN_3        0x40       0     2      0   
+UDL_MAIN_0               UDL_MAIN_0       0x1d       0     109    1   
+  length = 2
+  number of relocations = 0
+  number of line numbers = 0
+r0x1005                  UDL_MAIN_0       0x1d       0     3      0   
+r0x1006                  UDL_MAIN_0       0x1e       0     3      0   
+STARTUP                  STARTUP          0          0     109    1   
+  length = 2
+  number of relocations = 1
+  number of line numbers = 1
+code_MAIN                code_MAIN        0x7        0     109    1   
+  length = 0
+  number of relocations = 0
+  number of line numbers = 0
+S_MAIN__main             S_MAIN__main     0x3b2      0     109    1   
+  length = 184
+  number of relocations = 70
+  number of line numbers = 92
+_main                    S_MAIN__main     0x3b2      0     2      0   
+_00125_DS_               S_MAIN__main     0x3ba      0     6      0   
+_00116_DS_               S_MAIN__main     0x3d3      0     6      0   
+_00106_DS_               S_MAIN__main     0x3e9      0     6      0   
+_00111_DS_               S_MAIN__main     0x3f2      0     6      0   
+_00108_DS_               S_MAIN__main     0x400      0     6      0   
+_00121_DS_               S_MAIN__main     0x401      0     6      0   
+.eof                     DEBUG            0          0     107    0   
+.file                    DEBUG            0          0     103    1   
+  file = C:\Users\Administrator\Desktop\188-prj\2\obj\SMG.asm
+  line included = 0
+.file                    DEBUG            0          0     103    1   
+  file = C:\JZIDE\JZ_C_IDE_V1.9.1.251009\include/JZ8P2615.inc
+  line included = 10
+.list                    DEBUG            0x1        0     108    0   
+.nolist                  DEBUG            0x3        0     108    0   
+.list                    DEBUG            0x74       0     108    0   
+.eof                     DEBUG            0          0     107    0   
+UD_SMG_0                 UD_SMG_0         0x41       0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_Flag_Led1               UD_SMG_0         0x41       0     2      0   
+UD_SMG_1                 UD_SMG_1         0x42       0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_Flag_Led2               UD_SMG_1         0x42       0     2      0   
+UD_SMG_2                 UD_SMG_2         0x43       0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_Flag_Led3               UD_SMG_2         0x43       0     2      0   
+UD_SMG_3                 UD_SMG_3         0x44       0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_Flag_Led4               UD_SMG_3         0x44       0     2      0   
+UDL_SMG_0                UDL_SMG_0        0x11       0     109    1   
+  length = 6
+  number of relocations = 0
+  number of line numbers = 0
+r0x1005                  UDL_SMG_0        0x11       0     3      0   
+r0x1006                  UDL_SMG_0        0x12       0     3      0   
+r0x1007                  UDL_SMG_0        0x13       0     3      0   
+r0x1008                  UDL_SMG_0        0x14       0     3      0   
+r0x1009                  UDL_SMG_0        0x15       0     3      0   
+r0x100A                  UDL_SMG_0        0x16       0     3      0   
+ID_SMG_0                 ID_SMG_0         0x2c       0     109    1   
+  length = 2
+  number of relocations = 0
+  number of line numbers = 1
+_smg_cnt                 ID_SMG_0         0x2c       0     2      0   
+ID_SMG_1                 ID_SMG_1         0x4e5      0     109    1   
+  length = 24
+  number of relocations = 0
+  number of line numbers = 12
+_t_ledCntTab             ID_SMG_1         0x4e5      0     2      0   
+code_SMG                 code_SMG         0x7        0     109    1   
+  length = 0
+  number of relocations = 0
+  number of line numbers = 0
+S_SMG__SMG_Scan          S_SMG__SMG_Scan  0x2ed      0     109    1   
+  length = 394
+  number of relocations = 191
+  number of line numbers = 197
+_SMG_Scan                S_SMG__SMG_Scan  0x2ed      0     2      0   
+_00121_DS_               S_SMG__SMG_Scan  0x30a      0     6      0   
+_00123_DS_               S_SMG__SMG_Scan  0x30f      0     6      0   
+_00124_DS_               S_SMG__SMG_Scan  0x313      0     6      0   
+_00126_DS_               S_SMG__SMG_Scan  0x318      0     6      0   
+_00127_DS_               S_SMG__SMG_Scan  0x31c      0     6      0   
+_00129_DS_               S_SMG__SMG_Scan  0x321      0     6      0   
+_00130_DS_               S_SMG__SMG_Scan  0x325      0     6      0   
+_00132_DS_               S_SMG__SMG_Scan  0x32a      0     6      0   
+_00133_DS_               S_SMG__SMG_Scan  0x32e      0     6      0   
+_00135_DS_               S_SMG__SMG_Scan  0x333      0     6      0   
+_00136_DS_               S_SMG__SMG_Scan  0x337      0     6      0   
+_00138_DS_               S_SMG__SMG_Scan  0x33c      0     6      0   
+_00139_DS_               S_SMG__SMG_Scan  0x340      0     6      0   
+_00141_DS_               S_SMG__SMG_Scan  0x345      0     6      0   
+_00142_DS_               S_SMG__SMG_Scan  0x349      0     6      0   
+_00144_DS_               S_SMG__SMG_Scan  0x34e      0     6      0   
+_00145_DS_               S_SMG__SMG_Scan  0x352      0     6      0   
+_00147_DS_               S_SMG__SMG_Scan  0x357      0     6      0   
+_00148_DS_               S_SMG__SMG_Scan  0x35b      0     6      0   
+_00150_DS_               S_SMG__SMG_Scan  0x360      0     6      0   
+_00151_DS_               S_SMG__SMG_Scan  0x364      0     6      0   
+_00153_DS_               S_SMG__SMG_Scan  0x369      0     6      0   
+_00154_DS_               S_SMG__SMG_Scan  0x36d      0     6      0   
+_00156_DS_               S_SMG__SMG_Scan  0x372      0     6      0   
+_00157_DS_               S_SMG__SMG_Scan  0x376      0     6      0   
+_00159_DS_               S_SMG__SMG_Scan  0x37b      0     6      0   
+_00160_DS_               S_SMG__SMG_Scan  0x37f      0     6      0   
+_00162_DS_               S_SMG__SMG_Scan  0x384      0     6      0   
+_00163_DS_               S_SMG__SMG_Scan  0x388      0     6      0   
+_00165_DS_               S_SMG__SMG_Scan  0x38d      0     6      0   
+_00166_DS_               S_SMG__SMG_Scan  0x391      0     6      0   
+_00168_DS_               S_SMG__SMG_Scan  0x396      0     6      0   
+_00169_DS_               S_SMG__SMG_Scan  0x39a      0     6      0   
+_00171_DS_               S_SMG__SMG_Scan  0x39f      0     6      0   
+_00172_DS_               S_SMG__SMG_Scan  0x3a3      0     6      0   
+_00174_DS_               S_SMG__SMG_Scan  0x3a8      0     6      0   
+_00176_DS_               S_SMG__SMG_Scan  0x3ab      0     6      0   
+_00179_DS_               S_SMG__SMG_Scan  0x3b1      0     6      0   
+S_SMG__SMG_Display       S_SMG__SMG_Display 0x44c      0     109    1   
+  length = 90
+  number of relocations = 37
+  number of line numbers = 45
+_SMG_Display             S_SMG__SMG_Display 0x44c      0     2      0   
+_00115_DS_               S_SMG__SMG_Display 0x45a      0     6      0   
+_00105_DS_               S_SMG__SMG_Display 0x45b      0     6      0   
+_00116_DS_               S_SMG__SMG_Display 0x463      0     6      0   
+_00110_DS_               S_SMG__SMG_Display 0x467      0     6      0   
+.eof                     DEBUG            0          0     107    0   
+.file                    DEBUG            0          0     103    1   
+  file = C:\Users\Administrator\Desktop\188-prj\2\obj\ISR.asm
+  line included = 0
+.file                    DEBUG            0          0     103    1   
+  file = C:\JZIDE\JZ_C_IDE_V1.9.1.251009\include/JZ8P2615.inc
+  line included = 10
+.list                    DEBUG            0x1        0     108    0   
+.nolist                  DEBUG            0x3        0     108    0   
+.list                    DEBUG            0x74       0     108    0   
+.eof                     DEBUG            0          0     107    0   
+UD_ISR_0                 UD_ISR_0         0x45       0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_reg_200us               UD_ISR_0         0x45       0     2      0   
+UD_ISR_1                 UD_ISR_1         0x46       0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_reg_10ms                UD_ISR_1         0x46       0     2      0   
+UD_abs_ISR_0             UD_abs_ISR_0     0          0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_A_Buff                  UD_abs_ISR_0     0          0     2      0   
+UD_abs_ISR_1             UD_abs_ISR_1     0x1        0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_S_Buff                  UD_abs_ISR_1     0x1        0     2      0   
+UDL_ISR_0                UDL_ISR_0        0x2e       0     109    1   
+  length = 2
+  number of relocations = 0
+  number of line numbers = 0
+r0x1004                  UDL_ISR_0        0x2e       0     3      0   
+r0x1005                  UDL_ISR_0        0x2f       0     3      0   
+c_interrupt              c_interrupt      0x3        0     109    1   
+  length = 0
+  number of relocations = 0
+  number of line numbers = 0
+__sdcc_interrupt         c_interrupt      0x3        0     6      0   
+_int_isr                 c_interrupt      0x3        0     2      0   
+.org_8                   .org_8           0x8        0     109    1   
+  length = 106
+  number of relocations = 35
+  number of line numbers = 53
+_00106_DS_               .org_8           0x1f       0     6      0   
+_00108_DS_               .org_8           0x26       0     6      0   
+_00130_DS_               .org_8           0x2b       0     6      0   
+_00109_DS_               .org_8           0x33       0     6      0   
+_00113_DS_               .org_8           0x34       0     6      0   
+END_OF_INTERRUPT         .org_8           0x3c       0     6      0   
+code_ISR                 code_ISR         0x7        0     109    1   
+  length = 0
+  number of relocations = 0
+  number of line numbers = 0
+.eof                     DEBUG            0          0     107    0   
+.file                    DEBUG            0          0     103    1   
+  file = C:\Users\Administrator\Desktop\188-prj\2\obj\ADC.asm
+  line included = 0
+.file                    DEBUG            0          0     103    1   
+  file = C:\JZIDE\JZ_C_IDE_V1.9.1.251009\include/JZ8P2615.inc
+  line included = 10
+.list                    DEBUG            0x1        0     108    0   
+.nolist                  DEBUG            0x3        0     108    0   
+.list                    DEBUG            0x74       0     108    0   
+.eof                     DEBUG            0          0     107    0   
+UD_ADC_0                 UD_ADC_0         0x30       0     109    1   
+  length = 2
+  number of relocations = 0
+  number of line numbers = 0
+_ADC_value               UD_ADC_0         0x30       0     2      0   
+UDL_ADC_0                UDL_ADC_0        0x2        0     109    1   
+  length = 15
+  number of relocations = 0
+  number of line numbers = 0
+r0x1002                  UDL_ADC_0        0x2        0     3      0   
+r0x1003                  UDL_ADC_0        0x3        0     3      0   
+r0x1004                  UDL_ADC_0        0x4        0     3      0   
+r0x1005                  UDL_ADC_0        0x5        0     3      0   
+r0x1006                  UDL_ADC_0        0x6        0     3      0   
+r0x1007                  UDL_ADC_0        0x7        0     3      0   
+r0x1008                  UDL_ADC_0        0x8        0     3      0   
+r0x1009                  UDL_ADC_0        0x9        0     3      0   
+r0x100A                  UDL_ADC_0        0xa        0     3      0   
+r0x100B                  UDL_ADC_0        0xb        0     3      0   
+r0x100C                  UDL_ADC_0        0xc        0     3      0   
+r0x100D                  UDL_ADC_0        0xd        0     3      0   
+r0x100E                  UDL_ADC_0        0xe        0     3      0   
+r0x100F                  UDL_ADC_0        0xf        0     3      0   
+r0x1010                  UDL_ADC_0        0x10       0     3      0   
+code_ADC                 code_ADC         0x7        0     109    1   
+  length = 0
+  number of relocations = 0
+  number of line numbers = 0
+S_ADC__ADC_GetValue      S_ADC__ADC_GetValue 0x157      0     109    1   
+  length = 406
+  number of relocations = 168
+  number of line numbers = 203
+_ADC_GetValue            S_ADC__ADC_GetValue 0x157      0     2      0   
+_00114_DS_               S_ADC__ADC_GetValue 0x16b      0     6      0   
+_00106_DS_               S_ADC__ADC_GetValue 0x170      0     6      0   
+_00108_DS_               S_ADC__ADC_GetValue 0x181      0     6      0   
+_00137_DS_               S_ADC__ADC_GetValue 0x19f      0     6      0   
+_00110_DS_               S_ADC__ADC_GetValue 0x1a5      0     6      0   
+_00138_DS_               S_ADC__ADC_GetValue 0x1ab      0     6      0   
+_00112_DS_               S_ADC__ADC_GetValue 0x1b1      0     6      0   
+.eof                     DEBUG            0          0     107    0   
+.file                    DEBUG            0          0     103    1   
+  file = C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm
+  line included = 0
+.file                    DEBUG            0          0     103    1   
+  file = C:\JZIDE\JZ_C_IDE_V1.9.1.251009\include/JZ8P2615.inc
+  line included = 10
+.list                    DEBUG            0x1        0     108    0   
+.nolist                  DEBUG            0x3        0     108    0   
+.list                    DEBUG            0x74       0     108    0   
+.eof                     DEBUG            0          0     107    0   
+UD_BAT_0                 UD_BAT_0         0x47       0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_r_g_batVal              UD_BAT_0         0x47       0     2      0   
+UD_BAT_1                 UD_BAT_1         0x32       0     109    1   
+  length = 2
+  number of relocations = 0
+  number of line numbers = 0
+_r_gbatvalsum            UD_BAT_1         0x32       0     2      0   
+UD_BAT_2                 UD_BAT_2         0x48       0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_r_gbatvalcnt            UD_BAT_2         0x48       0     2      0   
+UD_BAT_3                 UD_BAT_3         0x49       0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_r_buff                  UD_BAT_3         0x49       0     2      0   
+UD_BAT_4                 UD_BAT_4         0x34       0     109    1   
+  length = 2
+  number of relocations = 0
+  number of line numbers = 0
+_adcValue                UD_BAT_4         0x34       0     2      0   
+UD_BAT_5                 UD_BAT_5         0x4a       0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_r_g_batValChangeCnt     UD_BAT_5         0x4a       0     2      0   
+UD_BAT_6                 UD_BAT_6         0x4b       0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_r_g_batValAddCnt        UD_BAT_6         0x4b       0     2      0   
+UD_BAT_7                 UD_BAT_7         0x4c       0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_r_g_batValDecCnt        UD_BAT_7         0x4c       0     2      0   
+UD_BAT_8                 UD_BAT_8         0x36       0     109    1   
+  length = 2
+  number of relocations = 0
+  number of line numbers = 0
+_r_g_batValAddShk        UD_BAT_8         0x36       0     2      0   
+UD_BAT_9                 UD_BAT_9         0x38       0     109    1   
+  length = 2
+  number of relocations = 0
+  number of line numbers = 0
+_r_g_batValDecShk        UD_BAT_9         0x38       0     2      0   
+UD_BAT_10                UD_BAT_10        0x3a       0     109    1   
+  length = 2
+  number of relocations = 0
+  number of line numbers = 0
+_r_g_batValChangeShkSet  UD_BAT_10        0x3a       0     2      0   
+UDL_BAT_0                UDL_BAT_0        0x17       0     109    1   
+  length = 6
+  number of relocations = 0
+  number of line numbers = 0
+r0x1012                  UDL_BAT_0        0x17       0     3      0   
+r0x1013                  UDL_BAT_0        0x18       0     3      0   
+r0x1014                  UDL_BAT_0        0x19       0     3      0   
+r0x1015                  UDL_BAT_0        0x1a       0     3      0   
+r0x1017                  UDL_BAT_0        0x1b       0     3      0   
+r0x1018                  UDL_BAT_0        0x1c       0     3      0   
+ID_BAT_0                 ID_BAT_0         0x222      0     109    1   
+  length = 406
+  number of relocations = 0
+  number of line numbers = 203
+_t_tabBatValTab          ID_BAT_0         0x222      0     2      0   
+code_BAT                 code_BAT         0x7        0     109    1   
+  length = 0
+  number of relocations = 0
+  number of line numbers = 0
+S_BAT__sw_adcBatVal      S_BAT__sw_adcBatVal 0x3d       0     109    1   
+  length = 564
+  number of relocations = 210
+  number of line numbers = 282
+_sw_adcBatVal            S_BAT__sw_adcBatVal 0x3d       0     2      0   
+_00111_DS_               S_BAT__sw_adcBatVal 0x47       0     6      0   
+_00264_DS_               S_BAT__sw_adcBatVal 0x51       0     6      0   
+_00265_DS_               S_BAT__sw_adcBatVal 0x62       0     6      0   
+_00108_DS_               S_BAT__sw_adcBatVal 0x67       0     6      0   
+_00112_DS_               S_BAT__sw_adcBatVal 0x6a       0     6      0   
+_00114_DS_               S_BAT__sw_adcBatVal 0x70       0     6      0   
+_00267_DS_               S_BAT__sw_adcBatVal 0x97       0     6      0   
+_00116_DS_               S_BAT__sw_adcBatVal 0x9c       0     6      0   
+_00168_DS_               S_BAT__sw_adcBatVal 0xaa       0     6      0   
+_00268_DS_               S_BAT__sw_adcBatVal 0xb3       0     6      0   
+_00164_DS_               S_BAT__sw_adcBatVal 0xb7       0     6      0   
+_00270_DS_               S_BAT__sw_adcBatVal 0xc5       0     6      0   
+_00120_DS_               S_BAT__sw_adcBatVal 0xc9       0     6      0   
+_00271_DS_               S_BAT__sw_adcBatVal 0xcf       0     6      0   
+_00131_DS_               S_BAT__sw_adcBatVal 0xd3       0     6      0   
+_00127_DS_               S_BAT__sw_adcBatVal 0xe2       0     6      0   
+_00128_DS_               S_BAT__sw_adcBatVal 0xee       0     6      0   
+_00132_DS_               S_BAT__sw_adcBatVal 0xf1       0     6      0   
+_00139_DS_               S_BAT__sw_adcBatVal 0xfd       0     6      0   
+_00134_DS_               S_BAT__sw_adcBatVal 0x109      0     6      0   
+_00140_DS_               S_BAT__sw_adcBatVal 0x10c      0     6      0   
+_00145_DS_               S_BAT__sw_adcBatVal 0x116      0     6      0   
+_00276_DS_               S_BAT__sw_adcBatVal 0x11f      0     6      0   
+_00158_DS_               S_BAT__sw_adcBatVal 0x129      0     6      0   
+_00279_DS_               S_BAT__sw_adcBatVal 0x13c      0     6      0   
+_00155_DS_               S_BAT__sw_adcBatVal 0x146      0     6      0   
+_00159_DS_               S_BAT__sw_adcBatVal 0x14a      0     6      0   
+_00172_DS_               S_BAT__sw_adcBatVal 0x156      0     6      0   
+.eof                     DEBUG            0          0     107    0   
+.file                    DEBUG            0          0     103    1   
+  file = C:\Users\Administrator\Desktop\188-prj\2\obj\INIT.asm
+  line included = 0
+.file                    DEBUG            0          0     103    1   
+  file = C:\JZIDE\JZ_C_IDE_V1.9.1.251009\include/JZ8P2615.inc
+  line included = 10
+.list                    DEBUG            0x1        0     108    0   
+.nolist                  DEBUG            0x3        0     108    0   
+.list                    DEBUG            0x74       0     108    0   
+.eof                     DEBUG            0          0     107    0   
+code_INIT                code_INIT        0x7        0     109    1   
+  length = 0
+  number of relocations = 0
+  number of line numbers = 0
+S_INIT__file_tc0_Init    S_INIT__file_tc0_Init 0x1        0     109    1   
+  length = 12
+  number of relocations = 3
+  number of line numbers = 6
+_file_tc0_Init           S_INIT__file_tc0_Init 0x1        0     2      0   
+S_INIT__file_init        S_INIT__file_init 0x4a5      0     109    1   
+  length = 50
+  number of relocations = 17
+  number of line numbers = 25
+_file_init               S_INIT__file_init 0x4a5      0     2      0   
+S_INIT__file_clrRam      S_INIT__file_clrRam 0x4f1      0     109    1   
+  length = 22
+  number of relocations = 7
+  number of line numbers = 11
+_file_clrRam             S_INIT__file_clrRam 0x4f1      0     2      0   
+_00107_DS_               S_INIT__file_clrRam 0x4f3      0     6      0   
+_00105_DS_               S_INIT__file_clrRam 0x4fa      0     6      0   
+.eof                     DEBUG            0          0     107    0   
+.file                    DEBUG            0          0     103    1   
+  file = C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm
+  line included = 0
+.file                    DEBUG            0          0     103    1   
+  file = C:\JZIDE\JZ_C_IDE_V1.9.1.251009\include/JZ8P2615.inc
+  line included = 10
+.list                    DEBUG            0x1        0     108    0   
+.nolist                  DEBUG            0x3        0     108    0   
+.list                    DEBUG            0x74       0     108    0   
+.eof                     DEBUG            0          0     107    0   
+UD_MODE_0                UD_MODE_0        0x4d       0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_s_charge_cnt            UD_MODE_0        0x4d       0     2      0   
+UD_MODE_1                UD_MODE_1        0x4e       0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_s_charge_full_cnt       UD_MODE_1        0x4e       0     2      0   
+UD_MODE_2                UD_MODE_2        0x4f       0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_s_key_cnt               UD_MODE_2        0x4f       0     2      0   
+UD_MODE_3                UD_MODE_3        0x50       0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_key_state               UD_MODE_3        0x50       0     2      0   
+UD_MODE_4                UD_MODE_4        0x51       0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_key_last                UD_MODE_4        0x51       0     2      0   
+UDL_MODE_0               UDL_MODE_0       0x52       0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+r0x1007                  UDL_MODE_0       0x52       0     3      0   
+code_MODE                code_MODE        0x7        0     109    1   
+  length = 0
+  number of relocations = 0
+  number of line numbers = 0
+S_MODE__Mode_Check       S_MODE__Mode_Check 0x40e      0     109    1   
+  length = 124
+  number of relocations = 47
+  number of line numbers = 62
+_Mode_Check              S_MODE__Mode_Check 0x40e      0     2      0   
+_00108_DS_               S_MODE__Mode_Check 0x419      0     6      0   
+_00109_DS_               S_MODE__Mode_Check 0x41b      0     6      0   
+_00113_DS_               S_MODE__Mode_Check 0x428      0     6      0   
+_00114_DS_               S_MODE__Mode_Check 0x42a      0     6      0   
+_00118_DS_               S_MODE__Mode_Check 0x434      0     6      0   
+_00119_DS_               S_MODE__Mode_Check 0x436      0     6      0   
+_00125_DS_               S_MODE__Mode_Check 0x446      0     6      0   
+_00126_DS_               S_MODE__Mode_Check 0x447      0     6      0   
+_00121_DS_               S_MODE__Mode_Check 0x449      0     6      0   
+.eof                     DEBUG            0          0     107    0   
+.file                    DEBUG            0          0     103    1   
+  file = C:\Users\Administrator\Desktop\188-prj\2\obj\SLEEP.asm
+  line included = 0
+.file                    DEBUG            0          0     103    1   
+  file = C:\JZIDE\JZ_C_IDE_V1.9.1.251009\include/JZ8P2615.inc
+  line included = 10
+.list                    DEBUG            0x1        0     108    0   
+.nolist                  DEBUG            0x3        0     108    0   
+.list                    DEBUG            0x74       0     108    0   
+.eof                     DEBUG            0          0     107    0   
+ID_SLEEP_0               ID_SLEEP_0       0x3c       0     109    1   
+  length = 2
+  number of relocations = 0
+  number of line numbers = 1
+_sleep_cnt               ID_SLEEP_0       0x3c       0     2      0   
+code_SLEEP               code_SLEEP       0x7        0     109    1   
+  length = 0
+  number of relocations = 0
+  number of line numbers = 0
+S_SLEEP__sleep_scan      S_SLEEP__sleep_scan 0x479      0     109    1   
+  length = 88
+  number of relocations = 28
+  number of line numbers = 44
+_sleep_scan              S_SLEEP__sleep_scan 0x479      0     2      0   
+_00108_DS_               S_SLEEP__sleep_scan 0x4a3      0     6      0   
+_00112_DS_               S_SLEEP__sleep_scan 0x4a4      0     6      0   
+.eof                     DEBUG            0          0     107    0   
+.file                    DEBUG            0          0     103    1   
+  file = jz8p2615.asm
+  line included = 0
+.file                    DEBUG            0          0     103    1   
+  file = ../../share/header/jz8p2615.inc
+  line included = 10
+.list                    DEBUG            0x1        0     108    0   
+.nolist                  DEBUG            0x3        0     108    0   
+.list                    DEBUG            0x74       0     108    0   
+.eof                     DEBUG            0          0     107    0   
+UD_abs_jz8p2615_180      UD_abs_jz8p2615_180 0x180      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_RSRbits                 UD_abs_jz8p2615_180 0x180      0     2      0   
+_RSR                     UD_abs_jz8p2615_180 0x180      0     2      0   
+UD_abs_jz8p2615_181      UD_abs_jz8p2615_181 0x181      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_PCHbits                 UD_abs_jz8p2615_181 0x181      0     2      0   
+_PCH                     UD_abs_jz8p2615_181 0x181      0     2      0   
+UD_abs_jz8p2615_182      UD_abs_jz8p2615_182 0x182      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_PCLbits                 UD_abs_jz8p2615_182 0x182      0     2      0   
+_PCL                     UD_abs_jz8p2615_182 0x182      0     2      0   
+UD_abs_jz8p2615_183      UD_abs_jz8p2615_183 0x183      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_STATUSbits              UD_abs_jz8p2615_183 0x183      0     2      0   
+_STATUS                  UD_abs_jz8p2615_183 0x183      0     2      0   
+UD_abs_jz8p2615_184      UD_abs_jz8p2615_184 0x184      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_TC0CONbits              UD_abs_jz8p2615_184 0x184      0     2      0   
+_TC0CON                  UD_abs_jz8p2615_184 0x184      0     2      0   
+UD_abs_jz8p2615_185      UD_abs_jz8p2615_185 0x185      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_TC0Cbits                UD_abs_jz8p2615_185 0x185      0     2      0   
+_TC0C                    UD_abs_jz8p2615_185 0x185      0     2      0   
+UD_abs_jz8p2615_186      UD_abs_jz8p2615_186 0x186      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_TBRDHbits               UD_abs_jz8p2615_186 0x186      0     2      0   
+_TBRDH                   UD_abs_jz8p2615_186 0x186      0     2      0   
+UD_abs_jz8p2615_187      UD_abs_jz8p2615_187 0x187      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_TBRDLbits               UD_abs_jz8p2615_187 0x187      0     2      0   
+_TBRDL                   UD_abs_jz8p2615_187 0x187      0     2      0   
+UD_abs_jz8p2615_188      UD_abs_jz8p2615_188 0x188      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_CPUCONbits              UD_abs_jz8p2615_188 0x188      0     2      0   
+_CPUCON                  UD_abs_jz8p2615_188 0x188      0     2      0   
+UD_abs_jz8p2615_189      UD_abs_jz8p2615_189 0x189      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_IHRCCALbits             UD_abs_jz8p2615_189 0x189      0     2      0   
+_IHRCCAL                 UD_abs_jz8p2615_189 0x189      0     2      0   
+UD_abs_jz8p2615_18a      UD_abs_jz8p2615_18a 0x18a      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_PORT5bits               UD_abs_jz8p2615_18a 0x18a      0     2      0   
+_PORT5                   UD_abs_jz8p2615_18a 0x18a      0     2      0   
+UD_abs_jz8p2615_18b      UD_abs_jz8p2615_18b 0x18b      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_PORT6bits               UD_abs_jz8p2615_18b 0x18b      0     2      0   
+_PORT6                   UD_abs_jz8p2615_18b 0x18b      0     2      0   
+UD_abs_jz8p2615_18d      UD_abs_jz8p2615_18d 0x18d      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_P5CONbits               UD_abs_jz8p2615_18d 0x18d      0     2      0   
+_P5CON                   UD_abs_jz8p2615_18d 0x18d      0     2      0   
+UD_abs_jz8p2615_18e      UD_abs_jz8p2615_18e 0x18e      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_P6CONbits               UD_abs_jz8p2615_18e 0x18e      0     2      0   
+_P6CON                   UD_abs_jz8p2615_18e 0x18e      0     2      0   
+UD_abs_jz8p2615_190      UD_abs_jz8p2615_190 0x190      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_P5PHbits                UD_abs_jz8p2615_190 0x190      0     2      0   
+_P5PH                    UD_abs_jz8p2615_190 0x190      0     2      0   
+UD_abs_jz8p2615_191      UD_abs_jz8p2615_191 0x191      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_P6PHbits                UD_abs_jz8p2615_191 0x191      0     2      0   
+_P6PH                    UD_abs_jz8p2615_191 0x191      0     2      0   
+UD_abs_jz8p2615_193      UD_abs_jz8p2615_193 0x193      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_P5PDbits                UD_abs_jz8p2615_193 0x193      0     2      0   
+_P5PD                    UD_abs_jz8p2615_193 0x193      0     2      0   
+UD_abs_jz8p2615_194      UD_abs_jz8p2615_194 0x194      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_P6PDbits                UD_abs_jz8p2615_194 0x194      0     2      0   
+_P6PD                    UD_abs_jz8p2615_194 0x194      0     2      0   
+UD_abs_jz8p2615_199      UD_abs_jz8p2615_199 0x199      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_P6ODbits                UD_abs_jz8p2615_199 0x199      0     2      0   
+_P6OD                    UD_abs_jz8p2615_199 0x199      0     2      0   
+UD_abs_jz8p2615_19a      UD_abs_jz8p2615_19a 0x19a      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_P6WDbits                UD_abs_jz8p2615_19a 0x19a      0     2      0   
+_P6WD                    UD_abs_jz8p2615_19a 0x19a      0     2      0   
+UD_abs_jz8p2615_19c      UD_abs_jz8p2615_19c 0x19c      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_P5IWEbits               UD_abs_jz8p2615_19c 0x19c      0     2      0   
+_P5IWE                   UD_abs_jz8p2615_19c 0x19c      0     2      0   
+UD_abs_jz8p2615_19d      UD_abs_jz8p2615_19d 0x19d      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_P6IWEbits               UD_abs_jz8p2615_19d 0x19d      0     2      0   
+_P6IWE                   UD_abs_jz8p2615_19d 0x19d      0     2      0   
+UD_abs_jz8p2615_1a0      UD_abs_jz8p2615_1a0 0x1a0      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_P5ADEbits               UD_abs_jz8p2615_1a0 0x1a0      0     2      0   
+_P5ADE                   UD_abs_jz8p2615_1a0 0x1a0      0     2      0   
+UD_abs_jz8p2615_1a1      UD_abs_jz8p2615_1a1 0x1a1      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_P6ADEbits               UD_abs_jz8p2615_1a1 0x1a1      0     2      0   
+_P6ADE                   UD_abs_jz8p2615_1a1 0x1a1      0     2      0   
+UD_abs_jz8p2615_1a3      UD_abs_jz8p2615_1a3 0x1a3      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_ADATHbits               UD_abs_jz8p2615_1a3 0x1a3      0     2      0   
+_ADATH                   UD_abs_jz8p2615_1a3 0x1a3      0     2      0   
+UD_abs_jz8p2615_1a4      UD_abs_jz8p2615_1a4 0x1a4      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_ADATLbits               UD_abs_jz8p2615_1a4 0x1a4      0     2      0   
+_ADATL                   UD_abs_jz8p2615_1a4 0x1a4      0     2      0   
+UD_abs_jz8p2615_1a5      UD_abs_jz8p2615_1a5 0x1a5      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_ADISbits                UD_abs_jz8p2615_1a5 0x1a5      0     2      0   
+_ADIS                    UD_abs_jz8p2615_1a5 0x1a5      0     2      0   
+UD_abs_jz8p2615_1a6      UD_abs_jz8p2615_1a6 0x1a6      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_ADCON0bits              UD_abs_jz8p2615_1a6 0x1a6      0     2      0   
+_ADCON0                  UD_abs_jz8p2615_1a6 0x1a6      0     2      0   
+UD_abs_jz8p2615_1a7      UD_abs_jz8p2615_1a7 0x1a7      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_ADCON1bits              UD_abs_jz8p2615_1a7 0x1a7      0     2      0   
+_ADCON1                  UD_abs_jz8p2615_1a7 0x1a7      0     2      0   
+UD_abs_jz8p2615_1af      UD_abs_jz8p2615_1af 0x1af      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_WDTCONbits              UD_abs_jz8p2615_1af 0x1af      0     2      0   
+_WDTCON                  UD_abs_jz8p2615_1af 0x1af      0     2      0   
+UD_abs_jz8p2615_1b0      UD_abs_jz8p2615_1b0 0x1b0      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_TC1CONbits              UD_abs_jz8p2615_1b0 0x1b0      0     2      0   
+_TC1CON                  UD_abs_jz8p2615_1b0 0x1b0      0     2      0   
+UD_abs_jz8p2615_1b1      UD_abs_jz8p2615_1b1 0x1b1      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_TC1PRDLbits             UD_abs_jz8p2615_1b1 0x1b1      0     2      0   
+_TC1PRDL                 UD_abs_jz8p2615_1b1 0x1b1      0     2      0   
+UD_abs_jz8p2615_1b2      UD_abs_jz8p2615_1b2 0x1b2      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_PWM1DTLbits             UD_abs_jz8p2615_1b2 0x1b2      0     2      0   
+_PWM1DTL                 UD_abs_jz8p2615_1b2 0x1b2      0     2      0   
+UD_abs_jz8p2615_1b3      UD_abs_jz8p2615_1b3 0x1b3      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_TC1PRDTHbits            UD_abs_jz8p2615_1b3 0x1b3      0     2      0   
+_TC1PRDTH                UD_abs_jz8p2615_1b3 0x1b3      0     2      0   
+UD_abs_jz8p2615_1b4      UD_abs_jz8p2615_1b4 0x1b4      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_TC1CHbits               UD_abs_jz8p2615_1b4 0x1b4      0     2      0   
+_TC1CH                   UD_abs_jz8p2615_1b4 0x1b4      0     2      0   
+UD_abs_jz8p2615_1b5      UD_abs_jz8p2615_1b5 0x1b5      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_TC1CLbits               UD_abs_jz8p2615_1b5 0x1b5      0     2      0   
+_TC1CL                   UD_abs_jz8p2615_1b5 0x1b5      0     2      0   
+UD_abs_jz8p2615_1b6      UD_abs_jz8p2615_1b6 0x1b6      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_TC2CONbits              UD_abs_jz8p2615_1b6 0x1b6      0     2      0   
+_TC2CON                  UD_abs_jz8p2615_1b6 0x1b6      0     2      0   
+UD_abs_jz8p2615_1b7      UD_abs_jz8p2615_1b7 0x1b7      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_TC2PRDLbits             UD_abs_jz8p2615_1b7 0x1b7      0     2      0   
+_TC2PRDL                 UD_abs_jz8p2615_1b7 0x1b7      0     2      0   
+UD_abs_jz8p2615_1b8      UD_abs_jz8p2615_1b8 0x1b8      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_PWM2DTLbits             UD_abs_jz8p2615_1b8 0x1b8      0     2      0   
+_PWM2DTL                 UD_abs_jz8p2615_1b8 0x1b8      0     2      0   
+UD_abs_jz8p2615_1b9      UD_abs_jz8p2615_1b9 0x1b9      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_TC2PRDTHbits            UD_abs_jz8p2615_1b9 0x1b9      0     2      0   
+_TC2PRDTH                UD_abs_jz8p2615_1b9 0x1b9      0     2      0   
+UD_abs_jz8p2615_1ba      UD_abs_jz8p2615_1ba 0x1ba      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_TC2CHbits               UD_abs_jz8p2615_1ba 0x1ba      0     2      0   
+_TC2CH                   UD_abs_jz8p2615_1ba 0x1ba      0     2      0   
+UD_abs_jz8p2615_1bb      UD_abs_jz8p2615_1bb 0x1bb      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_TC2CLbits               UD_abs_jz8p2615_1bb 0x1bb      0     2      0   
+_TC2CL                   UD_abs_jz8p2615_1bb 0x1bb      0     2      0   
+UD_abs_jz8p2615_1bc      UD_abs_jz8p2615_1bc 0x1bc      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_PWM3DTHbits             UD_abs_jz8p2615_1bc 0x1bc      0     2      0   
+_PWM3DTH                 UD_abs_jz8p2615_1bc 0x1bc      0     2      0   
+UD_abs_jz8p2615_1bd      UD_abs_jz8p2615_1bd 0x1bd      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_PWM3DTLbits             UD_abs_jz8p2615_1bd 0x1bd      0     2      0   
+_PWM3DTL                 UD_abs_jz8p2615_1bd 0x1bd      0     2      0   
+UD_abs_jz8p2615_1be      UD_abs_jz8p2615_1be 0x1be      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_PWM4DTHbits             UD_abs_jz8p2615_1be 0x1be      0     2      0   
+_PWM4DTH                 UD_abs_jz8p2615_1be 0x1be      0     2      0   
+UD_abs_jz8p2615_1bf      UD_abs_jz8p2615_1bf 0x1bf      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_PWM4DTLbits             UD_abs_jz8p2615_1bf 0x1bf      0     2      0   
+_PWM4DTL                 UD_abs_jz8p2615_1bf 0x1bf      0     2      0   
+UD_abs_jz8p2615_1c6      UD_abs_jz8p2615_1c6 0x1c6      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_PWMISbits               UD_abs_jz8p2615_1c6 0x1c6      0     2      0   
+_PWMIS                   UD_abs_jz8p2615_1c6 0x1c6      0     2      0   
+UD_abs_jz8p2615_1c7      UD_abs_jz8p2615_1c7 0x1c7      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_DEADCONbits             UD_abs_jz8p2615_1c7 0x1c7      0     2      0   
+_DEADCON                 UD_abs_jz8p2615_1c7 0x1c7      0     2      0   
+UD_abs_jz8p2615_1c8      UD_abs_jz8p2615_1c8 0x1c8      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_PWMCONbits              UD_abs_jz8p2615_1c8 0x1c8      0     2      0   
+_PWMCON                  UD_abs_jz8p2615_1c8 0x1c8      0     2      0   
+UD_abs_jz8p2615_1c9      UD_abs_jz8p2615_1c9 0x1c9      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_DEADT0bits              UD_abs_jz8p2615_1c9 0x1c9      0     2      0   
+_DEADT0                  UD_abs_jz8p2615_1c9 0x1c9      0     2      0   
+UD_abs_jz8p2615_1ca      UD_abs_jz8p2615_1ca 0x1ca      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_DEADT1bits              UD_abs_jz8p2615_1ca 0x1ca      0     2      0   
+_DEADT1                  UD_abs_jz8p2615_1ca 0x1ca      0     2      0   
+UD_abs_jz8p2615_1d6      UD_abs_jz8p2615_1d6 0x1d6      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_INTE0bits               UD_abs_jz8p2615_1d6 0x1d6      0     2      0   
+_INTE0                   UD_abs_jz8p2615_1d6 0x1d6      0     2      0   
+UD_abs_jz8p2615_1d7      UD_abs_jz8p2615_1d7 0x1d7      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_INTE1bits               UD_abs_jz8p2615_1d7 0x1d7      0     2      0   
+_INTE1                   UD_abs_jz8p2615_1d7 0x1d7      0     2      0   
+UD_abs_jz8p2615_1da      UD_abs_jz8p2615_1da 0x1da      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_INTF0bits               UD_abs_jz8p2615_1da 0x1da      0     2      0   
+_INTF0                   UD_abs_jz8p2615_1da 0x1da      0     2      0   
+UD_abs_jz8p2615_1db      UD_abs_jz8p2615_1db 0x1db      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_INTF1bits               UD_abs_jz8p2615_1db 0x1db      0     2      0   
+_INTF1                   UD_abs_jz8p2615_1db 0x1db      0     2      0   
+UD_abs_jz8p2615_1ff      UD_abs_jz8p2615_1ff 0x1ff      0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_IARbits                 UD_abs_jz8p2615_1ff 0x1ff      0     2      0   
+_IAR                     UD_abs_jz8p2615_1ff 0x1ff      0     2      0   
+code_jz8p2615            code_jz8p2615    0x7        0     109    1   
+  length = 0
+  number of relocations = 0
+  number of line numbers = 0
+.eof                     DEBUG            0          0     107    0   
+.file                    DEBUG            0          0     103    1   
+  file = _mulchar.asm
+  line included = 0
+.file                    DEBUG            0          0     103    1   
+  file = ../../share/header/jz8p2615.inc
+  line included = 10
+.list                    DEBUG            0x1        0     108    0   
+.nolist                  DEBUG            0x3        0     108    0   
+.list                    DEBUG            0x74       0     108    0   
+.eof                     DEBUG            0          0     107    0   
+UDL__mulchar_0           UDL__mulchar_0   0x27       0     109    1   
+  length = 5
+  number of relocations = 0
+  number of line numbers = 0
+r0x1000                  UDL__mulchar_0   0x27       0     3      0   
+r0x1001                  UDL__mulchar_0   0x28       0     3      0   
+r0x1002                  UDL__mulchar_0   0x29       0     3      0   
+r0x1003                  UDL__mulchar_0   0x2a       0     3      0   
+r0x1004                  UDL__mulchar_0   0x2b       0     3      0   
+code__mulchar            code__mulchar    0x7        0     109    1   
+  length = 0
+  number of relocations = 0
+  number of line numbers = 0
+S__mulchar___mulchar     S__mulchar___mulchar 0x4be      0     109    1   
+  length = 50
+  number of relocations = 19
+  number of line numbers = 25
+__mulchar                S__mulchar___mulchar 0x4be      0     2      0   
+_00119_DS_               S__mulchar___mulchar 0x4c4      0     6      0   
+_00114_DS_               S__mulchar___mulchar 0x4c8      0     6      0   
+.eof                     DEBUG            0          0     107    0   
+_cinit                   .cinit           0x4d7      0     2      0   
+

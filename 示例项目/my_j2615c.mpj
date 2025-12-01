@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Project>
+	<Name>my_j2615c</Name>
+	<Path>C:\Users\Administrator\Desktop\188-prj\2</Path>
+	<Chip>JZ8P2615</Chip>
+	<FilterIndex>2</FilterIndex>
+	<Previous_Instruction_Set>1</Previous_Instruction_Set>
+	<FileList>
+		<File>C:\Users\Administrator\Desktop\188-prj\2\main.c</File>
+		<File>C:\Users\Administrator\Desktop\188-prj\2\smg.c</File>
+		<File>C:\Users\Administrator\Desktop\188-prj\2\isr.c</File>
+		<File>C:\Users\Administrator\Desktop\188-prj\2\ADC.C</File>
+		<File>C:\Users\Administrator\Desktop\188-prj\2\BAT.C</File>
+		<File>C:\Users\Administrator\Desktop\188-prj\2\init.c</File>
+		<File>C:\Users\Administrator\Desktop\188-prj\2\mode.c</File>
+		<File>C:\Users\Administrator\Desktop\188-prj\2\sleep.C</File>
+	</FileList>
+	<H_FileList>
+		<H_File>C:\Users\Administrator\Desktop\188-prj\2\smg.h</H_File>
+		<H_File>C:\Users\Administrator\Desktop\188-prj\2\main.h</H_File>
+		<H_File>C:\Users\Administrator\Desktop\188-prj\2\type.h</H_File>
+		<H_File>C:\Users\Administrator\Desktop\188-prj\2\ADC.H</H_File>
+		<H_File>C:\Users\Administrator\Desktop\188-prj\2\BAT.H</H_File>
+		<H_File>C:\Users\Administrator\Desktop\188-prj\2\init.h</H_File>
+		<H_File>C:\Users\Administrator\Desktop\188-prj\2\mode.h</H_File>
+		<H_File>C:\Users\Administrator\Desktop\188-prj\2\sleep.h</H_File>
+	</H_FileList>
+	<List_FileList>
+		<List_File>C:\Users\Administrator\Desktop\188-prj\2\my_j2615c.lst</List_File>
+	</List_FileList>
+	<Options>
+		<OPTIONVALUE0>7FFF</OPTIONVALUE0>
+		<OPTIONVALUE1>F7F7</OPTIONVALUE1>
+		<OPTIONVALUE2>7FDF</OPTIONVALUE2>
+		<OPTIONVALUE3>FFFF</OPTIONVALUE3>
+		<OPTIONVALUE4>FFFF</OPTIONVALUE4>
+		<OPTIONVALUE5>FFFF</OPTIONVALUE5>
+		<OPTIONVALUE6>FFFF</OPTIONVALUE6>
+		<OPTIONVALUE7>FFFF</OPTIONVALUE7>
+	</Options>
+</Project>

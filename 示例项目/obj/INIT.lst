@@ -1,0 +1,587 @@
+slasm-0.13.6 beta               C:\Users\Administrator\Desktop\188-prj\2\obj\INIT.asm11-29-2025  11:38:54         PAGE  1
+
+
+               00001 ;--------------------------------------------------------
+               00002 ; File Created by SLCC : free open source ANSI-C Compiler
+               00003 ; Version 3.6.0 #Sep 28 2025 (MSVC)
+               00004 ;--------------------------------------------------------
+               00005 ; SL port for the RISC core
+               00006 ;--------------------------------------------------------
+               00007 ;       .file   "C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\INIT.C"
+               00008         list    p=JZ8P2615
+               00009         radix dec
+               00010         include "JZ8P2615.inc"
+               00001         LIST                                                                  
+               00002 ; JZ8P2615.INC  Standard Header File, Version 1.00
+               00116         LIST
+               00011 ;--------------------------------------------------------
+               00012 ; external declarations
+               00013 ;--------------------------------------------------------
+               00014         extern  _RSRbits
+               00015         extern  _PCHbits
+               00016         extern  _PCLbits
+               00017         extern  _STATUSbits
+               00018         extern  _TC0CONbits
+               00019         extern  _TC0Cbits
+               00020         extern  _TBRDHbits
+               00021         extern  _TBRDLbits
+               00022         extern  _CPUCONbits
+               00023         extern  _IHRCCALbits
+               00024         extern  _PORT5bits
+               00025         extern  _PORT6bits
+               00026         extern  _P5CONbits
+               00027         extern  _P6CONbits
+               00028         extern  _P5PHbits
+               00029         extern  _P6PHbits
+               00030         extern  _P5PDbits
+               00031         extern  _P6PDbits
+               00032         extern  _P6ODbits
+               00033         extern  _P6WDbits
+               00034         extern  _P5IWEbits
+               00035         extern  _P6IWEbits
+               00036         extern  _P5ADEbits
+               00037         extern  _P6ADEbits
+               00038         extern  _ADATHbits
+               00039         extern  _ADATLbits
+               00040         extern  _ADISbits
+               00041         extern  _ADCON0bits
+               00042         extern  _ADCON1bits
+               00043         extern  _WDTCONbits
+               00044         extern  _TC1CONbits
+               00045         extern  _TC1PRDLbits
+               00046         extern  _PWM1DTLbits
+               00047         extern  _TC1PRDTHbits
+               00048         extern  _TC1CHbits
+               00049         extern  _TC1CLbits
+               00050         extern  _TC2CONbits
+               00051         extern  _TC2PRDLbits
+               00052         extern  _PWM2DTLbits
+               00053         extern  _TC2PRDTHbits
+               00054         extern  _TC2CHbits
+               00055         extern  _TC2CLbits
+               00056         extern  _PWM3DTHbits
+               00057         extern  _PWM3DTLbits
+               00058         extern  _PWM4DTHbits
+               00059         extern  _PWM4DTLbits
+               00060         extern  _PWMISbits
+               00061         extern  _DEADCONbits
+               00062         extern  _PWMCONbits
+               00063         extern  _DEADT0bits
+               00064         extern  _DEADT1bits
+               00065         extern  _INTE0bits
+               00066         extern  _INTE1bits
+               00067         extern  _INTF0bits
+               00068         extern  _INTF1bits
+               00069         extern  _IARbits
+               00070         extern  _U_Flage1
+               00071         extern  _r_g_workMod
+               00072         extern  _RSR
+               00073         extern  _PCH
+               00074         extern  _PCL
+               00075         extern  _STATUS
+               00076         extern  _TC0CON
+               00077         extern  _TC0C
+               00078         extern  _TBRDH
+               00079         extern  _TBRDL
+               00080         extern  _CPUCON
+               00081         extern  _IHRCCAL
+               00082         extern  _PORT5
+               00083         extern  _PORT6
+               00084         extern  _P5CON
+               00085         extern  _P6CON
+               00086         extern  _P5PH
+               00087         extern  _P6PH
+               00088         extern  _P5PD
+               00089         extern  _P6PD
+               00090         extern  _P6OD
+               00091         extern  _P6WD
+               00092         extern  _P5IWE
+               00093         extern  _P6IWE
+               00094         extern  _P5ADE
+               00095         extern  _P6ADE
+               00096         extern  _ADATH
+               00097         extern  _ADATL
+               00098         extern  _ADIS
+               00099         extern  _ADCON0
+               00100         extern  _ADCON1
+               00101         extern  _WDTCON
+               00102         extern  _TC1CON
+               00103         extern  _TC1PRDL
+               00104         extern  _PWM1DTL
+               00105         extern  _TC1PRDTH
+               00106         extern  _TC1CH
+               00107         extern  _TC1CL
+               00108         extern  _TC2CON
+               00109         extern  _TC2PRDL
+               00110         extern  _PWM2DTL
+               00111         extern  _TC2PRDTH
+               00112         extern  _TC2CH
+               00113         extern  _TC2CL
+               00114         extern  _PWM3DTH
+               00115         extern  _PWM3DTL
+               00116         extern  _PWM4DTH
+               00117         extern  _PWM4DTL
+               00118         extern  _PWMIS
+               00119         extern  _DEADCON
+               00120         extern  _PWMCON
+               00121         extern  _DEADT0
+               00122         extern  _DEADT1
+               00123         extern  _INTE0
+               00124         extern  _INTE1
+               00125         extern  _INTF0
+               00126         extern  _INTF1
+               00127         extern  _IAR
+               00128 
+               00129         extern STK06
+               00130         extern STK05
+               00131         extern STK04
+               00132         extern STK03
+               00133         extern STK02
+               00134         extern STK01
+               00135         extern STK00
+               00136 ;--------------------------------------------------------
+               00137 ; global declarations
+               00138 ;--------------------------------------------------------
+               00139         global  _file_tc0_Init
+               00140         global  _file_init
+               00141         global  _file_clrRam
+               00142 
+               00143 ;--------------------------------------------------------
+               00144 ; global definitions
+               00145 ;--------------------------------------------------------
+               00146 ;--------------------------------------------------------
+               00147 ; absolute symbol definitions
+               00148 ;--------------------------------------------------------
+               00149 ;--------------------------------------------------------
+               00150 ; compiler-defined variables
+               00151 ;--------------------------------------------------------
+               00152 ;--------------------------------------------------------
+               00153 ; initialized data
+               00154 ;--------------------------------------------------------
+               00155 
+               00156 ;@Allocation info for local variables in function 'file_clrRam'
+               00157 ;@file_clrRam file_init                 Allocated to registers ;size:2
+               00158 ;@file_clrRam file_tc0_Init             Allocated to registers ;size:2
+               00159 ;@file_clrRam RSRbits                   Allocated to registers ;size:1
+               00160 ;@file_clrRam PCHbits                   Allocated to registers ;size:1
+               00161 ;@file_clrRam PCLbits                   Allocated to registers ;size:1
+               00162 ;@file_clrRam STATUSbits                Allocated to registers ;size:1
+               00163 ;@file_clrRam TC0CONbits                Allocated to registers ;size:1
+               00164 ;@file_clrRam TC0Cbits                  Allocated to registers ;size:1
+               00165 ;@file_clrRam TBRDHbits                 Allocated to registers ;size:1
+               00166 ;@file_clrRam TBRDLbits                 Allocated to registers ;size:1
+               00167 ;@file_clrRam CPUCONbits                Allocated to registers ;size:1
+               00168 ;@file_clrRam IHRCCALbits               Allocated to registers ;size:1
+               00169 ;@file_clrRam PORT5bits                 Allocated to registers ;size:1
+               00170 ;@file_clrRam PORT6bits                 Allocated to registers ;size:1
+               00171 ;@file_clrRam P5CONbits                 Allocated to registers ;size:1
+               00172 ;@file_clrRam P6CONbits                 Allocated to registers ;size:1
+               00173 ;@file_clrRam P5PHbits                  Allocated to registers ;size:1
+               00174 ;@file_clrRam P6PHbits                  Allocated to registers ;size:1
+               00175 ;@file_clrRam P5PDbits                  Allocated to registers ;size:1
+               00176 ;@file_clrRam P6PDbits                  Allocated to registers ;size:1
+               00177 ;@file_clrRam P6ODbits                  Allocated to registers ;size:1
+               00178 ;@file_clrRam P6WDbits                  Allocated to registers ;size:1
+               00179 ;@file_clrRam P5IWEbits                 Allocated to registers ;size:1
+               00180 ;@file_clrRam P6IWEbits                 Allocated to registers ;size:1
+               00181 ;@file_clrRam P5ADEbits                 Allocated to registers ;size:1
+               00182 ;@file_clrRam P6ADEbits                 Allocated to registers ;size:1
+               00183 ;@file_clrRam ADATHbits                 Allocated to registers ;size:1
+               00184 ;@file_clrRam ADATLbits                 Allocated to registers ;size:1
+               00185 ;@file_clrRam ADISbits                  Allocated to registers ;size:1
+               00186 ;@file_clrRam ADCON0bits                Allocated to registers ;size:1
+               00187 ;@file_clrRam ADCON1bits                Allocated to registers ;size:1
+               00188 ;@file_clrRam WDTCONbits                Allocated to registers ;size:1
+               00189 ;@file_clrRam TC1CONbits                Allocated to registers ;size:1
+               00190 ;@file_clrRam TC1PRDLbits               Allocated to registers ;size:1
+               00191 ;@file_clrRam PWM1DTLbits               Allocated to registers ;size:1
+               00192 ;@file_clrRam TC1PRDTHbits              Allocated to registers ;size:1
+               00193 ;@file_clrRam TC1CHbits                 Allocated to registers ;size:1
+               00194 ;@file_clrRam TC1CLbits                 Allocated to registers ;size:1
+               00195 ;@file_clrRam TC2CONbits                Allocated to registers ;size:1
+               00196 ;@file_clrRam TC2PRDLbits               Allocated to registers ;size:1
+               00197 ;@file_clrRam PWM2DTLbits               Allocated to registers ;size:1
+               00198 ;@file_clrRam TC2PRDTHbits              Allocated to registers ;size:1
+               00199 ;@file_clrRam TC2CHbits                 Allocated to registers ;size:1
+               00200 ;@file_clrRam TC2CLbits                 Allocated to registers ;size:1
+               00201 ;@file_clrRam PWM3DTHbits               Allocated to registers ;size:1
+               00202 ;@file_clrRam PWM3DTLbits               Allocated to registers ;size:1
+               00203 ;@file_clrRam PWM4DTHbits               Allocated to registers ;size:1
+               00204 ;@file_clrRam PWM4DTLbits               Allocated to registers ;size:1
+               00205 ;@file_clrRam PWMISbits                 Allocated to registers ;size:1
+               00206 ;@file_clrRam DEADCONbits               Allocated to registers ;size:1
+               00207 ;@file_clrRam PWMCONbits                Allocated to registers ;size:1
+               00208 ;@file_clrRam DEADT0bits                Allocated to registers ;size:1
+               00209 ;@file_clrRam DEADT1bits                Allocated to registers ;size:1
+               00210 ;@file_clrRam INTE0bits                 Allocated to registers ;size:1
+               00211 ;@file_clrRam INTE1bits                 Allocated to registers ;size:1
+               00212 ;@file_clrRam INTF0bits                 Allocated to registers ;size:1
+               00213 ;@file_clrRam INTF1bits                 Allocated to registers ;size:1
+               00214 ;@file_clrRam IARbits                   Allocated to registers ;size:1
+               00215 ;@file_clrRam U_Flage1                  Allocated to registers ;size:1
+               00216 ;@file_clrRam r_g_workMod               Allocated to registers ;size:1
+               00217 ;@file_clrRam RSR                       Allocated to registers ;size:1
+               00218 ;@file_clrRam PCH                       Allocated to registers ;size:1
+               00219 ;@file_clrRam PCL                       Allocated to registers ;size:1
+               00220 ;@file_clrRam STATUS                    Allocated to registers ;size:1
+               00221 ;@file_clrRam TC0CON                    Allocated to registers ;size:1
+               00222 ;@file_clrRam TC0C                      Allocated to registers ;size:1
+               00223 ;@file_clrRam TBRDH                     Allocated to registers ;size:1
+               00224 ;@file_clrRam TBRDL                     Allocated to registers ;size:1
+               00225 ;@file_clrRam CPUCON                    Allocated to registers ;size:1
+               00226 ;@file_clrRam IHRCCAL                   Allocated to registers ;size:1
+               00227 ;@file_clrRam PORT5                     Allocated to registers ;size:1
+               00228 ;@file_clrRam PORT6                     Allocated to registers ;size:1
+               00229 ;@file_clrRam P5CON                     Allocated to registers ;size:1
+               00230 ;@file_clrRam P6CON                     Allocated to registers ;size:1
+               00231 ;@file_clrRam P5PH                      Allocated to registers ;size:1
+               00232 ;@file_clrRam P6PH                      Allocated to registers ;size:1
+               00233 ;@file_clrRam P5PD                      Allocated to registers ;size:1
+               00234 ;@file_clrRam P6PD                      Allocated to registers ;size:1
+               00235 ;@file_clrRam P6OD                      Allocated to registers ;size:1
+               00236 ;@file_clrRam P6WD                      Allocated to registers ;size:1
+               00237 ;@file_clrRam P5IWE                     Allocated to registers ;size:1
+               00238 ;@file_clrRam P6IWE                     Allocated to registers ;size:1
+               00239 ;@file_clrRam P5ADE                     Allocated to registers ;size:1
+               00240 ;@file_clrRam P6ADE                     Allocated to registers ;size:1
+               00241 ;@file_clrRam ADATH                     Allocated to registers ;size:1
+               00242 ;@file_clrRam ADATL                     Allocated to registers ;size:1
+               00243 ;@file_clrRam ADIS                      Allocated to registers ;size:1
+               00244 ;@file_clrRam ADCON0                    Allocated to registers ;size:1
+               00245 ;@file_clrRam ADCON1                    Allocated to registers ;size:1
+               00246 ;@file_clrRam WDTCON                    Allocated to registers ;size:1
+               00247 ;@file_clrRam TC1CON                    Allocated to registers ;size:1
+               00248 ;@file_clrRam TC1PRDL                   Allocated to registers ;size:1
+               00249 ;@file_clrRam PWM1DTL                   Allocated to registers ;size:1
+               00250 ;@file_clrRam TC1PRDTH                  Allocated to registers ;size:1
+               00251 ;@file_clrRam TC1CH                     Allocated to registers ;size:1
+               00252 ;@file_clrRam TC1CL                     Allocated to registers ;size:1
+               00253 ;@file_clrRam TC2CON                    Allocated to registers ;size:1
+               00254 ;@file_clrRam TC2PRDL                   Allocated to registers ;size:1
+               00255 ;@file_clrRam PWM2DTL                   Allocated to registers ;size:1
+               00256 ;@file_clrRam TC2PRDTH                  Allocated to registers ;size:1
+               00257 ;@file_clrRam TC2CH                     Allocated to registers ;size:1
+               00258 ;@file_clrRam TC2CL                     Allocated to registers ;size:1
+               00259 ;@file_clrRam PWM3DTH                   Allocated to registers ;size:1
+               00260 ;@file_clrRam PWM3DTL                   Allocated to registers ;size:1
+               00261 ;@file_clrRam PWM4DTH                   Allocated to registers ;size:1
+               00262 ;@file_clrRam PWM4DTL                   Allocated to registers ;size:1
+               00263 ;@file_clrRam PWMIS                     Allocated to registers ;size:1
+               00264 ;@file_clrRam DEADCON                   Allocated to registers ;size:1
+               00265 ;@file_clrRam PWMCON                    Allocated to registers ;size:1
+               00266 ;@file_clrRam DEADT0                    Allocated to registers ;size:1
+               00267 ;@file_clrRam DEADT1                    Allocated to registers ;size:1
+               00268 ;@file_clrRam INTE0                     Allocated to registers ;size:1
+               00269 ;@file_clrRam INTE1                     Allocated to registers ;size:1
+               00270 ;@file_clrRam INTF0                     Allocated to registers ;size:1
+               00271 ;@file_clrRam INTF1                     Allocated to registers ;size:1
+               00272 ;@file_clrRam IAR                       Allocated to registers ;size:1
+               00273 ;@end Allocation info for local variables in function 'file_clrRam';
+               00274 
+               00275 ;--------------------------------------------------------
+               00276 ; overlayable items in internal ram 
+               00277 ;--------------------------------------------------------
+               00278 ;       udata_ovr
+               00279 ;--------------------------------------------------------
+               00280 ; code
+               00281 ;--------------------------------------------------------
+               00282 code_INIT       code
+               00283 ;***
+               00284 ;  pBlock Stats: dbName = C
+               00285 ;***
+               00286 ;has an exit
+               00287 ;; Starting pCode block
+               00288 S_INIT__file_tc0_Init   code
+0000           00289 _file_tc0_Init: ;Function start
+               00290 ; 2 exit points
+               00291 ;       .line   48; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\INIT.C     TC0CON = 0x82;  //TC0控制寄存器                 0分频   
+0000 C082      00292         MOV     A,@0x82
+0001 0200      00293         MOV     _TC0CON,A
+               00294 ;       .line   49; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\INIT.C     TC0C = TCC_NUM;         //TC0计数寄存器
+0002 C0CE      00295         MOV     A,@0xce
+0003 0200      00296         MOV     _TC0C,A
+               00297 ;       .line   50; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\INIT.C     INTE0 |= 0x01;                  //中断使能 21
+0004 5000      00298         BTS     _INTE0,0
+               00299 ;       .line   51; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\INIT.C     }
+0005 0082      00300         RET     
+               00301 ; exit point of _file_tc0_Init
+               00302 
+               00303 ;***
+               00304 ;  pBlock Stats: dbName = C
+               00305 ;***
+               00306 ;has an exit
+               00307 ;; Starting pCode block
+               00308 S_INIT__file_init       code
+0000           00309 _file_init:     ;Function start
+               00310 ; 2 exit points
+               00311 ;       .line   18; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\INIT.C     PORT5=0x00;
+0000 0600      00312         CLR     _PORT5
+               00313 ;       .line   19; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\INIT.C     PORT6=0x00;
+0001 0600      00314         CLR     _PORT6
+               00315 ;       .line   21; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\INIT.C     P5CON=0x00;                     //P5端口控制    ;0输出，1输入
+0002 0600      00316         CLR     _P5CON
+               00317 ;       .line   22; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\INIT.C     P6CON=0x38;                     //P6端口控制    ;0输出，1输入
+0003 C038      00318         MOV     A,@0x38
+0004 0200      00319         MOV     _P6CON,A
+               00320 ;       .line   24; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\INIT.C     P5PH=0xFF;                      //P5口上拉              ;0使能，1禁止
+0005 C0FF      00321         MOV     A,@0xff
+0006 0200      00322         MOV     _P5PH,A
+               00323 ;       .line   25; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\INIT.C     P6PH=0xC7;                      //P6口上拉              ;0使能，1禁止
+0007 C0C7      00324         MOV     A,@0xc7
+0008 0200      00325         MOV     _P6PH,A
+               00326 ;       .line   27; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\INIT.C     P5PD=0xff;                      //P5口下拉              ;0使能，1禁止
+0009 C0FF      00327         MOV     A,@0xff
+000A 0200      00328         MOV     _P5PD,A
+               00329 ;       .line   28; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\INIT.C     P6PD=0xff;                      //P6口下拉              ;0使能，1禁止   
+000B C0FF      00330         MOV     A,@0xff
+000C 0200      00331         MOV     _P6PD,A
+               00332 ;       .line   30; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\INIT.C     P6OD=0x00;                      //P6口开漏              ;0禁止，1使能
+000D 0600      00333         CLR     _P6OD
+               00334 ;       .line   31; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\INIT.C     P6WD=0x00;                      //P6口弱驱动   ;0禁止，1使能    
+000E 0600      00335         CLR     _P6WD
+               00336 ;       .line   34; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\INIT.C     P5IWE=0X00;                     //P5口状态变化唤醒使能
+000F 0600      00337         CLR     _P5IWE
+               00338 ;       .line   35; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\INIT.C     P6IWE=0X38;                     //P6口状态变化唤醒使能
+0010 C038      00339         MOV     A,@0x38
+0011 0200      00340         MOV     _P6IWE,A
+               00341 ;       .line   38; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\INIT.C     WDTCON=0x00;            //bit6&5:P60&P53外部中断功能控制位，0:普通IO口, 1:外部中断口
+0012 0600      00342         CLR     _WDTCON
+               00343 ;       .line   40; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\INIT.C     INTE0=0x01;                     //中断使能 21
+0013 C001      00344         MOV     A,@0x01
+0014 0200      00345         MOV     _INTE0,A
+               00346 ;       .line   41; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\INIT.C     INTE1=0x00;                     //周期及占空比中断
+0015 0600      00347         CLR     _INTE1
+               00348 ;       .line   42; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\INIT.C     INTF0=0x00;                     //清中断标志位
+0016 0600      00349         CLR     _INTF0
+               00350 ;       .line   43; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\INIT.C     INTF1=0x00;             
+0017 0600      00351         CLR     _INTF1
+               00352 ;       .line   44; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\INIT.C     }
+0018 0082      00353         RET     
+               00354 ; exit point of _file_init
+               00355 
+               00356 ;***
+               00357 ;  pBlock Stats: dbName = C
+               00358 ;***
+               00359 ;has an exit
+               00360 ;; Starting pCode block
+               00361 S_INIT__file_clrRam     code
+0000           00362 _file_clrRam:   ;Function start
+               00363 ; 2 exit points
+               00364 ;       .line   8; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\INIT.C      for(RSR=0x90;RSR<0xFF;RSR++)    //清零 BANK0 RAM  IAR-R0,RSR-R4
+0000 C090      00365         MOV     A,@0x90
+0001 0200      00366         MOV     _RSR,A
+0002           00367 _00107_DS_:
+0002 C0FF      00368         MOV     A,@0xff
+0003 0800      00369         SUB     A,_RSR
+0004 6183      00370         JBTC    STATUS,0
+0005 A000      00371         JMP     _00105_DS_
+               00372 ;       .line   9; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\INIT.C      {IAR = 0;}
+0006 0600      00373         CLR     _IAR
+               00374 ;       .line   8; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\INIT.C      for(RSR=0x90;RSR<0xFF;RSR++)    //清零 BANK0 RAM  IAR-R0,RSR-R4
+0007 2A00      00375         INC     _RSR
+0008 A000      00376         JMP     _00107_DS_
+0009           00377 _00105_DS_:
+               00378 ;       .line   10; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\INIT.C     IAR = 0;
+0009 0600      00379         CLR     _IAR
+               00380 ;       .line   11; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\INIT.C     }
+000A 0082      00381         RET     
+               00382 ; exit point of _file_clrRam
+               00383 
+               00384 
+               00385 ;       code size estimation:
+               00386 ;          42+    0 =    42 instructions (   84 byte)
+               00387 
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+ADATH                             000001A3
+ADATL                             000001A4
+ADCON0                            000001A6
+ADCON1                            000001A7
+ADIS                              000001A5
+CPUCON                            00000188
+DEADCON                           000001C7
+DEADT0                            000001C9
+DEADT1                            000001CA
+IAR                               000001FF
+IHRCCAL                           00000189
+INTE0                             000001D6
+INTE1                             000001D7
+INTF0                             000001DA
+INTF1                             000001DB
+P5ADE                             000001A0
+P5CON                             0000018D
+P5IWE                             0000019C
+P5PD                              00000193
+P5PH                              00000190
+P6ADE                             000001A1
+P6CON                             0000018E
+P6IWE                             0000019D
+P6OD                              00000199
+P6PD                              00000194
+P6PH                              00000191
+P6WD                              0000019A
+PCH                               00000181
+PCL                               00000182
+PORT5                             0000018A
+PORT6                             0000018B
+PWM1DTL                           000001B2
+PWM2DTL                           000001B8
+PWM3DTH                           000001BC
+PWM3DTL                           000001BD
+PWM4DTH                           000001BE
+PWM4DTL                           000001BF
+PWMCON                            000001C8
+PWMIS                             000001C6
+RSR                               00000180
+STATUS                            00000183
+STK00                             00000000
+STK01                             00000000
+STK02                             00000000
+STK03                             00000000
+STK04                             00000000
+STK05                             00000000
+STK06                             00000000
+TBRDH                             00000186
+TBRDL                             00000187
+TC0C                              00000185
+TC0CON                            00000184
+TC1CH                             000001B4
+TC1CL                             000001B5
+TC1CON                            000001B0
+TC1PRDL                           000001B1
+TC1PRDTH                          000001B3
+TC2CH                             000001BA
+TC2CL                             000001BB
+TC2CON                            000001B6
+TC2PRDL                           000001B7
+TC2PRDTH                          000001B9
+WDTCON                            000001AF
+_00105_DS_                        00000009
+_00107_DS_                        00000002
+_ADATH                            00000000
+_ADATHbits                        00000000
+_ADATL                            00000000
+_ADATLbits                        00000000
+_ADCON0                           00000000
+_ADCON0bits                       00000000
+_ADCON1                           00000000
+_ADCON1bits                       00000000
+_ADIS                             00000000
+_ADISbits                         00000000
+_CPUCON                           00000000
+_CPUCONbits                       00000000
+_DEADCON                          00000000
+_DEADCONbits                      00000000
+_DEADT0                           00000000
+_DEADT0bits                       00000000
+_DEADT1                           00000000
+_DEADT1bits                       00000000
+_IAR                              00000000
+_IARbits                          00000000
+_IHRCCAL                          00000000
+_IHRCCALbits                      00000000
+_INTE0                            00000000
+_INTE0bits                        00000000
+_INTE1                            00000000
+_INTE1bits                        00000000
+_INTF0                            00000000
+_INTF0bits                        00000000
+_INTF1                            00000000
+_INTF1bits                        00000000
+_P5ADE                            00000000
+_P5ADEbits                        00000000
+_P5CON                            00000000
+_P5CONbits                        00000000
+_P5IWE                            00000000
+_P5IWEbits                        00000000
+_P5PD                             00000000
+_P5PDbits                         00000000
+_P5PH                             00000000
+_P5PHbits                         00000000
+_P6ADE                            00000000
+_P6ADEbits                        00000000
+_P6CON                            00000000
+_P6CONbits                        00000000
+_P6IWE                            00000000
+_P6IWEbits                        00000000
+_P6OD                             00000000
+_P6ODbits                         00000000
+_P6PD                             00000000
+_P6PDbits                         00000000
+_P6PH                             00000000
+_P6PHbits                         00000000
+_P6WD                             00000000
+_P6WDbits                         00000000
+_PCH                              00000000
+_PCHbits                          00000000
+_PCL                              00000000
+_PCLbits                          00000000
+_PORT5                            00000000
+_PORT5bits                        00000000
+_PORT6                            00000000
+_PORT6bits                        00000000
+_PWM1DTL                          00000000
+_PWM1DTLbits                      00000000
+_PWM2DTL                          00000000
+_PWM2DTLbits                      00000000
+_PWM3DTH                          00000000
+_PWM3DTHbits                      00000000
+_PWM3DTL                          00000000
+_PWM3DTLbits                      00000000
+_PWM4DTH                          00000000
+_PWM4DTHbits                      00000000
+_PWM4DTL                          00000000
+_PWM4DTLbits                      00000000
+_PWMCON                           00000000
+_PWMCONbits                       00000000
+_PWMIS                            00000000
+_PWMISbits                        00000000
+_RSR                              00000000
+_RSRbits                          00000000
+_STATUS                           00000000
+_STATUSbits                       00000000
+_TBRDH                            00000000
+_TBRDHbits                        00000000
+_TBRDL                            00000000
+_TBRDLbits                        00000000
+_TC0C                             00000000
+_TC0CON                           00000000
+_TC0CONbits                       00000000
+_TC0Cbits                         00000000
+_TC1CH                            00000000
+_TC1CHbits                        00000000
+_TC1CL                            00000000
+_TC1CLbits                        00000000
+_TC1CON                           00000000
+_TC1CONbits                       00000000
+_TC1PRDL                          00000000
+_TC1PRDLbits                      00000000
+_TC1PRDTH                         00000000
+_TC1PRDTHbits                     00000000
+_TC2CH                            00000000
+_TC2CHbits                        00000000
+_TC2CL                            00000000
+_TC2CLbits                        00000000
+_TC2CON                           00000000
+_TC2CONbits                       00000000
+_TC2PRDL                          00000000
+_TC2PRDLbits                      00000000
+_TC2PRDTH                         00000000
+_TC2PRDTHbits                     00000000
+_U_Flage1                         00000000
+_WDTCON                           00000000
+_WDTCONbits                       00000000
+__jz8p2615                        00000001
+_file_clrRam                      00000000
+_file_init                        00000000
+_file_tc0_Init                    00000000
+_r_g_workMod                      00000000
+
+
+Errors   :       0
+Warnings :       0 reported,       0 suppressed
+Messages :       0 reported,       0 suppressed
+

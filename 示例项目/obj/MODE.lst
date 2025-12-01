@@ -1,0 +1,629 @@
+slasm-0.13.6 beta               C:\Users\Administrator\Desktop\188-prj\2\obj\MODE.asm11-29-2025  11:38:54         PAGE  1
+
+
+               00001 ;--------------------------------------------------------
+               00002 ; File Created by SLCC : free open source ANSI-C Compiler
+               00003 ; Version 3.6.0 #Sep 28 2025 (MSVC)
+               00004 ;--------------------------------------------------------
+               00005 ; SL port for the RISC core
+               00006 ;--------------------------------------------------------
+               00007 ;       .file   "C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\MODE.C"
+               00008         list    p=JZ8P2615
+               00009         radix dec
+               00010         include "JZ8P2615.inc"
+               00001         LIST                                                                  
+               00002 ; JZ8P2615.INC  Standard Header File, Version 1.00
+               00116         LIST
+               00011 ;--------------------------------------------------------
+               00012 ; external declarations
+               00013 ;--------------------------------------------------------
+               00014         extern  _RSRbits
+               00015         extern  _PCHbits
+               00016         extern  _PCLbits
+               00017         extern  _STATUSbits
+               00018         extern  _TC0CONbits
+               00019         extern  _TC0Cbits
+               00020         extern  _TBRDHbits
+               00021         extern  _TBRDLbits
+               00022         extern  _CPUCONbits
+               00023         extern  _IHRCCALbits
+               00024         extern  _PORT5bits
+               00025         extern  _PORT6bits
+               00026         extern  _P5CONbits
+               00027         extern  _P6CONbits
+               00028         extern  _P5PHbits
+               00029         extern  _P6PHbits
+               00030         extern  _P5PDbits
+               00031         extern  _P6PDbits
+               00032         extern  _P6ODbits
+               00033         extern  _P6WDbits
+               00034         extern  _P5IWEbits
+               00035         extern  _P6IWEbits
+               00036         extern  _P5ADEbits
+               00037         extern  _P6ADEbits
+               00038         extern  _ADATHbits
+               00039         extern  _ADATLbits
+               00040         extern  _ADISbits
+               00041         extern  _ADCON0bits
+               00042         extern  _ADCON1bits
+               00043         extern  _WDTCONbits
+               00044         extern  _TC1CONbits
+               00045         extern  _TC1PRDLbits
+               00046         extern  _PWM1DTLbits
+               00047         extern  _TC1PRDTHbits
+               00048         extern  _TC1CHbits
+               00049         extern  _TC1CLbits
+               00050         extern  _TC2CONbits
+               00051         extern  _TC2PRDLbits
+               00052         extern  _PWM2DTLbits
+               00053         extern  _TC2PRDTHbits
+               00054         extern  _TC2CHbits
+               00055         extern  _TC2CLbits
+               00056         extern  _PWM3DTHbits
+               00057         extern  _PWM3DTLbits
+               00058         extern  _PWM4DTHbits
+               00059         extern  _PWM4DTLbits
+               00060         extern  _PWMISbits
+               00061         extern  _DEADCONbits
+               00062         extern  _PWMCONbits
+               00063         extern  _DEADT0bits
+               00064         extern  _DEADT1bits
+               00065         extern  _INTE0bits
+               00066         extern  _INTE1bits
+               00067         extern  _INTF0bits
+               00068         extern  _INTF1bits
+               00069         extern  _IARbits
+               00070         extern  _U_Flage1
+               00071         extern  _r_g_workMod
+               00072         extern  _RSR
+               00073         extern  _PCH
+               00074         extern  _PCL
+               00075         extern  _STATUS
+               00076         extern  _TC0CON
+               00077         extern  _TC0C
+               00078         extern  _TBRDH
+               00079         extern  _TBRDL
+               00080         extern  _CPUCON
+               00081         extern  _IHRCCAL
+               00082         extern  _PORT5
+               00083         extern  _PORT6
+               00084         extern  _P5CON
+               00085         extern  _P6CON
+               00086         extern  _P5PH
+               00087         extern  _P6PH
+               00088         extern  _P5PD
+               00089         extern  _P6PD
+               00090         extern  _P6OD
+               00091         extern  _P6WD
+               00092         extern  _P5IWE
+               00093         extern  _P6IWE
+               00094         extern  _P5ADE
+               00095         extern  _P6ADE
+               00096         extern  _ADATH
+               00097         extern  _ADATL
+               00098         extern  _ADIS
+               00099         extern  _ADCON0
+               00100         extern  _ADCON1
+               00101         extern  _WDTCON
+               00102         extern  _TC1CON
+               00103         extern  _TC1PRDL
+               00104         extern  _PWM1DTL
+               00105         extern  _TC1PRDTH
+               00106         extern  _TC1CH
+               00107         extern  _TC1CL
+               00108         extern  _TC2CON
+               00109         extern  _TC2PRDL
+               00110         extern  _PWM2DTL
+               00111         extern  _TC2PRDTH
+               00112         extern  _TC2CH
+               00113         extern  _TC2CL
+               00114         extern  _PWM3DTH
+               00115         extern  _PWM3DTL
+               00116         extern  _PWM4DTH
+               00117         extern  _PWM4DTL
+               00118         extern  _PWMIS
+               00119         extern  _DEADCON
+               00120         extern  _PWMCON
+               00121         extern  _DEADT0
+               00122         extern  _DEADT1
+               00123         extern  _INTE0
+               00124         extern  _INTE1
+               00125         extern  _INTF0
+               00126         extern  _INTF1
+               00127         extern  _IAR
+               00128 
+               00129         extern STK06
+               00130         extern STK05
+               00131         extern STK04
+               00132         extern STK03
+               00133         extern STK02
+               00134         extern STK01
+               00135         extern STK00
+               00136 ;--------------------------------------------------------
+               00137 ; global declarations
+               00138 ;--------------------------------------------------------
+               00139         global  _Mode_Check
+               00140         global  _s_charge_cnt
+               00141         global  _s_charge_full_cnt
+               00142         global  _s_key_cnt
+               00143         global  _key_state
+               00144         global  _key_last
+               00145 
+               00146 ;--------------------------------------------------------
+               00147 ; global definitions
+               00148 ;--------------------------------------------------------
+               00149 UD_MODE_0       udata
+               00150 _s_charge_cnt   res     1
+               00151 
+               00152 UD_MODE_1       udata
+               00153 _s_charge_full_cnt      res     1
+               00154 
+               00155 UD_MODE_2       udata
+               00156 _s_key_cnt      res     1
+               00157 
+               00158 UD_MODE_3       udata
+               00159 _key_state      res     1
+               00160 
+               00161 UD_MODE_4       udata
+               00162 _key_last       res     1
+               00163 
+               00164 ;--------------------------------------------------------
+               00165 ; absolute symbol definitions
+               00166 ;--------------------------------------------------------
+               00167 ;--------------------------------------------------------
+               00168 ; compiler-defined variables
+               00169 ;--------------------------------------------------------
+               00170 UDL_MODE_0      udata
+               00171 r0x1007 res     1
+               00172 ;--------------------------------------------------------
+               00173 ; initialized data
+               00174 ;--------------------------------------------------------
+               00175 
+               00176 ;@Allocation info for local variables in function 'Mode_Check'
+               00177 ;@Mode_Check RSRbits                   Allocated to registers ;size:1
+               00178 ;@Mode_Check PCHbits                   Allocated to registers ;size:1
+               00179 ;@Mode_Check PCLbits                   Allocated to registers ;size:1
+               00180 ;@Mode_Check STATUSbits                Allocated to registers ;size:1
+               00181 ;@Mode_Check TC0CONbits                Allocated to registers ;size:1
+               00182 ;@Mode_Check TC0Cbits                  Allocated to registers ;size:1
+               00183 ;@Mode_Check TBRDHbits                 Allocated to registers ;size:1
+               00184 ;@Mode_Check TBRDLbits                 Allocated to registers ;size:1
+               00185 ;@Mode_Check CPUCONbits                Allocated to registers ;size:1
+               00186 ;@Mode_Check IHRCCALbits               Allocated to registers ;size:1
+               00187 ;@Mode_Check PORT5bits                 Allocated to registers ;size:1
+               00188 ;@Mode_Check PORT6bits                 Allocated to registers ;size:1
+               00189 ;@Mode_Check P5CONbits                 Allocated to registers ;size:1
+               00190 ;@Mode_Check P6CONbits                 Allocated to registers ;size:1
+               00191 ;@Mode_Check P5PHbits                  Allocated to registers ;size:1
+               00192 ;@Mode_Check P6PHbits                  Allocated to registers ;size:1
+               00193 ;@Mode_Check P5PDbits                  Allocated to registers ;size:1
+               00194 ;@Mode_Check P6PDbits                  Allocated to registers ;size:1
+               00195 ;@Mode_Check P6ODbits                  Allocated to registers ;size:1
+               00196 ;@Mode_Check P6WDbits                  Allocated to registers ;size:1
+               00197 ;@Mode_Check P5IWEbits                 Allocated to registers ;size:1
+               00198 ;@Mode_Check P6IWEbits                 Allocated to registers ;size:1
+               00199 ;@Mode_Check P5ADEbits                 Allocated to registers ;size:1
+               00200 ;@Mode_Check P6ADEbits                 Allocated to registers ;size:1
+               00201 ;@Mode_Check ADATHbits                 Allocated to registers ;size:1
+               00202 ;@Mode_Check ADATLbits                 Allocated to registers ;size:1
+               00203 ;@Mode_Check ADISbits                  Allocated to registers ;size:1
+               00204 ;@Mode_Check ADCON0bits                Allocated to registers ;size:1
+               00205 ;@Mode_Check ADCON1bits                Allocated to registers ;size:1
+               00206 ;@Mode_Check WDTCONbits                Allocated to registers ;size:1
+               00207 ;@Mode_Check TC1CONbits                Allocated to registers ;size:1
+               00208 ;@Mode_Check TC1PRDLbits               Allocated to registers ;size:1
+               00209 ;@Mode_Check PWM1DTLbits               Allocated to registers ;size:1
+               00210 ;@Mode_Check TC1PRDTHbits              Allocated to registers ;size:1
+               00211 ;@Mode_Check TC1CHbits                 Allocated to registers ;size:1
+               00212 ;@Mode_Check TC1CLbits                 Allocated to registers ;size:1
+               00213 ;@Mode_Check TC2CONbits                Allocated to registers ;size:1
+               00214 ;@Mode_Check TC2PRDLbits               Allocated to registers ;size:1
+               00215 ;@Mode_Check PWM2DTLbits               Allocated to registers ;size:1
+               00216 ;@Mode_Check TC2PRDTHbits              Allocated to registers ;size:1
+               00217 ;@Mode_Check TC2CHbits                 Allocated to registers ;size:1
+               00218 ;@Mode_Check TC2CLbits                 Allocated to registers ;size:1
+               00219 ;@Mode_Check PWM3DTHbits               Allocated to registers ;size:1
+               00220 ;@Mode_Check PWM3DTLbits               Allocated to registers ;size:1
+               00221 ;@Mode_Check PWM4DTHbits               Allocated to registers ;size:1
+               00222 ;@Mode_Check PWM4DTLbits               Allocated to registers ;size:1
+               00223 ;@Mode_Check PWMISbits                 Allocated to registers ;size:1
+               00224 ;@Mode_Check DEADCONbits               Allocated to registers ;size:1
+               00225 ;@Mode_Check PWMCONbits                Allocated to registers ;size:1
+               00226 ;@Mode_Check DEADT0bits                Allocated to registers ;size:1
+               00227 ;@Mode_Check DEADT1bits                Allocated to registers ;size:1
+               00228 ;@Mode_Check INTE0bits                 Allocated to registers ;size:1
+               00229 ;@Mode_Check INTE1bits                 Allocated to registers ;size:1
+               00230 ;@Mode_Check INTF0bits                 Allocated to registers ;size:1
+               00231 ;@Mode_Check INTF1bits                 Allocated to registers ;size:1
+               00232 ;@Mode_Check IARbits                   Allocated to registers ;size:1
+               00233 ;@Mode_Check U_Flage1                  Allocated to registers ;size:1
+               00234 ;@Mode_Check r_g_workMod               Allocated to registers ;size:1
+               00235 ;@Mode_Check s_charge_cnt              Allocated to registers ;size:1
+               00236 ;@Mode_Check s_charge_full_cnt         Allocated to registers ;size:1
+               00237 ;@Mode_Check s_key_cnt                 Allocated to registers ;size:1
+               00238 ;@Mode_Check key_state                 Allocated to registers ;size:1
+               00239 ;@Mode_Check key_last                  Allocated to registers ;size:1
+               00240 ;@Mode_Check RSR                       Allocated to registers ;size:1
+               00241 ;@Mode_Check PCH                       Allocated to registers ;size:1
+               00242 ;@Mode_Check PCL                       Allocated to registers ;size:1
+               00243 ;@Mode_Check STATUS                    Allocated to registers ;size:1
+               00244 ;@Mode_Check TC0CON                    Allocated to registers ;size:1
+               00245 ;@Mode_Check TC0C                      Allocated to registers ;size:1
+               00246 ;@Mode_Check TBRDH                     Allocated to registers ;size:1
+               00247 ;@Mode_Check TBRDL                     Allocated to registers ;size:1
+               00248 ;@Mode_Check CPUCON                    Allocated to registers ;size:1
+               00249 ;@Mode_Check IHRCCAL                   Allocated to registers ;size:1
+               00250 ;@Mode_Check PORT5                     Allocated to registers ;size:1
+               00251 ;@Mode_Check PORT6                     Allocated to registers ;size:1
+               00252 ;@Mode_Check P5CON                     Allocated to registers ;size:1
+               00253 ;@Mode_Check P6CON                     Allocated to registers ;size:1
+               00254 ;@Mode_Check P5PH                      Allocated to registers ;size:1
+               00255 ;@Mode_Check P6PH                      Allocated to registers ;size:1
+               00256 ;@Mode_Check P5PD                      Allocated to registers ;size:1
+               00257 ;@Mode_Check P6PD                      Allocated to registers ;size:1
+               00258 ;@Mode_Check P6OD                      Allocated to registers ;size:1
+               00259 ;@Mode_Check P6WD                      Allocated to registers ;size:1
+               00260 ;@Mode_Check P5IWE                     Allocated to registers ;size:1
+               00261 ;@Mode_Check P6IWE                     Allocated to registers ;size:1
+               00262 ;@Mode_Check P5ADE                     Allocated to registers ;size:1
+               00263 ;@Mode_Check P6ADE                     Allocated to registers ;size:1
+               00264 ;@Mode_Check ADATH                     Allocated to registers ;size:1
+               00265 ;@Mode_Check ADATL                     Allocated to registers ;size:1
+               00266 ;@Mode_Check ADIS                      Allocated to registers ;size:1
+               00267 ;@Mode_Check ADCON0                    Allocated to registers ;size:1
+               00268 ;@Mode_Check ADCON1                    Allocated to registers ;size:1
+               00269 ;@Mode_Check WDTCON                    Allocated to registers ;size:1
+               00270 ;@Mode_Check TC1CON                    Allocated to registers ;size:1
+               00271 ;@Mode_Check TC1PRDL                   Allocated to registers ;size:1
+               00272 ;@Mode_Check PWM1DTL                   Allocated to registers ;size:1
+               00273 ;@Mode_Check TC1PRDTH                  Allocated to registers ;size:1
+               00274 ;@Mode_Check TC1CH                     Allocated to registers ;size:1
+               00275 ;@Mode_Check TC1CL                     Allocated to registers ;size:1
+               00276 ;@Mode_Check TC2CON                    Allocated to registers ;size:1
+               00277 ;@Mode_Check TC2PRDL                   Allocated to registers ;size:1
+               00278 ;@Mode_Check PWM2DTL                   Allocated to registers ;size:1
+               00279 ;@Mode_Check TC2PRDTH                  Allocated to registers ;size:1
+               00280 ;@Mode_Check TC2CH                     Allocated to registers ;size:1
+               00281 ;@Mode_Check TC2CL                     Allocated to registers ;size:1
+               00282 ;@Mode_Check PWM3DTH                   Allocated to registers ;size:1
+               00283 ;@Mode_Check PWM3DTL                   Allocated to registers ;size:1
+               00284 ;@Mode_Check PWM4DTH                   Allocated to registers ;size:1
+               00285 ;@Mode_Check PWM4DTL                   Allocated to registers ;size:1
+               00286 ;@Mode_Check PWMIS                     Allocated to registers ;size:1
+               00287 ;@Mode_Check DEADCON                   Allocated to registers ;size:1
+               00288 ;@Mode_Check PWMCON                    Allocated to registers ;size:1
+               00289 ;@Mode_Check DEADT0                    Allocated to registers ;size:1
+               00290 ;@Mode_Check DEADT1                    Allocated to registers ;size:1
+               00291 ;@Mode_Check INTE0                     Allocated to registers ;size:1
+               00292 ;@Mode_Check INTE1                     Allocated to registers ;size:1
+               00293 ;@Mode_Check INTF0                     Allocated to registers ;size:1
+               00294 ;@Mode_Check INTF1                     Allocated to registers ;size:1
+               00295 ;@Mode_Check IAR                       Allocated to registers ;size:1
+               00296 ;@end Allocation info for local variables in function 'Mode_Check';
+               00297 
+               00298 ;--------------------------------------------------------
+               00299 ; overlayable items in internal ram 
+               00300 ;--------------------------------------------------------
+               00301 ;       udata_ovr
+               00302 ;--------------------------------------------------------
+               00303 ; code
+               00304 ;--------------------------------------------------------
+               00305 code_MODE       code
+               00306 ;***
+               00307 ;  pBlock Stats: dbName = C
+               00308 ;***
+               00309 ;has an exit
+               00310 ;1 compiler assigned register :
+               00311 ;   r0x1007
+               00312 ;; Starting pCode block
+               00313 S_MODE__Mode_Check      code
+0000           00314 _Mode_Check:    ;Function start
+               00315 ; 2 exit points
+               00316 ;       .line   24; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\MODE.C     if (Io_Charge == 0 )
+0000 6A00      00317         JBTC    _PORT6bits,5
+0001 A000      00318         JMP     _00108_DS_
+               00319 ;       .line   26; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\MODE.C     if (++s_charge_cnt >= 15)
+0002 2A00      00320         INC     _s_charge_cnt
+0003 C00F      00321         MOV     A,@0x0f
+0004 0800      00322         SUB     A,_s_charge_cnt
+0005 7183      00323         JBTS    STATUS,0
+0006 A000      00324         JMP     _00109_DS_
+               00325 ;       .line   29; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\MODE.C     F_CHARGE = 1;
+0007 5800      00326         BTS     _U_Flage1,4
+               00327 ;       .line   30; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\MODE.C     r_g_workMod = 0;
+0008 0600      00328         CLR     _r_g_workMod
+               00329 ;       .line   32; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\MODE.C     s_key_cnt = 0; 
+0009 0600      00330         CLR     _s_key_cnt
+000A A000      00331         JMP     _00109_DS_
+000B           00332 _00108_DS_:
+               00333 ;       .line   37; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\MODE.C     s_charge_cnt = 0;
+000B 0600      00334         CLR     _s_charge_cnt
+               00335 ;       .line   38; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\MODE.C     F_CHARGE = 0;
+000C 4800      00336         BTC     _U_Flage1,4
+000D           00337 _00109_DS_:
+               00338 ;       .line   41; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\MODE.C     if(Io_Charge_full == 0)
+000D 6800      00339         JBTC    _PORT6bits,4
+000E A000      00340         JMP     _00113_DS_
+               00341 ;       .line   43; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\MODE.C     if (++s_charge_full_cnt >= 15)
+000F 2A00      00342         INC     _s_charge_full_cnt
+0010 C00F      00343         MOV     A,@0x0f
+0011 0800      00344         SUB     A,_s_charge_full_cnt
+0012 7183      00345         JBTS    STATUS,0
+0013 A000      00346         JMP     _00114_DS_
+               00347 ;       .line   45; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\MODE.C     F_CHARGE_FULL = 1;
+0014 5A00      00348         BTS     _U_Flage1,5
+               00349 ;       .line   46; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\MODE.C     r_g_workMod = 0;
+0015 0600      00350         CLR     _r_g_workMod
+               00351 ;       .line   47; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\MODE.C     F_CHARGE = 1;
+0016 5800      00352         BTS     _U_Flage1,4
+               00353 ;       .line   48; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\MODE.C     s_charge_cnt = 0;
+0017 0600      00354         CLR     _s_charge_cnt
+               00355 ;       .line   49; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\MODE.C     s_key_cnt = 0;
+0018 0600      00356         CLR     _s_key_cnt
+0019 A000      00357         JMP     _00114_DS_
+001A           00358 _00113_DS_:
+               00359 ;       .line   55; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\MODE.C     s_charge_full_cnt = 0;
+001A 0600      00360         CLR     _s_charge_full_cnt
+               00361 ;       .line   56; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\MODE.C     F_CHARGE_FULL = 0;
+001B 4A00      00362         BTC     _U_Flage1,5
+001C           00363 _00114_DS_:
+               00364 ;       .line   60; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\MODE.C     if (Io_Key == 0)
+001C 6600      00365         JBTC    _PORT6bits,3
+001D A000      00366         JMP     _00118_DS_
+               00367 ;       .line   62; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\MODE.C     if (++s_key_cnt >= 15)
+001E 2A00      00368         INC     _s_key_cnt
+001F C00F      00369         MOV     A,@0x0f
+0020 0800      00370         SUB     A,_s_key_cnt
+0021 7183      00371         JBTS    STATUS,0
+0022 A000      00372         JMP     _00119_DS_
+               00373 ;       .line   64; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\MODE.C     key_state = 1;
+0023 C001      00374         MOV     A,@0x01
+0024 0200      00375         MOV     _key_state,A
+0025 A000      00376         JMP     _00119_DS_
+0026           00377 _00118_DS_:
+               00378 ;       .line   69; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\MODE.C     s_key_cnt = 0;
+0026 0600      00379         CLR     _s_key_cnt
+               00380 ;       .line   70; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\MODE.C     key_state = 0;
+0027 0600      00381         CLR     _key_state
+0028           00382 _00119_DS_:
+               00383 ;       .line   74; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\MODE.C     if (key_state == 1 && key_last == 0)
+0028 2000      00384         MOV     A,_key_state
+0029 D801      00385         XOR     A,@0x01
+002A 7583      00386         JBTS    STATUS,2
+002B A000      00387         JMP     _00121_DS_
+002C C000      00388         MOV     A,@0x00
+002D 1000      00389         OR      A,_key_last
+002E 7583      00390         JBTS    STATUS,2
+002F A000      00391         JMP     _00121_DS_
+               00392 ;       .line   77; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\MODE.C     F_CHARGE = 0;
+0030 4800      00393         BTC     _U_Flage1,4
+               00394 ;       .line   78; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\MODE.C     r_g_workMod = (r_g_workMod == 0) ? 1 : 0;  // ×´Ì¬ÇÐ»»
+0031 C000      00395         MOV     A,@0x00
+0032 1000      00396         OR      A,_r_g_workMod
+0033 7583      00397         JBTS    STATUS,2
+0034 A000      00398         JMP     _00125_DS_
+0035 C001      00399         MOV     A,@0x01
+0036 0200      00400         MOV     r0x1007,A
+0037 A000      00401         JMP     _00126_DS_
+0038           00402 _00125_DS_:
+0038 0600      00403         CLR     r0x1007
+0039           00404 _00126_DS_:
+0039 2000      00405         MOV     A,r0x1007
+003A 0200      00406         MOV     _r_g_workMod,A
+003B           00407 _00121_DS_:
+               00408 ;       .line   82; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\MODE.C     key_last = key_state;
+003B 2000      00409         MOV     A,_key_state
+003C 0200      00410         MOV     _key_last,A
+               00411 ;       .line   84; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\MODE.C     }
+003D 0082      00412         RET     
+               00413 ; exit point of _Mode_Check
+               00414 
+               00415 
+               00416 ;       code size estimation:
+               00417 ;          62+    0 =    62 instructions (  124 byte)
+               00418 
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+ADATH                             000001A3
+ADATL                             000001A4
+ADCON0                            000001A6
+ADCON1                            000001A7
+ADIS                              000001A5
+CPUCON                            00000188
+DEADCON                           000001C7
+DEADT0                            000001C9
+DEADT1                            000001CA
+IAR                               000001FF
+IHRCCAL                           00000189
+INTE0                             000001D6
+INTE1                             000001D7
+INTF0                             000001DA
+INTF1                             000001DB
+P5ADE                             000001A0
+P5CON                             0000018D
+P5IWE                             0000019C
+P5PD                              00000193
+P5PH                              00000190
+P6ADE                             000001A1
+P6CON                             0000018E
+P6IWE                             0000019D
+P6OD                              00000199
+P6PD                              00000194
+P6PH                              00000191
+P6WD                              0000019A
+PCH                               00000181
+PCL                               00000182
+PORT5                             0000018A
+PORT6                             0000018B
+PWM1DTL                           000001B2
+PWM2DTL                           000001B8
+PWM3DTH                           000001BC
+PWM3DTL                           000001BD
+PWM4DTH                           000001BE
+PWM4DTL                           000001BF
+PWMCON                            000001C8
+PWMIS                             000001C6
+RSR                               00000180
+STATUS                            00000183
+STK00                             00000000
+STK01                             00000000
+STK02                             00000000
+STK03                             00000000
+STK04                             00000000
+STK05                             00000000
+STK06                             00000000
+TBRDH                             00000186
+TBRDL                             00000187
+TC0C                              00000185
+TC0CON                            00000184
+TC1CH                             000001B4
+TC1CL                             000001B5
+TC1CON                            000001B0
+TC1PRDL                           000001B1
+TC1PRDTH                          000001B3
+TC2CH                             000001BA
+TC2CL                             000001BB
+TC2CON                            000001B6
+TC2PRDL                           000001B7
+TC2PRDTH                          000001B9
+WDTCON                            000001AF
+_00108_DS_                        0000000B
+_00109_DS_                        0000000D
+_00113_DS_                        0000001A
+_00114_DS_                        0000001C
+_00118_DS_                        00000026
+_00119_DS_                        00000028
+_00121_DS_                        0000003B
+_00125_DS_                        00000038
+_00126_DS_                        00000039
+_ADATH                            00000000
+_ADATHbits                        00000000
+_ADATL                            00000000
+_ADATLbits                        00000000
+_ADCON0                           00000000
+_ADCON0bits                       00000000
+_ADCON1                           00000000
+_ADCON1bits                       00000000
+_ADIS                             00000000
+_ADISbits                         00000000
+_CPUCON                           00000000
+_CPUCONbits                       00000000
+_DEADCON                          00000000
+_DEADCONbits                      00000000
+_DEADT0                           00000000
+_DEADT0bits                       00000000
+_DEADT1                           00000000
+_DEADT1bits                       00000000
+_IAR                              00000000
+_IARbits                          00000000
+_IHRCCAL                          00000000
+_IHRCCALbits                      00000000
+_INTE0                            00000000
+_INTE0bits                        00000000
+_INTE1                            00000000
+_INTE1bits                        00000000
+_INTF0                            00000000
+_INTF0bits                        00000000
+_INTF1                            00000000
+_INTF1bits                        00000000
+_Mode_Check                       00000000
+_P5ADE                            00000000
+_P5ADEbits                        00000000
+_P5CON                            00000000
+_P5CONbits                        00000000
+_P5IWE                            00000000
+_P5IWEbits                        00000000
+_P5PD                             00000000
+_P5PDbits                         00000000
+_P5PH                             00000000
+_P5PHbits                         00000000
+_P6ADE                            00000000
+_P6ADEbits                        00000000
+_P6CON                            00000000
+_P6CONbits                        00000000
+_P6IWE                            00000000
+_P6IWEbits                        00000000
+_P6OD                             00000000
+_P6ODbits                         00000000
+_P6PD                             00000000
+_P6PDbits                         00000000
+_P6PH                             00000000
+_P6PHbits                         00000000
+_P6WD                             00000000
+_P6WDbits                         00000000
+_PCH                              00000000
+_PCHbits                          00000000
+_PCL                              00000000
+_PCLbits                          00000000
+_PORT5                            00000000
+_PORT5bits                        00000000
+_PORT6                            00000000
+_PORT6bits                        00000000
+_PWM1DTL                          00000000
+_PWM1DTLbits                      00000000
+_PWM2DTL                          00000000
+_PWM2DTLbits                      00000000
+_PWM3DTH                          00000000
+_PWM3DTHbits                      00000000
+_PWM3DTL                          00000000
+_PWM3DTLbits                      00000000
+_PWM4DTH                          00000000
+_PWM4DTHbits                      00000000
+_PWM4DTL                          00000000
+_PWM4DTLbits                      00000000
+_PWMCON                           00000000
+_PWMCONbits                       00000000
+_PWMIS                            00000000
+_PWMISbits                        00000000
+_RSR                              00000000
+_RSRbits                          00000000
+_STATUS                           00000000
+_STATUSbits                       00000000
+_TBRDH                            00000000
+_TBRDHbits                        00000000
+_TBRDL                            00000000
+_TBRDLbits                        00000000
+_TC0C                             00000000
+_TC0CON                           00000000
+_TC0CONbits                       00000000
+_TC0Cbits                         00000000
+_TC1CH                            00000000
+_TC1CHbits                        00000000
+_TC1CL                            00000000
+_TC1CLbits                        00000000
+_TC1CON                           00000000
+_TC1CONbits                       00000000
+_TC1PRDL                          00000000
+_TC1PRDLbits                      00000000
+_TC1PRDTH                         00000000
+_TC1PRDTHbits                     00000000
+_TC2CH                            00000000
+_TC2CHbits                        00000000
+_TC2CL                            00000000
+_TC2CLbits                        00000000
+_TC2CON                           00000000
+_TC2CONbits                       00000000
+_TC2PRDL                          00000000
+_TC2PRDLbits                      00000000
+_TC2PRDTH                         00000000
+_TC2PRDTHbits                     00000000
+_U_Flage1                         00000000
+_WDTCON                           00000000
+_WDTCONbits                       00000000
+__jz8p2615                        00000001
+_key_last                         00000000
+_key_state                        00000000
+_r_g_workMod                      00000000
+_s_charge_cnt                     00000000
+_s_charge_full_cnt                00000000
+_s_key_cnt                        00000000
+r0x1007                           00000000
+
+
+Errors   :       0
+Warnings :       0 reported,       0 suppressed
+Messages :       0 reported,       0 suppressed
+

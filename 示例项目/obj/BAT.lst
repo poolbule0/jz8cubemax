@@ -1,0 +1,1218 @@
+slasm-0.13.6 beta               C:\Users\Administrator\Desktop\188-prj\2\obj\BAT.asm11-29-2025  11:38:54         PAGE  1
+
+
+               00001 ;--------------------------------------------------------
+               00002 ; File Created by SLCC : free open source ANSI-C Compiler
+               00003 ; Version 3.6.0 #Sep 28 2025 (MSVC)
+               00004 ;--------------------------------------------------------
+               00005 ; SL port for the RISC core
+               00006 ;--------------------------------------------------------
+               00007 ;       .file   "C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C"
+               00008         list    p=JZ8P2615
+               00009         radix dec
+               00010         include "JZ8P2615.inc"
+               00001         LIST                                                                  
+               00002 ; JZ8P2615.INC  Standard Header File, Version 1.00
+               00116         LIST
+               00011 ;--------------------------------------------------------
+               00012 ; external declarations
+               00013 ;--------------------------------------------------------
+               00014         extern  _ADC_GetValue
+               00015         extern  _RSRbits
+               00016         extern  _PCHbits
+               00017         extern  _PCLbits
+               00018         extern  _STATUSbits
+               00019         extern  _TC0CONbits
+               00020         extern  _TC0Cbits
+               00021         extern  _TBRDHbits
+               00022         extern  _TBRDLbits
+               00023         extern  _CPUCONbits
+               00024         extern  _IHRCCALbits
+               00025         extern  _PORT5bits
+               00026         extern  _PORT6bits
+               00027         extern  _P5CONbits
+               00028         extern  _P6CONbits
+               00029         extern  _P5PHbits
+               00030         extern  _P6PHbits
+               00031         extern  _P5PDbits
+               00032         extern  _P6PDbits
+               00033         extern  _P6ODbits
+               00034         extern  _P6WDbits
+               00035         extern  _P5IWEbits
+               00036         extern  _P6IWEbits
+               00037         extern  _P5ADEbits
+               00038         extern  _P6ADEbits
+               00039         extern  _ADATHbits
+               00040         extern  _ADATLbits
+               00041         extern  _ADISbits
+               00042         extern  _ADCON0bits
+               00043         extern  _ADCON1bits
+               00044         extern  _WDTCONbits
+               00045         extern  _TC1CONbits
+               00046         extern  _TC1PRDLbits
+               00047         extern  _PWM1DTLbits
+               00048         extern  _TC1PRDTHbits
+               00049         extern  _TC1CHbits
+               00050         extern  _TC1CLbits
+               00051         extern  _TC2CONbits
+               00052         extern  _TC2PRDLbits
+               00053         extern  _PWM2DTLbits
+               00054         extern  _TC2PRDTHbits
+               00055         extern  _TC2CHbits
+               00056         extern  _TC2CLbits
+               00057         extern  _PWM3DTHbits
+               00058         extern  _PWM3DTLbits
+               00059         extern  _PWM4DTHbits
+               00060         extern  _PWM4DTLbits
+               00061         extern  _PWMISbits
+               00062         extern  _DEADCONbits
+               00063         extern  _PWMCONbits
+               00064         extern  _DEADT0bits
+               00065         extern  _DEADT1bits
+               00066         extern  _INTE0bits
+               00067         extern  _INTE1bits
+               00068         extern  _INTF0bits
+               00069         extern  _INTF1bits
+               00070         extern  _IARbits
+               00071         extern  _U_Flage1
+               00072         extern  _r_g_workMod
+               00073         extern  _RSR
+               00074         extern  _PCH
+               00075         extern  _PCL
+               00076         extern  _STATUS
+               00077         extern  _TC0CON
+               00078         extern  _TC0C
+               00079         extern  _TBRDH
+               00080         extern  _TBRDL
+               00081         extern  _CPUCON
+               00082         extern  _IHRCCAL
+               00083         extern  _PORT5
+               00084         extern  _PORT6
+               00085         extern  _P5CON
+               00086         extern  _P6CON
+               00087         extern  _P5PH
+               00088         extern  _P6PH
+               00089         extern  _P5PD
+               00090         extern  _P6PD
+               00091         extern  _P6OD
+               00092         extern  _P6WD
+               00093         extern  _P5IWE
+               00094         extern  _P6IWE
+               00095         extern  _P5ADE
+               00096         extern  _P6ADE
+               00097         extern  _ADATH
+               00098         extern  _ADATL
+               00099         extern  _ADIS
+               00100         extern  _ADCON0
+               00101         extern  _ADCON1
+               00102         extern  _WDTCON
+               00103         extern  _TC1CON
+               00104         extern  _TC1PRDL
+               00105         extern  _PWM1DTL
+               00106         extern  _TC1PRDTH
+               00107         extern  _TC1CH
+               00108         extern  _TC1CL
+               00109         extern  _TC2CON
+               00110         extern  _TC2PRDL
+               00111         extern  _PWM2DTL
+               00112         extern  _TC2PRDTH
+               00113         extern  _TC2CH
+               00114         extern  _TC2CL
+               00115         extern  _PWM3DTH
+               00116         extern  _PWM3DTL
+               00117         extern  _PWM4DTH
+               00118         extern  _PWM4DTL
+               00119         extern  _PWMIS
+               00120         extern  _DEADCON
+               00121         extern  _PWMCON
+               00122         extern  _DEADT0
+               00123         extern  _DEADT1
+               00124         extern  _INTE0
+               00125         extern  _INTE1
+               00126         extern  _INTF0
+               00127         extern  _INTF1
+               00128         extern  _IAR
+               00129         extern  __mulchar
+               00130 
+               00131         extern STK06
+               00132         extern STK05
+               00133         extern STK04
+               00134         extern STK03
+               00135         extern STK02
+               00136         extern STK01
+               00137         extern STK00
+               00138 ;--------------------------------------------------------
+               00139 ; global declarations
+               00140 ;--------------------------------------------------------
+               00141         global  _sw_adcBatVal
+               00142         global  _r_g_batVal
+               00143         global  _r_gbatvalsum
+               00144         global  _r_gbatvalcnt
+               00145         global  _r_buff
+               00146         global  _adcValue
+               00147         global  _r_g_batValChangeCnt
+               00148         global  _r_g_batValAddCnt
+               00149         global  _r_g_batValDecCnt
+               00150         global  _r_g_batValAddShk
+               00151         global  _r_g_batValDecShk
+               00152         global  _r_g_batValChangeShkSet
+               00153         global  _t_tabBatValTab
+               00154 
+               00155 ;--------------------------------------------------------
+               00156 ; global definitions
+               00157 ;--------------------------------------------------------
+               00158 UD_BAT_0        udata
+               00159 _r_g_batVal     res     1
+               00160 
+               00161 UD_BAT_1        udata
+               00162 _r_gbatvalsum   res     2
+               00163 
+               00164 UD_BAT_2        udata
+               00165 _r_gbatvalcnt   res     1
+               00166 
+               00167 UD_BAT_3        udata
+               00168 _r_buff res     1
+               00169 
+               00170 UD_BAT_4        udata
+               00171 _adcValue       res     2
+               00172 
+               00173 UD_BAT_5        udata
+               00174 _r_g_batValChangeCnt    res     1
+               00175 
+               00176 UD_BAT_6        udata
+               00177 _r_g_batValAddCnt       res     1
+               00178 
+               00179 UD_BAT_7        udata
+               00180 _r_g_batValDecCnt       res     1
+               00181 
+               00182 UD_BAT_8        udata
+               00183 _r_g_batValAddShk       res     2
+               00184 
+               00185 UD_BAT_9        udata
+               00186 _r_g_batValDecShk       res     2
+               00187 
+               00188 UD_BAT_10       udata
+               00189 _r_g_batValChangeShkSet res     2
+               00190 
+               00191 ;--------------------------------------------------------
+               00192 ; absolute symbol definitions
+               00193 ;--------------------------------------------------------
+               00194 ;--------------------------------------------------------
+               00195 ; compiler-defined variables
+               00196 ;--------------------------------------------------------
+               00197 UDL_BAT_0       udata
+               00198 r0x1012 res     1
+               00199 r0x1013 res     1
+               00200 r0x1014 res     1
+               00201 r0x1015 res     1
+               00202 r0x1017 res     1
+               00203 r0x1018 res     1
+               00204 ;--------------------------------------------------------
+               00205 ; initialized data
+               00206 ;--------------------------------------------------------
+               00207 
+               00208 ID_BAT_0        code
+0000           00209 _t_tabBatValTab
+0000 1F82      00210         add 0x182,a
+0001 E0DB      00211         retl 0xdb
+0002 E005      00212         retl 0x05
+0003 E0E1      00213         retl 0xe1
+0004 E005      00214         retl 0x05
+0005 E0E7      00215         retl 0xe7
+0006 E005      00216         retl 0x05
+0007 E0ED      00217         retl 0xed
+0008 E005      00218         retl 0x05
+0009 E0F3      00219         retl 0xf3
+000A E005      00220         retl 0x05
+000B E0FA      00221         retl 0xfa
+000C E005      00222         retl 0x05
+000D E000      00223         retl 0x00
+000E E006      00224         retl 0x06
+000F E006      00225         retl 0x06
+0010 E006      00226         retl 0x06
+0011 E00C      00227         retl 0x0c
+0012 E006      00228         retl 0x06
+0013 E012      00229         retl 0x12
+0014 E006      00230         retl 0x06
+0015 E019      00231         retl 0x19
+0016 E006      00232         retl 0x06
+0017 E01F      00233         retl 0x1f
+0018 E006      00234         retl 0x06
+0019 E025      00235         retl 0x25
+001A E006      00236         retl 0x06
+001B E02B      00237         retl 0x2b
+001C E006      00238         retl 0x06
+001D E031      00239         retl 0x31
+001E E006      00240         retl 0x06
+001F E038      00241         retl 0x38
+0020 E006      00242         retl 0x06
+0021 E03E      00243         retl 0x3e
+0022 E006      00244         retl 0x06
+0023 E044      00245         retl 0x44
+0024 E006      00246         retl 0x06
+0025 E04A      00247         retl 0x4a
+0026 E006      00248         retl 0x06
+0027 E050      00249         retl 0x50
+0028 E006      00250         retl 0x06
+0029 E057      00251         retl 0x57
+002A E006      00252         retl 0x06
+002B E05D      00253         retl 0x5d
+002C E006      00254         retl 0x06
+002D E063      00255         retl 0x63
+002E E006      00256         retl 0x06
+002F E069      00257         retl 0x69
+0030 E006      00258         retl 0x06
+0031 E06F      00259         retl 0x6f
+0032 E006      00260         retl 0x06
+0033 E076      00261         retl 0x76
+0034 E006      00262         retl 0x06
+0035 E07C      00263         retl 0x7c
+0036 E006      00264         retl 0x06
+0037 E082      00265         retl 0x82
+0038 E006      00266         retl 0x06
+0039 E088      00267         retl 0x88
+003A E006      00268         retl 0x06
+003B E08E      00269         retl 0x8e
+003C E006      00270         retl 0x06
+003D E095      00271         retl 0x95
+003E E006      00272         retl 0x06
+003F E09B      00273         retl 0x9b
+0040 E006      00274         retl 0x06
+0041 E0A1      00275         retl 0xa1
+0042 E006      00276         retl 0x06
+0043 E0A7      00277         retl 0xa7
+0044 E006      00278         retl 0x06
+0045 E0AD      00279         retl 0xad
+0046 E006      00280         retl 0x06
+0047 E0B4      00281         retl 0xb4
+0048 E006      00282         retl 0x06
+0049 E0BA      00283         retl 0xba
+004A E006      00284         retl 0x06
+004B E0C0      00285         retl 0xc0
+004C E006      00286         retl 0x06
+004D E0C6      00287         retl 0xc6
+004E E006      00288         retl 0x06
+004F E0CC      00289         retl 0xcc
+0050 E006      00290         retl 0x06
+0051 E0D3      00291         retl 0xd3
+0052 E006      00292         retl 0x06
+0053 E0D9      00293         retl 0xd9
+0054 E006      00294         retl 0x06
+0055 E0DF      00295         retl 0xdf
+0056 E006      00296         retl 0x06
+0057 E0E5      00297         retl 0xe5
+0058 E006      00298         retl 0x06
+0059 E0EB      00299         retl 0xeb
+005A E006      00300         retl 0x06
+005B E0F2      00301         retl 0xf2
+005C E006      00302         retl 0x06
+005D E0F8      00303         retl 0xf8
+005E E006      00304         retl 0x06
+005F E0FE      00305         retl 0xfe
+0060 E006      00306         retl 0x06
+0061 E004      00307         retl 0x04
+0062 E007      00308         retl 0x07
+0063 E00A      00309         retl 0x0a
+0064 E007      00310         retl 0x07
+0065 E011      00311         retl 0x11
+0066 E007      00312         retl 0x07
+0067 E017      00313         retl 0x17
+0068 E007      00314         retl 0x07
+0069 E01D      00315         retl 0x1d
+006A E007      00316         retl 0x07
+006B E023      00317         retl 0x23
+006C E007      00318         retl 0x07
+006D E029      00319         retl 0x29
+006E E007      00320         retl 0x07
+006F E030      00321         retl 0x30
+0070 E007      00322         retl 0x07
+0071 E036      00323         retl 0x36
+0072 E007      00324         retl 0x07
+0073 E03C      00325         retl 0x3c
+0074 E007      00326         retl 0x07
+0075 E042      00327         retl 0x42
+0076 E007      00328         retl 0x07
+0077 E048      00329         retl 0x48
+0078 E007      00330         retl 0x07
+0079 E04F      00331         retl 0x4f
+007A E007      00332         retl 0x07
+007B E055      00333         retl 0x55
+007C E007      00334         retl 0x07
+007D E05B      00335         retl 0x5b
+007E E007      00336         retl 0x07
+007F E061      00337         retl 0x61
+0080 E007      00338         retl 0x07
+0081 E067      00339         retl 0x67
+0082 E007      00340         retl 0x07
+0083 E06E      00341         retl 0x6e
+0084 E007      00342         retl 0x07
+0085 E074      00343         retl 0x74
+0086 E007      00344         retl 0x07
+0087 E07A      00345         retl 0x7a
+0088 E007      00346         retl 0x07
+0089 E080      00347         retl 0x80
+008A E007      00348         retl 0x07
+008B E086      00349         retl 0x86
+008C E007      00350         retl 0x07
+008D E08D      00351         retl 0x8d
+008E E007      00352         retl 0x07
+008F E093      00353         retl 0x93
+0090 E007      00354         retl 0x07
+0091 E099      00355         retl 0x99
+0092 E007      00356         retl 0x07
+0093 E09F      00357         retl 0x9f
+0094 E007      00358         retl 0x07
+0095 E0A5      00359         retl 0xa5
+0096 E007      00360         retl 0x07
+0097 E0AC      00361         retl 0xac
+0098 E007      00362         retl 0x07
+0099 E0B2      00363         retl 0xb2
+009A E007      00364         retl 0x07
+009B E0B8      00365         retl 0xb8
+009C E007      00366         retl 0x07
+009D E0BE      00367         retl 0xbe
+009E E007      00368         retl 0x07
+009F E0C4      00369         retl 0xc4
+00A0 E007      00370         retl 0x07
+00A1 E0CB      00371         retl 0xcb
+00A2 E007      00372         retl 0x07
+00A3 E0D1      00373         retl 0xd1
+00A4 E007      00374         retl 0x07
+00A5 E0D7      00375         retl 0xd7
+00A6 E007      00376         retl 0x07
+00A7 E0DD      00377         retl 0xdd
+00A8 E007      00378         retl 0x07
+00A9 E0E3      00379         retl 0xe3
+00AA E007      00380         retl 0x07
+00AB E0EA      00381         retl 0xea
+00AC E007      00382         retl 0x07
+00AD E0F0      00383         retl 0xf0
+00AE E007      00384         retl 0x07
+00AF E0F6      00385         retl 0xf6
+00B0 E007      00386         retl 0x07
+00B1 E0FC      00387         retl 0xfc
+00B2 E007      00388         retl 0x07
+00B3 E002      00389         retl 0x02
+00B4 E008      00390         retl 0x08
+00B5 E009      00391         retl 0x09
+00B6 E008      00392         retl 0x08
+00B7 E00F      00393         retl 0x0f
+00B8 E008      00394         retl 0x08
+00B9 E015      00395         retl 0x15
+00BA E008      00396         retl 0x08
+00BB E01B      00397         retl 0x1b
+00BC E008      00398         retl 0x08
+00BD E021      00399         retl 0x21
+00BE E008      00400         retl 0x08
+00BF E028      00401         retl 0x28
+00C0 E008      00402         retl 0x08
+00C1 E02E      00403         retl 0x2e
+00C2 E008      00404         retl 0x08
+00C3 E034      00405         retl 0x34
+00C4 E008      00406         retl 0x08
+00C5 E03A      00407         retl 0x3a
+00C6 E008      00408         retl 0x08
+00C7 E043      00409         retl 0x43
+00C8 E008      00410         retl 0x08
+00C9 E047      00411         retl 0x47
+00CA E008      00412         retl 0x08
+               00413 
+               00414 
+               00415 ;@Allocation info for local variables in function 'sw_adcBatVal'
+               00416 ;@sw_adcBatVal ADC_GetValue              Allocated to registers ;size:2
+               00417 ;@sw_adcBatVal RSRbits                   Allocated to registers ;size:1
+               00418 ;@sw_adcBatVal PCHbits                   Allocated to registers ;size:1
+               00419 ;@sw_adcBatVal PCLbits                   Allocated to registers ;size:1
+               00420 ;@sw_adcBatVal STATUSbits                Allocated to registers ;size:1
+               00421 ;@sw_adcBatVal TC0CONbits                Allocated to registers ;size:1
+               00422 ;@sw_adcBatVal TC0Cbits                  Allocated to registers ;size:1
+               00423 ;@sw_adcBatVal TBRDHbits                 Allocated to registers ;size:1
+               00424 ;@sw_adcBatVal TBRDLbits                 Allocated to registers ;size:1
+               00425 ;@sw_adcBatVal CPUCONbits                Allocated to registers ;size:1
+               00426 ;@sw_adcBatVal IHRCCALbits               Allocated to registers ;size:1
+               00427 ;@sw_adcBatVal PORT5bits                 Allocated to registers ;size:1
+               00428 ;@sw_adcBatVal PORT6bits                 Allocated to registers ;size:1
+               00429 ;@sw_adcBatVal P5CONbits                 Allocated to registers ;size:1
+               00430 ;@sw_adcBatVal P6CONbits                 Allocated to registers ;size:1
+               00431 ;@sw_adcBatVal P5PHbits                  Allocated to registers ;size:1
+               00432 ;@sw_adcBatVal P6PHbits                  Allocated to registers ;size:1
+               00433 ;@sw_adcBatVal P5PDbits                  Allocated to registers ;size:1
+               00434 ;@sw_adcBatVal P6PDbits                  Allocated to registers ;size:1
+               00435 ;@sw_adcBatVal P6ODbits                  Allocated to registers ;size:1
+               00436 ;@sw_adcBatVal P6WDbits                  Allocated to registers ;size:1
+               00437 ;@sw_adcBatVal P5IWEbits                 Allocated to registers ;size:1
+               00438 ;@sw_adcBatVal P6IWEbits                 Allocated to registers ;size:1
+               00439 ;@sw_adcBatVal P5ADEbits                 Allocated to registers ;size:1
+               00440 ;@sw_adcBatVal P6ADEbits                 Allocated to registers ;size:1
+               00441 ;@sw_adcBatVal ADATHbits                 Allocated to registers ;size:1
+               00442 ;@sw_adcBatVal ADATLbits                 Allocated to registers ;size:1
+               00443 ;@sw_adcBatVal ADISbits                  Allocated to registers ;size:1
+               00444 ;@sw_adcBatVal ADCON0bits                Allocated to registers ;size:1
+               00445 ;@sw_adcBatVal ADCON1bits                Allocated to registers ;size:1
+               00446 ;@sw_adcBatVal WDTCONbits                Allocated to registers ;size:1
+               00447 ;@sw_adcBatVal TC1CONbits                Allocated to registers ;size:1
+               00448 ;@sw_adcBatVal TC1PRDLbits               Allocated to registers ;size:1
+               00449 ;@sw_adcBatVal PWM1DTLbits               Allocated to registers ;size:1
+               00450 ;@sw_adcBatVal TC1PRDTHbits              Allocated to registers ;size:1
+               00451 ;@sw_adcBatVal TC1CHbits                 Allocated to registers ;size:1
+               00452 ;@sw_adcBatVal TC1CLbits                 Allocated to registers ;size:1
+               00453 ;@sw_adcBatVal TC2CONbits                Allocated to registers ;size:1
+               00454 ;@sw_adcBatVal TC2PRDLbits               Allocated to registers ;size:1
+               00455 ;@sw_adcBatVal PWM2DTLbits               Allocated to registers ;size:1
+               00456 ;@sw_adcBatVal TC2PRDTHbits              Allocated to registers ;size:1
+               00457 ;@sw_adcBatVal TC2CHbits                 Allocated to registers ;size:1
+               00458 ;@sw_adcBatVal TC2CLbits                 Allocated to registers ;size:1
+               00459 ;@sw_adcBatVal PWM3DTHbits               Allocated to registers ;size:1
+               00460 ;@sw_adcBatVal PWM3DTLbits               Allocated to registers ;size:1
+               00461 ;@sw_adcBatVal PWM4DTHbits               Allocated to registers ;size:1
+               00462 ;@sw_adcBatVal PWM4DTLbits               Allocated to registers ;size:1
+               00463 ;@sw_adcBatVal PWMISbits                 Allocated to registers ;size:1
+               00464 ;@sw_adcBatVal DEADCONbits               Allocated to registers ;size:1
+               00465 ;@sw_adcBatVal PWMCONbits                Allocated to registers ;size:1
+               00466 ;@sw_adcBatVal DEADT0bits                Allocated to registers ;size:1
+               00467 ;@sw_adcBatVal DEADT1bits                Allocated to registers ;size:1
+               00468 ;@sw_adcBatVal INTE0bits                 Allocated to registers ;size:1
+               00469 ;@sw_adcBatVal INTE1bits                 Allocated to registers ;size:1
+               00470 ;@sw_adcBatVal INTF0bits                 Allocated to registers ;size:1
+               00471 ;@sw_adcBatVal INTF1bits                 Allocated to registers ;size:1
+               00472 ;@sw_adcBatVal IARbits                   Allocated to registers ;size:1
+               00473 ;@sw_adcBatVal U_Flage1                  Allocated to registers ;size:1
+               00474 ;@sw_adcBatVal r_g_workMod               Allocated to registers ;size:1
+               00475 ;@sw_adcBatVal r_g_batVal                Allocated to registers ;size:1
+               00476 ;@sw_adcBatVal r_gbatvalsum              Allocated to registers ;size:2
+               00477 ;@sw_adcBatVal r_gbatvalcnt              Allocated to registers ;size:1
+               00478 ;@sw_adcBatVal r_buff                    Allocated to registers ;size:1
+               00479 ;@sw_adcBatVal adcValue                  Allocated to registers ;size:2
+               00480 ;@sw_adcBatVal r_g_batValChangeCnt       Allocated to registers ;size:1
+               00481 ;@sw_adcBatVal r_g_batValAddCnt          Allocated to registers ;size:1
+               00482 ;@sw_adcBatVal r_g_batValDecCnt          Allocated to registers ;size:1
+               00483 ;@sw_adcBatVal r_g_batValAddShk          Allocated to registers ;size:2
+               00484 ;@sw_adcBatVal r_g_batValDecShk          Allocated to registers ;size:2
+               00485 ;@sw_adcBatVal r_g_batValChangeShkSet    Allocated to registers ;size:2
+               00486 ;@sw_adcBatVal left                      Allocated to registers r0x1012 ;size:1
+               00487 ;@sw_adcBatVal right                     Allocated to registers r0x1013 ;size:1
+               00488 ;@sw_adcBatVal median                    Allocated to registers r0x1014 ;size:1
+               00489 ;@sw_adcBatVal RSR                       Allocated to registers ;size:1
+               00490 ;@sw_adcBatVal PCH                       Allocated to registers ;size:1
+               00491 ;@sw_adcBatVal PCL                       Allocated to registers ;size:1
+               00492 ;@sw_adcBatVal STATUS                    Allocated to registers ;size:1
+               00493 ;@sw_adcBatVal TC0CON                    Allocated to registers ;size:1
+               00494 ;@sw_adcBatVal TC0C                      Allocated to registers ;size:1
+               00495 ;@sw_adcBatVal TBRDH                     Allocated to registers ;size:1
+               00496 ;@sw_adcBatVal TBRDL                     Allocated to registers ;size:1
+               00497 ;@sw_adcBatVal CPUCON                    Allocated to registers ;size:1
+               00498 ;@sw_adcBatVal IHRCCAL                   Allocated to registers ;size:1
+               00499 ;@sw_adcBatVal PORT5                     Allocated to registers ;size:1
+               00500 ;@sw_adcBatVal PORT6                     Allocated to registers ;size:1
+               00501 ;@sw_adcBatVal P5CON                     Allocated to registers ;size:1
+               00502 ;@sw_adcBatVal P6CON                     Allocated to registers ;size:1
+               00503 ;@sw_adcBatVal P5PH                      Allocated to registers ;size:1
+               00504 ;@sw_adcBatVal P6PH                      Allocated to registers ;size:1
+               00505 ;@sw_adcBatVal P5PD                      Allocated to registers ;size:1
+               00506 ;@sw_adcBatVal P6PD                      Allocated to registers ;size:1
+               00507 ;@sw_adcBatVal P6OD                      Allocated to registers ;size:1
+               00508 ;@sw_adcBatVal P6WD                      Allocated to registers ;size:1
+               00509 ;@sw_adcBatVal P5IWE                     Allocated to registers ;size:1
+               00510 ;@sw_adcBatVal P6IWE                     Allocated to registers ;size:1
+               00511 ;@sw_adcBatVal P5ADE                     Allocated to registers ;size:1
+               00512 ;@sw_adcBatVal P6ADE                     Allocated to registers ;size:1
+               00513 ;@sw_adcBatVal ADATH                     Allocated to registers ;size:1
+               00514 ;@sw_adcBatVal ADATL                     Allocated to registers ;size:1
+               00515 ;@sw_adcBatVal ADIS                      Allocated to registers ;size:1
+               00516 ;@sw_adcBatVal ADCON0                    Allocated to registers ;size:1
+               00517 ;@sw_adcBatVal ADCON1                    Allocated to registers ;size:1
+               00518 ;@sw_adcBatVal WDTCON                    Allocated to registers ;size:1
+               00519 ;@sw_adcBatVal TC1CON                    Allocated to registers ;size:1
+               00520 ;@sw_adcBatVal TC1PRDL                   Allocated to registers ;size:1
+               00521 ;@sw_adcBatVal PWM1DTL                   Allocated to registers ;size:1
+               00522 ;@sw_adcBatVal TC1PRDTH                  Allocated to registers ;size:1
+               00523 ;@sw_adcBatVal TC1CH                     Allocated to registers ;size:1
+               00524 ;@sw_adcBatVal TC1CL                     Allocated to registers ;size:1
+               00525 ;@sw_adcBatVal TC2CON                    Allocated to registers ;size:1
+               00526 ;@sw_adcBatVal TC2PRDL                   Allocated to registers ;size:1
+               00527 ;@sw_adcBatVal PWM2DTL                   Allocated to registers ;size:1
+               00528 ;@sw_adcBatVal TC2PRDTH                  Allocated to registers ;size:1
+               00529 ;@sw_adcBatVal TC2CH                     Allocated to registers ;size:1
+               00530 ;@sw_adcBatVal TC2CL                     Allocated to registers ;size:1
+               00531 ;@sw_adcBatVal PWM3DTH                   Allocated to registers ;size:1
+               00532 ;@sw_adcBatVal PWM3DTL                   Allocated to registers ;size:1
+               00533 ;@sw_adcBatVal PWM4DTH                   Allocated to registers ;size:1
+               00534 ;@sw_adcBatVal PWM4DTL                   Allocated to registers ;size:1
+               00535 ;@sw_adcBatVal PWMIS                     Allocated to registers ;size:1
+               00536 ;@sw_adcBatVal DEADCON                   Allocated to registers ;size:1
+               00537 ;@sw_adcBatVal PWMCON                    Allocated to registers ;size:1
+               00538 ;@sw_adcBatVal DEADT0                    Allocated to registers ;size:1
+               00539 ;@sw_adcBatVal DEADT1                    Allocated to registers ;size:1
+               00540 ;@sw_adcBatVal INTE0                     Allocated to registers ;size:1
+               00541 ;@sw_adcBatVal INTE1                     Allocated to registers ;size:1
+               00542 ;@sw_adcBatVal INTF0                     Allocated to registers ;size:1
+               00543 ;@sw_adcBatVal INTF1                     Allocated to registers ;size:1
+               00544 ;@sw_adcBatVal IAR                       Allocated to registers ;size:1
+               00545 ;@end Allocation info for local variables in function 'sw_adcBatVal';
+               00546 
+               00547 ;--------------------------------------------------------
+               00548 ; overlayable items in internal ram 
+               00549 ;--------------------------------------------------------
+               00550 ;       udata_ovr
+               00551 ;--------------------------------------------------------
+               00552 ; code
+               00553 ;--------------------------------------------------------
+               00554 code_BAT        code
+               00555 ;***
+               00556 ;  pBlock Stats: dbName = C
+               00557 ;***
+               00558 ;has an exit
+               00559 ;functions called:
+               00560 ;   _ADC_GetValue
+               00561 ;   __mulchar
+               00562 ;   (_t_tabBatValTab + 0)
+               00563 ;   (_t_tabBatValTab + 0)
+               00564 ;   _ADC_GetValue
+               00565 ;   __mulchar
+               00566 ;   (_t_tabBatValTab + 0)
+               00567 ;   (_t_tabBatValTab + 0)
+               00568 ;8 compiler assigned registers:
+               00569 ;   r0x1012
+               00570 ;   r0x1013
+               00571 ;   STK00
+               00572 ;   r0x1014
+               00573 ;   r0x1015
+               00574 ;   r0x1016
+               00575 ;   r0x1017
+               00576 ;   r0x1018
+               00577 ;; Starting pCode block
+               00578 S_BAT__sw_adcBatVal     code
+0000           00579 _sw_adcBatVal:  ;Function start
+               00580 ; 2 exit points
+               00581 ;       .line   137; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     uint8_t left = 0;          // 查找范围左边界
+0000 0600      00582         CLR     r0x1012
+               00583 ;       .line   138; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     uint8_t right = 101;       // 查找范围右边界
+0001 C065      00584         MOV     A,@0x65
+0002 0200      00585         MOV     r0x1013,A
+               00586 ;       .line   142; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     adcValue = ADC_GetValue(E_AD14, E_Vrefh_1_5V);
+0003 C004      00587         MOV     A,@0x04
+0004 0200      00588         MOV     STK00,A
+0005 C00E      00589         MOV     A,@0x0e
+0006 8000      00590         CALL    _ADC_GetValue
+0007 0200      00591         MOV     (_adcValue + 1),A
+0008 2000      00592         MOV     A,STK00
+0009 0200      00593         MOV     _adcValue,A
+000A           00594 _00111_DS_:
+               00595 ;       .line   149; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     median = left + right;
+000A 2000      00596         MOV     A,r0x1013
+000B 1C00      00597         ADD     A,r0x1012
+000C 0200      00598         MOV     r0x1014,A
+               00599 ;       .line   150; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     median = median >> 1;
+000D 4183      00600         BTC     STATUS,0
+000E 3200      00601         RCR     r0x1014
+               00602 ;       .line   153; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     if (left == median)
+000F 2000      00603         MOV     A,r0x1014
+0010 1800      00604         XOR     A,r0x1012
+0011 7583      00605         JBTS    STATUS,2
+0012 A000      00606         JMP     _00264_DS_
+0013 A000      00607         JMP     _00112_DS_
+0014           00608 _00264_DS_:
+               00609 ;       .line   159; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     if (adcValue < t_tabBatValTab[median])
+0014 C002      00610         MOV     A,@0x02
+0015 0200      00611         MOV     STK00,A
+0016 2000      00612         MOV     A,r0x1014
+0017 8000      00613         CALL    __mulchar
+0018 0200      00614         MOV     r0x1015,A
+               00615 ;;1     CLR     r0x1016
+0019 2000      00616         MOV     A,r0x1015
+001A 8000      00617         CALL    (_t_tabBatValTab + 0)
+001B 0200      00618         MOV     r0x1017,A
+001C 3C00      00619         IJA     r0x1015
+001D 8000      00620         CALL    (_t_tabBatValTab + 0)
+001E 0200      00621         MOV     r0x1018,A
+001F 2000      00622         MOV     A,r0x1018
+0020 0800      00623         SUB     A,(_adcValue + 1)
+0021 7583      00624         JBTS    STATUS,2
+0022 A000      00625         JMP     _00265_DS_
+0023 2000      00626         MOV     A,r0x1017
+0024 0800      00627         SUB     A,_adcValue
+0025           00628 _00265_DS_:
+0025 6183      00629         JBTC    STATUS,0
+0026 A000      00630         JMP     _00108_DS_
+               00631 ;       .line   161; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     right = median;    // 目标值在左半部分
+0027 2000      00632         MOV     A,r0x1014
+0028 0200      00633         MOV     r0x1013,A
+0029 A000      00634         JMP     _00111_DS_
+002A           00635 _00108_DS_:
+               00636 ;       .line   165; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     left = median;     // 目标值在右半部分
+002A 2000      00637         MOV     A,r0x1014
+002B 0200      00638         MOV     r0x1012,A
+002C A000      00639         JMP     _00111_DS_
+002D           00640 _00112_DS_:
+               00641 ;       .line   168; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     if(r_gbatvalcnt == 0)
+002D C000      00642         MOV     A,@0x00
+002E 1000      00643         OR      A,_r_gbatvalcnt
+002F 7583      00644         JBTS    STATUS,2
+0030 A000      00645         JMP     _00114_DS_
+               00646 ;       .line   170; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     r_gbatvalsum = 0;
+0031 0600      00647         CLR     _r_gbatvalsum
+0032 0600      00648         CLR     (_r_gbatvalsum + 1)
+0033           00649 _00114_DS_:
+               00650 ;       .line   173; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     median = 100 - median;
+0033 2000      00651         MOV     A,r0x1014
+0034 E864      00652         SUB     A,@0x64
+0035 0200      00653         MOV     r0x1014,A
+               00654 ;       .line   174; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     r_gbatvalsum += median;
+0036 2000      00655         MOV     A,r0x1014
+0037 0200      00656         MOV     r0x1014,A
+0038 0200      00657         MOV     r0x1012,A
+0039 0600      00658         CLR     r0x1013
+               00659 ;;99    MOV     A,r0x1012
+               00660 ;;103   MOV     A,r0x1013
+003A 2000      00661         MOV     A,r0x1014
+003B 1E00      00662         ADD     _r_gbatvalsum,A
+               00663 ;;102   MOV     A,r0x1015
+003C C000      00664         MOV     A,@0x00
+003D 0200      00665         MOV     r0x1015,A
+003E 2000      00666         MOV     A,r0x1015
+003F 6183      00667         JBTC    STATUS,0
+0040 3C00      00668         IJA     r0x1015
+0041 1E00      00669         ADD     (_r_gbatvalsum + 1),A
+               00670 ;       .line   176; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     if(++r_gbatvalcnt >= 16)
+0042 2A00      00671         INC     _r_gbatvalcnt
+0043 C010      00672         MOV     A,@0x10
+0044 0800      00673         SUB     A,_r_gbatvalcnt
+0045 7183      00674         JBTS    STATUS,0
+0046 A000      00675         JMP     _00172_DS_
+               00676 ;       .line   178; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     r_gbatvalcnt = 0;
+0047 0600      00677         CLR     _r_gbatvalcnt
+               00678 ;       .line   180; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     r_gbatvalsum += 8;
+0048 C008      00679         MOV     A,@0x08
+0049 1E00      00680         ADD     _r_gbatvalsum,A
+004A 6183      00681         JBTC    STATUS,0
+004B 2A00      00682         INC     (_r_gbatvalsum + 1)
+               00683 ;       .line   181; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     r_gbatvalsum = r_gbatvalsum >> 4; // 平均值
+004C 3800      00684         SWAPA   _r_gbatvalsum
+004D D00F      00685         AND     A,@0x0f
+004E 0200      00686         MOV     _r_gbatvalsum,A
+004F 3800      00687         SWAPA   (_r_gbatvalsum + 1)
+0050 0200      00688         MOV     (_r_gbatvalsum + 1),A
+0051 D0F0      00689         AND     A,@0xf0
+0052 1200      00690         OR      _r_gbatvalsum,A
+0053 1A00      00691         XOR     (_r_gbatvalsum + 1),A
+               00692 ;;swapping arguments (AOP_TYPEs 1/3)
+               00693 ;       .line   182; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     if (r_gbatvalsum > D_CHECK_BAT_VAL_NUM)
+0054 C000      00694         MOV     A,@0x00
+0055 0800      00695         SUB     A,(_r_gbatvalsum + 1)
+0056 7583      00696         JBTS    STATUS,2
+0057 A000      00697         JMP     _00267_DS_
+0058 C065      00698         MOV     A,@0x65
+0059 0800      00699         SUB     A,_r_gbatvalsum
+005A           00700 _00267_DS_:
+005A 7183      00701         JBTS    STATUS,0
+005B A000      00702         JMP     _00116_DS_
+               00703 ;       .line   184; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     r_gbatvalsum = D_CHECK_BAT_VAL_NUM;
+005C C064      00704         MOV     A,@0x64
+005D 0200      00705         MOV     _r_gbatvalsum,A
+005E 0600      00706         CLR     (_r_gbatvalsum + 1)
+005F           00707 _00116_DS_:
+               00708 ;       .line   187; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     if(F_FIRST_POWER_UP == 1 )
+005F 0600      00709         CLR     r0x1012
+0060 6C00      00710         JBTC    _U_Flage1,6
+0061 2A00      00711         INC     r0x1012
+               00712 ;;109   MOV     A,r0x1012
+               00713 ;;108   MOV     A,r0x1013
+0062 2000      00714         MOV     A,r0x1012
+0063 0200      00715         MOV     r0x1013,A
+0064 D801      00716         XOR     A,@0x01
+0065 7583      00717         JBTS    STATUS,2
+0066 A000      00718         JMP     _00168_DS_
+               00719 ;       .line   189; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     F_FIRST_POWER_UP = 0;
+0067 4C00      00720         BTC     _U_Flage1,6
+               00721 ;       .line   190; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     r_buff = r_gbatvalsum;
+0068 2000      00722         MOV     A,_r_gbatvalsum
+0069 0200      00723         MOV     _r_buff,A
+               00724 ;       .line   191; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     r_g_batVal = r_buff;            // 返回找到的电量百分比
+006A 2000      00725         MOV     A,_r_buff
+006B 0200      00726         MOV     _r_g_batVal,A
+006C A000      00727         JMP     _00172_DS_
+006D           00728 _00168_DS_:
+               00729 ;       .line   193; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     else if(F_CHARGE == 1 || r_g_workMod)
+006D 0600      00730         CLR     r0x1012
+006E 6800      00731         JBTC    _U_Flage1,4
+006F 2A00      00732         INC     r0x1012
+               00733 ;;107   MOV     A,r0x1012
+               00734 ;;106   MOV     A,r0x1013
+0070 2000      00735         MOV     A,r0x1012
+0071 0200      00736         MOV     r0x1013,A
+0072 D801      00737         XOR     A,@0x01
+0073 7583      00738         JBTS    STATUS,2
+0074 A000      00739         JMP     _00268_DS_
+0075 A000      00740         JMP     _00164_DS_
+0076           00741 _00268_DS_:
+0076 C000      00742         MOV     A,@0x00
+0077 1000      00743         OR      A,_r_g_workMod
+0078 6583      00744         JBTC    STATUS,2
+0079 A000      00745         JMP     _00172_DS_
+007A           00746 _00164_DS_:
+               00747 ;       .line   197; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     if(++r_g_batValChangeCnt <= D_BAT_VAL_CNT_SHK)
+007A 2A00      00748         INC     _r_g_batValChangeCnt
+               00749 ;;swapping arguments (AOP_TYPEs 1/3)
+007B C01F      00750         MOV     A,@0x1f
+007C 0800      00751         SUB     A,_r_g_batValChangeCnt
+007D 6183      00752         JBTC    STATUS,0
+007E A000      00753         JMP     _00131_DS_
+               00754 ;       .line   199; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     if(r_gbatvalsum > r_buff)
+007F 2000      00755         MOV     A,_r_buff
+0080 0200      00756         MOV     r0x1012,A
+0081 0600      00757         CLR     r0x1013
+0082 2000      00758         MOV     A,(_r_gbatvalsum + 1)
+0083 0800      00759         SUB     A,r0x1013
+0084 7583      00760         JBTS    STATUS,2
+0085 A000      00761         JMP     _00270_DS_
+0086 2000      00762         MOV     A,_r_gbatvalsum
+0087 0800      00763         SUB     A,r0x1012
+0088           00764 _00270_DS_:
+0088 6183      00765         JBTC    STATUS,0
+0089 A000      00766         JMP     _00120_DS_
+               00767 ;       .line   201; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     r_g_batValAddCnt++;
+008A 2A00      00768         INC     _r_g_batValAddCnt
+008B A000      00769         JMP     _00132_DS_
+008C           00770 _00120_DS_:
+               00771 ;       .line   203; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     else if(r_gbatvalsum < r_buff)
+008C 2000      00772         MOV     A,r0x1013
+008D 0800      00773         SUB     A,(_r_gbatvalsum + 1)
+008E 7583      00774         JBTS    STATUS,2
+008F A000      00775         JMP     _00271_DS_
+0090 2000      00776         MOV     A,r0x1012
+0091 0800      00777         SUB     A,_r_gbatvalsum
+0092           00778 _00271_DS_:
+0092 6183      00779         JBTC    STATUS,0
+0093 A000      00780         JMP     _00132_DS_
+               00781 ;       .line   205; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     r_g_batValDecCnt++;
+0094 2A00      00782         INC     _r_g_batValDecCnt
+0095 A000      00783         JMP     _00132_DS_
+               00784 ;;swapping arguments (AOP_TYPEs 1/3)
+0096           00785 _00131_DS_:
+               00786 ;       .line   211; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     if(r_g_batValAddCnt > D_BAT_VAL_ADD_SHK && F_CHARGE == ENABLE)
+0096 C01A      00787         MOV     A,@0x1a
+0097 0800      00788         SUB     A,_r_g_batValAddCnt
+0098 7183      00789         JBTS    STATUS,0
+0099 A000      00790         JMP     _00127_DS_
+009A 0600      00791         CLR     r0x1012
+009B 6800      00792         JBTC    _U_Flage1,4
+009C 2A00      00793         INC     r0x1012
+               00794 ;;105   MOV     A,r0x1012
+               00795 ;;104   MOV     A,r0x1013
+009D 2000      00796         MOV     A,r0x1012
+009E 0200      00797         MOV     r0x1013,A
+009F D801      00798         XOR     A,@0x01
+00A0 7583      00799         JBTS    STATUS,2
+00A1 A000      00800         JMP     _00127_DS_
+               00801 ;       .line   213; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     r_buff = r_gbatvalsum;
+00A2 2000      00802         MOV     A,_r_gbatvalsum
+00A3 0200      00803         MOV     _r_buff,A
+00A4 A000      00804         JMP     _00128_DS_
+               00805 ;;swapping arguments (AOP_TYPEs 1/3)
+00A5           00806 _00127_DS_:
+               00807 ;       .line   215; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     else if(r_g_batValDecCnt > D_BAT_VAL_DEC_SHK&& F_CHARGE == DISABLE && r_g_workMod)
+00A5 C01A      00808         MOV     A,@0x1a
+00A6 0800      00809         SUB     A,_r_g_batValDecCnt
+00A7 7183      00810         JBTS    STATUS,0
+00A8 A000      00811         JMP     _00128_DS_
+00A9 6800      00812         JBTC    _U_Flage1,4
+00AA A000      00813         JMP     _00128_DS_
+00AB C000      00814         MOV     A,@0x00
+00AC 1000      00815         OR      A,_r_g_workMod
+00AD 6583      00816         JBTC    STATUS,2
+00AE A000      00817         JMP     _00128_DS_
+               00818 ;       .line   217; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     r_buff = r_gbatvalsum;
+00AF 2000      00819         MOV     A,_r_gbatvalsum
+00B0 0200      00820         MOV     _r_buff,A
+00B1           00821 _00128_DS_:
+               00822 ;       .line   219; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     r_g_batValChangeCnt = 0;
+00B1 0600      00823         CLR     _r_g_batValChangeCnt
+               00824 ;       .line   220; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     r_g_batValDecCnt = 0;
+00B2 0600      00825         CLR     _r_g_batValDecCnt
+               00826 ;       .line   221; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     r_g_batValAddCnt = 0;
+00B3 0600      00827         CLR     _r_g_batValAddCnt
+00B4           00828 _00132_DS_:
+               00829 ;       .line   223; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     if(F_CHARGE == ENABLE)
+00B4 0600      00830         CLR     r0x1012
+00B5 6800      00831         JBTC    _U_Flage1,4
+00B6 2A00      00832         INC     r0x1012
+               00833 ;;101   MOV     A,r0x1012
+               00834 ;;100   MOV     A,r0x1013
+00B7 2000      00835         MOV     A,r0x1012
+00B8 0200      00836         MOV     r0x1013,A
+00B9 D801      00837         XOR     A,@0x01
+00BA 7583      00838         JBTS    STATUS,2
+00BB A000      00839         JMP     _00139_DS_
+               00840 ;       .line   225; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     r_g_batValChangeShkSet = 100; //7.5s
+00BC C064      00841         MOV     A,@0x64
+00BD 0200      00842         MOV     _r_g_batValChangeShkSet,A
+00BE 0600      00843         CLR     (_r_g_batValChangeShkSet + 1)
+00BF A000      00844         JMP     _00140_DS_
+00C0           00845 _00139_DS_:
+               00846 ;       .line   227; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     else if(r_g_workMod)
+00C0 C000      00847         MOV     A,@0x00
+00C1 1000      00848         OR      A,_r_g_workMod
+00C2 6583      00849         JBTC    STATUS,2
+00C3 A000      00850         JMP     _00140_DS_
+               00851 ;       .line   229; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     if(r_buff < 10)
+00C4 C00A      00852         MOV     A,@0x0a
+00C5 0800      00853         SUB     A,_r_buff
+00C6 6183      00854         JBTC    STATUS,0
+00C7 A000      00855         JMP     _00134_DS_
+               00856 ;       .line   231; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     r_g_batValChangeShkSet = 40;
+00C8 C028      00857         MOV     A,@0x28
+00C9 0200      00858         MOV     _r_g_batValChangeShkSet,A
+00CA 0600      00859         CLR     (_r_g_batValChangeShkSet + 1)
+00CB A000      00860         JMP     _00140_DS_
+00CC           00861 _00134_DS_:
+               00862 ;       .line   235; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     r_g_batValChangeShkSet = 100;
+00CC C064      00863         MOV     A,@0x64
+00CD 0200      00864         MOV     _r_g_batValChangeShkSet,A
+00CE 0600      00865         CLR     (_r_g_batValChangeShkSet + 1)
+00CF           00866 _00140_DS_:
+               00867 ;       .line   238; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     if(F_CHARGE)
+00CF 7800      00868         JBTS    _U_Flage1,4
+00D0 A000      00869         JMP     _00158_DS_
+               00870 ;       .line   240; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     r_g_batValDecShk = 0; //放电计时清零
+00D1 0600      00871         CLR     _r_g_batValDecShk
+00D2 0600      00872         CLR     (_r_g_batValDecShk + 1)
+               00873 ;       .line   241; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     if(F_CHARGE_FULL || r_buff > r_g_batVal)
+00D3 6A00      00874         JBTC    _U_Flage1,5
+00D4 A000      00875         JMP     _00145_DS_
+00D5 2000      00876         MOV     A,_r_buff
+00D6 0800      00877         SUB     A,_r_g_batVal
+00D7 6183      00878         JBTC    STATUS,0
+00D8 A000      00879         JMP     _00159_DS_
+00D9           00880 _00145_DS_:
+               00881 ;       .line   243; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     if(++r_g_batValAddShk >= r_g_batValChangeShkSet)
+00D9 2A00      00882         INC     _r_g_batValAddShk
+00DA 6583      00883         JBTC    STATUS,2
+00DB 2A00      00884         INC     (_r_g_batValAddShk + 1)
+00DC 2000      00885         MOV     A,(_r_g_batValChangeShkSet + 1)
+00DD 0800      00886         SUB     A,(_r_g_batValAddShk + 1)
+00DE 7583      00887         JBTS    STATUS,2
+00DF A000      00888         JMP     _00276_DS_
+00E0 2000      00889         MOV     A,_r_g_batValChangeShkSet
+00E1 0800      00890         SUB     A,_r_g_batValAddShk
+00E2           00891 _00276_DS_:
+00E2 7183      00892         JBTS    STATUS,0
+00E3 A000      00893         JMP     _00159_DS_
+               00894 ;       .line   245; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     r_g_batValAddShk = 0;
+00E4 0600      00895         CLR     _r_g_batValAddShk
+00E5 0600      00896         CLR     (_r_g_batValAddShk + 1)
+               00897 ;       .line   246; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     if(r_g_batVal < 100)
+00E6 C064      00898         MOV     A,@0x64
+00E7 0800      00899         SUB     A,_r_g_batVal
+00E8 6183      00900         JBTC    STATUS,0
+00E9 A000      00901         JMP     _00159_DS_
+               00902 ;       .line   248; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     r_g_batVal++;
+00EA 2A00      00903         INC     _r_g_batVal
+00EB A000      00904         JMP     _00159_DS_
+00EC           00905 _00158_DS_:
+               00906 ;       .line   253; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     else if(r_g_workMod)
+00EC C000      00907         MOV     A,@0x00
+00ED 1000      00908         OR      A,_r_g_workMod
+00EE 6583      00909         JBTC    STATUS,2
+00EF A000      00910         JMP     _00155_DS_
+               00911 ;       .line   255; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     r_g_batValAddShk = 0; //充电计时清零
+00F0 0600      00912         CLR     _r_g_batValAddShk
+00F1 0600      00913         CLR     (_r_g_batValAddShk + 1)
+               00914 ;       .line   256; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     if(r_buff < r_g_batVal)
+00F2 2000      00915         MOV     A,_r_g_batVal
+00F3 0800      00916         SUB     A,_r_buff
+00F4 6183      00917         JBTC    STATUS,0
+00F5 A000      00918         JMP     _00159_DS_
+               00919 ;       .line   258; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     if(++r_g_batValDecShk >= r_g_batValChangeShkSet)
+00F6 2A00      00920         INC     _r_g_batValDecShk
+00F7 6583      00921         JBTC    STATUS,2
+00F8 2A00      00922         INC     (_r_g_batValDecShk + 1)
+00F9 2000      00923         MOV     A,(_r_g_batValChangeShkSet + 1)
+00FA 0800      00924         SUB     A,(_r_g_batValDecShk + 1)
+00FB 7583      00925         JBTS    STATUS,2
+00FC A000      00926         JMP     _00279_DS_
+00FD 2000      00927         MOV     A,_r_g_batValChangeShkSet
+00FE 0800      00928         SUB     A,_r_g_batValDecShk
+00FF           00929 _00279_DS_:
+00FF 7183      00930         JBTS    STATUS,0
+0100 A000      00931         JMP     _00159_DS_
+               00932 ;       .line   260; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     r_g_batValDecShk = 0;
+0101 0600      00933         CLR     _r_g_batValDecShk
+0102 0600      00934         CLR     (_r_g_batValDecShk + 1)
+               00935 ;       .line   261; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     if(r_g_batVal > 0)
+0103 C000      00936         MOV     A,@0x00
+0104 1000      00937         OR      A,_r_g_batVal
+0105 6583      00938         JBTC    STATUS,2
+0106 A000      00939         JMP     _00159_DS_
+               00940 ;       .line   263; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     r_g_batVal--;
+0107 0E00      00941         DEC     _r_g_batVal
+0108 A000      00942         JMP     _00159_DS_
+0109           00943 _00155_DS_:
+               00944 ;       .line   270; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     r_g_batValAddShk = 0;
+0109 0600      00945         CLR     _r_g_batValAddShk
+010A 0600      00946         CLR     (_r_g_batValAddShk + 1)
+               00947 ;       .line   271; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     r_g_batValDecShk = 0;
+010B 0600      00948         CLR     _r_g_batValDecShk
+010C 0600      00949         CLR     (_r_g_batValDecShk + 1)
+010D           00950 _00159_DS_:
+               00951 ;       .line   273; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     if (r_g_workMod != DISABLE && r_buff == 0 && F_CHARGE == DISABLE)
+010D C000      00952         MOV     A,@0x00
+010E 1000      00953         OR      A,_r_g_workMod
+010F 6583      00954         JBTC    STATUS,2
+0110 A000      00955         JMP     _00172_DS_
+0111 C000      00956         MOV     A,@0x00
+0112 1000      00957         OR      A,_r_buff
+0113 7583      00958         JBTS    STATUS,2
+0114 A000      00959         JMP     _00172_DS_
+0115 6800      00960         JBTC    _U_Flage1,4
+0116 A000      00961         JMP     _00172_DS_
+               00962 ;       .line   275; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     r_g_workMod = 0;
+0117 0600      00963         CLR     _r_g_workMod
+               00964 ;       .line   276; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     r_g_batVal = 0;
+0118 0600      00965         CLR     _r_g_batVal
+               00966 ;       .line   286; C:\USERS\ADMINISTRATOR\DESKTOP\188-PRJ\2\BAT.C     }
+0119           00967 _00172_DS_:
+0119 0082      00968         RET     
+               00969 ; exit point of _sw_adcBatVal
+               00970 
+               00971 
+               00972 ;       code size estimation:
+               00973 ;         282+    0 =   282 instructions (  564 byte)
+               00974 
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+ADATH                             000001A3
+ADATL                             000001A4
+ADCON0                            000001A6
+ADCON1                            000001A7
+ADIS                              000001A5
+CPUCON                            00000188
+DEADCON                           000001C7
+DEADT0                            000001C9
+DEADT1                            000001CA
+IAR                               000001FF
+IHRCCAL                           00000189
+INTE0                             000001D6
+INTE1                             000001D7
+INTF0                             000001DA
+INTF1                             000001DB
+P5ADE                             000001A0
+P5CON                             0000018D
+P5IWE                             0000019C
+P5PD                              00000193
+P5PH                              00000190
+P6ADE                             000001A1
+P6CON                             0000018E
+P6IWE                             0000019D
+P6OD                              00000199
+P6PD                              00000194
+P6PH                              00000191
+P6WD                              0000019A
+PCH                               00000181
+PCL                               00000182
+PORT5                             0000018A
+PORT6                             0000018B
+PWM1DTL                           000001B2
+PWM2DTL                           000001B8
+PWM3DTH                           000001BC
+PWM3DTL                           000001BD
+PWM4DTH                           000001BE
+PWM4DTL                           000001BF
+PWMCON                            000001C8
+PWMIS                             000001C6
+RSR                               00000180
+STATUS                            00000183
+STK00                             00000000
+STK01                             00000000
+STK02                             00000000
+STK03                             00000000
+STK04                             00000000
+STK05                             00000000
+STK06                             00000000
+TBRDH                             00000186
+TBRDL                             00000187
+TC0C                              00000185
+TC0CON                            00000184
+TC1CH                             000001B4
+TC1CL                             000001B5
+TC1CON                            000001B0
+TC1PRDL                           000001B1
+TC1PRDTH                          000001B3
+TC2CH                             000001BA
+TC2CL                             000001BB
+TC2CON                            000001B6
+TC2PRDL                           000001B7
+TC2PRDTH                          000001B9
+WDTCON                            000001AF
+_00108_DS_                        0000002A
+_00111_DS_                        0000000A
+_00112_DS_                        0000002D
+_00114_DS_                        00000033
+_00116_DS_                        0000005F
+_00120_DS_                        0000008C
+_00127_DS_                        000000A5
+_00128_DS_                        000000B1
+_00131_DS_                        00000096
+_00132_DS_                        000000B4
+_00134_DS_                        000000CC
+_00139_DS_                        000000C0
+_00140_DS_                        000000CF
+_00145_DS_                        000000D9
+_00155_DS_                        00000109
+_00158_DS_                        000000EC
+_00159_DS_                        0000010D
+_00164_DS_                        0000007A
+_00168_DS_                        0000006D
+_00172_DS_                        00000119
+_00264_DS_                        00000014
+_00265_DS_                        00000025
+_00267_DS_                        0000005A
+_00268_DS_                        00000076
+_00270_DS_                        00000088
+_00271_DS_                        00000092
+_00276_DS_                        000000E2
+_00279_DS_                        000000FF
+_ADATH                            00000000
+_ADATHbits                        00000000
+_ADATL                            00000000
+_ADATLbits                        00000000
+_ADCON0                           00000000
+_ADCON0bits                       00000000
+_ADCON1                           00000000
+_ADCON1bits                       00000000
+_ADC_GetValue                     00000000
+_ADIS                             00000000
+_ADISbits                         00000000
+_CPUCON                           00000000
+_CPUCONbits                       00000000
+_DEADCON                          00000000
+_DEADCONbits                      00000000
+_DEADT0                           00000000
+_DEADT0bits                       00000000
+_DEADT1                           00000000
+_DEADT1bits                       00000000
+_IAR                              00000000
+_IARbits                          00000000
+_IHRCCAL                          00000000
+_IHRCCALbits                      00000000
+_INTE0                            00000000
+_INTE0bits                        00000000
+_INTE1                            00000000
+_INTE1bits                        00000000
+_INTF0                            00000000
+_INTF0bits                        00000000
+_INTF1                            00000000
+_INTF1bits                        00000000
+_P5ADE                            00000000
+_P5ADEbits                        00000000
+_P5CON                            00000000
+_P5CONbits                        00000000
+_P5IWE                            00000000
+_P5IWEbits                        00000000
+_P5PD                             00000000
+_P5PDbits                         00000000
+_P5PH                             00000000
+_P5PHbits                         00000000
+_P6ADE                            00000000
+_P6ADEbits                        00000000
+_P6CON                            00000000
+_P6CONbits                        00000000
+_P6IWE                            00000000
+_P6IWEbits                        00000000
+_P6OD                             00000000
+_P6ODbits                         00000000
+_P6PD                             00000000
+_P6PDbits                         00000000
+_P6PH                             00000000
+_P6PHbits                         00000000
+_P6WD                             00000000
+_P6WDbits                         00000000
+_PCH                              00000000
+_PCHbits                          00000000
+_PCL                              00000000
+_PCLbits                          00000000
+_PORT5                            00000000
+_PORT5bits                        00000000
+_PORT6                            00000000
+_PORT6bits                        00000000
+_PWM1DTL                          00000000
+_PWM1DTLbits                      00000000
+_PWM2DTL                          00000000
+_PWM2DTLbits                      00000000
+_PWM3DTH                          00000000
+_PWM3DTHbits                      00000000
+_PWM3DTL                          00000000
+_PWM3DTLbits                      00000000
+_PWM4DTH                          00000000
+_PWM4DTHbits                      00000000
+_PWM4DTL                          00000000
+_PWM4DTLbits                      00000000
+_PWMCON                           00000000
+_PWMCONbits                       00000000
+_PWMIS                            00000000
+_PWMISbits                        00000000
+_RSR                              00000000
+_RSRbits                          00000000
+_STATUS                           00000000
+_STATUSbits                       00000000
+_TBRDH                            00000000
+_TBRDHbits                        00000000
+_TBRDL                            00000000
+_TBRDLbits                        00000000
+_TC0C                             00000000
+_TC0CON                           00000000
+_TC0CONbits                       00000000
+_TC0Cbits                         00000000
+_TC1CH                            00000000
+_TC1CHbits                        00000000
+_TC1CL                            00000000
+_TC1CLbits                        00000000
+_TC1CON                           00000000
+_TC1CONbits                       00000000
+_TC1PRDL                          00000000
+_TC1PRDLbits                      00000000
+_TC1PRDTH                         00000000
+_TC1PRDTHbits                     00000000
+_TC2CH                            00000000
+_TC2CHbits                        00000000
+_TC2CL                            00000000
+_TC2CLbits                        00000000
+_TC2CON                           00000000
+_TC2CONbits                       00000000
+_TC2PRDL                          00000000
+_TC2PRDLbits                      00000000
+_TC2PRDTH                         00000000
+_TC2PRDTHbits                     00000000
+_U_Flage1                         00000000
+_WDTCON                           00000000
+_WDTCONbits                       00000000
+__jz8p2615                        00000001
+__mulchar                         00000000
+_adcValue                         00000000
+_r_buff                           00000000
+_r_g_batVal                       00000000
+_r_g_batValAddCnt                 00000000
+_r_g_batValAddShk                 00000000
+_r_g_batValChangeCnt              00000000
+_r_g_batValChangeShkSet           00000000
+_r_g_batValDecCnt                 00000000
+_r_g_batValDecShk                 00000000
+_r_g_workMod                      00000000
+_r_gbatvalcnt                     00000000
+_r_gbatvalsum                     00000000
+_sw_adcBatVal                     00000000
+_t_tabBatValTab                   00000000
+r0x1012                           00000000
+r0x1013                           00000001
+r0x1014                           00000002
+r0x1015                           00000003
+r0x1017                           00000004
+r0x1018                           00000005
+
+
+Errors   :       0
+Warnings :       0 reported,       0 suppressed
+Messages :       0 reported,       0 suppressed
+

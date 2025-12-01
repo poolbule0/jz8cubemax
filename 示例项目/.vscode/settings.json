@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "SMG.C": "cpp",
+        "smg.h": "c",
+        "jz8p2615.h": "c",
+        "type.h": "c",
+        "BAT.C": "cpp",
+        "ADC.C": "cpp",
+        "key.h": "c"
+    }
+}

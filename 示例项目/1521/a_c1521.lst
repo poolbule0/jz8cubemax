@@ -1,0 +1,1630 @@
+sllink-0.13.6 alpha
+Listing File Generated: 12-2-2025  17:39:42
+ 
+ 
+Address  Value    Disassembly              Source
+-------  -----    -----------              ------
+                                           ;--------------------------------------------------------
+                                           ; File Created by SLCC : free open source ANSI-C Compiler
+                                           ; Version 3.6.0 #Sep 28 2025 (MSVC)
+                                           ;--------------------------------------------------------
+                                           ; SL port for the RISC core
+                                           ;--------------------------------------------------------
+                                           ;	.file	"D:\POOLBULE0\芯片代码模板\C_1521\MAIN.C"
+                                           	list	p=JZ8P1521
+                                           	radix dec
+                                           	include "JZ8P1521.inc"
+                                                   LIST                                                                  
+                                           ; JZ8P1521.INC  Standard Header File, Version 1.00
+                                                   NOLIST                                                                
+                                           ;--------------------------------------------------------
+                                           ; external declarations
+                                           ;--------------------------------------------------------
+                                           	extern	_fw_pwm1Init
+                                           	extern	_fw_pwm2Init
+                                           	extern	_fw_pwm3Init
+                                           	extern	_fw_sleepEvent
+                                           	extern	_keyScan
+                                           	extern	_keyProcess
+                                           	extern	_fw_clrRam
+                                           	extern	_fw_gpioInit
+                                           	extern	_fw_tc0Init
+                                           	extern	_IARbits
+                                           	extern	_TCCbits
+                                           	extern	_PCLbits
+                                           	extern	_STATUSbits
+                                           	extern	_RSRbits
+                                           	extern	_PORT5bits
+                                           	extern	_PORT6bits
+                                           	extern	_LVDCONbits
+                                           	extern	_PWMCONbits
+                                           	extern	_PRDbits
+                                           	extern	_PDC1bits
+                                           	extern	_PDC2bits
+                                           	extern	_PDC3bits
+                                           	extern	_ICIECRbits
+                                           	extern	_CPUCONbits
+                                           	extern	_ISRbits
+                                           	extern	_IAR
+                                           	extern	_TCC
+                                           	extern	_PCL
+                                           	extern	_STATUS
+                                           	extern	_RSR
+                                           	extern	_PORT5
+                                           	extern	_PORT6
+                                           	extern	_LVDCON
+                                           	extern	_PWMCON
+                                           	extern	_PRD
+                                           	extern	_PDC1
+                                           	extern	_PDC2
+                                           	extern	_PDC3
+                                           	extern	_ICIECR
+                                           	extern	_CPUCON
+                                           	extern	_ISR
+                                           ;--------------------------------------------------------
+                                           ; global declarations
+                                           ;--------------------------------------------------------
+                                           	global	_main
+                                           	global	_U_Flage
+                                           	global	_r_g_workMod
+                                           
+                                           	global STK06
+                                           	global STK05
+                                           	global STK04
+                                           	global STK03
+                                           	global STK02
+                                           	global STK01
+                                           	global STK00
+                                           
+                                           sharebank udata_ovr 0x0020
+                                           STK06	res 1
+                                           STK05	res 1
+                                           STK04	res 1
+                                           STK03	res 1
+                                           STK02	res 1
+                                           STK01	res 1
+                                           STK00	res 1
+                                           
+                                           ;--------------------------------------------------------
+                                           ; global definitions
+                                           ;--------------------------------------------------------
+                                           UD_MAIN_0	udata
+                                           _U_Flage	res	1
+                                           
+                                           UD_MAIN_1	udata
+                                           _r_g_workMod	res	1
+                                           
+                                           ;--------------------------------------------------------
+                                           ; absolute symbol definitions
+                                           ;--------------------------------------------------------
+                                           ;--------------------------------------------------------
+                                           ; compiler-defined variables
+                                           ;--------------------------------------------------------
+                                           ;--------------------------------------------------------
+                                           ; initialized data
+                                           ;--------------------------------------------------------
+                                           
+                                           ;@Allocation info for local variables in function 'main'
+                                           ;@main fw_pwm1Init               Allocated to registers ;size:2
+                                           ;@main fw_pwm2Init               Allocated to registers ;size:2
+                                           ;@main fw_pwm3Init               Allocated to registers ;size:2
+                                           ;@main fw_sleepEvent             Allocated to registers ;size:2
+                                           ;@main keyScan                   Allocated to registers ;size:2
+                                           ;@main keyProcess                Allocated to registers ;size:2
+                                           ;@main fw_clrRam                 Allocated to registers ;size:2
+                                           ;@main fw_gpioInit               Allocated to registers ;size:2
+                                           ;@main fw_tc0Init                Allocated to registers ;size:2
+                                           ;@main main                      Allocated to registers ;size:2
+                                           ;@main IARbits                   Allocated to registers ;size:1
+                                           ;@main TCCbits                   Allocated to registers ;size:1
+                                           ;@main PCLbits                   Allocated to registers ;size:1
+                                           ;@main STATUSbits                Allocated to registers ;size:1
+                                           ;@main RSRbits                   Allocated to registers ;size:1
+                                           ;@main PORT5bits                 Allocated to registers ;size:1
+                                           ;@main PORT6bits                 Allocated to registers ;size:1
+                                           ;@main LVDCONbits                Allocated to registers ;size:1
+                                           ;@main PWMCONbits                Allocated to registers ;size:1
+                                           ;@main PRDbits                   Allocated to registers ;size:1
+                                           ;@main PDC1bits                  Allocated to registers ;size:1
+                                           ;@main PDC2bits                  Allocated to registers ;size:1
+                                           ;@main PDC3bits                  Allocated to registers ;size:1
+                                           ;@main ICIECRbits                Allocated to registers ;size:1
+                                           ;@main CPUCONbits                Allocated to registers ;size:1
+                                           ;@main ISRbits                   Allocated to registers ;size:1
+                                           ;@main U_Flage                   Allocated to registers ;size:1
+                                           ;@main r_g_workMod               Allocated to registers ;size:1
+                                           ;@main IAR                       Allocated to registers ;size:1
+                                           ;@main TCC                       Allocated to registers ;size:1
+                                           ;@main PCL                       Allocated to registers ;size:1
+                                           ;@main STATUS                    Allocated to registers ;size:1
+                                           ;@main RSR                       Allocated to registers ;size:1
+                                           ;@main PORT5                     Allocated to registers ;size:1
+                                           ;@main PORT6                     Allocated to registers ;size:1
+                                           ;@main LVDCON                    Allocated to registers ;size:1
+                                           ;@main PWMCON                    Allocated to registers ;size:1
+                                           ;@main PRD                       Allocated to registers ;size:1
+                                           ;@main PDC1                      Allocated to registers ;size:1
+                                           ;@main PDC2                      Allocated to registers ;size:1
+                                           ;@main PDC3                      Allocated to registers ;size:1
+                                           ;@main ICIECR                    Allocated to registers ;size:1
+                                           ;@main CPUCON                    Allocated to registers ;size:1
+                                           ;@main ISR                       Allocated to registers ;size:1
+                                           ;@end Allocation info for local variables in function 'main';
+                                           
+                                           ;--------------------------------------------------------
+                                           ; overlayable items in internal ram 
+                                           ;--------------------------------------------------------
+                                           ;	udata_ovr
+                                           ;--------------------------------------------------------
+                                           ; reset vector 
+                                           ;--------------------------------------------------------
+                                           STARTUP	code 0x0000
+addr:000000   inc:1127                          jmp	0x127                	jmp	_main
+                                           ;--------------------------------------------------------
+                                           ; code
+                                           ;--------------------------------------------------------
+                                           code_MAIN	code
+                                           ;***
+                                           ;  pBlock Stats: dbName = M
+                                           ;***
+                                           ;has an exit
+                                           ;functions called:
+                                           ;   _fw_clrRam
+                                           ;   _fw_gpioInit
+                                           ;   _fw_tc0Init
+                                           ;   _fw_pwm1Init
+                                           ;   _fw_sleepEvent
+                                           ;   _keyProcess
+                                           ;   _fw_clrRam
+                                           ;   _fw_gpioInit
+                                           ;   _fw_tc0Init
+                                           ;   _fw_pwm1Init
+                                           ;   _fw_sleepEvent
+                                           ;   _keyProcess
+                                           ;; Starting pCode block
+                                           S_MAIN__main	code
+                                           _main:	;Function start
+                                           ; 2 exit points
+                                           ;	.line	8; D:\POOLBULE0\芯片代码模板\C_1521\MAIN.C	fw_clrRam();		//清RAM
+addr:000127   inc:1957                          call	0x157               	CALL	_fw_clrRam
+                                           ;	.line	9; D:\POOLBULE0\芯片代码模板\C_1521\MAIN.C	fw_gpioInit();		//端口初始化
+addr:000128   inc:1917                          call	0x117               	CALL	_fw_gpioInit
+                                           ;	.line	10; D:\POOLBULE0\芯片代码模板\C_1521\MAIN.C	fw_tc0Init();		//定时器初始化
+addr:000129   inc:1962                          call	0x162               	CALL	_fw_tc0Init
+                                           ;	.line	11; D:\POOLBULE0\芯片代码模板\C_1521\MAIN.C	fw_pwm1Init();
+addr:00012a   inc:194b                          call	0x14b               	CALL	_fw_pwm1Init
+                                           ;	.line	13; D:\POOLBULE0\芯片代码模板\C_1521\MAIN.C	EI();				//开启中断
+addr:00012b   inc:3820                          ei                       	ei	
+                                           _00108_DS_:
+                                           ;	.line	16; D:\POOLBULE0\芯片代码模板\C_1521\MAIN.C	if (Time_10ms)
+addr:00012c   inc:2429                          jbts	0x29, 0             	JBTS	_U_Flage,0
+addr:00012d   inc:112c                          jmp	0x12c                	JMP	_00108_DS_
+                                           ;	.line	18; D:\POOLBULE0\芯片代码模板\C_1521\MAIN.C	Time_10ms = DISABLE;
+addr:00012e   inc:2829                          btc	0x29, 0              	BTC	_U_Flage,0
+                                           ;	.line	19; D:\POOLBULE0\芯片代码模板\C_1521\MAIN.C	fw_sleepEvent();
+addr:00012f   inc:18f8                          call	0xf8                	CALL	_fw_sleepEvent
+                                           ;	.line	20; D:\POOLBULE0\芯片代码模板\C_1521\MAIN.C	keyProcess();
+addr:000130   inc:1884                          call	0x84                	CALL	_keyProcess
+addr:000131   inc:112c                          jmp	0x12c                	JMP	_00108_DS_
+                                           ;	.line	25; D:\POOLBULE0\芯片代码模板\C_1521\MAIN.C	}
+addr:000132   inc:3822                          ret                      	RET	
+                                           ; exit point of _main
+                                           
+                                           
+                                           ;	code size estimation:
+                                           ;	   11+    0 =    11 instructions (   22 byte)
+                                           
+                                           	end
+                                           ;--------------------------------------------------------
+                                           ; File Created by SLCC : free open source ANSI-C Compiler
+                                           ; Version 3.6.0 #Sep 28 2025 (MSVC)
+                                           ;--------------------------------------------------------
+                                           ; SL port for the RISC core
+                                           ;--------------------------------------------------------
+                                           ;	.file	"D:\POOLBULE0\芯片代码模板\C_1521\ISR.C"
+                                           	list	p=JZ8P1521
+                                           	radix dec
+                                           	include "JZ8P1521.inc"
+                                                   LIST                                                                  
+                                           ; JZ8P1521.INC  Standard Header File, Version 1.00
+                                                   NOLIST                                                                
+                                           ;--------------------------------------------------------
+                                           ; external declarations
+                                           ;--------------------------------------------------------
+                                           	extern	_fw_pwm1Init
+                                           	extern	_fw_pwm2Init
+                                           	extern	_fw_pwm3Init
+                                           	extern	_fw_sleepEvent
+                                           	extern	_keyScan
+                                           	extern	_keyProcess
+                                           	extern	_fw_clrRam
+                                           	extern	_fw_gpioInit
+                                           	extern	_fw_tc0Init
+                                           	extern	_IARbits
+                                           	extern	_TCCbits
+                                           	extern	_PCLbits
+                                           	extern	_STATUSbits
+                                           	extern	_RSRbits
+                                           	extern	_PORT5bits
+                                           	extern	_PORT6bits
+                                           	extern	_LVDCONbits
+                                           	extern	_PWMCONbits
+                                           	extern	_PRDbits
+                                           	extern	_PDC1bits
+                                           	extern	_PDC2bits
+                                           	extern	_PDC3bits
+                                           	extern	_ICIECRbits
+                                           	extern	_CPUCONbits
+                                           	extern	_ISRbits
+                                           	extern	_U_Flage
+                                           	extern	_r_g_workMod
+                                           	extern	_IAR
+                                           	extern	_TCC
+                                           	extern	_PCL
+                                           	extern	_STATUS
+                                           	extern	_RSR
+                                           	extern	_PORT5
+                                           	extern	_PORT6
+                                           	extern	_LVDCON
+                                           	extern	_PWMCON
+                                           	extern	_PRD
+                                           	extern	_PDC1
+                                           	extern	_PDC2
+                                           	extern	_PDC3
+                                           	extern	_ICIECR
+                                           	extern	_CPUCON
+                                           	extern	_ISR
+                                           
+                                           	extern STK06
+                                           	extern STK05
+                                           	extern STK04
+                                           	extern STK03
+                                           	extern STK02
+                                           	extern STK01
+                                           	extern STK00
+                                           ;--------------------------------------------------------
+                                           ; global declarations
+                                           ;--------------------------------------------------------
+                                           	global	_int_isr
+                                           	global	_reg_200us
+                                           	global	_reg_10ms
+                                           	global	_A_BUFF
+                                           	global	_R3_BUFF
+                                           
+                                           ;--------------------------------------------------------
+                                           ; global definitions
+                                           ;--------------------------------------------------------
+                                           UD_ISR_0	udata
+                                           _reg_200us	res	1
+                                           
+                                           UD_ISR_1	udata
+                                           _reg_10ms	res	1
+                                           
+                                           ;--------------------------------------------------------
+                                           ; absolute symbol definitions
+                                           ;--------------------------------------------------------
+                                           UD_abs_ISR_10	udata_ovr	0x0010
+                                           _A_BUFF
+                                           	res	1
+                                           UD_abs_ISR_11	udata_ovr	0x0011
+                                           _R3_BUFF
+                                           	res	1
+                                           ;--------------------------------------------------------
+                                           ; compiler-defined variables
+                                           ;--------------------------------------------------------
+                                           UDL_ISR_0	udata
+                                           r0x1002	res	1
+                                           ;--------------------------------------------------------
+                                           ; initialized data
+                                           ;--------------------------------------------------------
+                                           
+                                           ;@Allocation info for local variables in function 'int_isr'
+                                           ;@int_isr fw_pwm1Init               Allocated to registers ;size:2
+                                           ;@int_isr fw_pwm2Init               Allocated to registers ;size:2
+                                           ;@int_isr fw_pwm3Init               Allocated to registers ;size:2
+                                           ;@int_isr fw_sleepEvent             Allocated to registers ;size:2
+                                           ;@int_isr keyScan                   Allocated to registers ;size:2
+                                           ;@int_isr keyProcess                Allocated to registers ;size:2
+                                           ;@int_isr fw_clrRam                 Allocated to registers ;size:2
+                                           ;@int_isr fw_gpioInit               Allocated to registers ;size:2
+                                           ;@int_isr fw_tc0Init                Allocated to registers ;size:2
+                                           ;@int_isr int_isr                   Allocated to registers ;size:2
+                                           ;@int_isr IARbits                   Allocated to registers ;size:1
+                                           ;@int_isr TCCbits                   Allocated to registers ;size:1
+                                           ;@int_isr PCLbits                   Allocated to registers ;size:1
+                                           ;@int_isr STATUSbits                Allocated to registers ;size:1
+                                           ;@int_isr RSRbits                   Allocated to registers ;size:1
+                                           ;@int_isr PORT5bits                 Allocated to registers ;size:1
+                                           ;@int_isr PORT6bits                 Allocated to registers ;size:1
+                                           ;@int_isr LVDCONbits                Allocated to registers ;size:1
+                                           ;@int_isr PWMCONbits                Allocated to registers ;size:1
+                                           ;@int_isr PRDbits                   Allocated to registers ;size:1
+                                           ;@int_isr PDC1bits                  Allocated to registers ;size:1
+                                           ;@int_isr PDC2bits                  Allocated to registers ;size:1
+                                           ;@int_isr PDC3bits                  Allocated to registers ;size:1
+                                           ;@int_isr ICIECRbits                Allocated to registers ;size:1
+                                           ;@int_isr CPUCONbits                Allocated to registers ;size:1
+                                           ;@int_isr ISRbits                   Allocated to registers ;size:1
+                                           ;@int_isr U_Flage                   Allocated to registers ;size:1
+                                           ;@int_isr r_g_workMod               Allocated to registers ;size:1
+                                           ;@int_isr reg_200us                 Allocated to registers ;size:1
+                                           ;@int_isr reg_10ms                  Allocated to registers ;size:1
+                                           ;@int_isr A_BUFF                    Allocated to registers ;size:1
+                                           ;@int_isr R3_BUFF                   Allocated to registers ;size:1
+                                           ;@int_isr IAR                       Allocated to registers ;size:1
+                                           ;@int_isr TCC                       Allocated to registers ;size:1
+                                           ;@int_isr PCL                       Allocated to registers ;size:1
+                                           ;@int_isr STATUS                    Allocated to registers ;size:1
+                                           ;@int_isr RSR                       Allocated to registers ;size:1
+                                           ;@int_isr PORT5                     Allocated to registers ;size:1
+                                           ;@int_isr PORT6                     Allocated to registers ;size:1
+                                           ;@int_isr LVDCON                    Allocated to registers ;size:1
+                                           ;@int_isr PWMCON                    Allocated to registers ;size:1
+                                           ;@int_isr PRD                       Allocated to registers ;size:1
+                                           ;@int_isr PDC1                      Allocated to registers ;size:1
+                                           ;@int_isr PDC2                      Allocated to registers ;size:1
+                                           ;@int_isr PDC3                      Allocated to registers ;size:1
+                                           ;@int_isr ICIECR                    Allocated to registers ;size:1
+                                           ;@int_isr CPUCON                    Allocated to registers ;size:1
+                                           ;@int_isr ISR                       Allocated to registers ;size:1
+                                           ;@end Allocation info for local variables in function 'int_isr';
+                                           
+                                           ;--------------------------------------------------------
+                                           ; overlayable items in internal ram 
+                                           ;--------------------------------------------------------
+                                           ;	udata_ovr
+                                           ;--------------------------------------------------------
+                                           ; interrupt and initialization code
+                                           ;--------------------------------------------------------
+                                           c_interrupt	code	0x0003
+                                           __sdcc_interrupt:
+                                           ;***
+                                           ;  pBlock Stats: dbName = I
+                                           ;***
+                                           ;2 compiler assigned registers:
+                                           ;   r0x1002
+                                           ;   r0x1003
+                                           ;; Starting pCode block
+                                           _int_isr:	;Function start
+                                           ; 0 exit points
+                                           ;	.line	11; D:\POOLBULE0\芯片代码模板\C_1521\ISR.C	__asm__("org 0x08");			//中断入口地址	
+                                           	org	0x08
+                                           ;	.line	12; D:\POOLBULE0\芯片代码模板\C_1521\ISR.C	DI();		
+addr:000008   inc:3821                          di                       	di	
+                                           ;	.line	13; D:\POOLBULE0\芯片代码模板\C_1521\ISR.C	PUSH(_A_BUFF,_R3_BUFF);			//中断入栈保护
+addr:000009   inc:3890                          mov	0x10, a              	mov	_A_BUFF,a
+addr:00000a   inc:3690                          swap	0x10                	swap	_A_BUFF
+addr:00000b   inc:3603                          swapa	0x3                	swapa	STATUS
+addr:00000c   inc:3891                          mov	0x11, a              	mov	_R3_BUFF,a
+                                           ;	.line	15; D:\POOLBULE0\芯片代码模板\C_1521\ISR.C	if(TCIF == 1)					//判断TCIF是否为1
+addr:00000d   inc:39ad                          clr	0x2d                 	CLR	r0x1002
+addr:00000e   inc:200f                          jbtc	0xf, 0              	JBTC	_ISRbits,0
+addr:00000f   inc:32ad                          inc	0x2d                 	INC	r0x1002
+                                           ;;101	MOV	A,r0x1002
+                                           ;;99	MOV	r0x1003,A
+                                           ;;100	MOV	A,r0x1003
+addr:000010   inc:302d                          mov	a, 0x2d              	MOV	A,r0x1002
+addr:000011   inc:0e01                          xor	a, @0x1              	XOR	A,@0x01
+addr:000012   inc:2503                          jbts	0x3, 0x2            	JBTS	STATUS,2
+addr:000013   inc:101f                          jmp	0x1f                 	JMP	_00108_DS_
+                                           ;	.line	17; D:\POOLBULE0\芯片代码模板\C_1521\ISR.C	TCC += TCC_TIM;			//1/2 * 8 * (256-6) = 1000us	公式：1/IRC频率 * 预分频 * （256-初值）
+addr:000014   inc:0806                          mov	a, @0x6              	MOV	A,@0x06
+addr:000015   inc:3f81                          add	0x1, a               	ADD	_TCC,A
+                                           ;	.line	18; D:\POOLBULE0\芯片代码模板\C_1521\ISR.C	ISR = 0xfe;				//清TC0中断标志位
+addr:000016   inc:08fe                          dw	0x8fe  ;unknown opcode 	MOV	A,@0xfe
+addr:000017   inc:388f                          mov	0xf, a               	MOV	_ISR,A
+                                           ;	.line	20; D:\POOLBULE0\芯片代码模板\C_1521\ISR.C	if (++ reg_10ms >= 1)
+addr:000018   inc:32ac                          inc	0x2c                 	INC	_reg_10ms
+addr:000019   inc:0801                          mov	a, @0x1              	MOV	A,@0x01
+addr:00001a   inc:3a2c                          sub	a, 0x2c              	SUB	A,_reg_10ms
+addr:00001b   inc:2403                          jbts	0x3, 0              	JBTS	STATUS,0
+addr:00001c   inc:101f                          jmp	0x1f                 	JMP	_00108_DS_
+                                           ;	.line	22; D:\POOLBULE0\芯片代码模板\C_1521\ISR.C	reg_10ms = 0;
+addr:00001d   inc:39ac                          clr	0x2c                 	CLR	_reg_10ms
+                                           ;	.line	23; D:\POOLBULE0\芯片代码模板\C_1521\ISR.C	Time_10ms = ENABLE;
+addr:00001e   inc:2c29                          bts	0x29, 0              	BTS	_U_Flage,0
+                                           _00108_DS_:
+                                           ;	.line	28; D:\POOLBULE0\芯片代码模板\C_1521\ISR.C	ISR = 0x01; //清不使用的中断标志位
+addr:00001f   inc:0801                          mov	a, @0x1              	MOV	A,@0x01
+addr:000020   inc:388f                          mov	0xf, a               	MOV	_ISR,A
+                                           ;	.line	29; D:\POOLBULE0\芯片代码模板\C_1521\ISR.C	POP(_A_BUFF,_R3_BUFF);			//中断出栈保护恢复
+addr:000021   inc:3611                          swapa	0x11               	swapa	_R3_BUFF
+addr:000022   inc:3883                          mov	0x3, a               	mov	STATUS,a
+addr:000023   inc:3610                          swapa	0x10               	swapa	_A_BUFF
+                                           ;	.line	30; D:\POOLBULE0\芯片代码模板\C_1521\ISR.C	EI();
+addr:000024   inc:3820                          ei                       	ei	
+                                           ;	.line	31; D:\POOLBULE0\芯片代码模板\C_1521\ISR.C	}
+                                           END_OF_INTERRUPT:
+addr:000025   inc:3823                          reti                     	RETI	
+                                           
+                                           ;--------------------------------------------------------
+                                           ; code
+                                           ;--------------------------------------------------------
+                                           code_ISR	code
+                                           
+                                           ;	code size estimation:
+                                           ;	   21+    0 =    21 instructions (   42 byte)
+                                           
+                                           	end
+                                           ;--------------------------------------------------------
+                                           ; File Created by SLCC : free open source ANSI-C Compiler
+                                           ; Version 3.6.0 #Sep 28 2025 (MSVC)
+                                           ;--------------------------------------------------------
+                                           ; SL port for the RISC core
+                                           ;--------------------------------------------------------
+                                           ;	.file	"D:\POOLBULE0\芯片代码模板\C_1521\USER.C"
+                                           	list	p=JZ8P1521
+                                           	radix dec
+                                           	include "JZ8P1521.inc"
+                                                   LIST                                                                  
+                                           ; JZ8P1521.INC  Standard Header File, Version 1.00
+                                                   NOLIST                                                                
+                                           ;--------------------------------------------------------
+                                           ; external declarations
+                                           ;--------------------------------------------------------
+                                           	extern	_fw_pwm1Init
+                                           	extern	_fw_pwm2Init
+                                           	extern	_fw_pwm3Init
+                                           	extern	_fw_sleepEvent
+                                           	extern	_keyScan
+                                           	extern	_keyProcess
+                                           	extern	_fw_tc0Init
+                                           	extern	_IARbits
+                                           	extern	_TCCbits
+                                           	extern	_PCLbits
+                                           	extern	_STATUSbits
+                                           	extern	_RSRbits
+                                           	extern	_PORT5bits
+                                           	extern	_PORT6bits
+                                           	extern	_LVDCONbits
+                                           	extern	_PWMCONbits
+                                           	extern	_PRDbits
+                                           	extern	_PDC1bits
+                                           	extern	_PDC2bits
+                                           	extern	_PDC3bits
+                                           	extern	_ICIECRbits
+                                           	extern	_CPUCONbits
+                                           	extern	_ISRbits
+                                           	extern	_U_Flage
+                                           	extern	_r_g_workMod
+                                           	extern	_IAR
+                                           	extern	_TCC
+                                           	extern	_PCL
+                                           	extern	_STATUS
+                                           	extern	_RSR
+                                           	extern	_PORT5
+                                           	extern	_PORT6
+                                           	extern	_LVDCON
+                                           	extern	_PWMCON
+                                           	extern	_PRD
+                                           	extern	_PDC1
+                                           	extern	_PDC2
+                                           	extern	_PDC3
+                                           	extern	_ICIECR
+                                           	extern	_CPUCON
+                                           	extern	_ISR
+                                           
+                                           	extern STK06
+                                           	extern STK05
+                                           	extern STK04
+                                           	extern STK03
+                                           	extern STK02
+                                           	extern STK01
+                                           	extern STK00
+                                           ;--------------------------------------------------------
+                                           ; global declarations
+                                           ;--------------------------------------------------------
+                                           	global	_fw_gpioInit
+                                           	global	_fw_clrRam
+                                           
+                                           ;--------------------------------------------------------
+                                           ; global definitions
+                                           ;--------------------------------------------------------
+                                           ;--------------------------------------------------------
+                                           ; absolute symbol definitions
+                                           ;--------------------------------------------------------
+                                           ;--------------------------------------------------------
+                                           ; compiler-defined variables
+                                           ;--------------------------------------------------------
+                                           ;--------------------------------------------------------
+                                           ; initialized data
+                                           ;--------------------------------------------------------
+                                           
+                                           ;@Allocation info for local variables in function 'fw_clrRam'
+                                           ;@fw_clrRam fw_pwm1Init               Allocated to registers ;size:2
+                                           ;@fw_clrRam fw_pwm2Init               Allocated to registers ;size:2
+                                           ;@fw_clrRam fw_pwm3Init               Allocated to registers ;size:2
+                                           ;@fw_clrRam fw_sleepEvent             Allocated to registers ;size:2
+                                           ;@fw_clrRam keyScan                   Allocated to registers ;size:2
+                                           ;@fw_clrRam keyProcess                Allocated to registers ;size:2
+                                           ;@fw_clrRam fw_gpioInit               Allocated to registers ;size:2
+                                           ;@fw_clrRam fw_tc0Init                Allocated to registers ;size:2
+                                           ;@fw_clrRam IARbits                   Allocated to registers ;size:1
+                                           ;@fw_clrRam TCCbits                   Allocated to registers ;size:1
+                                           ;@fw_clrRam PCLbits                   Allocated to registers ;size:1
+                                           ;@fw_clrRam STATUSbits                Allocated to registers ;size:1
+                                           ;@fw_clrRam RSRbits                   Allocated to registers ;size:1
+                                           ;@fw_clrRam PORT5bits                 Allocated to registers ;size:1
+                                           ;@fw_clrRam PORT6bits                 Allocated to registers ;size:1
+                                           ;@fw_clrRam LVDCONbits                Allocated to registers ;size:1
+                                           ;@fw_clrRam PWMCONbits                Allocated to registers ;size:1
+                                           ;@fw_clrRam PRDbits                   Allocated to registers ;size:1
+                                           ;@fw_clrRam PDC1bits                  Allocated to registers ;size:1
+                                           ;@fw_clrRam PDC2bits                  Allocated to registers ;size:1
+                                           ;@fw_clrRam PDC3bits                  Allocated to registers ;size:1
+                                           ;@fw_clrRam ICIECRbits                Allocated to registers ;size:1
+                                           ;@fw_clrRam CPUCONbits                Allocated to registers ;size:1
+                                           ;@fw_clrRam ISRbits                   Allocated to registers ;size:1
+                                           ;@fw_clrRam U_Flage                   Allocated to registers ;size:1
+                                           ;@fw_clrRam r_g_workMod               Allocated to registers ;size:1
+                                           ;@fw_clrRam IAR                       Allocated to registers ;size:1
+                                           ;@fw_clrRam TCC                       Allocated to registers ;size:1
+                                           ;@fw_clrRam PCL                       Allocated to registers ;size:1
+                                           ;@fw_clrRam STATUS                    Allocated to registers ;size:1
+                                           ;@fw_clrRam RSR                       Allocated to registers ;size:1
+                                           ;@fw_clrRam PORT5                     Allocated to registers ;size:1
+                                           ;@fw_clrRam PORT6                     Allocated to registers ;size:1
+                                           ;@fw_clrRam LVDCON                    Allocated to registers ;size:1
+                                           ;@fw_clrRam PWMCON                    Allocated to registers ;size:1
+                                           ;@fw_clrRam PRD                       Allocated to registers ;size:1
+                                           ;@fw_clrRam PDC1                      Allocated to registers ;size:1
+                                           ;@fw_clrRam PDC2                      Allocated to registers ;size:1
+                                           ;@fw_clrRam PDC3                      Allocated to registers ;size:1
+                                           ;@fw_clrRam ICIECR                    Allocated to registers ;size:1
+                                           ;@fw_clrRam CPUCON                    Allocated to registers ;size:1
+                                           ;@fw_clrRam ISR                       Allocated to registers ;size:1
+                                           ;@end Allocation info for local variables in function 'fw_clrRam';
+                                           
+                                           ;--------------------------------------------------------
+                                           ; overlayable items in internal ram 
+                                           ;--------------------------------------------------------
+                                           ;	udata_ovr
+                                           ;--------------------------------------------------------
+                                           ; code
+                                           ;--------------------------------------------------------
+                                           code_USER	code
+                                           ;***
+                                           ;  pBlock Stats: dbName = C
+                                           ;***
+                                           ;has an exit
+                                           ;; Starting pCode block
+                                           S_USER__fw_gpioInit	code
+                                           _fw_gpioInit:	;Function start
+                                           ; 2 exit points
+                                           ;	.line	18; D:\POOLBULE0\芯片代码模板\C_1521\USER.C	IOCP_W(P5CR,0x00);		//P5口设为输出
+addr:000117   inc:0800                          mov	a, @0                	mov	a,@0x00
+addr:000118   inc:3805                          iw	0x5                   	iw	P5CR
+                                           ;	.line	19; D:\POOLBULE0\芯片代码模板\C_1521\USER.C	PORT5 = 0;				//P5口输出低
+addr:000119   inc:3985                          clr	0x5                  	CLR	_PORT5
+                                           ;	.line	21; D:\POOLBULE0\芯片代码模板\C_1521\USER.C	IOCP_W(P6CR,0x01);		//P6口设为输出
+addr:00011a   inc:0801                          mov	a, @0x1              	mov	a,@0x01
+addr:00011b   inc:3806                          iw	0x6                   	iw	P6CR
+                                           ;	.line	22; D:\POOLBULE0\芯片代码模板\C_1521\USER.C	PORT6 = 0;				//P6口输出低
+addr:00011c   inc:3986                          clr	0x6                  	CLR	_PORT6
+                                           ;	.line	24; D:\POOLBULE0\芯片代码模板\C_1521\USER.C	IOCP_W(PHDCR,0xff);		//端口上下拉控制寄存器，bit7-bit4对应P67-P64下拉;bit3-bit0对应P53-P50上拉 
+addr:00011d   inc:08ff                          dw	0x8ff  ;unknown opcode 	mov	a,@0xff
+addr:00011e   inc:3809                          iw	0x9                   	iw	PHDCR
+                                           ;	.line	25; D:\POOLBULE0\芯片代码模板\C_1521\USER.C	IOCP_W(PDCR,0xff);		//端口下拉控制寄存器，  bit6-bit4对应P62-P60,bit3-bit0对应P53-P50
+addr:00011f   inc:08ff                          dw	0x8ff  ;unknown opcode 	mov	a,@0xff
+addr:000120   inc:380b                          iw	0xb                   	iw	PDCR
+                                           ;	.line	27; D:\POOLBULE0\芯片代码模板\C_1521\USER.C	IOCP_W(PHCR,0xfe);		//P6端口上拉控制寄存?? bit7-bit0对应P67-P60
+addr:000121   inc:08fe                          dw	0x8fe  ;unknown opcode 	mov	a,@0xfe
+addr:000122   inc:380d                          iw	0xd                   	iw	PHCR
+                                           ;	.line	29; D:\POOLBULE0\芯片代码模板\C_1521\USER.C	IOCP_W(WDTCR,0x00);		//WDT 使能控制寄存??
+addr:000123   inc:0800                          mov	a, @0                	mov	a,@0x00
+addr:000124   inc:380e                          iw	0xe                   	iw	WDTCR
+                                           ;	.line	31; D:\POOLBULE0\芯片代码模板\C_1521\USER.C	ICIECR=0X00;		//P63端口独立唤醒
+addr:000125   inc:398d                          clr	0xd                  	CLR	_ICIECR
+                                           ;	.line	32; D:\POOLBULE0\芯片代码模板\C_1521\USER.C	}
+addr:000126   inc:3822                          ret                      	RET	
+                                           ; exit point of _fw_gpioInit
+                                           
+                                           ;***
+                                           ;  pBlock Stats: dbName = C
+                                           ;***
+                                           ;has an exit
+                                           ;; Starting pCode block
+                                           S_USER__fw_clrRam	code
+                                           _fw_clrRam:	;Function start
+                                           ; 2 exit points
+                                           ;	.line	8; D:\POOLBULE0\芯片代码模板\C_1521\USER.C	for(RSR=0x90;RSR<0xFF;RSR++)	//清零 BANK0 RAM  IAR-R0,RSR-R4
+addr:000157   inc:0890                          dw	0x890  ;unknown opcode 	MOV	A,@0x90
+addr:000158   inc:3884                          mov	0x4, a               	MOV	_RSR,A
+                                           _00107_DS_:
+addr:000159   inc:08ff                          dw	0x8ff  ;unknown opcode 	MOV	A,@0xff
+addr:00015a   inc:3a04                          sub	a, 0x4               	SUB	A,_RSR
+addr:00015b   inc:2003                          jbtc	0x3, 0              	JBTC	STATUS,0
+addr:00015c   inc:1160                          jmp	0x160                	JMP	_00105_DS_
+                                           ;	.line	9; D:\POOLBULE0\芯片代码模板\C_1521\USER.C	{IAR = 0;}
+addr:00015d   inc:3980                          clr	0                    	CLR	_IAR
+                                           ;	.line	8; D:\POOLBULE0\芯片代码模板\C_1521\USER.C	for(RSR=0x90;RSR<0xFF;RSR++)	//清零 BANK0 RAM  IAR-R0,RSR-R4
+addr:00015e   inc:3284                          inc	0x4                  	INC	_RSR
+addr:00015f   inc:1159                          jmp	0x159                	JMP	_00107_DS_
+                                           _00105_DS_:
+                                           ;	.line	10; D:\POOLBULE0\芯片代码模板\C_1521\USER.C	IAR = 0;
+addr:000160   inc:3980                          clr	0                    	CLR	_IAR
+                                           ;	.line	11; D:\POOLBULE0\芯片代码模板\C_1521\USER.C	}
+addr:000161   inc:3822                          ret                      	RET	
+                                           ; exit point of _fw_clrRam
+                                           
+                                           
+                                           ;	code size estimation:
+                                           ;	   15+    0 =    15 instructions (   30 byte)
+                                           
+                                           	end
+                                           ;--------------------------------------------------------
+                                           ; File Created by SLCC : free open source ANSI-C Compiler
+                                           ; Version 3.6.0 #Sep 28 2025 (MSVC)
+                                           ;--------------------------------------------------------
+                                           ; SL port for the RISC core
+                                           ;--------------------------------------------------------
+                                           ;	.file	"D:\POOLBULE0\芯片代码模板\C_1521\FW_TIME.C"
+                                           	list	p=JZ8P1521
+                                           	radix dec
+                                           	include "JZ8P1521.inc"
+                                                   LIST                                                                  
+                                           ; JZ8P1521.INC  Standard Header File, Version 1.00
+                                                   NOLIST                                                                
+                                           ;--------------------------------------------------------
+                                           ; external declarations
+                                           ;--------------------------------------------------------
+                                           	extern	_fw_sleepEvent
+                                           	extern	_keyScan
+                                           	extern	_keyProcess
+                                           	extern	_fw_clrRam
+                                           	extern	_fw_gpioInit
+                                           	extern	_IARbits
+                                           	extern	_TCCbits
+                                           	extern	_PCLbits
+                                           	extern	_STATUSbits
+                                           	extern	_RSRbits
+                                           	extern	_PORT5bits
+                                           	extern	_PORT6bits
+                                           	extern	_LVDCONbits
+                                           	extern	_PWMCONbits
+                                           	extern	_PRDbits
+                                           	extern	_PDC1bits
+                                           	extern	_PDC2bits
+                                           	extern	_PDC3bits
+                                           	extern	_ICIECRbits
+                                           	extern	_CPUCONbits
+                                           	extern	_ISRbits
+                                           	extern	_U_Flage
+                                           	extern	_r_g_workMod
+                                           	extern	_IAR
+                                           	extern	_TCC
+                                           	extern	_PCL
+                                           	extern	_STATUS
+                                           	extern	_RSR
+                                           	extern	_PORT5
+                                           	extern	_PORT6
+                                           	extern	_LVDCON
+                                           	extern	_PWMCON
+                                           	extern	_PRD
+                                           	extern	_PDC1
+                                           	extern	_PDC2
+                                           	extern	_PDC3
+                                           	extern	_ICIECR
+                                           	extern	_CPUCON
+                                           	extern	_ISR
+                                           
+                                           	extern STK06
+                                           	extern STK05
+                                           	extern STK04
+                                           	extern STK03
+                                           	extern STK02
+                                           	extern STK01
+                                           	extern STK00
+                                           ;--------------------------------------------------------
+                                           ; global declarations
+                                           ;--------------------------------------------------------
+                                           	global	_fw_pwm3Init
+                                           	global	_fw_pwm2Init
+                                           	global	_fw_pwm1Init
+                                           	global	_fw_tc0Init
+                                           
+                                           ;--------------------------------------------------------
+                                           ; global definitions
+                                           ;--------------------------------------------------------
+                                           ;--------------------------------------------------------
+                                           ; absolute symbol definitions
+                                           ;--------------------------------------------------------
+                                           ;--------------------------------------------------------
+                                           ; compiler-defined variables
+                                           ;--------------------------------------------------------
+                                           ;--------------------------------------------------------
+                                           ; initialized data
+                                           ;--------------------------------------------------------
+                                           
+                                           ;@Allocation info for local variables in function 'fw_tc0Init'
+                                           ;@fw_tc0Init fw_sleepEvent             Allocated to registers ;size:2
+                                           ;@fw_tc0Init keyScan                   Allocated to registers ;size:2
+                                           ;@fw_tc0Init keyProcess                Allocated to registers ;size:2
+                                           ;@fw_tc0Init fw_clrRam                 Allocated to registers ;size:2
+                                           ;@fw_tc0Init fw_gpioInit               Allocated to registers ;size:2
+                                           ;@fw_tc0Init fw_pwm1Init               Allocated to registers ;size:2
+                                           ;@fw_tc0Init fw_pwm2Init               Allocated to registers ;size:2
+                                           ;@fw_tc0Init fw_pwm3Init               Allocated to registers ;size:2
+                                           ;@fw_tc0Init IARbits                   Allocated to registers ;size:1
+                                           ;@fw_tc0Init TCCbits                   Allocated to registers ;size:1
+                                           ;@fw_tc0Init PCLbits                   Allocated to registers ;size:1
+                                           ;@fw_tc0Init STATUSbits                Allocated to registers ;size:1
+                                           ;@fw_tc0Init RSRbits                   Allocated to registers ;size:1
+                                           ;@fw_tc0Init PORT5bits                 Allocated to registers ;size:1
+                                           ;@fw_tc0Init PORT6bits                 Allocated to registers ;size:1
+                                           ;@fw_tc0Init LVDCONbits                Allocated to registers ;size:1
+                                           ;@fw_tc0Init PWMCONbits                Allocated to registers ;size:1
+                                           ;@fw_tc0Init PRDbits                   Allocated to registers ;size:1
+                                           ;@fw_tc0Init PDC1bits                  Allocated to registers ;size:1
+                                           ;@fw_tc0Init PDC2bits                  Allocated to registers ;size:1
+                                           ;@fw_tc0Init PDC3bits                  Allocated to registers ;size:1
+                                           ;@fw_tc0Init ICIECRbits                Allocated to registers ;size:1
+                                           ;@fw_tc0Init CPUCONbits                Allocated to registers ;size:1
+                                           ;@fw_tc0Init ISRbits                   Allocated to registers ;size:1
+                                           ;@fw_tc0Init U_Flage                   Allocated to registers ;size:1
+                                           ;@fw_tc0Init r_g_workMod               Allocated to registers ;size:1
+                                           ;@fw_tc0Init IAR                       Allocated to registers ;size:1
+                                           ;@fw_tc0Init TCC                       Allocated to registers ;size:1
+                                           ;@fw_tc0Init PCL                       Allocated to registers ;size:1
+                                           ;@fw_tc0Init STATUS                    Allocated to registers ;size:1
+                                           ;@fw_tc0Init RSR                       Allocated to registers ;size:1
+                                           ;@fw_tc0Init PORT5                     Allocated to registers ;size:1
+                                           ;@fw_tc0Init PORT6                     Allocated to registers ;size:1
+                                           ;@fw_tc0Init LVDCON                    Allocated to registers ;size:1
+                                           ;@fw_tc0Init PWMCON                    Allocated to registers ;size:1
+                                           ;@fw_tc0Init PRD                       Allocated to registers ;size:1
+                                           ;@fw_tc0Init PDC1                      Allocated to registers ;size:1
+                                           ;@fw_tc0Init PDC2                      Allocated to registers ;size:1
+                                           ;@fw_tc0Init PDC3                      Allocated to registers ;size:1
+                                           ;@fw_tc0Init ICIECR                    Allocated to registers ;size:1
+                                           ;@fw_tc0Init CPUCON                    Allocated to registers ;size:1
+                                           ;@fw_tc0Init ISR                       Allocated to registers ;size:1
+                                           ;@end Allocation info for local variables in function 'fw_tc0Init';
+                                           
+                                           ;--------------------------------------------------------
+                                           ; overlayable items in internal ram 
+                                           ;--------------------------------------------------------
+                                           ;	udata_ovr
+                                           ;--------------------------------------------------------
+                                           ; code
+                                           ;--------------------------------------------------------
+                                           code_FW_TIME	code
+                                           ;***
+                                           ;  pBlock Stats: dbName = C
+                                           ;***
+                                           ;has an exit
+                                           ;; Starting pCode block
+                                           S_FW_TIME__fw_pwm3Init	code
+                                           _fw_pwm3Init:	;Function start
+                                           ; 2 exit points
+                                           ;	.line	56; D:\POOLBULE0\芯片代码模板\C_1521\FW_TIME.C	PWMCON |= 0x80;
+addr:000133   inc:2f88                          bts	0x8, 0x7             	BTS	_PWMCON,7
+                                           ;	.line	58; D:\POOLBULE0\芯片代码模板\C_1521\FW_TIME.C	PWMCON |= 0x40;
+addr:000134   inc:2f08                          bts	0x8, 0x6             	BTS	_PWMCON,6
+                                           ;	.line	60; D:\POOLBULE0\芯片代码模板\C_1521\FW_TIME.C	CPUCON = 0; //bit7:IPWM1-PWM互补输出 1：pwm取反 bit6:时钟源选择1：系统时钟0：指令时钟 bit4:PWMWE-PWM 唤醒 1:PWM 唤醒使能，可唤?芽障心Ｊ?
+addr:000135   inc:398e                          clr	0xe                  	CLR	_CPUCON
+                                           ;	.line	62; D:\POOLBULE0\芯片代码模板\C_1521\FW_TIME.C	PRD = 100;		//PWM周期
+addr:000136   inc:0864                          mov	a, @0x64             	MOV	A,@0x64
+addr:000137   inc:3889                          mov	0x9, a               	MOV	_PRD,A
+                                           ;	.line	64; D:\POOLBULE0\芯片代码模板\C_1521\FW_TIME.C	PDC3 = 50;		//pwmDUTY
+addr:000138   inc:0832                          mov	a, @0x32             	MOV	A,@0x32
+addr:000139   inc:388c                          mov	0xc, a               	MOV	_PDC3,A
+                                           ;	.line	66; D:\POOLBULE0\芯片代码模板\C_1521\FW_TIME.C	IOCP_W(IMR,0X01);		//TCC中断 关闭pwm中断
+addr:00013a   inc:0801                          mov	a, @0x1              	mov	a,@0X01
+addr:00013b   inc:380f                          iw	0xf                   	iw	IMR
+                                           ;	.line	68; D:\POOLBULE0\芯片代码模板\C_1521\FW_TIME.C	ISR = 0xf7;			//清除溢出标志位
+addr:00013c   inc:08f7                          dw	0x8f7  ;unknown opcode 	MOV	A,@0xf7
+addr:00013d   inc:388f                          mov	0xf, a               	MOV	_ISR,A
+                                           ;	.line	69; D:\POOLBULE0\芯片代码模板\C_1521\FW_TIME.C	}
+addr:00013e   inc:3822                          ret                      	RET	
+                                           ; exit point of _fw_pwm3Init
+                                           
+                                           ;***
+                                           ;  pBlock Stats: dbName = C
+                                           ;***
+                                           ;has an exit
+                                           ;; Starting pCode block
+                                           S_FW_TIME__fw_pwm2Init	code
+                                           _fw_pwm2Init:	;Function start
+                                           ; 2 exit points
+                                           ;	.line	38; D:\POOLBULE0\芯片代码模板\C_1521\FW_TIME.C	PWMCON |= 0x80;
+addr:00013f   inc:2f88                          bts	0x8, 0x7             	BTS	_PWMCON,7
+                                           ;	.line	40; D:\POOLBULE0\芯片代码模板\C_1521\FW_TIME.C	PWMCON |= 0x20;
+addr:000140   inc:2e88                          bts	0x8, 0x5             	BTS	_PWMCON,5
+                                           ;	.line	42; D:\POOLBULE0\芯片代码模板\C_1521\FW_TIME.C	CPUCON = 0; //bit7:IPWM1-PWM互补输出 1：pwm取反 bit6:时钟源选择1：系统时钟0：指令时钟 bit4:PWMWE-PWM 唤醒 1:PWM 唤醒使能，可唤?芽障心Ｊ?
+addr:000141   inc:398e                          clr	0xe                  	CLR	_CPUCON
+                                           ;	.line	44; D:\POOLBULE0\芯片代码模板\C_1521\FW_TIME.C	PRD = 100;		//PWM周期
+addr:000142   inc:0864                          mov	a, @0x64             	MOV	A,@0x64
+addr:000143   inc:3889                          mov	0x9, a               	MOV	_PRD,A
+                                           ;	.line	46; D:\POOLBULE0\芯片代码模板\C_1521\FW_TIME.C	PDC2 = 50;		//pwmDUTY
+addr:000144   inc:0832                          mov	a, @0x32             	MOV	A,@0x32
+addr:000145   inc:388b                          mov	0xb, a               	MOV	_PDC2,A
+                                           ;	.line	48; D:\POOLBULE0\芯片代码模板\C_1521\FW_TIME.C	IOCP_W(IMR,0X01);		//TCC中断 关闭pwm中断
+addr:000146   inc:0801                          mov	a, @0x1              	mov	a,@0X01
+addr:000147   inc:380f                          iw	0xf                   	iw	IMR
+                                           ;	.line	50; D:\POOLBULE0\芯片代码模板\C_1521\FW_TIME.C	ISR = 0xf7;			//清除溢出标志位
+addr:000148   inc:08f7                          dw	0x8f7  ;unknown opcode 	MOV	A,@0xf7
+addr:000149   inc:388f                          mov	0xf, a               	MOV	_ISR,A
+                                           ;	.line	51; D:\POOLBULE0\芯片代码模板\C_1521\FW_TIME.C	}
+addr:00014a   inc:3822                          ret                      	RET	
+                                           ; exit point of _fw_pwm2Init
+                                           
+                                           ;***
+                                           ;  pBlock Stats: dbName = C
+                                           ;***
+                                           ;has an exit
+                                           ;; Starting pCode block
+                                           S_FW_TIME__fw_pwm1Init	code
+                                           _fw_pwm1Init:	;Function start
+                                           ; 2 exit points
+                                           ;	.line	20; D:\POOLBULE0\芯片代码模板\C_1521\FW_TIME.C	PWMCON |= 0x80;
+addr:00014b   inc:2f88                          bts	0x8, 0x7             	BTS	_PWMCON,7
+                                           ;	.line	22; D:\POOLBULE0\芯片代码模板\C_1521\FW_TIME.C	PWMCON |= 0x10;
+addr:00014c   inc:2e08                          bts	0x8, 0x4             	BTS	_PWMCON,4
+                                           ;	.line	25; D:\POOLBULE0\芯片代码模板\C_1521\FW_TIME.C	CPUCON = 0; //bit7:IPWM1-PWM互补输出 1：pwm取反 bit6:时钟源选择1：系统时钟0：指令时钟 bit4:PWMWE-PWM 唤醒 1:PWM 唤醒使能，可唤?芽障心Ｊ?
+addr:00014d   inc:398e                          clr	0xe                  	CLR	_CPUCON
+                                           ;	.line	27; D:\POOLBULE0\芯片代码模板\C_1521\FW_TIME.C	PRD = 100;		//PWM周期
+addr:00014e   inc:0864                          mov	a, @0x64             	MOV	A,@0x64
+addr:00014f   inc:3889                          mov	0x9, a               	MOV	_PRD,A
+                                           ;	.line	29; D:\POOLBULE0\芯片代码模板\C_1521\FW_TIME.C	PDC1 = 50;		//pwmDUTY
+addr:000150   inc:0832                          mov	a, @0x32             	MOV	A,@0x32
+addr:000151   inc:388a                          mov	0xa, a               	MOV	_PDC1,A
+                                           ;	.line	31; D:\POOLBULE0\芯片代码模板\C_1521\FW_TIME.C	IOCP_W(IMR,0X01);		//TCC中断 关闭pwm中断
+addr:000152   inc:0801                          mov	a, @0x1              	mov	a,@0X01
+addr:000153   inc:380f                          iw	0xf                   	iw	IMR
+                                           ;	.line	33; D:\POOLBULE0\芯片代码模板\C_1521\FW_TIME.C	ISR = 0xf7;			//清除溢出标志位
+addr:000154   inc:08f7                          dw	0x8f7  ;unknown opcode 	MOV	A,@0xf7
+addr:000155   inc:388f                          mov	0xf, a               	MOV	_ISR,A
+                                           ;	.line	34; D:\POOLBULE0\芯片代码模板\C_1521\FW_TIME.C	}
+addr:000156   inc:3822                          ret                      	RET	
+                                           ; exit point of _fw_pwm1Init
+                                           
+                                           ;***
+                                           ;  pBlock Stats: dbName = C
+                                           ;***
+                                           ;has an exit
+                                           ;; Starting pCode block
+                                           S_FW_TIME__fw_tc0Init	code
+                                           _fw_tc0Init:	;Function start
+                                           ; 2 exit points
+                                           ;	.line	8; D:\POOLBULE0\芯片代码模板\C_1521\FW_TIME.C	CONTW(0X02);			//TCC 8分频
+addr:000162   inc:0802                          mov	a, @0x2              	mov	a,@0X02
+addr:000163   inc:3802                          ctw                      	ctw
+                                           ;	.line	10; D:\POOLBULE0\芯片代码模板\C_1521\FW_TIME.C	IOCP_W(IMR,0X01);		//TCC中断
+addr:000164   inc:0801                          mov	a, @0x1              	mov	a,@0X01
+addr:000165   inc:380f                          iw	0xf                   	iw	IMR
+                                           ;	.line	12; D:\POOLBULE0\芯片代码模板\C_1521\FW_TIME.C	TCC = TCC_TIM;			//1/2 * 8 * (256-6) = 1000us	鍏?寮忥拷?/IRC棰戠巼 * 棰勫垎锟??* 锟??56-鍒濆�硷級
+addr:000166   inc:0806                          mov	a, @0x6              	MOV	A,@0x06
+addr:000167   inc:3881                          mov	0x1, a               	MOV	_TCC,A
+                                           ;	.line	14; D:\POOLBULE0\芯片代码模板\C_1521\FW_TIME.C	ISR = 0xfe;
+addr:000168   inc:08fe                          dw	0x8fe  ;unknown opcode 	MOV	A,@0xfe
+addr:000169   inc:388f                          mov	0xf, a               	MOV	_ISR,A
+                                           ;	.line	15; D:\POOLBULE0\芯片代码模板\C_1521\FW_TIME.C	}
+addr:00016a   inc:3822                          ret                      	RET	
+                                           ; exit point of _fw_tc0Init
+                                           
+                                           
+                                           ;	code size estimation:
+                                           ;	   35+    0 =    35 instructions (   70 byte)
+                                           
+                                           	end
+                                           ;--------------------------------------------------------
+                                           ; File Created by SLCC : free open source ANSI-C Compiler
+                                           ; Version 3.6.0 #Sep 28 2025 (MSVC)
+                                           ;--------------------------------------------------------
+                                           ; SL port for the RISC core
+                                           ;--------------------------------------------------------
+                                           ;	.file	"D:\POOLBULE0\芯片代码模板\C_1521\FW_SLEEP.C"
+                                           	list	p=JZ8P1521
+                                           	radix dec
+                                           	include "JZ8P1521.inc"
+                                                   LIST                                                                  
+                                           ; JZ8P1521.INC  Standard Header File, Version 1.00
+                                                   NOLIST                                                                
+                                           ;--------------------------------------------------------
+                                           ; external declarations
+                                           ;--------------------------------------------------------
+                                           	extern	_fw_pwm1Init
+                                           	extern	_fw_pwm2Init
+                                           	extern	_fw_pwm3Init
+                                           	extern	_keyScan
+                                           	extern	_keyProcess
+                                           	extern	_fw_clrRam
+                                           	extern	_fw_gpioInit
+                                           	extern	_fw_tc0Init
+                                           	extern	_IARbits
+                                           	extern	_TCCbits
+                                           	extern	_PCLbits
+                                           	extern	_STATUSbits
+                                           	extern	_RSRbits
+                                           	extern	_PORT5bits
+                                           	extern	_PORT6bits
+                                           	extern	_LVDCONbits
+                                           	extern	_PWMCONbits
+                                           	extern	_PRDbits
+                                           	extern	_PDC1bits
+                                           	extern	_PDC2bits
+                                           	extern	_PDC3bits
+                                           	extern	_ICIECRbits
+                                           	extern	_CPUCONbits
+                                           	extern	_ISRbits
+                                           	extern	_U_Flage
+                                           	extern	_r_g_workMod
+                                           	extern	_IAR
+                                           	extern	_TCC
+                                           	extern	_PCL
+                                           	extern	_STATUS
+                                           	extern	_RSR
+                                           	extern	_PORT5
+                                           	extern	_PORT6
+                                           	extern	_LVDCON
+                                           	extern	_PWMCON
+                                           	extern	_PRD
+                                           	extern	_PDC1
+                                           	extern	_PDC2
+                                           	extern	_PDC3
+                                           	extern	_ICIECR
+                                           	extern	_CPUCON
+                                           	extern	_ISR
+                                           
+                                           	extern STK06
+                                           	extern STK05
+                                           	extern STK04
+                                           	extern STK03
+                                           	extern STK02
+                                           	extern STK01
+                                           	extern STK00
+                                           ;--------------------------------------------------------
+                                           ; global declarations
+                                           ;--------------------------------------------------------
+                                           	global	_fw_sleepEvent
+                                           	global	_sleep_cnt
+                                           
+                                           ;--------------------------------------------------------
+                                           ; global definitions
+                                           ;--------------------------------------------------------
+                                           ;--------------------------------------------------------
+                                           ; absolute symbol definitions
+                                           ;--------------------------------------------------------
+                                           ;--------------------------------------------------------
+                                           ; compiler-defined variables
+                                           ;--------------------------------------------------------
+                                           UDL_FW_SLEEP_0	udata
+                                           r0x1002	res	1
+                                           ;--------------------------------------------------------
+                                           ; initialized data
+                                           ;--------------------------------------------------------
+                                           
+                                           ID_FW_SLEEP_0	idata
+                                           _sleep_cnt
+addr:000018   inc:ff82                          add	0x2, a               	add 0x02,a
+                                           	db	0x00
+                                           
+                                           
+                                           ;@Allocation info for local variables in function 'fw_sleepEvent'
+                                           ;@fw_sleepEvent fw_pwm1Init               Allocated to registers ;size:2
+                                           ;@fw_sleepEvent fw_pwm2Init               Allocated to registers ;size:2
+                                           ;@fw_sleepEvent fw_pwm3Init               Allocated to registers ;size:2
+                                           ;@fw_sleepEvent keyScan                   Allocated to registers ;size:2
+                                           ;@fw_sleepEvent keyProcess                Allocated to registers ;size:2
+                                           ;@fw_sleepEvent fw_clrRam                 Allocated to registers ;size:2
+                                           ;@fw_sleepEvent fw_gpioInit               Allocated to registers ;size:2
+                                           ;@fw_sleepEvent fw_tc0Init                Allocated to registers ;size:2
+                                           ;@fw_sleepEvent IARbits                   Allocated to registers ;size:1
+                                           ;@fw_sleepEvent TCCbits                   Allocated to registers ;size:1
+                                           ;@fw_sleepEvent PCLbits                   Allocated to registers ;size:1
+                                           ;@fw_sleepEvent STATUSbits                Allocated to registers ;size:1
+                                           ;@fw_sleepEvent RSRbits                   Allocated to registers ;size:1
+                                           ;@fw_sleepEvent PORT5bits                 Allocated to registers ;size:1
+                                           ;@fw_sleepEvent PORT6bits                 Allocated to registers ;size:1
+                                           ;@fw_sleepEvent LVDCONbits                Allocated to registers ;size:1
+                                           ;@fw_sleepEvent PWMCONbits                Allocated to registers ;size:1
+                                           ;@fw_sleepEvent PRDbits                   Allocated to registers ;size:1
+                                           ;@fw_sleepEvent PDC1bits                  Allocated to registers ;size:1
+                                           ;@fw_sleepEvent PDC2bits                  Allocated to registers ;size:1
+                                           ;@fw_sleepEvent PDC3bits                  Allocated to registers ;size:1
+                                           ;@fw_sleepEvent ICIECRbits                Allocated to registers ;size:1
+                                           ;@fw_sleepEvent CPUCONbits                Allocated to registers ;size:1
+                                           ;@fw_sleepEvent ISRbits                   Allocated to registers ;size:1
+                                           ;@fw_sleepEvent U_Flage                   Allocated to registers ;size:1
+                                           ;@fw_sleepEvent r_g_workMod               Allocated to registers ;size:1
+                                           ;@fw_sleepEvent sleep_cnt                 Allocated to registers ;size:1
+                                           ;@fw_sleepEvent IAR                       Allocated to registers ;size:1
+                                           ;@fw_sleepEvent TCC                       Allocated to registers ;size:1
+                                           ;@fw_sleepEvent PCL                       Allocated to registers ;size:1
+                                           ;@fw_sleepEvent STATUS                    Allocated to registers ;size:1
+                                           ;@fw_sleepEvent RSR                       Allocated to registers ;size:1
+                                           ;@fw_sleepEvent PORT5                     Allocated to registers ;size:1
+                                           ;@fw_sleepEvent PORT6                     Allocated to registers ;size:1
+                                           ;@fw_sleepEvent LVDCON                    Allocated to registers ;size:1
+                                           ;@fw_sleepEvent PWMCON                    Allocated to registers ;size:1
+                                           ;@fw_sleepEvent PRD                       Allocated to registers ;size:1
+                                           ;@fw_sleepEvent PDC1                      Allocated to registers ;size:1
+                                           ;@fw_sleepEvent PDC2                      Allocated to registers ;size:1
+                                           ;@fw_sleepEvent PDC3                      Allocated to registers ;size:1
+                                           ;@fw_sleepEvent ICIECR                    Allocated to registers ;size:1
+                                           ;@fw_sleepEvent CPUCON                    Allocated to registers ;size:1
+                                           ;@fw_sleepEvent ISR                       Allocated to registers ;size:1
+                                           ;@end Allocation info for local variables in function 'fw_sleepEvent';
+                                           
+                                           ;--------------------------------------------------------
+                                           ; overlayable items in internal ram 
+                                           ;--------------------------------------------------------
+                                           ;	udata_ovr
+                                           ;--------------------------------------------------------
+                                           ; code
+                                           ;--------------------------------------------------------
+                                           code_FW_SLEEP	code
+                                           ;***
+                                           ;  pBlock Stats: dbName = C
+                                           ;***
+                                           ;has an exit
+                                           ;functions called:
+                                           ;   _fw_tc0Init
+                                           ;   _fw_tc0Init
+                                           ;1 compiler assigned register :
+                                           ;   r0x1002
+                                           ;; Starting pCode block
+                                           S_FW_SLEEP__fw_sleepEvent	code
+                                           _fw_sleepEvent:	;Function start
+                                           ; 2 exit points
+                                           ;	.line	5; D:\POOLBULE0\芯片代码模板\C_1521\FW_SLEEP.C	if(F_CHARGE == 0)
+addr:0000f8   inc:20a9                          jbtc	0x29, 0x1           	JBTC	_U_Flage,1
+addr:0000f9   inc:1116                          jmp	0x116                	JMP	_00109_DS_
+                                           ;	.line	7; D:\POOLBULE0\芯片代码模板\C_1521\FW_SLEEP.C	if(sleep_cnt++ > 10)
+addr:0000fa   inc:3018                          mov	a, 0x18              	MOV	A,_sleep_cnt
+addr:0000fb   inc:38ae                          mov	0x2e, a              	MOV	r0x1002,A
+addr:0000fc   inc:3298                          inc	0x18                 	INC	_sleep_cnt
+                                           ;;swapping arguments (AOP_TYPEs 1/2)
+addr:0000fd   inc:080b                          mov	a, @0xb              	MOV	A,@0x0b
+addr:0000fe   inc:3a2e                          sub	a, 0x2e              	SUB	A,r0x1002
+addr:0000ff   inc:2403                          jbts	0x3, 0              	JBTS	STATUS,0
+addr:000100   inc:1116                          jmp	0x116                	JMP	_00109_DS_
+                                           ;	.line	9; D:\POOLBULE0\芯片代码模板\C_1521\FW_SLEEP.C	sleep_cnt = 0;
+addr:000101   inc:3998                          clr	0x18                 	CLR	_sleep_cnt
+                                           ;	.line	12; D:\POOLBULE0\芯片代码模板\C_1521\FW_SLEEP.C	LVDCON = 0;// 关LVD
+addr:000102   inc:3987                          clr	0x7                  	CLR	_LVDCON
+                                           ;	.line	14; D:\POOLBULE0\芯片代码模板\C_1521\FW_SLEEP.C	IOCP_W(IMR,0x00);   //关闭中断
+addr:000103   inc:0800                          mov	a, @0                	mov	a,@0x00
+addr:000104   inc:380f                          iw	0xf                   	iw	IMR
+                                           ;	.line	15; D:\POOLBULE0\芯片代码模板\C_1521\FW_SLEEP.C	IOCP_W(WDTCR,0x00);	
+addr:000105   inc:0800                          mov	a, @0                	mov	a,@0x00
+addr:000106   inc:380e                          iw	0xe                   	iw	WDTCR
+                                           ;	.line	16; D:\POOLBULE0\芯片代码模板\C_1521\FW_SLEEP.C	ISR	=0;              // 清中断标志位
+addr:000107   inc:398f                          clr	0xf                  	CLR	_ISR
+                                           ;	.line	17; D:\POOLBULE0\芯片代码模板\C_1521\FW_SLEEP.C	DI();		         // 禁止唤醒进入中断
+addr:000108   inc:3821                          di                       	di	
+                                           ;	.line	18; D:\POOLBULE0\芯片代码模板\C_1521\FW_SLEEP.C	IOCP_W(IMR,0x02);    //使能端口变化中断，不使能无法唤醒
+addr:000109   inc:0802                          mov	a, @0x2              	mov	a,@0x02
+addr:00010a   inc:380f                          iw	0xf                   	iw	IMR
+                                           ;	.line	19; D:\POOLBULE0\芯片代码模板\C_1521\FW_SLEEP.C	SLEEP();
+addr:00010b   inc:3803                          sleep                    	sleep	
+                                           ;	.line	20; D:\POOLBULE0\芯片代码模板\C_1521\FW_SLEEP.C	NOP(); 
+addr:00010c   inc:3800                          nop                      	nop	
+                                           ;	.line	21; D:\POOLBULE0\芯片代码模板\C_1521\FW_SLEEP.C	NOP();
+addr:00010d   inc:3800                          nop                      	nop	
+                                           ;	.line	22; D:\POOLBULE0\芯片代码模板\C_1521\FW_SLEEP.C	NOP();
+addr:00010e   inc:3800                          nop                      	nop	
+                                           ;	.line	23; D:\POOLBULE0\芯片代码模板\C_1521\FW_SLEEP.C	NOP();
+addr:00010f   inc:3800                          nop                      	nop	
+                                           ;	.line	24; D:\POOLBULE0\芯片代码模板\C_1521\FW_SLEEP.C	CWDT();
+addr:000110   inc:3804                          cwdt                     	CWDT	
+                                           ;	.line	30; D:\POOLBULE0\芯片代码模板\C_1521\FW_SLEEP.C	IOCP_W(IMR,0x00);   //关闭中断
+addr:000111   inc:0800                          mov	a, @0                	mov	a,@0x00
+addr:000112   inc:380f                          iw	0xf                   	iw	IMR
+                                           ;	.line	31; D:\POOLBULE0\芯片代码模板\C_1521\FW_SLEEP.C	fw_tc0Init();
+addr:000113   inc:1962                          call	0x162               	CALL	_fw_tc0Init
+                                           ;	.line	32; D:\POOLBULE0\芯片代码模板\C_1521\FW_SLEEP.C	EI();
+addr:000114   inc:3820                          ei                       	ei	
+                                           ;	.line	33; D:\POOLBULE0\芯片代码模板\C_1521\FW_SLEEP.C	ISR=0;
+addr:000115   inc:398f                          clr	0xf                  	CLR	_ISR
+                                           ;	.line	39; D:\POOLBULE0\芯片代码模板\C_1521\FW_SLEEP.C	}
+                                           _00109_DS_:
+addr:000116   inc:3822                          ret                      	RET	
+                                           ; exit point of _fw_sleepEvent
+                                           
+                                           
+                                           ;	code size estimation:
+                                           ;	   15+    0 =    15 instructions (   30 byte)
+                                           
+                                           	end
+                                           ;--------------------------------------------------------
+                                           ; File Created by SLCC : free open source ANSI-C Compiler
+                                           ; Version 3.6.0 #Sep 28 2025 (MSVC)
+                                           ;--------------------------------------------------------
+                                           ; SL port for the RISC core
+                                           ;--------------------------------------------------------
+                                           ;	.file	"D:\POOLBULE0\芯片代码模板\C_1521\KEY.C"
+                                           	list	p=JZ8P1521
+                                           	radix dec
+                                           	include "JZ8P1521.inc"
+                                                   LIST                                                                  
+                                           ; JZ8P1521.INC  Standard Header File, Version 1.00
+                                                   NOLIST                                                                
+                                           ;--------------------------------------------------------
+                                           ; external declarations
+                                           ;--------------------------------------------------------
+                                           	extern	_fw_pwm1Init
+                                           	extern	_fw_pwm2Init
+                                           	extern	_fw_pwm3Init
+                                           	extern	_fw_sleepEvent
+                                           	extern	_fw_clrRam
+                                           	extern	_fw_gpioInit
+                                           	extern	_fw_tc0Init
+                                           	extern	_IARbits
+                                           	extern	_TCCbits
+                                           	extern	_PCLbits
+                                           	extern	_STATUSbits
+                                           	extern	_RSRbits
+                                           	extern	_PORT5bits
+                                           	extern	_PORT6bits
+                                           	extern	_LVDCONbits
+                                           	extern	_PWMCONbits
+                                           	extern	_PRDbits
+                                           	extern	_PDC1bits
+                                           	extern	_PDC2bits
+                                           	extern	_PDC3bits
+                                           	extern	_ICIECRbits
+                                           	extern	_CPUCONbits
+                                           	extern	_ISRbits
+                                           	extern	_U_Flage
+                                           	extern	_r_g_workMod
+                                           	extern	_IAR
+                                           	extern	_TCC
+                                           	extern	_PCL
+                                           	extern	_STATUS
+                                           	extern	_RSR
+                                           	extern	_PORT5
+                                           	extern	_PORT6
+                                           	extern	_LVDCON
+                                           	extern	_PWMCON
+                                           	extern	_PRD
+                                           	extern	_PDC1
+                                           	extern	_PDC2
+                                           	extern	_PDC3
+                                           	extern	_ICIECR
+                                           	extern	_CPUCON
+                                           	extern	_ISR
+                                           
+                                           	extern STK06
+                                           	extern STK05
+                                           	extern STK04
+                                           	extern STK03
+                                           	extern STK02
+                                           	extern STK01
+                                           	extern STK00
+                                           ;--------------------------------------------------------
+                                           ; global declarations
+                                           ;--------------------------------------------------------
+                                           	global	_keyProcess
+                                           	global	_keyScan
+                                           	global	_keyLongCnt
+                                           	global	_keyValOld
+                                           	global	_keyState
+                                           	global	_keyShake
+                                           
+                                           ;--------------------------------------------------------
+                                           ; global definitions
+                                           ;--------------------------------------------------------
+                                           ;--------------------------------------------------------
+                                           ; absolute symbol definitions
+                                           ;--------------------------------------------------------
+                                           ;--------------------------------------------------------
+                                           ; compiler-defined variables
+                                           ;--------------------------------------------------------
+                                           UDL_KEY_0	udata
+                                           r0x1006	res	1
+                                           r0x1007	res	1
+                                           r0x1008	res	1
+                                           r0x1009	res	1
+                                           r0x100A	res	1
+                                           _keyProcess_light_2_26	res	1
+                                           ;--------------------------------------------------------
+                                           ; initialized data
+                                           ;--------------------------------------------------------
+                                           
+                                           ID_KEY_0	idata
+                                           _keyLongCnt
+addr:00001a   inc:ff82                          add	0x2, a               	add 0x02,a
+                                           	db	0x00
+                                           
+                                           
+                                           ID_KEY_1	idata
+                                           _keyValOld
+addr:00001c   inc:ff82                          add	0x2, a               	add 0x02,a
+                                           	db	0x00
+                                           
+                                           
+                                           ID_KEY_2	idata
+                                           _keyState
+addr:00001e   inc:ff82                          add	0x2, a               	add 0x02,a
+                                           	db	0x00
+                                           
+                                           
+                                           ID_KEY_3	idata
+                                           _keyShake
+addr:000027   inc:ff82                          add	0x2, a               	add 0x02,a
+                                           	db	0x00
+                                           
+                                           
+                                           ;@Allocation info for local variables in function 'keyScan'
+                                           ;@keyScan fw_pwm1Init               Allocated to registers ;size:2
+                                           ;@keyScan fw_pwm2Init               Allocated to registers ;size:2
+                                           ;@keyScan fw_pwm3Init               Allocated to registers ;size:2
+                                           ;@keyScan fw_sleepEvent             Allocated to registers ;size:2
+                                           ;@keyScan fw_clrRam                 Allocated to registers ;size:2
+                                           ;@keyScan fw_gpioInit               Allocated to registers ;size:2
+                                           ;@keyScan fw_tc0Init                Allocated to registers ;size:2
+                                           ;@keyScan keyProcess                Allocated to registers ;size:2
+                                           ;@keyScan IARbits                   Allocated to registers ;size:1
+                                           ;@keyScan TCCbits                   Allocated to registers ;size:1
+                                           ;@keyScan PCLbits                   Allocated to registers ;size:1
+                                           ;@keyScan STATUSbits                Allocated to registers ;size:1
+                                           ;@keyScan RSRbits                   Allocated to registers ;size:1
+                                           ;@keyScan PORT5bits                 Allocated to registers ;size:1
+                                           ;@keyScan PORT6bits                 Allocated to registers ;size:1
+                                           ;@keyScan LVDCONbits                Allocated to registers ;size:1
+                                           ;@keyScan PWMCONbits                Allocated to registers ;size:1
+                                           ;@keyScan PRDbits                   Allocated to registers ;size:1
+                                           ;@keyScan PDC1bits                  Allocated to registers ;size:1
+                                           ;@keyScan PDC2bits                  Allocated to registers ;size:1
+                                           ;@keyScan PDC3bits                  Allocated to registers ;size:1
+                                           ;@keyScan ICIECRbits                Allocated to registers ;size:1
+                                           ;@keyScan CPUCONbits                Allocated to registers ;size:1
+                                           ;@keyScan ISRbits                   Allocated to registers ;size:1
+                                           ;@keyScan U_Flage                   Allocated to registers ;size:1
+                                           ;@keyScan r_g_workMod               Allocated to registers ;size:1
+                                           ;@keyScan keyLongCnt                Allocated to registers ;size:1
+                                           ;@keyScan keyValOld                 Allocated to registers ;size:1
+                                           ;@keyScan keyState                  Allocated to registers ;size:1
+                                           ;@keyScan keyShake                  Allocated to registers ;size:1
+                                           ;@keyScan keyVal                    Allocated to registers r0x1006 ;size:1
+                                           ;@keyScan keyEvent                  Allocated to registers r0x1007 ;size:1
+                                           ;@keyScan IAR                       Allocated to registers ;size:1
+                                           ;@keyScan TCC                       Allocated to registers ;size:1
+                                           ;@keyScan PCL                       Allocated to registers ;size:1
+                                           ;@keyScan STATUS                    Allocated to registers ;size:1
+                                           ;@keyScan RSR                       Allocated to registers ;size:1
+                                           ;@keyScan PORT5                     Allocated to registers ;size:1
+                                           ;@keyScan PORT6                     Allocated to registers ;size:1
+                                           ;@keyScan LVDCON                    Allocated to registers ;size:1
+                                           ;@keyScan PWMCON                    Allocated to registers ;size:1
+                                           ;@keyScan PRD                       Allocated to registers ;size:1
+                                           ;@keyScan PDC1                      Allocated to registers ;size:1
+                                           ;@keyScan PDC2                      Allocated to registers ;size:1
+                                           ;@keyScan PDC3                      Allocated to registers ;size:1
+                                           ;@keyScan ICIECR                    Allocated to registers ;size:1
+                                           ;@keyScan CPUCON                    Allocated to registers ;size:1
+                                           ;@keyScan ISR                       Allocated to registers ;size:1
+                                           ;@end Allocation info for local variables in function 'keyScan';
+                                           ;@Allocation info for local variables in function 'keyProcess'
+                                           ;@keyProcess keyEvent                  Allocated to registers r0x1008 ;size:1
+                                           ;@keyProcess light                     Allocated to registers ;size:1
+                                           ;@end Allocation info for local variables in function 'keyProcess';
+                                           ;@Allocation info for local variables in function 'keyProcess'
+                                           ;@keyProcess keyEvent                  Allocated to registers r0x1008 ;size:1
+                                           ;@keyProcess light                     Allocated to registers ;size:1
+                                           ;@end Allocation info for local variables in function 'keyProcess';
+                                           
+                                           ;--------------------------------------------------------
+                                           ; overlayable items in internal ram 
+                                           ;--------------------------------------------------------
+                                           ;	udata_ovr
+                                           ;--------------------------------------------------------
+                                           ; code
+                                           ;--------------------------------------------------------
+                                           code_KEY	code
+                                           ;***
+                                           ;  pBlock Stats: dbName = C
+                                           ;***
+                                           ;has an exit
+                                           ;functions called:
+                                           ;   _keyScan
+                                           ;   _keyScan
+                                           ;3 compiler assigned registers:
+                                           ;   r0x1008
+                                           ;   r0x1009
+                                           ;   r0x100A
+                                           ;; Starting pCode block
+                                           S_KEY__keyProcess	code
+                                           _keyProcess:	;Function start
+                                           ; 2 exit points
+                                           ;	.line	109; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	uint8_t keyEvent = keyScan();
+addr:000084   inc:1826                          call	0x26                	CALL	_keyScan
+addr:000085   inc:3894                          mov	0x14, a              	MOV	r0x1008,A
+                                           ;	.line	112; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	if(keyEvent & 0x80)  // 短按
+addr:000086   inc:2794                          jbts	0x14, 0x7           	JBTS	r0x1008,7
+addr:000087   inc:10a4                          jmp	0xa4                 	JMP	_00140_DS_
+                                           ;	.line	114; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	F_CHARGE ^= 1;   // 切换充电状态
+addr:000088   inc:3995                          clr	0x15                 	CLR	r0x1009
+addr:000089   inc:20a9                          jbtc	0x29, 0x1           	JBTC	_U_Flage,1
+addr:00008a   inc:3295                          inc	0x15                 	INC	r0x1009
+addr:00008b   inc:3015                          mov	a, 0x15              	MOV	A,r0x1009
+addr:00008c   inc:3896                          mov	0x16, a              	MOV	r0x100A,A
+addr:00008d   inc:0801                          mov	a, @0x1              	MOV	A,@0x01
+addr:00008e   inc:3e16                          xor	a, 0x16              	XOR	A,r0x100A
+addr:00008f   inc:3896                          mov	0x16, a              	MOV	r0x100A,A
+addr:000090   inc:3895                          mov	0x15, a              	MOV	r0x1009,A
+                                           ;;103	MOV	A,r0x1009
+addr:000091   inc:3416                          rca	0x16                 	RCA	r0x100A
+addr:000092   inc:2403                          jbts	0x3, 0              	JBTS	STATUS,0
+addr:000093   inc:28a9                          btc	0x29, 0x1            	BTC	_U_Flage,1
+addr:000094   inc:2003                          jbtc	0x3, 0              	JBTC	STATUS,0
+addr:000095   inc:2ca9                          bts	0x29, 0x1            	BTS	_U_Flage,1
+                                           ;	.line	115; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	PORT6_5 ^= 1;    // 切换LED指示
+addr:000096   inc:3995                          clr	0x15                 	CLR	r0x1009
+addr:000097   inc:2286                          jbtc	0x6, 0x5            	JBTC	_PORT6bits,5
+addr:000098   inc:3295                          inc	0x15                 	INC	r0x1009
+addr:000099   inc:3015                          mov	a, 0x15              	MOV	A,r0x1009
+addr:00009a   inc:3896                          mov	0x16, a              	MOV	r0x100A,A
+addr:00009b   inc:0801                          mov	a, @0x1              	MOV	A,@0x01
+addr:00009c   inc:3e16                          xor	a, 0x16              	XOR	A,r0x100A
+addr:00009d   inc:3896                          mov	0x16, a              	MOV	r0x100A,A
+addr:00009e   inc:3895                          mov	0x15, a              	MOV	r0x1009,A
+                                           ;;102	MOV	A,r0x1009
+addr:00009f   inc:3416                          rca	0x16                 	RCA	r0x100A
+addr:0000a0   inc:2403                          jbts	0x3, 0              	JBTS	STATUS,0
+addr:0000a1   inc:2a86                          btc	0x6, 0x5             	BTC	_PORT6bits,5
+addr:0000a2   inc:2003                          jbtc	0x3, 0              	JBTC	STATUS,0
+addr:0000a3   inc:2e86                          bts	0x6, 0x5             	BTS	_PORT6bits,5
+                                           _00140_DS_:
+                                           ;	.line	119; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	if(keyEvent & 0x40)  // 长按
+addr:0000a4   inc:2714                          jbts	0x14, 0x6           	JBTS	r0x1008,6
+addr:0000a5   inc:10d7                          jmp	0xd7                 	JMP	_00155_DS_
+                                           ;	.line	122; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	if(PDC1 >= 0x64)
+addr:0000a6   inc:0864                          mov	a, @0x64             	MOV	A,@0x64
+addr:0000a7   inc:3a0a                          sub	a, 0xa               	SUB	A,_PDC1
+addr:0000a8   inc:2403                          jbts	0x3, 0              	JBTS	STATUS,0
+addr:0000a9   inc:10ac                          jmp	0xac                 	JMP	_00142_DS_
+                                           ;	.line	124; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	dir = 0;
+addr:0000aa   inc:2a29                          btc	0x29, 0x4            	BTC	_U_Flage,4
+addr:0000ab   inc:10ad                          jmp	0xad                 	JMP	_00143_DS_
+                                           _00142_DS_:
+                                           ;	.line	128; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	dir = 1;
+addr:0000ac   inc:2e29                          bts	0x29, 0x4            	BTS	_U_Flage,4
+                                           _00143_DS_:
+                                           ;	.line	131; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	if(dir == 1)
+addr:0000ad   inc:3994                          clr	0x14                 	CLR	r0x1008
+addr:0000ae   inc:2229                          jbtc	0x29, 0x4           	JBTC	_U_Flage,4
+addr:0000af   inc:3294                          inc	0x14                 	INC	r0x1008
+                                           ;;101	MOV	A,r0x1008
+                                           ;;100	MOV	A,r0x1009
+addr:0000b0   inc:3014                          mov	a, 0x14              	MOV	A,r0x1008
+addr:0000b1   inc:3895                          mov	0x15, a              	MOV	r0x1009,A
+addr:0000b2   inc:0e01                          xor	a, @0x1              	XOR	A,@0x01
+addr:0000b3   inc:2503                          jbts	0x3, 0x2            	JBTS	STATUS,2
+addr:0000b4   inc:10bf                          jmp	0xbf                 	JMP	_00151_DS_
+                                           ;;swapping arguments (AOP_TYPEs 1/3)
+                                           ;	.line	134; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	if(light <= 100)  // 防止溢出
+addr:0000b5   inc:0865                          mov	a, @0x65             	MOV	A,@0x65
+addr:0000b6   inc:3a17                          sub	a, 0x17              	SUB	A,_keyProcess_light_2_26
+addr:0000b7   inc:2003                          jbtc	0x3, 0              	JBTC	STATUS,0
+addr:0000b8   inc:10bc                          jmp	0xbc                 	JMP	_00145_DS_
+                                           ;	.line	135; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	light += 10;
+addr:0000b9   inc:080a                          mov	a, @0xa              	MOV	A,@0x0a
+addr:0000ba   inc:3f97                          add	0x17, a              	ADD	_keyProcess_light_2_26,A
+addr:0000bb   inc:10c7                          jmp	0xc7                 	JMP	_00152_DS_
+                                           _00145_DS_:
+                                           ;	.line	137; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	light = 100;
+addr:0000bc   inc:0864                          mov	a, @0x64             	MOV	A,@0x64
+addr:0000bd   inc:3897                          mov	0x17, a              	MOV	_keyProcess_light_2_26,A
+addr:0000be   inc:10c7                          jmp	0xc7                 	JMP	_00152_DS_
+                                           _00151_DS_:
+                                           ;	.line	142; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	if(light > 0)   // 防止下溢
+addr:0000bf   inc:0800                          mov	a, @0                	MOV	A,@0x00
+addr:0000c0   inc:3c17                          or	a, 0x17               	OR	A,_keyProcess_light_2_26
+addr:0000c1   inc:2103                          jbtc	0x3, 0x2            	JBTC	STATUS,2
+addr:0000c2   inc:10c6                          jmp	0xc6                 	JMP	_00148_DS_
+                                           ;	.line	143; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	light -= 10;
+addr:0000c3   inc:08f6                          dw	0x8f6  ;unknown opcode 	MOV	A,@0xf6
+addr:0000c4   inc:3f97                          add	0x17, a              	ADD	_keyProcess_light_2_26,A
+addr:0000c5   inc:10c7                          jmp	0xc7                 	JMP	_00152_DS_
+                                           _00148_DS_:
+                                           ;	.line	145; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	light = 0;
+addr:0000c6   inc:3997                          clr	0x17                 	CLR	_keyProcess_light_2_26
+                                           _00152_DS_:
+                                           ;	.line	149; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	PDC1 = light;
+addr:0000c7   inc:3017                          mov	a, 0x17              	MOV	A,_keyProcess_light_2_26
+addr:0000c8   inc:388a                          mov	0xa, a               	MOV	_PDC1,A
+                                           ;	.line	151; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	PORT6_4 ^= 1;    // 切换LED指示
+addr:0000c9   inc:3994                          clr	0x14                 	CLR	r0x1008
+addr:0000ca   inc:2206                          jbtc	0x6, 0x4            	JBTC	_PORT6bits,4
+addr:0000cb   inc:3294                          inc	0x14                 	INC	r0x1008
+addr:0000cc   inc:3014                          mov	a, 0x14              	MOV	A,r0x1008
+addr:0000cd   inc:3895                          mov	0x15, a              	MOV	r0x1009,A
+addr:0000ce   inc:0801                          mov	a, @0x1              	MOV	A,@0x01
+addr:0000cf   inc:3e15                          xor	a, 0x15              	XOR	A,r0x1009
+addr:0000d0   inc:3895                          mov	0x15, a              	MOV	r0x1009,A
+addr:0000d1   inc:3894                          mov	0x14, a              	MOV	r0x1008,A
+                                           ;;99	MOV	A,r0x1008
+addr:0000d2   inc:3415                          rca	0x15                 	RCA	r0x1009
+addr:0000d3   inc:2403                          jbts	0x3, 0              	JBTS	STATUS,0
+addr:0000d4   inc:2a06                          btc	0x6, 0x4             	BTC	_PORT6bits,4
+addr:0000d5   inc:2003                          jbtc	0x3, 0              	JBTC	STATUS,0
+addr:0000d6   inc:2e06                          bts	0x6, 0x4             	BTS	_PORT6bits,4
+                                           ;	.line	153; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	}
+                                           _00155_DS_:
+addr:0000d7   inc:3822                          ret                      	RET	
+                                           ; exit point of _keyProcess
+                                           
+                                           ;***
+                                           ;  pBlock Stats: dbName = C
+                                           ;***
+                                           ;has an exit
+                                           ;2 compiler assigned registers:
+                                           ;   r0x1006
+                                           ;   r0x1007
+                                           ;; Starting pCode block
+                                           S_KEY__keyScan	code
+                                           _keyScan:	;Function start
+                                           ; 2 exit points
+                                           ;	.line	13; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	uint8_t keyVal = 0;
+addr:000026   inc:3992                          clr	0x12                 	CLR	r0x1006
+                                           ;	.line	14; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	uint8_t keyEvent = 0;
+addr:000027   inc:3993                          clr	0x13                 	CLR	r0x1007
+                                           ;	.line	17; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	if(PORT6_0 == 0)
+addr:000028   inc:2006                          jbtc	0x6, 0              	JBTC	_PORT6bits,0
+addr:000029   inc:102c                          jmp	0x2c                 	JMP	_00106_DS_
+                                           ;	.line	19; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	keyVal = 1;  // 按键按下
+addr:00002a   inc:0801                          mov	a, @0x1              	MOV	A,@0x01
+addr:00002b   inc:3892                          mov	0x12, a              	MOV	r0x1006,A
+                                           ;;swapping arguments (AOP_TYPEs 1/3)
+                                           _00106_DS_:
+                                           ;	.line	22; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	switch(keyState)
+addr:00002c   inc:0804                          mov	a, @0x4              	MOV	A,@0x04
+addr:00002d   inc:3a1e                          sub	a, 0x1e              	SUB	A,_keyState
+addr:00002e   inc:2003                          jbtc	0x3, 0              	JBTC	STATUS,0
+addr:00002f   inc:1081                          jmp	0x81                 	JMP	_00133_DS_
+addr:000030   inc:301e                          mov	a, 0x1e              	MOV	A,_keyState
+                                           	BANKSEL	PCL
+addr:000031   inc:3f82                          add	0x2, a               	ADD	PCL,A
+addr:000032   inc:1036                          jmp	0x36                 	JMP	_00107_DS_
+addr:000033   inc:1042                          jmp	0x42                 	JMP	_00110_DS_
+addr:000034   inc:1051                          jmp	0x51                 	JMP	_00116_DS_
+addr:000035   inc:1072                          jmp	0x72                 	JMP	_00127_DS_
+                                           _00107_DS_:
+                                           ;	.line	26; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	keyShake = 0;
+addr:000036   inc:39a7                          clr	0x27                 	CLR	_keyShake
+                                           ;	.line	27; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	keyValOld = 0;
+addr:000037   inc:399c                          clr	0x1c                 	CLR	_keyValOld
+                                           ;	.line	28; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	keyLongCnt = 0;
+addr:000038   inc:399a                          clr	0x1a                 	CLR	_keyLongCnt
+                                           ;	.line	30; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	if(keyVal)
+addr:000039   inc:0800                          mov	a, @0                	MOV	A,@0x00
+addr:00003a   inc:3c12                          or	a, 0x12               	OR	A,r0x1006
+addr:00003b   inc:2103                          jbtc	0x3, 0x2            	JBTC	STATUS,2
+addr:00003c   inc:1082                          jmp	0x82                 	JMP	_00134_DS_
+                                           ;	.line	32; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	keyValOld = keyVal;
+addr:00003d   inc:3012                          mov	a, 0x12              	MOV	A,r0x1006
+addr:00003e   inc:389c                          mov	0x1c, a              	MOV	_keyValOld,A
+                                           ;	.line	33; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	keyState = 1;  // 进入消抖状态
+addr:00003f   inc:0801                          mov	a, @0x1              	MOV	A,@0x01
+addr:000040   inc:389e                          mov	0x1e, a              	MOV	_keyState,A
+                                           ;	.line	35; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	break;
+addr:000041   inc:1082                          jmp	0x82                 	JMP	_00134_DS_
+                                           _00110_DS_:
+                                           ;	.line	39; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	if(keyVal == keyValOld)
+addr:000042   inc:301c                          mov	a, 0x1c              	MOV	A,_keyValOld
+addr:000043   inc:3e12                          xor	a, 0x12              	XOR	A,r0x1006
+addr:000044   inc:2503                          jbts	0x3, 0x2            	JBTS	STATUS,2
+addr:000045   inc:104f                          jmp	0x4f                 	JMP	_00114_DS_
+                                           ;	.line	41; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	if(++keyShake >= 3)  // 消抖3次
+addr:000046   inc:32a7                          inc	0x27                 	INC	_keyShake
+addr:000047   inc:0803                          mov	a, @0x3              	MOV	A,@0x03
+addr:000048   inc:3a27                          sub	a, 0x27              	SUB	A,_keyShake
+addr:000049   inc:2403                          jbts	0x3, 0              	JBTS	STATUS,0
+addr:00004a   inc:1082                          jmp	0x82                 	JMP	_00134_DS_
+                                           ;	.line	43; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	keyShake = 0;
+addr:00004b   inc:39a7                          clr	0x27                 	CLR	_keyShake
+                                           ;	.line	44; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	keyState = 2;  // 进入长按检测
+addr:00004c   inc:0802                          mov	a, @0x2              	MOV	A,@0x02
+addr:00004d   inc:389e                          mov	0x1e, a              	MOV	_keyState,A
+addr:00004e   inc:1082                          jmp	0x82                 	JMP	_00134_DS_
+                                           _00114_DS_:
+                                           ;	.line	49; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	keyState = 0;  // 按键抖动，返回初始状态
+addr:00004f   inc:399e                          clr	0x1e                 	CLR	_keyState
+                                           ;	.line	51; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	break;
+addr:000050   inc:1082                          jmp	0x82                 	JMP	_00134_DS_
+                                           _00116_DS_:
+                                           ;	.line	55; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	if(keyVal == keyValOld)
+addr:000051   inc:301c                          mov	a, 0x1c              	MOV	A,_keyValOld
+addr:000052   inc:3e12                          xor	a, 0x12              	XOR	A,r0x1006
+addr:000053   inc:2503                          jbts	0x3, 0x2            	JBTS	STATUS,2
+addr:000054   inc:1061                          jmp	0x61                 	JMP	_00125_DS_
+                                           ;	.line	57; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	keyShake = 0;
+addr:000055   inc:39a7                          clr	0x27                 	CLR	_keyShake
+                                           ;	.line	58; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	if(++keyLongCnt >= 200)  // 长按时间约2秒
+addr:000056   inc:329a                          inc	0x1a                 	INC	_keyLongCnt
+addr:000057   inc:08c8                          dw	0x8c8  ;unknown opcode 	MOV	A,@0xc8
+addr:000058   inc:3a1a                          sub	a, 0x1a              	SUB	A,_keyLongCnt
+addr:000059   inc:2403                          jbts	0x3, 0              	JBTS	STATUS,0
+addr:00005a   inc:1082                          jmp	0x82                 	JMP	_00134_DS_
+                                           ;	.line	60; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	keyLongCnt = 0;
+addr:00005b   inc:399a                          clr	0x1a                 	CLR	_keyLongCnt
+                                           ;	.line	61; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	keyEvent = 0x40;  // 长按事件
+addr:00005c   inc:0840                          mov	a, @0x40             	MOV	A,@0x40
+addr:00005d   inc:3893                          mov	0x13, a              	MOV	r0x1007,A
+                                           ;	.line	62; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	keyState = 3;     // 进入等待抬起状态
+addr:00005e   inc:0803                          mov	a, @0x3              	MOV	A,@0x03
+addr:00005f   inc:389e                          mov	0x1e, a              	MOV	_keyState,A
+addr:000060   inc:1082                          jmp	0x82                 	JMP	_00134_DS_
+                                           _00125_DS_:
+                                           ;	.line	65; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	else if(keyVal == 0)
+addr:000061   inc:0800                          mov	a, @0                	MOV	A,@0x00
+addr:000062   inc:3c12                          or	a, 0x12               	OR	A,r0x1006
+addr:000063   inc:2503                          jbts	0x3, 0x2            	JBTS	STATUS,2
+addr:000064   inc:106f                          jmp	0x6f                 	JMP	_00122_DS_
+                                           ;	.line	67; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	if(++keyShake >= 3)
+addr:000065   inc:32a7                          inc	0x27                 	INC	_keyShake
+addr:000066   inc:0803                          mov	a, @0x3              	MOV	A,@0x03
+addr:000067   inc:3a27                          sub	a, 0x27              	SUB	A,_keyShake
+addr:000068   inc:2403                          jbts	0x3, 0              	JBTS	STATUS,0
+addr:000069   inc:1082                          jmp	0x82                 	JMP	_00134_DS_
+                                           ;	.line	69; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	keyShake = 0;
+addr:00006a   inc:39a7                          clr	0x27                 	CLR	_keyShake
+                                           ;	.line	70; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	keyEvent = 0x80;  // 短按事件
+addr:00006b   inc:0880                          dw	0x880  ;unknown opcode 	MOV	A,@0x80
+addr:00006c   inc:3893                          mov	0x13, a              	MOV	r0x1007,A
+                                           ;	.line	71; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	keyState = 0;     // 返回初始状态
+addr:00006d   inc:399e                          clr	0x1e                 	CLR	_keyState
+addr:00006e   inc:1082                          jmp	0x82                 	JMP	_00134_DS_
+                                           _00122_DS_:
+                                           ;	.line	76; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	keyShake = 0;
+addr:00006f   inc:39a7                          clr	0x27                 	CLR	_keyShake
+                                           ;	.line	77; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	keyState = 0;  // 异常情况
+addr:000070   inc:399e                          clr	0x1e                 	CLR	_keyState
+                                           ;	.line	79; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	break;
+addr:000071   inc:1082                          jmp	0x82                 	JMP	_00134_DS_
+                                           _00127_DS_:
+                                           ;	.line	83; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	keyValOld = 0;
+addr:000072   inc:399c                          clr	0x1c                 	CLR	_keyValOld
+                                           ;	.line	84; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	if(keyVal == 0)
+addr:000073   inc:0800                          mov	a, @0                	MOV	A,@0x00
+addr:000074   inc:3c12                          or	a, 0x12               	OR	A,r0x1006
+addr:000075   inc:2503                          jbts	0x3, 0x2            	JBTS	STATUS,2
+addr:000076   inc:107f                          jmp	0x7f                 	JMP	_00131_DS_
+                                           ;	.line	86; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	if(++keyShake >= 3)
+addr:000077   inc:32a7                          inc	0x27                 	INC	_keyShake
+addr:000078   inc:0803                          mov	a, @0x3              	MOV	A,@0x03
+addr:000079   inc:3a27                          sub	a, 0x27              	SUB	A,_keyShake
+addr:00007a   inc:2403                          jbts	0x3, 0              	JBTS	STATUS,0
+addr:00007b   inc:1082                          jmp	0x82                 	JMP	_00134_DS_
+                                           ;	.line	88; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	keyShake = 0;
+addr:00007c   inc:39a7                          clr	0x27                 	CLR	_keyShake
+                                           ;	.line	89; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	keyState = 0;  // 按键抬起，返回初始状态
+addr:00007d   inc:399e                          clr	0x1e                 	CLR	_keyState
+addr:00007e   inc:1082                          jmp	0x82                 	JMP	_00134_DS_
+                                           _00131_DS_:
+                                           ;	.line	94; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	keyShake = 0;
+addr:00007f   inc:39a7                          clr	0x27                 	CLR	_keyShake
+                                           ;	.line	96; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	break;
+addr:000080   inc:1082                          jmp	0x82                 	JMP	_00134_DS_
+                                           _00133_DS_:
+                                           ;	.line	99; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	keyState = 0;
+addr:000081   inc:399e                          clr	0x1e                 	CLR	_keyState
+                                           _00134_DS_:
+                                           ;	.line	103; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	return keyEvent;
+addr:000082   inc:3013                          mov	a, 0x13              	MOV	A,r0x1007
+                                           ;	.line	104; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C	}
+addr:000083   inc:3822                          ret                      	RET	
+                                           ; exit point of _keyScan
+                                           
+                                           
+                                           ;	code size estimation:
+                                           ;	  178+    1 =   179 instructions (  360 byte)
+                                           
+                                           	end
+
+
+MEMORY USAGE MAP ('X' = Used,  '-' = Unused)
+
+0000 : XXXXXXX-XXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX
+0040 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX
+0080 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX
+00c0 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX
+0100 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX
+0140 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXX- ----------------
+
+All other memory blocks unused.
+
+Program Memory Used: 366 Words

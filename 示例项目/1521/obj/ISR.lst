@@ -1,0 +1,328 @@
+slasm-0.13.6 beta               D:\poolbule0\芯片代码模板\C_1521\obj\ISR.asm12-2-2025  17:39:40          PAGE  1
+
+
+               00001 ;--------------------------------------------------------
+               00002 ; File Created by SLCC : free open source ANSI-C Compiler
+               00003 ; Version 3.6.0 #Sep 28 2025 (MSVC)
+               00004 ;--------------------------------------------------------
+               00005 ; SL port for the RISC core
+               00006 ;--------------------------------------------------------
+               00007 ;       .file   "D:\POOLBULE0\芯片代码模板\C_1521\ISR.C"
+               00008         list    p=JZ8P1521
+               00009         radix dec
+               00010         include "JZ8P1521.inc"
+               00001         LIST                                                                  
+               00002 ; JZ8P1521.INC  Standard Header File, Version 1.00
+               00083         LIST
+               00011 ;--------------------------------------------------------
+               00012 ; external declarations
+               00013 ;--------------------------------------------------------
+               00014         extern  _fw_pwm1Init
+               00015         extern  _fw_pwm2Init
+               00016         extern  _fw_pwm3Init
+               00017         extern  _fw_sleepEvent
+               00018         extern  _keyScan
+               00019         extern  _keyProcess
+               00020         extern  _fw_clrRam
+               00021         extern  _fw_gpioInit
+               00022         extern  _fw_tc0Init
+               00023         extern  _IARbits
+               00024         extern  _TCCbits
+               00025         extern  _PCLbits
+               00026         extern  _STATUSbits
+               00027         extern  _RSRbits
+               00028         extern  _PORT5bits
+               00029         extern  _PORT6bits
+               00030         extern  _LVDCONbits
+               00031         extern  _PWMCONbits
+               00032         extern  _PRDbits
+               00033         extern  _PDC1bits
+               00034         extern  _PDC2bits
+               00035         extern  _PDC3bits
+               00036         extern  _ICIECRbits
+               00037         extern  _CPUCONbits
+               00038         extern  _ISRbits
+               00039         extern  _U_Flage
+               00040         extern  _r_g_workMod
+               00041         extern  _IAR
+               00042         extern  _TCC
+               00043         extern  _PCL
+               00044         extern  _STATUS
+               00045         extern  _RSR
+               00046         extern  _PORT5
+               00047         extern  _PORT6
+               00048         extern  _LVDCON
+               00049         extern  _PWMCON
+               00050         extern  _PRD
+               00051         extern  _PDC1
+               00052         extern  _PDC2
+               00053         extern  _PDC3
+               00054         extern  _ICIECR
+               00055         extern  _CPUCON
+               00056         extern  _ISR
+               00057 
+               00058         extern STK06
+               00059         extern STK05
+               00060         extern STK04
+               00061         extern STK03
+               00062         extern STK02
+               00063         extern STK01
+               00064         extern STK00
+               00065 ;--------------------------------------------------------
+               00066 ; global declarations
+               00067 ;--------------------------------------------------------
+               00068         global  _int_isr
+               00069         global  _reg_200us
+               00070         global  _reg_10ms
+               00071         global  _A_BUFF
+               00072         global  _R3_BUFF
+               00073 
+               00074 ;--------------------------------------------------------
+               00075 ; global definitions
+               00076 ;--------------------------------------------------------
+               00077 UD_ISR_0        udata
+               00078 _reg_200us      res     1
+               00079 
+               00080 UD_ISR_1        udata
+               00081 _reg_10ms       res     1
+               00082 
+               00083 ;--------------------------------------------------------
+               00084 ; absolute symbol definitions
+               00085 ;--------------------------------------------------------
+               00086 UD_abs_ISR_10   udata_ovr       0x0010
+               00087 _A_BUFF
+               00088         res     1
+               00089 UD_abs_ISR_11   udata_ovr       0x0011
+               00090 _R3_BUFF
+               00091         res     1
+               00092 ;--------------------------------------------------------
+               00093 ; compiler-defined variables
+               00094 ;--------------------------------------------------------
+               00095 UDL_ISR_0       udata
+               00096 r0x1002 res     1
+               00097 ;--------------------------------------------------------
+               00098 ; initialized data
+               00099 ;--------------------------------------------------------
+               00100 
+               00101 ;@Allocation info for local variables in function 'int_isr'
+               00102 ;@int_isr fw_pwm1Init               Allocated to registers ;size:2
+               00103 ;@int_isr fw_pwm2Init               Allocated to registers ;size:2
+               00104 ;@int_isr fw_pwm3Init               Allocated to registers ;size:2
+               00105 ;@int_isr fw_sleepEvent             Allocated to registers ;size:2
+               00106 ;@int_isr keyScan                   Allocated to registers ;size:2
+               00107 ;@int_isr keyProcess                Allocated to registers ;size:2
+               00108 ;@int_isr fw_clrRam                 Allocated to registers ;size:2
+               00109 ;@int_isr fw_gpioInit               Allocated to registers ;size:2
+               00110 ;@int_isr fw_tc0Init                Allocated to registers ;size:2
+               00111 ;@int_isr int_isr                   Allocated to registers ;size:2
+               00112 ;@int_isr IARbits                   Allocated to registers ;size:1
+               00113 ;@int_isr TCCbits                   Allocated to registers ;size:1
+               00114 ;@int_isr PCLbits                   Allocated to registers ;size:1
+               00115 ;@int_isr STATUSbits                Allocated to registers ;size:1
+               00116 ;@int_isr RSRbits                   Allocated to registers ;size:1
+               00117 ;@int_isr PORT5bits                 Allocated to registers ;size:1
+               00118 ;@int_isr PORT6bits                 Allocated to registers ;size:1
+               00119 ;@int_isr LVDCONbits                Allocated to registers ;size:1
+               00120 ;@int_isr PWMCONbits                Allocated to registers ;size:1
+               00121 ;@int_isr PRDbits                   Allocated to registers ;size:1
+               00122 ;@int_isr PDC1bits                  Allocated to registers ;size:1
+               00123 ;@int_isr PDC2bits                  Allocated to registers ;size:1
+               00124 ;@int_isr PDC3bits                  Allocated to registers ;size:1
+               00125 ;@int_isr ICIECRbits                Allocated to registers ;size:1
+               00126 ;@int_isr CPUCONbits                Allocated to registers ;size:1
+               00127 ;@int_isr ISRbits                   Allocated to registers ;size:1
+               00128 ;@int_isr U_Flage                   Allocated to registers ;size:1
+               00129 ;@int_isr r_g_workMod               Allocated to registers ;size:1
+               00130 ;@int_isr reg_200us                 Allocated to registers ;size:1
+               00131 ;@int_isr reg_10ms                  Allocated to registers ;size:1
+               00132 ;@int_isr A_BUFF                    Allocated to registers ;size:1
+               00133 ;@int_isr R3_BUFF                   Allocated to registers ;size:1
+               00134 ;@int_isr IAR                       Allocated to registers ;size:1
+               00135 ;@int_isr TCC                       Allocated to registers ;size:1
+               00136 ;@int_isr PCL                       Allocated to registers ;size:1
+               00137 ;@int_isr STATUS                    Allocated to registers ;size:1
+               00138 ;@int_isr RSR                       Allocated to registers ;size:1
+               00139 ;@int_isr PORT5                     Allocated to registers ;size:1
+               00140 ;@int_isr PORT6                     Allocated to registers ;size:1
+               00141 ;@int_isr LVDCON                    Allocated to registers ;size:1
+               00142 ;@int_isr PWMCON                    Allocated to registers ;size:1
+               00143 ;@int_isr PRD                       Allocated to registers ;size:1
+               00144 ;@int_isr PDC1                      Allocated to registers ;size:1
+               00145 ;@int_isr PDC2                      Allocated to registers ;size:1
+               00146 ;@int_isr PDC3                      Allocated to registers ;size:1
+               00147 ;@int_isr ICIECR                    Allocated to registers ;size:1
+               00148 ;@int_isr CPUCON                    Allocated to registers ;size:1
+               00149 ;@int_isr ISR                       Allocated to registers ;size:1
+               00150 ;@end Allocation info for local variables in function 'int_isr';
+               00151 
+               00152 ;--------------------------------------------------------
+               00153 ; overlayable items in internal ram 
+               00154 ;--------------------------------------------------------
+               00155 ;       udata_ovr
+               00156 ;--------------------------------------------------------
+               00157 ; interrupt and initialization code
+               00158 ;--------------------------------------------------------
+               00159 c_interrupt     code    0x0003
+0003           00160 __sdcc_interrupt:
+               00161 ;***
+               00162 ;  pBlock Stats: dbName = I
+               00163 ;***
+               00164 ;2 compiler assigned registers:
+               00165 ;   r0x1002
+               00166 ;   r0x1003
+               00167 ;; Starting pCode block
+0003           00168 _int_isr:       ;Function start
+               00169 ; 0 exit points
+               00170 ;       .line   11; D:\POOLBULE0\芯片代码模板\C_1521\ISR.C      __asm__("org 0x08");                    //中断入口地址  
+               00171         org     0x08
+               00172 ;       .line   12; D:\POOLBULE0\芯片代码模板\C_1521\ISR.C      DI();           
+0008 3821      00173         di      
+               00174 ;       .line   13; D:\POOLBULE0\芯片代码模板\C_1521\ISR.C      PUSH(_A_BUFF,_R3_BUFF);                 //中断入栈保护
+0009 3880      00175         mov     _A_BUFF,a
+000A 3680      00176         swap    _A_BUFF
+000B 3603      00177         swapa   STATUS
+000C 3880      00178         mov     _R3_BUFF,a
+               00179 ;       .line   15; D:\POOLBULE0\芯片代码模板\C_1521\ISR.C      if(TCIF == 1)                                   //判断TCIF是否为1
+000D 3980      00180         CLR     r0x1002
+000E 2000      00181         JBTC    _ISRbits,0
+000F 3280      00182         INC     r0x1002
+               00183 ;;101   MOV     A,r0x1002
+               00184 ;;99    MOV     r0x1003,A
+               00185 ;;100   MOV     A,r0x1003
+0010 3000      00186         MOV     A,r0x1002
+0011 0E01      00187         XOR     A,@0x01
+0012 2503      00188         JBTS    STATUS,2
+0013 1000      00189         JMP     _00108_DS_
+               00190 ;       .line   17; D:\POOLBULE0\芯片代码模板\C_1521\ISR.C      TCC += TCC_TIM;                 //1/2 * 8 * (256-6) = 1000us    公式：1/IRC频率 * 预分频 * （256-初值）
+0014 0806      00191         MOV     A,@0x06
+0015 3F80      00192         ADD     _TCC,A
+               00193 ;       .line   18; D:\POOLBULE0\芯片代码模板\C_1521\ISR.C      ISR = 0xfe;                             //清TC0中断标志位
+0016 08FE      00194         MOV     A,@0xfe
+0017 3880      00195         MOV     _ISR,A
+               00196 ;       .line   20; D:\POOLBULE0\芯片代码模板\C_1521\ISR.C      if (++ reg_10ms >= 1)
+0018 3280      00197         INC     _reg_10ms
+0019 0801      00198         MOV     A,@0x01
+001A 3A00      00199         SUB     A,_reg_10ms
+001B 2403      00200         JBTS    STATUS,0
+001C 1000      00201         JMP     _00108_DS_
+               00202 ;       .line   22; D:\POOLBULE0\芯片代码模板\C_1521\ISR.C      reg_10ms = 0;
+001D 3980      00203         CLR     _reg_10ms
+               00204 ;       .line   23; D:\POOLBULE0\芯片代码模板\C_1521\ISR.C      Time_10ms = ENABLE;
+001E 2C00      00205         BTS     _U_Flage,0
+001F           00206 _00108_DS_:
+               00207 ;       .line   28; D:\POOLBULE0\芯片代码模板\C_1521\ISR.C      ISR = 0x01; //清不使用的中断标志位
+001F 0801      00208         MOV     A,@0x01
+0020 3880      00209         MOV     _ISR,A
+               00210 ;       .line   29; D:\POOLBULE0\芯片代码模板\C_1521\ISR.C      POP(_A_BUFF,_R3_BUFF);                  //中断出栈保护恢复
+0021 3600      00211         swapa   _R3_BUFF
+0022 3883      00212         mov     STATUS,a
+0023 3600      00213         swapa   _A_BUFF
+               00214 ;       .line   30; D:\POOLBULE0\芯片代码模板\C_1521\ISR.C      EI();
+0024 3820      00215         ei      
+               00216 ;       .line   31; D:\POOLBULE0\芯片代码模板\C_1521\ISR.C      }
+0025           00217 END_OF_INTERRUPT:
+0025 3823      00218         RETI    
+               00219 
+               00220 ;--------------------------------------------------------
+               00221 ; code
+               00222 ;--------------------------------------------------------
+               00223 code_ISR        code
+               00224 
+               00225 ;       code size estimation:
+               00226 ;          21+    0 =    21 instructions (   42 byte)
+               00227 
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+CONT                              00000002
+CPUCON                            0000000E
+END_OF_INTERRUPT                  00000025
+IAR                               00000000
+ICIECR                            0000000D
+IMR                               0000000F
+ISR                               0000000F
+LVDCON                            00000007
+P5CR                              00000005
+P6CR                              00000006
+PCL                               00000002
+PDC1                              0000000A
+PDC2                              0000000B
+PDC3                              0000000C
+PDCR                              0000000B
+PHCR                              0000000D
+PHDCR                             00000009
+PORT5                             00000005
+PORT6                             00000006
+PRD                               00000009
+PWMCON                            00000008
+RSR                               00000004
+STATUS                            00000003
+STK00                             00000000
+STK01                             00000000
+STK02                             00000000
+STK03                             00000000
+STK04                             00000000
+STK05                             00000000
+STK06                             00000000
+TCC                               00000001
+WDTCR                             0000000E
+_00108_DS_                        0000001F
+_A_BUFF                           00000010
+_CPUCON                           00000000
+_CPUCONbits                       00000000
+_IAR                              00000000
+_IARbits                          00000000
+_ICIECR                           00000000
+_ICIECRbits                       00000000
+_ISR                              00000000
+_ISRbits                          00000000
+_LVDCON                           00000000
+_LVDCONbits                       00000000
+_PCL                              00000000
+_PCLbits                          00000000
+_PDC1                             00000000
+_PDC1bits                         00000000
+_PDC2                             00000000
+_PDC2bits                         00000000
+_PDC3                             00000000
+_PDC3bits                         00000000
+_PORT5                            00000000
+_PORT5bits                        00000000
+_PORT6                            00000000
+_PORT6bits                        00000000
+_PRD                              00000000
+_PRDbits                          00000000
+_PWMCON                           00000000
+_PWMCONbits                       00000000
+_R3_BUFF                          00000011
+_RSR                              00000000
+_RSRbits                          00000000
+_STATUS                           00000000
+_STATUSbits                       00000000
+_TCC                              00000000
+_TCCbits                          00000000
+_U_Flage                          00000000
+__jz8p1521                        00000001
+__sdcc_interrupt                  00000003
+_fw_clrRam                        00000000
+_fw_gpioInit                      00000000
+_fw_pwm1Init                      00000000
+_fw_pwm2Init                      00000000
+_fw_pwm3Init                      00000000
+_fw_sleepEvent                    00000000
+_fw_tc0Init                       00000000
+_int_isr                          00000003
+_keyProcess                       00000000
+_keyScan                          00000000
+_r_g_workMod                      00000000
+_reg_10ms                         00000000
+_reg_200us                        00000000
+r0x1002                           00000000
+
+
+Errors   :       0
+Warnings :       0 reported,       0 suppressed
+Messages :       0 reported,       0 suppressed
+

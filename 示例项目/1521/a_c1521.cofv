@@ -1,0 +1,1322 @@
+COFF File and Optional Headers
+Processor Type       jz8p1521
+Time Stamp           Tue Dec 02 17:39:42 2025
+Number of Sections   57
+Number of Symbols    261
+Characteristics      0x2
+  File is executable.
+
+Section Header
+Name                    sharebank
+Address                 0x20
+Size of Section         7
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_MAIN_0
+Address                 0x29
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x80
+  Uninitialized data.
+
+Section Header
+Name                    UD_MAIN_1
+Address                 0x2a
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x80
+  Uninitialized data.
+
+Section Header
+Name                    STARTUP
+Address                 0
+Size of Section         2
+Number of Relocations   0
+Number of Line Numbers  1
+Flags                   0x1020
+  Executable code.
+  Absolute.
+
+Line Number Table
+Line     Address  Symbol
+153      0        D:\poolbule0\芯片代码模板\C_1521\obj\MAIN.asm
+
+Section Header
+Name                    code_MAIN
+Address                 0x7
+Size of Section         0
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x20
+  Executable code.
+
+Section Header
+Name                    S_MAIN__main
+Address                 0x127
+Size of Section         24
+Number of Relocations   0
+Number of Line Numbers  12
+Flags                   0x20
+  Executable code.
+
+Line Number Table
+Line     Address  Symbol
+180      0x127    D:\poolbule0\芯片代码模板\C_1521\obj\MAIN.asm
+182      0x128    D:\poolbule0\芯片代码模板\C_1521\obj\MAIN.asm
+184      0x129    D:\poolbule0\芯片代码模板\C_1521\obj\MAIN.asm
+186      0x12a    D:\poolbule0\芯片代码模板\C_1521\obj\MAIN.asm
+188      0x12b    D:\poolbule0\芯片代码模板\C_1521\obj\MAIN.asm
+191      0x12c    D:\poolbule0\芯片代码模板\C_1521\obj\MAIN.asm
+192      0x12d    D:\poolbule0\芯片代码模板\C_1521\obj\MAIN.asm
+194      0x12e    D:\poolbule0\芯片代码模板\C_1521\obj\MAIN.asm
+196      0x12f    D:\poolbule0\芯片代码模板\C_1521\obj\MAIN.asm
+198      0x130    D:\poolbule0\芯片代码模板\C_1521\obj\MAIN.asm
+199      0x131    D:\poolbule0\芯片代码模板\C_1521\obj\MAIN.asm
+201      0x132    D:\poolbule0\芯片代码模板\C_1521\obj\MAIN.asm
+
+Section Header
+Name                    UD_ISR_0
+Address                 0x2b
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x80
+  Uninitialized data.
+
+Section Header
+Name                    UD_ISR_1
+Address                 0x2c
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x80
+  Uninitialized data.
+
+Section Header
+Name                    UD_abs_ISR_10
+Address                 0x10
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_ISR_11
+Address                 0x11
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UDL_ISR_0
+Address                 0x2d
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x80
+  Uninitialized data.
+
+Section Header
+Name                    c_interrupt
+Address                 0x3
+Size of Section         0
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x1020
+  Executable code.
+  Absolute.
+
+Section Header
+Name                    .org_8
+Address                 0x8
+Size of Section         60
+Number of Relocations   0
+Number of Line Numbers  30
+Flags                   0x1020
+  Executable code.
+  Absolute.
+
+Line Number Table
+Line     Address  Symbol
+173      0x8      D:\poolbule0\芯片代码模板\C_1521\obj\ISR.asm
+175      0x9      D:\poolbule0\芯片代码模板\C_1521\obj\ISR.asm
+176      0xa      D:\poolbule0\芯片代码模板\C_1521\obj\ISR.asm
+177      0xb      D:\poolbule0\芯片代码模板\C_1521\obj\ISR.asm
+178      0xc      D:\poolbule0\芯片代码模板\C_1521\obj\ISR.asm
+180      0xd      D:\poolbule0\芯片代码模板\C_1521\obj\ISR.asm
+181      0xe      D:\poolbule0\芯片代码模板\C_1521\obj\ISR.asm
+182      0xf      D:\poolbule0\芯片代码模板\C_1521\obj\ISR.asm
+186      0x10     D:\poolbule0\芯片代码模板\C_1521\obj\ISR.asm
+187      0x11     D:\poolbule0\芯片代码模板\C_1521\obj\ISR.asm
+188      0x12     D:\poolbule0\芯片代码模板\C_1521\obj\ISR.asm
+189      0x13     D:\poolbule0\芯片代码模板\C_1521\obj\ISR.asm
+191      0x14     D:\poolbule0\芯片代码模板\C_1521\obj\ISR.asm
+192      0x15     D:\poolbule0\芯片代码模板\C_1521\obj\ISR.asm
+194      0x16     D:\poolbule0\芯片代码模板\C_1521\obj\ISR.asm
+195      0x17     D:\poolbule0\芯片代码模板\C_1521\obj\ISR.asm
+197      0x18     D:\poolbule0\芯片代码模板\C_1521\obj\ISR.asm
+198      0x19     D:\poolbule0\芯片代码模板\C_1521\obj\ISR.asm
+199      0x1a     D:\poolbule0\芯片代码模板\C_1521\obj\ISR.asm
+200      0x1b     D:\poolbule0\芯片代码模板\C_1521\obj\ISR.asm
+201      0x1c     D:\poolbule0\芯片代码模板\C_1521\obj\ISR.asm
+203      0x1d     D:\poolbule0\芯片代码模板\C_1521\obj\ISR.asm
+205      0x1e     D:\poolbule0\芯片代码模板\C_1521\obj\ISR.asm
+208      0x1f     D:\poolbule0\芯片代码模板\C_1521\obj\ISR.asm
+209      0x20     D:\poolbule0\芯片代码模板\C_1521\obj\ISR.asm
+211      0x21     D:\poolbule0\芯片代码模板\C_1521\obj\ISR.asm
+212      0x22     D:\poolbule0\芯片代码模板\C_1521\obj\ISR.asm
+213      0x23     D:\poolbule0\芯片代码模板\C_1521\obj\ISR.asm
+215      0x24     D:\poolbule0\芯片代码模板\C_1521\obj\ISR.asm
+218      0x25     D:\poolbule0\芯片代码模板\C_1521\obj\ISR.asm
+
+Section Header
+Name                    code_ISR
+Address                 0x7
+Size of Section         0
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x20
+  Executable code.
+
+Section Header
+Name                    code_USER
+Address                 0x7
+Size of Section         0
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x20
+  Executable code.
+
+Section Header
+Name                    S_USER__fw_gpioInit
+Address                 0x117
+Size of Section         32
+Number of Relocations   0
+Number of Line Numbers  16
+Flags                   0x20
+  Executable code.
+
+Line Number Table
+Line     Address  Symbol
+144      0x117    D:\poolbule0\芯片代码模板\C_1521\obj\USER.asm
+145      0x118    D:\poolbule0\芯片代码模板\C_1521\obj\USER.asm
+147      0x119    D:\poolbule0\芯片代码模板\C_1521\obj\USER.asm
+149      0x11a    D:\poolbule0\芯片代码模板\C_1521\obj\USER.asm
+150      0x11b    D:\poolbule0\芯片代码模板\C_1521\obj\USER.asm
+152      0x11c    D:\poolbule0\芯片代码模板\C_1521\obj\USER.asm
+154      0x11d    D:\poolbule0\芯片代码模板\C_1521\obj\USER.asm
+155      0x11e    D:\poolbule0\芯片代码模板\C_1521\obj\USER.asm
+157      0x11f    D:\poolbule0\芯片代码模板\C_1521\obj\USER.asm
+158      0x120    D:\poolbule0\芯片代码模板\C_1521\obj\USER.asm
+160      0x121    D:\poolbule0\芯片代码模板\C_1521\obj\USER.asm
+161      0x122    D:\poolbule0\芯片代码模板\C_1521\obj\USER.asm
+163      0x123    D:\poolbule0\芯片代码模板\C_1521\obj\USER.asm
+164      0x124    D:\poolbule0\芯片代码模板\C_1521\obj\USER.asm
+166      0x125    D:\poolbule0\芯片代码模板\C_1521\obj\USER.asm
+168      0x126    D:\poolbule0\芯片代码模板\C_1521\obj\USER.asm
+
+Section Header
+Name                    S_USER__fw_clrRam
+Address                 0x157
+Size of Section         22
+Number of Relocations   0
+Number of Line Numbers  11
+Flags                   0x20
+  Executable code.
+
+Line Number Table
+Line     Address  Symbol
+180      0x157    D:\poolbule0\芯片代码模板\C_1521\obj\USER.asm
+181      0x158    D:\poolbule0\芯片代码模板\C_1521\obj\USER.asm
+183      0x159    D:\poolbule0\芯片代码模板\C_1521\obj\USER.asm
+184      0x15a    D:\poolbule0\芯片代码模板\C_1521\obj\USER.asm
+185      0x15b    D:\poolbule0\芯片代码模板\C_1521\obj\USER.asm
+186      0x15c    D:\poolbule0\芯片代码模板\C_1521\obj\USER.asm
+188      0x15d    D:\poolbule0\芯片代码模板\C_1521\obj\USER.asm
+190      0x15e    D:\poolbule0\芯片代码模板\C_1521\obj\USER.asm
+191      0x15f    D:\poolbule0\芯片代码模板\C_1521\obj\USER.asm
+194      0x160    D:\poolbule0\芯片代码模板\C_1521\obj\USER.asm
+196      0x161    D:\poolbule0\芯片代码模板\C_1521\obj\USER.asm
+
+Section Header
+Name                    code_FW_TIME
+Address                 0x7
+Size of Section         0
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x20
+  Executable code.
+
+Section Header
+Name                    S_FW_TIME__fw_pwm3Init
+Address                 0x133
+Size of Section         24
+Number of Relocations   0
+Number of Line Numbers  12
+Flags                   0x20
+  Executable code.
+
+Line Number Table
+Line     Address  Symbol
+144      0x133    D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+146      0x134    D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+148      0x135    D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+150      0x136    D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+151      0x137    D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+153      0x138    D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+154      0x139    D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+156      0x13a    D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+157      0x13b    D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+159      0x13c    D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+160      0x13d    D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+162      0x13e    D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+
+Section Header
+Name                    S_FW_TIME__fw_pwm2Init
+Address                 0x13f
+Size of Section         24
+Number of Relocations   0
+Number of Line Numbers  12
+Flags                   0x20
+  Executable code.
+
+Line Number Table
+Line     Address  Symbol
+174      0x13f    D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+176      0x140    D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+178      0x141    D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+180      0x142    D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+181      0x143    D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+183      0x144    D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+184      0x145    D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+186      0x146    D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+187      0x147    D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+189      0x148    D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+190      0x149    D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+192      0x14a    D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+
+Section Header
+Name                    S_FW_TIME__fw_pwm1Init
+Address                 0x14b
+Size of Section         24
+Number of Relocations   0
+Number of Line Numbers  12
+Flags                   0x20
+  Executable code.
+
+Line Number Table
+Line     Address  Symbol
+204      0x14b    D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+206      0x14c    D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+208      0x14d    D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+210      0x14e    D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+211      0x14f    D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+213      0x150    D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+214      0x151    D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+216      0x152    D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+217      0x153    D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+219      0x154    D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+220      0x155    D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+222      0x156    D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+
+Section Header
+Name                    S_FW_TIME__fw_tc0Init
+Address                 0x162
+Size of Section         18
+Number of Relocations   0
+Number of Line Numbers  9
+Flags                   0x20
+  Executable code.
+
+Line Number Table
+Line     Address  Symbol
+234      0x162    D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+235      0x163    D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+237      0x164    D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+238      0x165    D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+240      0x166    D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+241      0x167    D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+243      0x168    D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+244      0x169    D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+246      0x16a    D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+
+Section Header
+Name                    UDL_FW_SLEEP_0
+Address                 0x2e
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x80
+  Uninitialized data.
+
+Section Header
+Name                    ID_FW_SLEEP_0
+Address                 0x18
+Size of Section         2
+Number of Relocations   0
+Number of Line Numbers  1
+Flags                   0x40
+  Initialized data.
+
+Line Number Table
+Line     Address  Symbol
+87       0x18     D:\poolbule0\芯片代码模板\C_1521\obj\FW_SLEEP.asm
+
+Section Header
+Name                    ID_FW_SLEEP_0_i
+Address                 0x1
+Size of Section         4
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x100
+  Initialized data for ROM.
+
+Section Header
+Name                    code_FW_SLEEP
+Address                 0x7
+Size of Section         0
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x20
+  Executable code.
+
+Section Header
+Name                    S_FW_SLEEP__fw_sleepEvent
+Address                 0xf8
+Size of Section         62
+Number of Relocations   0
+Number of Line Numbers  31
+Flags                   0x20
+  Executable code.
+
+Line Number Table
+Line     Address  Symbol
+159      0xf8     D:\poolbule0\芯片代码模板\C_1521\obj\FW_SLEEP.asm
+160      0xf9     D:\poolbule0\芯片代码模板\C_1521\obj\FW_SLEEP.asm
+162      0xfa     D:\poolbule0\芯片代码模板\C_1521\obj\FW_SLEEP.asm
+163      0xfb     D:\poolbule0\芯片代码模板\C_1521\obj\FW_SLEEP.asm
+164      0xfc     D:\poolbule0\芯片代码模板\C_1521\obj\FW_SLEEP.asm
+166      0xfd     D:\poolbule0\芯片代码模板\C_1521\obj\FW_SLEEP.asm
+167      0xfe     D:\poolbule0\芯片代码模板\C_1521\obj\FW_SLEEP.asm
+168      0xff     D:\poolbule0\芯片代码模板\C_1521\obj\FW_SLEEP.asm
+169      0x100    D:\poolbule0\芯片代码模板\C_1521\obj\FW_SLEEP.asm
+171      0x101    D:\poolbule0\芯片代码模板\C_1521\obj\FW_SLEEP.asm
+173      0x102    D:\poolbule0\芯片代码模板\C_1521\obj\FW_SLEEP.asm
+175      0x103    D:\poolbule0\芯片代码模板\C_1521\obj\FW_SLEEP.asm
+176      0x104    D:\poolbule0\芯片代码模板\C_1521\obj\FW_SLEEP.asm
+178      0x105    D:\poolbule0\芯片代码模板\C_1521\obj\FW_SLEEP.asm
+179      0x106    D:\poolbule0\芯片代码模板\C_1521\obj\FW_SLEEP.asm
+181      0x107    D:\poolbule0\芯片代码模板\C_1521\obj\FW_SLEEP.asm
+183      0x108    D:\poolbule0\芯片代码模板\C_1521\obj\FW_SLEEP.asm
+185      0x109    D:\poolbule0\芯片代码模板\C_1521\obj\FW_SLEEP.asm
+186      0x10a    D:\poolbule0\芯片代码模板\C_1521\obj\FW_SLEEP.asm
+188      0x10b    D:\poolbule0\芯片代码模板\C_1521\obj\FW_SLEEP.asm
+190      0x10c    D:\poolbule0\芯片代码模板\C_1521\obj\FW_SLEEP.asm
+192      0x10d    D:\poolbule0\芯片代码模板\C_1521\obj\FW_SLEEP.asm
+194      0x10e    D:\poolbule0\芯片代码模板\C_1521\obj\FW_SLEEP.asm
+196      0x10f    D:\poolbule0\芯片代码模板\C_1521\obj\FW_SLEEP.asm
+198      0x110    D:\poolbule0\芯片代码模板\C_1521\obj\FW_SLEEP.asm
+200      0x111    D:\poolbule0\芯片代码模板\C_1521\obj\FW_SLEEP.asm
+201      0x112    D:\poolbule0\芯片代码模板\C_1521\obj\FW_SLEEP.asm
+203      0x113    D:\poolbule0\芯片代码模板\C_1521\obj\FW_SLEEP.asm
+205      0x114    D:\poolbule0\芯片代码模板\C_1521\obj\FW_SLEEP.asm
+207      0x115    D:\poolbule0\芯片代码模板\C_1521\obj\FW_SLEEP.asm
+210      0x116    D:\poolbule0\芯片代码模板\C_1521\obj\FW_SLEEP.asm
+
+Section Header
+Name                    UDL_KEY_0
+Address                 0x12
+Size of Section         6
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x80
+  Uninitialized data.
+
+Section Header
+Name                    ID_KEY_0
+Address                 0x1a
+Size of Section         2
+Number of Relocations   0
+Number of Line Numbers  1
+Flags                   0x40
+  Initialized data.
+
+Line Number Table
+Line     Address  Symbol
+95       0x1a     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+
+Section Header
+Name                    ID_KEY_0_i
+Address                 0x3
+Size of Section         4
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x100
+  Initialized data for ROM.
+
+Section Header
+Name                    ID_KEY_1
+Address                 0x1c
+Size of Section         2
+Number of Relocations   0
+Number of Line Numbers  1
+Flags                   0x40
+  Initialized data.
+
+Line Number Table
+Line     Address  Symbol
+101      0x1c     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+
+Section Header
+Name                    ID_KEY_1_i
+Address                 0x5
+Size of Section         4
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x100
+  Initialized data for ROM.
+
+Section Header
+Name                    ID_KEY_2
+Address                 0x1e
+Size of Section         2
+Number of Relocations   0
+Number of Line Numbers  1
+Flags                   0x40
+  Initialized data.
+
+Line Number Table
+Line     Address  Symbol
+107      0x1e     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+
+Section Header
+Name                    ID_KEY_2_i
+Address                 0x16b
+Size of Section         4
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x100
+  Initialized data for ROM.
+
+Section Header
+Name                    ID_KEY_3
+Address                 0x27
+Size of Section         2
+Number of Relocations   0
+Number of Line Numbers  1
+Flags                   0x40
+  Initialized data.
+
+Line Number Table
+Line     Address  Symbol
+113      0x27     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+
+Section Header
+Name                    ID_KEY_3_i
+Address                 0x16d
+Size of Section         4
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x100
+  Initialized data for ROM.
+
+Section Header
+Name                    code_KEY
+Address                 0x7
+Size of Section         0
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x20
+  Executable code.
+
+Section Header
+Name                    S_KEY__keyProcess
+Address                 0x84
+Size of Section         168
+Number of Relocations   0
+Number of Line Numbers  84
+Flags                   0x20
+  Executable code.
+
+Line Number Table
+Line     Address  Symbol
+200      0x84     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+201      0x85     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+203      0x86     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+204      0x87     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+206      0x88     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+207      0x89     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+208      0x8a     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+209      0x8b     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+210      0x8c     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+211      0x8d     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+212      0x8e     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+213      0x8f     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+214      0x90     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+216      0x91     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+217      0x92     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+218      0x93     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+219      0x94     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+220      0x95     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+222      0x96     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+223      0x97     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+224      0x98     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+225      0x99     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+226      0x9a     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+227      0x9b     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+228      0x9c     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+229      0x9d     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+230      0x9e     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+232      0x9f     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+233      0xa0     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+234      0xa1     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+235      0xa2     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+236      0xa3     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+239      0xa4     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+240      0xa5     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+242      0xa6     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+243      0xa7     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+244      0xa8     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+245      0xa9     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+247      0xaa     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+248      0xab     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+251      0xac     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+254      0xad     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+255      0xae     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+256      0xaf     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+259      0xb0     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+260      0xb1     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+261      0xb2     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+262      0xb3     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+263      0xb4     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+266      0xb5     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+267      0xb6     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+268      0xb7     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+269      0xb8     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+271      0xb9     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+272      0xba     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+273      0xbb     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+276      0xbc     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+277      0xbd     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+278      0xbe     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+281      0xbf     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+282      0xc0     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+283      0xc1     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+284      0xc2     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+286      0xc3     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+287      0xc4     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+288      0xc5     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+291      0xc6     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+294      0xc7     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+295      0xc8     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+297      0xc9     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+298      0xca     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+299      0xcb     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+300      0xcc     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+301      0xcd     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+302      0xce     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+303      0xcf     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+304      0xd0     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+305      0xd1     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+307      0xd2     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+308      0xd3     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+309      0xd4     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+310      0xd5     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+311      0xd6     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+314      0xd7     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+
+Section Header
+Name                    S_KEY__keyScan
+Address                 0x26
+Size of Section         188
+Number of Relocations   0
+Number of Line Numbers  94
+Flags                   0x20
+  Executable code.
+
+Line Number Table
+Line     Address  Symbol
+329      0x26     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+331      0x27     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+333      0x28     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+334      0x29     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+336      0x2a     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+337      0x2b     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+341      0x2c     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+342      0x2d     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+343      0x2e     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+344      0x2f     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+345      0x30     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+347      0x31     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+348      0x32     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+349      0x33     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+350      0x34     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+351      0x35     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+354      0x36     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+356      0x37     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+358      0x38     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+360      0x39     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+361      0x3a     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+362      0x3b     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+363      0x3c     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+365      0x3d     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+366      0x3e     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+368      0x3f     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+369      0x40     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+371      0x41     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+374      0x42     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+375      0x43     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+376      0x44     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+377      0x45     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+379      0x46     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+380      0x47     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+381      0x48     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+382      0x49     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+383      0x4a     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+385      0x4b     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+387      0x4c     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+388      0x4d     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+389      0x4e     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+392      0x4f     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+394      0x50     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+397      0x51     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+398      0x52     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+399      0x53     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+400      0x54     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+402      0x55     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+404      0x56     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+405      0x57     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+406      0x58     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+407      0x59     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+408      0x5a     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+410      0x5b     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+412      0x5c     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+413      0x5d     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+415      0x5e     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+416      0x5f     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+417      0x60     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+420      0x61     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+421      0x62     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+422      0x63     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+423      0x64     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+425      0x65     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+426      0x66     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+427      0x67     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+428      0x68     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+429      0x69     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+431      0x6a     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+433      0x6b     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+434      0x6c     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+436      0x6d     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+437      0x6e     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+440      0x6f     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+442      0x70     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+444      0x71     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+447      0x72     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+449      0x73     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+450      0x74     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+451      0x75     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+452      0x76     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+454      0x77     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+455      0x78     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+456      0x79     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+457      0x7a     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+458      0x7b     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+460      0x7c     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+462      0x7d     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+463      0x7e     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+466      0x7f     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+468      0x80     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+471      0x81     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+474      0x82     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+476      0x83     D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+
+Section Header
+Name                    UD_abs_jz8p1521_0
+Address                 0
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p1521_1
+Address                 0x1
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p1521_2
+Address                 0x2
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p1521_3
+Address                 0x3
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p1521_4
+Address                 0x4
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p1521_5
+Address                 0x5
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p1521_6
+Address                 0x6
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p1521_7
+Address                 0x7
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p1521_8
+Address                 0x8
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p1521_9
+Address                 0x9
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p1521_a
+Address                 0xa
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p1521_b
+Address                 0xb
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p1521_c
+Address                 0xc
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p1521_d
+Address                 0xd
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p1521_e
+Address                 0xe
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    UD_abs_jz8p1521_f
+Address                 0xf
+Size of Section         1
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x5080
+  Uninitialized data.
+  Absolute.
+  Overlaid with other sections from different objects modules.
+
+Section Header
+Name                    code_jz8p1521
+Address                 0x7
+Size of Section         0
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x20
+  Executable code.
+
+Section Header
+Name                    .cinit
+Address                 0xd8
+Size of Section         64
+Number of Relocations   0
+Number of Line Numbers  0
+Flags                   0x100
+  Initialized data for ROM.
+
+Symbol Table
+Name                     Section          Value      Type  Class  NumAux 
+.file                    DEBUG            0          0     103    1   
+  file = D:\poolbule0\芯片代码模板\C_1521\obj\MAIN.asm
+  line included = 0
+.file                    DEBUG            0          0     103    1   
+  file = C:\JZIDE\JZ_C_IDE_V1.9.1.251009\include/JZ8P1521.inc
+  line included = 10
+.list                    DEBUG            0x1        0     108    0   
+.nolist                  DEBUG            0x3        0     108    0   
+.list                    DEBUG            0x53       0     108    0   
+.eof                     DEBUG            0          0     107    0   
+sharebank                sharebank        0x20       0     109    1   
+  length = 7
+  number of relocations = 0
+  number of line numbers = 0
+STK06                    sharebank        0x20       0     2      0   
+STK05                    sharebank        0x21       0     2      0   
+STK04                    sharebank        0x22       0     2      0   
+STK03                    sharebank        0x23       0     2      0   
+STK02                    sharebank        0x24       0     2      0   
+STK01                    sharebank        0x25       0     2      0   
+STK00                    sharebank        0x26       0     2      0   
+UD_MAIN_0                UD_MAIN_0        0x29       0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_U_Flage                 UD_MAIN_0        0x29       0     2      0   
+UD_MAIN_1                UD_MAIN_1        0x2a       0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_r_g_workMod             UD_MAIN_1        0x2a       0     2      0   
+STARTUP                  STARTUP          0          0     109    1   
+  length = 2
+  number of relocations = 1
+  number of line numbers = 1
+code_MAIN                code_MAIN        0x7        0     109    1   
+  length = 0
+  number of relocations = 0
+  number of line numbers = 0
+S_MAIN__main             S_MAIN__main     0x127      0     109    1   
+  length = 24
+  number of relocations = 10
+  number of line numbers = 12
+_main                    S_MAIN__main     0x127      0     2      0   
+_00108_DS_               S_MAIN__main     0x12c      0     6      0   
+.eof                     DEBUG            0          0     107    0   
+.file                    DEBUG            0          0     103    1   
+  file = D:\poolbule0\芯片代码模板\C_1521\obj\ISR.asm
+  line included = 0
+.file                    DEBUG            0          0     103    1   
+  file = C:\JZIDE\JZ_C_IDE_V1.9.1.251009\include/JZ8P1521.inc
+  line included = 10
+.list                    DEBUG            0x1        0     108    0   
+.nolist                  DEBUG            0x3        0     108    0   
+.list                    DEBUG            0x53       0     108    0   
+.eof                     DEBUG            0          0     107    0   
+UD_ISR_0                 UD_ISR_0         0x2b       0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_reg_200us               UD_ISR_0         0x2b       0     2      0   
+UD_ISR_1                 UD_ISR_1         0x2c       0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_reg_10ms                UD_ISR_1         0x2c       0     2      0   
+UD_abs_ISR_10            UD_abs_ISR_10    0x10       0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_A_BUFF                  UD_abs_ISR_10    0x10       0     2      0   
+UD_abs_ISR_11            UD_abs_ISR_11    0x11       0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_R3_BUFF                 UD_abs_ISR_11    0x11       0     2      0   
+UDL_ISR_0                UDL_ISR_0        0x2d       0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+r0x1002                  UDL_ISR_0        0x2d       0     3      0   
+c_interrupt              c_interrupt      0x3        0     109    1   
+  length = 0
+  number of relocations = 0
+  number of line numbers = 0
+__sdcc_interrupt         c_interrupt      0x3        0     6      0   
+_int_isr                 c_interrupt      0x3        0     2      0   
+.org_8                   .org_8           0x8        0     109    1   
+  length = 60
+  number of relocations = 18
+  number of line numbers = 30
+_00108_DS_               .org_8           0x1f       0     6      0   
+END_OF_INTERRUPT         .org_8           0x25       0     6      0   
+code_ISR                 code_ISR         0x7        0     109    1   
+  length = 0
+  number of relocations = 0
+  number of line numbers = 0
+.eof                     DEBUG            0          0     107    0   
+.file                    DEBUG            0          0     103    1   
+  file = D:\poolbule0\芯片代码模板\C_1521\obj\USER.asm
+  line included = 0
+.file                    DEBUG            0          0     103    1   
+  file = C:\JZIDE\JZ_C_IDE_V1.9.1.251009\include/JZ8P1521.inc
+  line included = 10
+.list                    DEBUG            0x1        0     108    0   
+.nolist                  DEBUG            0x3        0     108    0   
+.list                    DEBUG            0x53       0     108    0   
+.eof                     DEBUG            0          0     107    0   
+code_USER                code_USER        0x7        0     109    1   
+  length = 0
+  number of relocations = 0
+  number of line numbers = 0
+S_USER__fw_gpioInit      S_USER__fw_gpioInit 0x117      0     109    1   
+  length = 32
+  number of relocations = 3
+  number of line numbers = 16
+_fw_gpioInit             S_USER__fw_gpioInit 0x117      0     2      0   
+S_USER__fw_clrRam        S_USER__fw_clrRam 0x157      0     109    1   
+  length = 22
+  number of relocations = 7
+  number of line numbers = 11
+_fw_clrRam               S_USER__fw_clrRam 0x157      0     2      0   
+_00107_DS_               S_USER__fw_clrRam 0x159      0     6      0   
+_00105_DS_               S_USER__fw_clrRam 0x160      0     6      0   
+.eof                     DEBUG            0          0     107    0   
+.file                    DEBUG            0          0     103    1   
+  file = D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+  line included = 0
+.file                    DEBUG            0          0     103    1   
+  file = C:\JZIDE\JZ_C_IDE_V1.9.1.251009\include/JZ8P1521.inc
+  line included = 10
+.list                    DEBUG            0x1        0     108    0   
+.nolist                  DEBUG            0x3        0     108    0   
+.list                    DEBUG            0x53       0     108    0   
+.eof                     DEBUG            0          0     107    0   
+code_FW_TIME             code_FW_TIME     0x7        0     109    1   
+  length = 0
+  number of relocations = 0
+  number of line numbers = 0
+S_FW_TIME__fw_pwm3Init   S_FW_TIME__fw_pwm3Init 0x133      0     109    1   
+  length = 24
+  number of relocations = 6
+  number of line numbers = 12
+_fw_pwm3Init             S_FW_TIME__fw_pwm3Init 0x133      0     2      0   
+S_FW_TIME__fw_pwm2Init   S_FW_TIME__fw_pwm2Init 0x13f      0     109    1   
+  length = 24
+  number of relocations = 6
+  number of line numbers = 12
+_fw_pwm2Init             S_FW_TIME__fw_pwm2Init 0x13f      0     2      0   
+S_FW_TIME__fw_pwm1Init   S_FW_TIME__fw_pwm1Init 0x14b      0     109    1   
+  length = 24
+  number of relocations = 6
+  number of line numbers = 12
+_fw_pwm1Init             S_FW_TIME__fw_pwm1Init 0x14b      0     2      0   
+S_FW_TIME__fw_tc0Init    S_FW_TIME__fw_tc0Init 0x162      0     109    1   
+  length = 18
+  number of relocations = 2
+  number of line numbers = 9
+_fw_tc0Init              S_FW_TIME__fw_tc0Init 0x162      0     2      0   
+.eof                     DEBUG            0          0     107    0   
+.file                    DEBUG            0          0     103    1   
+  file = D:\poolbule0\芯片代码模板\C_1521\obj\FW_SLEEP.asm
+  line included = 0
+.file                    DEBUG            0          0     103    1   
+  file = C:\JZIDE\JZ_C_IDE_V1.9.1.251009\include/JZ8P1521.inc
+  line included = 10
+.list                    DEBUG            0x1        0     108    0   
+.nolist                  DEBUG            0x3        0     108    0   
+.list                    DEBUG            0x53       0     108    0   
+.eof                     DEBUG            0          0     107    0   
+UDL_FW_SLEEP_0           UDL_FW_SLEEP_0   0x2e       0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+r0x1002                  UDL_FW_SLEEP_0   0x2e       0     3      0   
+ID_FW_SLEEP_0            ID_FW_SLEEP_0    0x18       0     109    1   
+  length = 2
+  number of relocations = 0
+  number of line numbers = 1
+_sleep_cnt               ID_FW_SLEEP_0    0x18       0     2      0   
+code_FW_SLEEP            code_FW_SLEEP    0x7        0     109    1   
+  length = 0
+  number of relocations = 0
+  number of line numbers = 0
+S_FW_SLEEP__fw_sleepEvent S_FW_SLEEP__fw_sleepEvent 0xf8       0     109    1   
+  length = 62
+  number of relocations = 12
+  number of line numbers = 31
+_fw_sleepEvent           S_FW_SLEEP__fw_sleepEvent 0xf8       0     2      0   
+_00109_DS_               S_FW_SLEEP__fw_sleepEvent 0x116      0     6      0   
+.eof                     DEBUG            0          0     107    0   
+.file                    DEBUG            0          0     103    1   
+  file = D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+  line included = 0
+.file                    DEBUG            0          0     103    1   
+  file = C:\JZIDE\JZ_C_IDE_V1.9.1.251009\include/JZ8P1521.inc
+  line included = 10
+.list                    DEBUG            0x1        0     108    0   
+.nolist                  DEBUG            0x3        0     108    0   
+.list                    DEBUG            0x53       0     108    0   
+.eof                     DEBUG            0          0     107    0   
+UDL_KEY_0                UDL_KEY_0        0x12       0     109    1   
+  length = 6
+  number of relocations = 0
+  number of line numbers = 0
+r0x1006                  UDL_KEY_0        0x12       0     3      0   
+r0x1007                  UDL_KEY_0        0x13       0     3      0   
+r0x1008                  UDL_KEY_0        0x14       0     3      0   
+r0x1009                  UDL_KEY_0        0x15       0     3      0   
+r0x100A                  UDL_KEY_0        0x16       0     3      0   
+_keyProcess_light_2_26   UDL_KEY_0        0x17       0     3      0   
+ID_KEY_0                 ID_KEY_0         0x1a       0     109    1   
+  length = 2
+  number of relocations = 0
+  number of line numbers = 1
+_keyLongCnt              ID_KEY_0         0x1a       0     2      0   
+ID_KEY_1                 ID_KEY_1         0x1c       0     109    1   
+  length = 2
+  number of relocations = 0
+  number of line numbers = 1
+_keyValOld               ID_KEY_1         0x1c       0     2      0   
+ID_KEY_2                 ID_KEY_2         0x1e       0     109    1   
+  length = 2
+  number of relocations = 0
+  number of line numbers = 1
+_keyState                ID_KEY_2         0x1e       0     2      0   
+ID_KEY_3                 ID_KEY_3         0x27       0     109    1   
+  length = 2
+  number of relocations = 0
+  number of line numbers = 1
+_keyShake                ID_KEY_3         0x27       0     2      0   
+code_KEY                 code_KEY         0x7        0     109    1   
+  length = 0
+  number of relocations = 0
+  number of line numbers = 0
+S_KEY__keyProcess        S_KEY__keyProcess 0x84       0     109    1   
+  length = 168
+  number of relocations = 63
+  number of line numbers = 84
+_keyProcess              S_KEY__keyProcess 0x84       0     2      0   
+_00140_DS_               S_KEY__keyProcess 0xa4       0     6      0   
+_00142_DS_               S_KEY__keyProcess 0xac       0     6      0   
+_00143_DS_               S_KEY__keyProcess 0xad       0     6      0   
+_00145_DS_               S_KEY__keyProcess 0xbc       0     6      0   
+_00151_DS_               S_KEY__keyProcess 0xbf       0     6      0   
+_00148_DS_               S_KEY__keyProcess 0xc6       0     6      0   
+_00152_DS_               S_KEY__keyProcess 0xc7       0     6      0   
+_00155_DS_               S_KEY__keyProcess 0xd7       0     6      0   
+S_KEY__keyScan           S_KEY__keyScan   0x26       0     109    1   
+  length = 188
+  number of relocations = 68
+  number of line numbers = 94
+_keyScan                 S_KEY__keyScan   0x26       0     2      0   
+_00106_DS_               S_KEY__keyScan   0x2c       0     6      0   
+_00107_DS_               S_KEY__keyScan   0x36       0     6      0   
+_00110_DS_               S_KEY__keyScan   0x42       0     6      0   
+_00114_DS_               S_KEY__keyScan   0x4f       0     6      0   
+_00116_DS_               S_KEY__keyScan   0x51       0     6      0   
+_00125_DS_               S_KEY__keyScan   0x61       0     6      0   
+_00122_DS_               S_KEY__keyScan   0x6f       0     6      0   
+_00127_DS_               S_KEY__keyScan   0x72       0     6      0   
+_00131_DS_               S_KEY__keyScan   0x7f       0     6      0   
+_00133_DS_               S_KEY__keyScan   0x81       0     6      0   
+_00134_DS_               S_KEY__keyScan   0x82       0     6      0   
+.eof                     DEBUG            0          0     107    0   
+.file                    DEBUG            0          0     103    1   
+  file = jz8p1521.asm
+  line included = 0
+.file                    DEBUG            0          0     103    1   
+  file = ../../share/header/jz8p1521.inc
+  line included = 10
+.list                    DEBUG            0x1        0     108    0   
+.nolist                  DEBUG            0x3        0     108    0   
+.list                    DEBUG            0x53       0     108    0   
+.eof                     DEBUG            0          0     107    0   
+UD_abs_jz8p1521_0        UD_abs_jz8p1521_0 0          0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_IARbits                 UD_abs_jz8p1521_0 0          0     2      0   
+_IAR                     UD_abs_jz8p1521_0 0          0     2      0   
+UD_abs_jz8p1521_1        UD_abs_jz8p1521_1 0x1        0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_TCCbits                 UD_abs_jz8p1521_1 0x1        0     2      0   
+_TCC                     UD_abs_jz8p1521_1 0x1        0     2      0   
+UD_abs_jz8p1521_2        UD_abs_jz8p1521_2 0x2        0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_PCLbits                 UD_abs_jz8p1521_2 0x2        0     2      0   
+_PCL                     UD_abs_jz8p1521_2 0x2        0     2      0   
+UD_abs_jz8p1521_3        UD_abs_jz8p1521_3 0x3        0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_STATUSbits              UD_abs_jz8p1521_3 0x3        0     2      0   
+_STATUS                  UD_abs_jz8p1521_3 0x3        0     2      0   
+UD_abs_jz8p1521_4        UD_abs_jz8p1521_4 0x4        0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_RSRbits                 UD_abs_jz8p1521_4 0x4        0     2      0   
+_RSR                     UD_abs_jz8p1521_4 0x4        0     2      0   
+UD_abs_jz8p1521_5        UD_abs_jz8p1521_5 0x5        0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_PORT5bits               UD_abs_jz8p1521_5 0x5        0     2      0   
+_PORT5                   UD_abs_jz8p1521_5 0x5        0     2      0   
+UD_abs_jz8p1521_6        UD_abs_jz8p1521_6 0x6        0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_PORT6bits               UD_abs_jz8p1521_6 0x6        0     2      0   
+_PORT6                   UD_abs_jz8p1521_6 0x6        0     2      0   
+UD_abs_jz8p1521_7        UD_abs_jz8p1521_7 0x7        0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_LVDCONbits              UD_abs_jz8p1521_7 0x7        0     2      0   
+_LVDCON                  UD_abs_jz8p1521_7 0x7        0     2      0   
+UD_abs_jz8p1521_8        UD_abs_jz8p1521_8 0x8        0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_PWMCONbits              UD_abs_jz8p1521_8 0x8        0     2      0   
+_PWMCON                  UD_abs_jz8p1521_8 0x8        0     2      0   
+UD_abs_jz8p1521_9        UD_abs_jz8p1521_9 0x9        0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_PRDbits                 UD_abs_jz8p1521_9 0x9        0     2      0   
+_PRD                     UD_abs_jz8p1521_9 0x9        0     2      0   
+UD_abs_jz8p1521_a        UD_abs_jz8p1521_a 0xa        0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_PDC1bits                UD_abs_jz8p1521_a 0xa        0     2      0   
+_PDC1                    UD_abs_jz8p1521_a 0xa        0     2      0   
+UD_abs_jz8p1521_b        UD_abs_jz8p1521_b 0xb        0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_PDC2bits                UD_abs_jz8p1521_b 0xb        0     2      0   
+_PDC2                    UD_abs_jz8p1521_b 0xb        0     2      0   
+UD_abs_jz8p1521_c        UD_abs_jz8p1521_c 0xc        0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_PDC3bits                UD_abs_jz8p1521_c 0xc        0     2      0   
+_PDC3                    UD_abs_jz8p1521_c 0xc        0     2      0   
+UD_abs_jz8p1521_d        UD_abs_jz8p1521_d 0xd        0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_ICIECRbits              UD_abs_jz8p1521_d 0xd        0     2      0   
+_ICIECR                  UD_abs_jz8p1521_d 0xd        0     2      0   
+UD_abs_jz8p1521_e        UD_abs_jz8p1521_e 0xe        0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_CPUCONbits              UD_abs_jz8p1521_e 0xe        0     2      0   
+_CPUCON                  UD_abs_jz8p1521_e 0xe        0     2      0   
+UD_abs_jz8p1521_f        UD_abs_jz8p1521_f 0xf        0     109    1   
+  length = 1
+  number of relocations = 0
+  number of line numbers = 0
+_ISRbits                 UD_abs_jz8p1521_f 0xf        0     2      0   
+_ISR                     UD_abs_jz8p1521_f 0xf        0     2      0   
+code_jz8p1521            code_jz8p1521    0x7        0     109    1   
+  length = 0
+  number of relocations = 0
+  number of line numbers = 0
+.eof                     DEBUG            0          0     107    0   
+_cinit                   .cinit           0xd8       0     2      0   
+

@@ -1,0 +1,603 @@
+slasm-0.13.6 beta               D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm12-2-2025  17:39:42          PAGE  1
+
+
+               00001 ;--------------------------------------------------------
+               00002 ; File Created by SLCC : free open source ANSI-C Compiler
+               00003 ; Version 3.6.0 #Sep 28 2025 (MSVC)
+               00004 ;--------------------------------------------------------
+               00005 ; SL port for the RISC core
+               00006 ;--------------------------------------------------------
+               00007 ;       .file   "D:\POOLBULE0\芯片代码模板\C_1521\KEY.C"
+               00008         list    p=JZ8P1521
+               00009         radix dec
+               00010         include "JZ8P1521.inc"
+               00001         LIST                                                                  
+               00002 ; JZ8P1521.INC  Standard Header File, Version 1.00
+               00083         LIST
+               00011 ;--------------------------------------------------------
+               00012 ; external declarations
+               00013 ;--------------------------------------------------------
+               00014         extern  _fw_pwm1Init
+               00015         extern  _fw_pwm2Init
+               00016         extern  _fw_pwm3Init
+               00017         extern  _fw_sleepEvent
+               00018         extern  _fw_clrRam
+               00019         extern  _fw_gpioInit
+               00020         extern  _fw_tc0Init
+               00021         extern  _IARbits
+               00022         extern  _TCCbits
+               00023         extern  _PCLbits
+               00024         extern  _STATUSbits
+               00025         extern  _RSRbits
+               00026         extern  _PORT5bits
+               00027         extern  _PORT6bits
+               00028         extern  _LVDCONbits
+               00029         extern  _PWMCONbits
+               00030         extern  _PRDbits
+               00031         extern  _PDC1bits
+               00032         extern  _PDC2bits
+               00033         extern  _PDC3bits
+               00034         extern  _ICIECRbits
+               00035         extern  _CPUCONbits
+               00036         extern  _ISRbits
+               00037         extern  _U_Flage
+               00038         extern  _r_g_workMod
+               00039         extern  _IAR
+               00040         extern  _TCC
+               00041         extern  _PCL
+               00042         extern  _STATUS
+               00043         extern  _RSR
+               00044         extern  _PORT5
+               00045         extern  _PORT6
+               00046         extern  _LVDCON
+               00047         extern  _PWMCON
+               00048         extern  _PRD
+               00049         extern  _PDC1
+               00050         extern  _PDC2
+               00051         extern  _PDC3
+               00052         extern  _ICIECR
+               00053         extern  _CPUCON
+               00054         extern  _ISR
+               00055 
+               00056         extern STK06
+               00057         extern STK05
+               00058         extern STK04
+               00059         extern STK03
+               00060         extern STK02
+               00061         extern STK01
+               00062         extern STK00
+               00063 ;--------------------------------------------------------
+               00064 ; global declarations
+               00065 ;--------------------------------------------------------
+               00066         global  _keyProcess
+               00067         global  _keyScan
+               00068         global  _keyLongCnt
+               00069         global  _keyValOld
+               00070         global  _keyState
+               00071         global  _keyShake
+               00072 
+               00073 ;--------------------------------------------------------
+               00074 ; global definitions
+               00075 ;--------------------------------------------------------
+               00076 ;--------------------------------------------------------
+               00077 ; absolute symbol definitions
+               00078 ;--------------------------------------------------------
+               00079 ;--------------------------------------------------------
+               00080 ; compiler-defined variables
+               00081 ;--------------------------------------------------------
+               00082 UDL_KEY_0       udata
+               00083 r0x1006 res     1
+               00084 r0x1007 res     1
+               00085 r0x1008 res     1
+               00086 r0x1009 res     1
+               00087 r0x100A res     1
+               00088 _keyProcess_light_2_26  res     1
+               00089 ;--------------------------------------------------------
+               00090 ; initialized data
+               00091 ;--------------------------------------------------------
+               00092 
+               00093 ID_KEY_0        idata
+               00094 _keyLongCnt
+0000 3F82      00095         add 0x02,a
+               00096         db      0x00
+               00097 
+               00098 
+               00099 ID_KEY_1        idata
+               00100 _keyValOld
+0000 3F82      00101         add 0x02,a
+               00102         db      0x00
+               00103 
+               00104 
+               00105 ID_KEY_2        idata
+               00106 _keyState
+0000 3F82      00107         add 0x02,a
+               00108         db      0x00
+               00109 
+               00110 
+               00111 ID_KEY_3        idata
+               00112 _keyShake
+0000 3F82      00113         add 0x02,a
+               00114         db      0x00
+               00115 
+               00116 
+               00117 ;@Allocation info for local variables in function 'keyScan'
+               00118 ;@keyScan fw_pwm1Init               Allocated to registers ;size:2
+               00119 ;@keyScan fw_pwm2Init               Allocated to registers ;size:2
+               00120 ;@keyScan fw_pwm3Init               Allocated to registers ;size:2
+               00121 ;@keyScan fw_sleepEvent             Allocated to registers ;size:2
+               00122 ;@keyScan fw_clrRam                 Allocated to registers ;size:2
+               00123 ;@keyScan fw_gpioInit               Allocated to registers ;size:2
+               00124 ;@keyScan fw_tc0Init                Allocated to registers ;size:2
+               00125 ;@keyScan keyProcess                Allocated to registers ;size:2
+               00126 ;@keyScan IARbits                   Allocated to registers ;size:1
+               00127 ;@keyScan TCCbits                   Allocated to registers ;size:1
+               00128 ;@keyScan PCLbits                   Allocated to registers ;size:1
+               00129 ;@keyScan STATUSbits                Allocated to registers ;size:1
+               00130 ;@keyScan RSRbits                   Allocated to registers ;size:1
+               00131 ;@keyScan PORT5bits                 Allocated to registers ;size:1
+               00132 ;@keyScan PORT6bits                 Allocated to registers ;size:1
+               00133 ;@keyScan LVDCONbits                Allocated to registers ;size:1
+               00134 ;@keyScan PWMCONbits                Allocated to registers ;size:1
+               00135 ;@keyScan PRDbits                   Allocated to registers ;size:1
+               00136 ;@keyScan PDC1bits                  Allocated to registers ;size:1
+               00137 ;@keyScan PDC2bits                  Allocated to registers ;size:1
+               00138 ;@keyScan PDC3bits                  Allocated to registers ;size:1
+               00139 ;@keyScan ICIECRbits                Allocated to registers ;size:1
+               00140 ;@keyScan CPUCONbits                Allocated to registers ;size:1
+               00141 ;@keyScan ISRbits                   Allocated to registers ;size:1
+               00142 ;@keyScan U_Flage                   Allocated to registers ;size:1
+               00143 ;@keyScan r_g_workMod               Allocated to registers ;size:1
+               00144 ;@keyScan keyLongCnt                Allocated to registers ;size:1
+               00145 ;@keyScan keyValOld                 Allocated to registers ;size:1
+               00146 ;@keyScan keyState                  Allocated to registers ;size:1
+               00147 ;@keyScan keyShake                  Allocated to registers ;size:1
+               00148 ;@keyScan keyVal                    Allocated to registers r0x1006 ;size:1
+               00149 ;@keyScan keyEvent                  Allocated to registers r0x1007 ;size:1
+               00150 ;@keyScan IAR                       Allocated to registers ;size:1
+               00151 ;@keyScan TCC                       Allocated to registers ;size:1
+               00152 ;@keyScan PCL                       Allocated to registers ;size:1
+               00153 ;@keyScan STATUS                    Allocated to registers ;size:1
+               00154 ;@keyScan RSR                       Allocated to registers ;size:1
+               00155 ;@keyScan PORT5                     Allocated to registers ;size:1
+               00156 ;@keyScan PORT6                     Allocated to registers ;size:1
+               00157 ;@keyScan LVDCON                    Allocated to registers ;size:1
+               00158 ;@keyScan PWMCON                    Allocated to registers ;size:1
+               00159 ;@keyScan PRD                       Allocated to registers ;size:1
+               00160 ;@keyScan PDC1                      Allocated to registers ;size:1
+               00161 ;@keyScan PDC2                      Allocated to registers ;size:1
+               00162 ;@keyScan PDC3                      Allocated to registers ;size:1
+               00163 ;@keyScan ICIECR                    Allocated to registers ;size:1
+               00164 ;@keyScan CPUCON                    Allocated to registers ;size:1
+               00165 ;@keyScan ISR                       Allocated to registers ;size:1
+               00166 ;@end Allocation info for local variables in function 'keyScan';
+               00167 ;@Allocation info for local variables in function 'keyProcess'
+               00168 ;@keyProcess keyEvent                  Allocated to registers r0x1008 ;size:1
+               00169 ;@keyProcess light                     Allocated to registers ;size:1
+               00170 ;@end Allocation info for local variables in function 'keyProcess';
+               00171 ;@Allocation info for local variables in function 'keyProcess'
+               00172 ;@keyProcess keyEvent                  Allocated to registers r0x1008 ;size:1
+               00173 ;@keyProcess light                     Allocated to registers ;size:1
+               00174 ;@end Allocation info for local variables in function 'keyProcess';
+               00175 
+               00176 ;--------------------------------------------------------
+               00177 ; overlayable items in internal ram 
+               00178 ;--------------------------------------------------------
+               00179 ;       udata_ovr
+               00180 ;--------------------------------------------------------
+               00181 ; code
+               00182 ;--------------------------------------------------------
+               00183 code_KEY        code
+               00184 ;***
+               00185 ;  pBlock Stats: dbName = C
+               00186 ;***
+               00187 ;has an exit
+               00188 ;functions called:
+               00189 ;   _keyScan
+               00190 ;   _keyScan
+               00191 ;3 compiler assigned registers:
+               00192 ;   r0x1008
+               00193 ;   r0x1009
+               00194 ;   r0x100A
+               00195 ;; Starting pCode block
+               00196 S_KEY__keyProcess       code
+0000           00197 _keyProcess:    ;Function start
+               00198 ; 2 exit points
+               00199 ;       .line   109; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C     uint8_t keyEvent = keyScan();
+0000 1800      00200         CALL    _keyScan
+0001 3880      00201         MOV     r0x1008,A
+               00202 ;       .line   112; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C     if(keyEvent & 0x80)  // 短按
+0002 2780      00203         JBTS    r0x1008,7
+0003 1000      00204         JMP     _00140_DS_
+               00205 ;       .line   114; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C     F_CHARGE ^= 1;   // 切换充电状态
+0004 3980      00206         CLR     r0x1009
+0005 2080      00207         JBTC    _U_Flage,1
+0006 3280      00208         INC     r0x1009
+0007 3000      00209         MOV     A,r0x1009
+0008 3880      00210         MOV     r0x100A,A
+0009 0801      00211         MOV     A,@0x01
+000A 3E00      00212         XOR     A,r0x100A
+000B 3880      00213         MOV     r0x100A,A
+000C 3880      00214         MOV     r0x1009,A
+               00215 ;;103   MOV     A,r0x1009
+000D 3400      00216         RCA     r0x100A
+000E 2403      00217         JBTS    STATUS,0
+000F 2880      00218         BTC     _U_Flage,1
+0010 2003      00219         JBTC    STATUS,0
+0011 2C80      00220         BTS     _U_Flage,1
+               00221 ;       .line   115; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C     PORT6_5 ^= 1;    // 切换LED指示
+0012 3980      00222         CLR     r0x1009
+0013 2280      00223         JBTC    _PORT6bits,5
+0014 3280      00224         INC     r0x1009
+0015 3000      00225         MOV     A,r0x1009
+0016 3880      00226         MOV     r0x100A,A
+0017 0801      00227         MOV     A,@0x01
+0018 3E00      00228         XOR     A,r0x100A
+0019 3880      00229         MOV     r0x100A,A
+001A 3880      00230         MOV     r0x1009,A
+               00231 ;;102   MOV     A,r0x1009
+001B 3400      00232         RCA     r0x100A
+001C 2403      00233         JBTS    STATUS,0
+001D 2A80      00234         BTC     _PORT6bits,5
+001E 2003      00235         JBTC    STATUS,0
+001F 2E80      00236         BTS     _PORT6bits,5
+0020           00237 _00140_DS_:
+               00238 ;       .line   119; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C     if(keyEvent & 0x40)  // 长按
+0020 2700      00239         JBTS    r0x1008,6
+0021 1000      00240         JMP     _00155_DS_
+               00241 ;       .line   122; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C     if(PDC1 >= 0x64)
+0022 0864      00242         MOV     A,@0x64
+0023 3A00      00243         SUB     A,_PDC1
+0024 2403      00244         JBTS    STATUS,0
+0025 1000      00245         JMP     _00142_DS_
+               00246 ;       .line   124; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C     dir = 0;
+0026 2A00      00247         BTC     _U_Flage,4
+0027 1000      00248         JMP     _00143_DS_
+0028           00249 _00142_DS_:
+               00250 ;       .line   128; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C     dir = 1;
+0028 2E00      00251         BTS     _U_Flage,4
+0029           00252 _00143_DS_:
+               00253 ;       .line   131; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C     if(dir == 1)
+0029 3980      00254         CLR     r0x1008
+002A 2200      00255         JBTC    _U_Flage,4
+002B 3280      00256         INC     r0x1008
+               00257 ;;101   MOV     A,r0x1008
+               00258 ;;100   MOV     A,r0x1009
+002C 3000      00259         MOV     A,r0x1008
+002D 3880      00260         MOV     r0x1009,A
+002E 0E01      00261         XOR     A,@0x01
+002F 2503      00262         JBTS    STATUS,2
+0030 1000      00263         JMP     _00151_DS_
+               00264 ;;swapping arguments (AOP_TYPEs 1/3)
+               00265 ;       .line   134; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C     if(light <= 100)  // 防止溢出
+0031 0865      00266         MOV     A,@0x65
+0032 3A00      00267         SUB     A,_keyProcess_light_2_26
+0033 2003      00268         JBTC    STATUS,0
+0034 1000      00269         JMP     _00145_DS_
+               00270 ;       .line   135; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C     light += 10;
+0035 080A      00271         MOV     A,@0x0a
+0036 3F80      00272         ADD     _keyProcess_light_2_26,A
+0037 1000      00273         JMP     _00152_DS_
+0038           00274 _00145_DS_:
+               00275 ;       .line   137; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C     light = 100;
+0038 0864      00276         MOV     A,@0x64
+0039 3880      00277         MOV     _keyProcess_light_2_26,A
+003A 1000      00278         JMP     _00152_DS_
+003B           00279 _00151_DS_:
+               00280 ;       .line   142; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C     if(light > 0)   // 防止下溢
+003B 0800      00281         MOV     A,@0x00
+003C 3C00      00282         OR      A,_keyProcess_light_2_26
+003D 2103      00283         JBTC    STATUS,2
+003E 1000      00284         JMP     _00148_DS_
+               00285 ;       .line   143; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C     light -= 10;
+003F 08F6      00286         MOV     A,@0xf6
+0040 3F80      00287         ADD     _keyProcess_light_2_26,A
+0041 1000      00288         JMP     _00152_DS_
+0042           00289 _00148_DS_:
+               00290 ;       .line   145; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C     light = 0;
+0042 3980      00291         CLR     _keyProcess_light_2_26
+0043           00292 _00152_DS_:
+               00293 ;       .line   149; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C     PDC1 = light;
+0043 3000      00294         MOV     A,_keyProcess_light_2_26
+0044 3880      00295         MOV     _PDC1,A
+               00296 ;       .line   151; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C     PORT6_4 ^= 1;    // 切换LED指示
+0045 3980      00297         CLR     r0x1008
+0046 2200      00298         JBTC    _PORT6bits,4
+0047 3280      00299         INC     r0x1008
+0048 3000      00300         MOV     A,r0x1008
+0049 3880      00301         MOV     r0x1009,A
+004A 0801      00302         MOV     A,@0x01
+004B 3E00      00303         XOR     A,r0x1009
+004C 3880      00304         MOV     r0x1009,A
+004D 3880      00305         MOV     r0x1008,A
+               00306 ;;99    MOV     A,r0x1008
+004E 3400      00307         RCA     r0x1009
+004F 2403      00308         JBTS    STATUS,0
+0050 2A00      00309         BTC     _PORT6bits,4
+0051 2003      00310         JBTC    STATUS,0
+0052 2E00      00311         BTS     _PORT6bits,4
+               00312 ;       .line   153; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C     }
+0053           00313 _00155_DS_:
+0053 3822      00314         RET     
+               00315 ; exit point of _keyProcess
+               00316 
+               00317 ;***
+               00318 ;  pBlock Stats: dbName = C
+               00319 ;***
+               00320 ;has an exit
+               00321 ;2 compiler assigned registers:
+               00322 ;   r0x1006
+               00323 ;   r0x1007
+               00324 ;; Starting pCode block
+               00325 S_KEY__keyScan  code
+0000           00326 _keyScan:       ;Function start
+               00327 ; 2 exit points
+               00328 ;       .line   13; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C      uint8_t keyVal = 0;
+0000 3980      00329         CLR     r0x1006
+               00330 ;       .line   14; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C      uint8_t keyEvent = 0;
+0001 3980      00331         CLR     r0x1007
+               00332 ;       .line   17; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C      if(PORT6_0 == 0)
+0002 2000      00333         JBTC    _PORT6bits,0
+0003 1000      00334         JMP     _00106_DS_
+               00335 ;       .line   19; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C      keyVal = 1;  // 按键按下
+0004 0801      00336         MOV     A,@0x01
+0005 3880      00337         MOV     r0x1006,A
+               00338 ;;swapping arguments (AOP_TYPEs 1/3)
+0006           00339 _00106_DS_:
+               00340 ;       .line   22; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C      switch(keyState)
+0006 0804      00341         MOV     A,@0x04
+0007 3A00      00342         SUB     A,_keyState
+0008 2003      00343         JBTC    STATUS,0
+0009 1000      00344         JMP     _00133_DS_
+000A 3000      00345         MOV     A,_keyState
+000B           00346         BANKSEL PCL
+000B 3F82      00347         ADD     PCL,A
+000C 1000      00348         JMP     _00107_DS_
+000D 1000      00349         JMP     _00110_DS_
+000E 1000      00350         JMP     _00116_DS_
+000F 1000      00351         JMP     _00127_DS_
+0010           00352 _00107_DS_:
+               00353 ;       .line   26; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C      keyShake = 0;
+0010 3980      00354         CLR     _keyShake
+               00355 ;       .line   27; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C      keyValOld = 0;
+0011 3980      00356         CLR     _keyValOld
+               00357 ;       .line   28; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C      keyLongCnt = 0;
+0012 3980      00358         CLR     _keyLongCnt
+               00359 ;       .line   30; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C      if(keyVal)
+0013 0800      00360         MOV     A,@0x00
+0014 3C00      00361         OR      A,r0x1006
+0015 2103      00362         JBTC    STATUS,2
+0016 1000      00363         JMP     _00134_DS_
+               00364 ;       .line   32; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C      keyValOld = keyVal;
+0017 3000      00365         MOV     A,r0x1006
+0018 3880      00366         MOV     _keyValOld,A
+               00367 ;       .line   33; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C      keyState = 1;  // 进入消抖状态
+0019 0801      00368         MOV     A,@0x01
+001A 3880      00369         MOV     _keyState,A
+               00370 ;       .line   35; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C      break;
+001B 1000      00371         JMP     _00134_DS_
+001C           00372 _00110_DS_:
+               00373 ;       .line   39; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C      if(keyVal == keyValOld)
+001C 3000      00374         MOV     A,_keyValOld
+001D 3E00      00375         XOR     A,r0x1006
+001E 2503      00376         JBTS    STATUS,2
+001F 1000      00377         JMP     _00114_DS_
+               00378 ;       .line   41; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C      if(++keyShake >= 3)  // 消抖3次
+0020 3280      00379         INC     _keyShake
+0021 0803      00380         MOV     A,@0x03
+0022 3A00      00381         SUB     A,_keyShake
+0023 2403      00382         JBTS    STATUS,0
+0024 1000      00383         JMP     _00134_DS_
+               00384 ;       .line   43; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C      keyShake = 0;
+0025 3980      00385         CLR     _keyShake
+               00386 ;       .line   44; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C      keyState = 2;  // 进入长按检测
+0026 0802      00387         MOV     A,@0x02
+0027 3880      00388         MOV     _keyState,A
+0028 1000      00389         JMP     _00134_DS_
+0029           00390 _00114_DS_:
+               00391 ;       .line   49; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C      keyState = 0;  // 按键抖动，返回初始状态
+0029 3980      00392         CLR     _keyState
+               00393 ;       .line   51; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C      break;
+002A 1000      00394         JMP     _00134_DS_
+002B           00395 _00116_DS_:
+               00396 ;       .line   55; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C      if(keyVal == keyValOld)
+002B 3000      00397         MOV     A,_keyValOld
+002C 3E00      00398         XOR     A,r0x1006
+002D 2503      00399         JBTS    STATUS,2
+002E 1000      00400         JMP     _00125_DS_
+               00401 ;       .line   57; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C      keyShake = 0;
+002F 3980      00402         CLR     _keyShake
+               00403 ;       .line   58; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C      if(++keyLongCnt >= 200)  // 长按时间约2秒
+0030 3280      00404         INC     _keyLongCnt
+0031 08C8      00405         MOV     A,@0xc8
+0032 3A00      00406         SUB     A,_keyLongCnt
+0033 2403      00407         JBTS    STATUS,0
+0034 1000      00408         JMP     _00134_DS_
+               00409 ;       .line   60; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C      keyLongCnt = 0;
+0035 3980      00410         CLR     _keyLongCnt
+               00411 ;       .line   61; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C      keyEvent = 0x40;  // 长按事件
+0036 0840      00412         MOV     A,@0x40
+0037 3880      00413         MOV     r0x1007,A
+               00414 ;       .line   62; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C      keyState = 3;     // 进入等待抬起状态
+0038 0803      00415         MOV     A,@0x03
+0039 3880      00416         MOV     _keyState,A
+003A 1000      00417         JMP     _00134_DS_
+003B           00418 _00125_DS_:
+               00419 ;       .line   65; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C      else if(keyVal == 0)
+003B 0800      00420         MOV     A,@0x00
+003C 3C00      00421         OR      A,r0x1006
+003D 2503      00422         JBTS    STATUS,2
+003E 1000      00423         JMP     _00122_DS_
+               00424 ;       .line   67; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C      if(++keyShake >= 3)
+003F 3280      00425         INC     _keyShake
+0040 0803      00426         MOV     A,@0x03
+0041 3A00      00427         SUB     A,_keyShake
+0042 2403      00428         JBTS    STATUS,0
+0043 1000      00429         JMP     _00134_DS_
+               00430 ;       .line   69; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C      keyShake = 0;
+0044 3980      00431         CLR     _keyShake
+               00432 ;       .line   70; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C      keyEvent = 0x80;  // 短按事件
+0045 0880      00433         MOV     A,@0x80
+0046 3880      00434         MOV     r0x1007,A
+               00435 ;       .line   71; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C      keyState = 0;     // 返回初始状态
+0047 3980      00436         CLR     _keyState
+0048 1000      00437         JMP     _00134_DS_
+0049           00438 _00122_DS_:
+               00439 ;       .line   76; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C      keyShake = 0;
+0049 3980      00440         CLR     _keyShake
+               00441 ;       .line   77; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C      keyState = 0;  // 异常情况
+004A 3980      00442         CLR     _keyState
+               00443 ;       .line   79; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C      break;
+004B 1000      00444         JMP     _00134_DS_
+004C           00445 _00127_DS_:
+               00446 ;       .line   83; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C      keyValOld = 0;
+004C 3980      00447         CLR     _keyValOld
+               00448 ;       .line   84; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C      if(keyVal == 0)
+004D 0800      00449         MOV     A,@0x00
+004E 3C00      00450         OR      A,r0x1006
+004F 2503      00451         JBTS    STATUS,2
+0050 1000      00452         JMP     _00131_DS_
+               00453 ;       .line   86; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C      if(++keyShake >= 3)
+0051 3280      00454         INC     _keyShake
+0052 0803      00455         MOV     A,@0x03
+0053 3A00      00456         SUB     A,_keyShake
+0054 2403      00457         JBTS    STATUS,0
+0055 1000      00458         JMP     _00134_DS_
+               00459 ;       .line   88; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C      keyShake = 0;
+0056 3980      00460         CLR     _keyShake
+               00461 ;       .line   89; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C      keyState = 0;  // 按键抬起，返回初始状态
+0057 3980      00462         CLR     _keyState
+0058 1000      00463         JMP     _00134_DS_
+0059           00464 _00131_DS_:
+               00465 ;       .line   94; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C      keyShake = 0;
+0059 3980      00466         CLR     _keyShake
+               00467 ;       .line   96; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C      break;
+005A 1000      00468         JMP     _00134_DS_
+005B           00469 _00133_DS_:
+               00470 ;       .line   99; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C      keyState = 0;
+005B 3980      00471         CLR     _keyState
+005C           00472 _00134_DS_:
+               00473 ;       .line   103; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C     return keyEvent;
+005C 3000      00474         MOV     A,r0x1007
+               00475 ;       .line   104; D:\POOLBULE0\芯片代码模板\C_1521\KEY.C     }
+005D 3822      00476         RET     
+               00477 ; exit point of _keyScan
+               00478 
+               00479 
+               00480 ;       code size estimation:
+               00481 ;         178+    1 =   179 instructions (  360 byte)
+               00482 
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+CONT                              00000002
+CPUCON                            0000000E
+IAR                               00000000
+ICIECR                            0000000D
+IMR                               0000000F
+ISR                               0000000F
+LVDCON                            00000007
+P5CR                              00000005
+P6CR                              00000006
+PCL                               00000002
+PDC1                              0000000A
+PDC2                              0000000B
+PDC3                              0000000C
+PDCR                              0000000B
+PHCR                              0000000D
+PHDCR                             00000009
+PORT5                             00000005
+PORT6                             00000006
+PRD                               00000009
+PWMCON                            00000008
+RSR                               00000004
+STATUS                            00000003
+STK00                             00000000
+STK01                             00000000
+STK02                             00000000
+STK03                             00000000
+STK04                             00000000
+STK05                             00000000
+STK06                             00000000
+TCC                               00000001
+WDTCR                             0000000E
+_00106_DS_                        00000006
+_00107_DS_                        00000010
+_00110_DS_                        0000001C
+_00114_DS_                        00000029
+_00116_DS_                        0000002B
+_00122_DS_                        00000049
+_00125_DS_                        0000003B
+_00127_DS_                        0000004C
+_00131_DS_                        00000059
+_00133_DS_                        0000005B
+_00134_DS_                        0000005C
+_00140_DS_                        00000020
+_00142_DS_                        00000028
+_00143_DS_                        00000029
+_00145_DS_                        00000038
+_00148_DS_                        00000042
+_00151_DS_                        0000003B
+_00152_DS_                        00000043
+_00155_DS_                        00000053
+_CPUCON                           00000000
+_CPUCONbits                       00000000
+_IAR                              00000000
+_IARbits                          00000000
+_ICIECR                           00000000
+_ICIECRbits                       00000000
+_ISR                              00000000
+_ISRbits                          00000000
+_LVDCON                           00000000
+_LVDCONbits                       00000000
+_PCL                              00000000
+_PCLbits                          00000000
+_PDC1                             00000000
+_PDC1bits                         00000000
+_PDC2                             00000000
+_PDC2bits                         00000000
+_PDC3                             00000000
+_PDC3bits                         00000000
+_PORT5                            00000000
+_PORT5bits                        00000000
+_PORT6                            00000000
+_PORT6bits                        00000000
+_PRD                              00000000
+_PRDbits                          00000000
+_PWMCON                           00000000
+_PWMCONbits                       00000000
+_RSR                              00000000
+_RSRbits                          00000000
+_STATUS                           00000000
+_STATUSbits                       00000000
+_TCC                              00000000
+_TCCbits                          00000000
+_U_Flage                          00000000
+__jz8p1521                        00000001
+_fw_clrRam                        00000000
+_fw_gpioInit                      00000000
+_fw_pwm1Init                      00000000
+_fw_pwm2Init                      00000000
+_fw_pwm3Init                      00000000
+_fw_sleepEvent                    00000000
+_fw_tc0Init                       00000000
+_keyLongCnt                       00000000
+_keyProcess                       00000000
+_keyProcess_light_2_26            00000005
+_keyScan                          00000000
+_keyShake                         00000000
+_keyState                         00000000
+_keyValOld                        00000000
+_r_g_workMod                      00000000
+r0x1006                           00000000
+r0x1007                           00000001
+r0x1008                           00000002
+r0x1009                           00000003
+r0x100A                           00000004
+
+
+Errors   :       0
+Warnings :       0 reported,       0 suppressed
+Messages :       0 reported,       0 suppressed
+

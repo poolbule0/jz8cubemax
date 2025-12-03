@@ -1,0 +1,180 @@
+sllink-0.13.6 alpha
+Map File - Created 12-2-2025  17:39:42
+ 
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                  STARTUP    UNKNOWN   00000000    program   0x000002
+          ID_FW_SLEEP_0_i    UNKNOWN   0x000001    program   0x000004
+               ID_KEY_0_i    UNKNOWN   0x000003    program   0x000004
+               ID_KEY_1_i    UNKNOWN   0x000005    program   0x000004
+                   .org_8    UNKNOWN   0x000008    program   0x00003c
+           S_KEY__keyScan    UNKNOWN   0x000026    program   0x0000bc
+        S_KEY__keyProcess    UNKNOWN   0x000084    program   0x0000a8
+                   .cinit    UNKNOWN   0x0000d8    program   0x000040
+S_FW_SLEEP__fw_sleepEvent    UNKNOWN   0x0000f8    program   0x00003e
+      S_USER__fw_gpioInit    UNKNOWN   0x000117    program   0x000020
+             S_MAIN__main    UNKNOWN   0x000127    program   0x000018
+   S_FW_TIME__fw_pwm3Init    UNKNOWN   0x000133    program   0x000018
+   S_FW_TIME__fw_pwm2Init    UNKNOWN   0x00013f    program   0x000018
+   S_FW_TIME__fw_pwm1Init    UNKNOWN   0x00014b    program   0x000018
+        S_USER__fw_clrRam    UNKNOWN   0x000157    program   0x000016
+    S_FW_TIME__fw_tc0Init    UNKNOWN   0x000162    program   0x000012
+               ID_KEY_2_i    UNKNOWN   0x00016b    program   0x000004
+               ID_KEY_3_i    UNKNOWN   0x00016d    program   0x000004
+        UD_abs_jz8p1521_0    romdata   00000000       data   0x000001
+        UD_abs_jz8p1521_1    romdata   0x000001       data   0x000001
+        UD_abs_jz8p1521_2    romdata   0x000002       data   0x000001
+        UD_abs_jz8p1521_3    romdata   0x000003       data   0x000001
+        UD_abs_jz8p1521_4    romdata   0x000004       data   0x000001
+        UD_abs_jz8p1521_5    romdata   0x000005       data   0x000001
+        UD_abs_jz8p1521_6    romdata   0x000006       data   0x000001
+        UD_abs_jz8p1521_7    romdata   0x000007       data   0x000001
+        UD_abs_jz8p1521_8    romdata   0x000008       data   0x000001
+        UD_abs_jz8p1521_9    romdata   0x000009       data   0x000001
+        UD_abs_jz8p1521_a    romdata   0x00000a       data   0x000001
+        UD_abs_jz8p1521_b    romdata   0x00000b       data   0x000001
+        UD_abs_jz8p1521_c    romdata   0x00000c       data   0x000001
+        UD_abs_jz8p1521_d    romdata   0x00000d       data   0x000001
+        UD_abs_jz8p1521_e    romdata   0x00000e       data   0x000001
+        UD_abs_jz8p1521_f    romdata   0x00000f       data   0x000001
+            UD_abs_ISR_10    romdata   0x000010       data   0x000001
+            UD_abs_ISR_11    romdata   0x000011       data   0x000001
+                UDL_KEY_0    romdata   0x000012       data   0x000006
+            ID_FW_SLEEP_0    romdata   0x000018       data   0x000002
+                 ID_KEY_0    romdata   0x00001a       data   0x000002
+                 ID_KEY_1    romdata   0x00001c       data   0x000002
+                 ID_KEY_2    romdata   0x00001e       data   0x000002
+                sharebank    romdata   0x000020       data   0x000007
+                 ID_KEY_3    romdata   0x000027       data   0x000002
+                UD_MAIN_0    romdata   0x000029       data   0x000001
+                UD_MAIN_1    romdata   0x00002a       data   0x000001
+                 UD_ISR_0    romdata   0x00002b       data   0x000001
+                 UD_ISR_1    romdata   0x00002c       data   0x000001
+                UDL_ISR_0    romdata   0x00002d       data   0x000001
+           UDL_FW_SLEEP_0    romdata   0x00002e       data   0x000001
+ 
+                              Program Memory Usage
+                               Start         End
+                           ---------   ---------
+                            00000000    00000000
+                            0x000127    0x000132
+                            0x000008    0x000025
+                            0x000117    0x000126
+                            0x000157    0x000161
+                            0x000133    0x00013e
+                            0x00013f    0x00014a
+                            0x00014b    0x000156
+                            0x000162    0x00016a
+                            0x000001    0x000002
+                            0x0000f8    0x000116
+                            0x000003    0x000004
+                            0x000005    0x000006
+                            0x00016b    0x00016c
+                            0x00016d    0x00016e
+                            0x000084    0x0000d7
+                            0x000026    0x000083
+                            0x0000d8    0x0000f7
+ 
+                            366 program addresses used
+ 
+                              Symbols
+                     Name    Address   Location    Storage File
+                ---------  ---------  ---------  --------- ---------
+                    STK06   0x000020       data     extern D:\poolbule0\芯片代码模板\C_1521\obj\MAIN.asm
+                    STK05   0x000021       data     extern D:\poolbule0\芯片代码模板\C_1521\obj\MAIN.asm
+                    STK04   0x000022       data     extern D:\poolbule0\芯片代码模板\C_1521\obj\MAIN.asm
+                    STK03   0x000023       data     extern D:\poolbule0\芯片代码模板\C_1521\obj\MAIN.asm
+                    STK02   0x000024       data     extern D:\poolbule0\芯片代码模板\C_1521\obj\MAIN.asm
+                    STK01   0x000025       data     extern D:\poolbule0\芯片代码模板\C_1521\obj\MAIN.asm
+                    STK00   0x000026       data     extern D:\poolbule0\芯片代码模板\C_1521\obj\MAIN.asm
+                 _U_Flage   0x000029       data     extern D:\poolbule0\芯片代码模板\C_1521\obj\MAIN.asm
+             _r_g_workMod   0x00002a       data     extern D:\poolbule0\芯片代码模板\C_1521\obj\MAIN.asm
+                    _main   0x000127    program     extern D:\poolbule0\芯片代码模板\C_1521\obj\MAIN.asm
+               _00108_DS_   0x00012c    program     static D:\poolbule0\芯片代码模板\C_1521\obj\MAIN.asm
+               _reg_200us   0x00002b       data     extern D:\poolbule0\芯片代码模板\C_1521\obj\ISR.asm
+                _reg_10ms   0x00002c       data     extern D:\poolbule0\芯片代码模板\C_1521\obj\ISR.asm
+                  _A_BUFF   0x000010       data     extern D:\poolbule0\芯片代码模板\C_1521\obj\ISR.asm
+                 _R3_BUFF   0x000011       data     extern D:\poolbule0\芯片代码模板\C_1521\obj\ISR.asm
+                  r0x1002   0x00002d       data     static D:\poolbule0\芯片代码模板\C_1521\obj\ISR.asm
+         __sdcc_interrupt   0x000003    program     static D:\poolbule0\芯片代码模板\C_1521\obj\ISR.asm
+                 _int_isr   0x000003    program     extern D:\poolbule0\芯片代码模板\C_1521\obj\ISR.asm
+               _00108_DS_   0x00001f    program     static D:\poolbule0\芯片代码模板\C_1521\obj\ISR.asm
+         END_OF_INTERRUPT   0x000025    program     static D:\poolbule0\芯片代码模板\C_1521\obj\ISR.asm
+             _fw_gpioInit   0x000117    program     extern D:\poolbule0\芯片代码模板\C_1521\obj\USER.asm
+               _fw_clrRam   0x000157    program     extern D:\poolbule0\芯片代码模板\C_1521\obj\USER.asm
+               _00107_DS_   0x000159    program     static D:\poolbule0\芯片代码模板\C_1521\obj\USER.asm
+               _00105_DS_   0x000160    program     static D:\poolbule0\芯片代码模板\C_1521\obj\USER.asm
+             _fw_pwm3Init   0x000133    program     extern D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+             _fw_pwm2Init   0x00013f    program     extern D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+             _fw_pwm1Init   0x00014b    program     extern D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+              _fw_tc0Init   0x000162    program     extern D:\poolbule0\芯片代码模板\C_1521\obj\FW_TIME.asm
+                  r0x1002   0x00002e       data     static D:\poolbule0\芯片代码模板\C_1521\obj\FW_SLEEP.asm
+               _sleep_cnt   0x000018       data     extern D:\poolbule0\芯片代码模板\C_1521\obj\FW_SLEEP.asm
+           _fw_sleepEvent   0x0000f8    program     extern D:\poolbule0\芯片代码模板\C_1521\obj\FW_SLEEP.asm
+               _00109_DS_   0x000116    program     static D:\poolbule0\芯片代码模板\C_1521\obj\FW_SLEEP.asm
+                  r0x1006   0x000012       data     static D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+                  r0x1007   0x000013       data     static D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+                  r0x1008   0x000014       data     static D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+                  r0x1009   0x000015       data     static D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+                  r0x100A   0x000016       data     static D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+   _keyProcess_light_2_26   0x000017       data     static D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+              _keyLongCnt   0x00001a       data     extern D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+               _keyValOld   0x00001c       data     extern D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+                _keyState   0x00001e       data     extern D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+                _keyShake   0x000027       data     extern D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+              _keyProcess   0x000084    program     extern D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+               _00140_DS_   0x0000a4    program     static D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+               _00142_DS_   0x0000ac    program     static D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+               _00143_DS_   0x0000ad    program     static D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+               _00145_DS_   0x0000bc    program     static D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+               _00151_DS_   0x0000bf    program     static D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+               _00148_DS_   0x0000c6    program     static D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+               _00152_DS_   0x0000c7    program     static D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+               _00155_DS_   0x0000d7    program     static D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+                 _keyScan   0x000026    program     extern D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+               _00106_DS_   0x00002c    program     static D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+               _00107_DS_   0x000036    program     static D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+               _00110_DS_   0x000042    program     static D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+               _00114_DS_   0x00004f    program     static D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+               _00116_DS_   0x000051    program     static D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+               _00125_DS_   0x000061    program     static D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+               _00122_DS_   0x00006f    program     static D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+               _00127_DS_   0x000072    program     static D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+               _00131_DS_   0x00007f    program     static D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+               _00133_DS_   0x000081    program     static D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+               _00134_DS_   0x000082    program     static D:\poolbule0\芯片代码模板\C_1521\obj\KEY.asm
+                 _IARbits   00000000       data     extern jz8p1521.asm
+                     _IAR   00000000       data     extern jz8p1521.asm
+                 _TCCbits   0x000001       data     extern jz8p1521.asm
+                     _TCC   0x000001       data     extern jz8p1521.asm
+                 _PCLbits   0x000002       data     extern jz8p1521.asm
+                     _PCL   0x000002       data     extern jz8p1521.asm
+              _STATUSbits   0x000003       data     extern jz8p1521.asm
+                  _STATUS   0x000003       data     extern jz8p1521.asm
+                 _RSRbits   0x000004       data     extern jz8p1521.asm
+                     _RSR   0x000004       data     extern jz8p1521.asm
+               _PORT5bits   0x000005       data     extern jz8p1521.asm
+                   _PORT5   0x000005       data     extern jz8p1521.asm
+               _PORT6bits   0x000006       data     extern jz8p1521.asm
+                   _PORT6   0x000006       data     extern jz8p1521.asm
+              _LVDCONbits   0x000007       data     extern jz8p1521.asm
+                  _LVDCON   0x000007       data     extern jz8p1521.asm
+              _PWMCONbits   0x000008       data     extern jz8p1521.asm
+                  _PWMCON   0x000008       data     extern jz8p1521.asm
+                 _PRDbits   0x000009       data     extern jz8p1521.asm
+                     _PRD   0x000009       data     extern jz8p1521.asm
+                _PDC1bits   0x00000a       data     extern jz8p1521.asm
+                    _PDC1   0x00000a       data     extern jz8p1521.asm
+                _PDC2bits   0x00000b       data     extern jz8p1521.asm
+                    _PDC2   0x00000b       data     extern jz8p1521.asm
+                _PDC3bits   0x00000c       data     extern jz8p1521.asm
+                    _PDC3   0x00000c       data     extern jz8p1521.asm
+              _ICIECRbits   0x00000d       data     extern jz8p1521.asm
+                  _ICIECR   0x00000d       data     extern jz8p1521.asm
+              _CPUCONbits   0x00000e       data     extern jz8p1521.asm
+                  _CPUCON   0x00000e       data     extern jz8p1521.asm
+                 _ISRbits   0x00000f       data     extern jz8p1521.asm
+                     _ISR   0x00000f       data     extern jz8p1521.asm
+                   _cinit   0x0000d8    program     extern  
+ 

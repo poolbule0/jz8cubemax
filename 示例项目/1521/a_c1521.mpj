@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Project>
+	<Name>a_c1521</Name>
+	<Path>D:\poolbule0\芯片代码模板\C_1521</Path>
+	<Chip>JZ8P1521</Chip>
+	<FilterIndex>2</FilterIndex>
+	<Previous_Instruction_Set>1</Previous_Instruction_Set>
+	<FileList>
+		<File>D:\poolbule0\芯片代码模板\C_1521\main.c</File>
+		<File>D:\poolbule0\芯片代码模板\C_1521\isr.c</File>
+		<File>D:\poolbule0\芯片代码模板\C_1521\user.c</File>
+		<File>D:\poolbule0\芯片代码模板\C_1521\fw_time.c</File>
+		<File>D:\poolbule0\芯片代码模板\C_1521\fw_sleep.c</File>
+		<File>D:\poolbule0\芯片代码模板\C_1521\key.c</File>
+	</FileList>
+	<H_FileList>
+		<H_File>D:\poolbule0\芯片代码模板\C_1521\main.h</H_File>
+		<H_File>D:\poolbule0\芯片代码模板\C_1521\type.h</H_File>
+		<H_File>D:\poolbule0\芯片代码模板\C_1521\user.h</H_File>
+		<H_File>D:\poolbule0\芯片代码模板\C_1521\fw_time.h</H_File>
+		<H_File>D:\poolbule0\芯片代码模板\C_1521\fw_sleep.h</H_File>
+		<H_File>D:\poolbule0\芯片代码模板\C_1521\key.h</H_File>
+	</H_FileList>
+	<List_FileList>
+		<List_File>D:\poolbule0\芯片代码模板\C_1521\a_c1521.lst</List_File>
+	</List_FileList>
+	<Options>
+		<OPTIONVALUE0>1FF8</OPTIONVALUE0>
+		<OPTIONVALUE1>3F77</OPTIONVALUE1>
+		<OPTIONVALUE2>1EFF</OPTIONVALUE2>
+		<OPTIONVALUE3>3FFF</OPTIONVALUE3>
+		<OPTIONVALUE4>3FFF</OPTIONVALUE4>
+		<OPTIONVALUE5>3FFF</OPTIONVALUE5>
+		<OPTIONVALUE6>3FFC</OPTIONVALUE6>
+		<OPTIONVALUE7>FFFF</OPTIONVALUE7>
+	</Options>
+</Project>

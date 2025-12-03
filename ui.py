@@ -11,6 +11,17 @@ from typing import Optional
 import re
 import os
 from control import ConfigController
+from ui_components import (
+    GPIOConfigComponent,
+    ADCConfigComponent,
+    TimerConfigComponent,
+    PWMConfigComponent,
+    InterruptConfigComponent,
+    SleepConfigComponent,
+    ISRConfigComponent,
+    MainConfigComponent,
+    SystemConfigComponent,
+)
 
 
 class CodeEditor(ttk.Frame):
@@ -258,7 +269,10 @@ class CodeGeneratorUI:
         
         # 创建主窗口
         self.root = tk.Tk()
-        self.root.title("JZ8P2615 代码生成工具 v1.0")
+        chip_name = getattr(controller, 'chip_name', 'JZ8P2615')
+        available_chips = controller.get_available_chips()
+        display_name = available_chips.get(chip_name, chip_name)
+        self.root.title(f"{display_name} 代码生成工具 v1.1")
         self.root.geometry("1200x800")
         self.root.minsize(1000, 600)
         
@@ -276,6 +290,31 @@ class CodeGeneratorUI:
         
         # 加载默认配置
         self._refresh_ui()
+    
+    def _is_chip_1521(self) -> bool:
+        """判断当前芯片是否为 JZ8P1521"""
+        chip_name = getattr(self.controller, 'chip_name', 'JZ8P2615')
+        return chip_name == "JZ8P1521"
+    
+    def _get_config_safe(self, *keys, default=None):
+        """
+        安全获取配置值，如果键不存在则返回默认值
+        
+        Args:
+            *keys: 配置键路径，如 "timer", "TC0", "enabled"
+            default: 默认值
+            
+        Returns:
+            配置值或默认值
+        """
+        config = self.controller.get_config()
+        try:
+            value = config
+            for key in keys:
+                value = value[key]
+            return value
+        except (KeyError, TypeError):
+            return default
     
     def _setup_styles(self):
         """配置UI样式"""
@@ -347,10 +386,44 @@ class CodeGeneratorUI:
         ttk.Button(toolbar, text="生成代码", command=self._generate_all_code,
                   style="Toolbar.TButton").pack(side=tk.LEFT, padx=2)
         
+        # 分隔符
+        ttk.Separator(toolbar, orient=tk.VERTICAL).pack(side=tk.LEFT, fill=tk.Y, padx=5)
+        
+        # 代码生成选项
+        code_options_frame = ttk.Frame(toolbar)
+        code_options_frame.pack(side=tk.LEFT, padx=5)
+        
+        # 注释开关
+        include_comments_var = tk.BooleanVar(value=self.controller.get_config().get("code_generation", {}).get("include_comments", True))
+        comments_check = ttk.Checkbutton(code_options_frame, text="生成注释", variable=include_comments_var,
+                                        command=lambda: self._update_include_comments(include_comments_var))
+        comments_check.pack(side=tk.LEFT, padx=2)
+        
+        # 芯片选择
+        chip_frame = ttk.Frame(toolbar)
+        chip_frame.pack(side=tk.LEFT, padx=5)
+        ttk.Label(chip_frame, text="芯片:", font=("Arial", 9)).pack(side=tk.LEFT, padx=2)
+        
+        # 获取可用芯片列表
+        available_chips = self.controller.get_available_chips()
+        chip_names = list(available_chips.keys())
+        chip_display_names = list(available_chips.values())
+        
+        self.chip_var = tk.StringVar(value=chip_display_names[0] if chip_display_names else "JZ8P2615")
+        self.chip_combo = ttk.Combobox(chip_frame, textvariable=self.chip_var, 
+                                      values=chip_display_names, state="readonly", width=15)
+        self.chip_combo.pack(side=tk.LEFT, padx=2)
+        self.chip_combo.bind("<<ComboboxSelected>>", self._on_chip_changed)
+        
+        # 存储芯片名称映射
+        self.chip_name_map = {display: name for name, display in available_chips.items()}
+        
         # 右侧状态信息
         status_info = ttk.Frame(toolbar)
         status_info.pack(side=tk.RIGHT, padx=5)
-        ttk.Label(status_info, text="JZ8P2615", font=("Arial", 9)).pack(side=tk.RIGHT, padx=5)
+        self.chip_status_label = ttk.Label(status_info, text="", font=("Arial", 9))
+        self.chip_status_label.pack(side=tk.RIGHT, padx=5)
+        self._update_chip_status()
     
     def _create_main_ui(self):
         """创建主界面"""
@@ -358,15 +431,13 @@ class CodeGeneratorUI:
         main_frame = ttk.Frame(self.root, padding="8")
         main_frame.pack(fill=tk.BOTH, expand=True, padx=5, pady=5)
         
-        # 配置网格权重（确保中间配置区域有足够空间）
-        main_frame.columnconfigure(0, weight=0, minsize=220)
-        main_frame.columnconfigure(1, weight=3, minsize=420)
-        main_frame.columnconfigure(2, weight=4, minsize=360)
-        main_frame.rowconfigure(0, weight=1)
+        # 使用 PanedWindow 实现可调整大小的面板
+        # 创建水平 PanedWindow（包含左侧和右侧两部分）
+        main_paned = ttk.PanedWindow(main_frame, orient=tk.HORIZONTAL)
+        main_paned.pack(fill=tk.BOTH, expand=True)
         
-        # 左侧：模块选择树形视图
-        left_frame = ttk.LabelFrame(main_frame, text="配置模块", padding="8")
-        left_frame.grid(row=0, column=0, rowspan=2, sticky=(tk.W, tk.E, tk.N, tk.S), padx=(0, 8))
+        # 左侧：模块选择树形视图（设置初始宽度）
+        left_frame = ttk.LabelFrame(main_paned, text="配置模块", padding="8", width=220)
         left_frame.columnconfigure(0, weight=1)
         left_frame.rowconfigure(0, weight=1)
         
@@ -381,29 +452,28 @@ class CodeGeneratorUI:
         tree_scroll.pack(side=tk.RIGHT, fill=tk.Y)
         self.module_tree.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
         
-        # 添加模块节点
-        modules = [
-            ("init", "init.c - 初始化配置"),
-            ("main", "main.c - 基础配置"),
-            ("adc",  "ADC.c - ADC配置"),
-            ("pwm",  "pwm.c - PWM配置"),
-            ("sleep", "sleep.c - 睡眠配置"),
-            ("isr", "isr.c - 中断服务配置")
-        ]
-        for module_id, module_name in modules:
-            self.module_tree.insert("", tk.END, module_id, text=module_name)
+        # 添加模块节点（根据芯片类型动态显示）
+        self._refresh_module_tree()
         
         # 绑定选择事件
         self.module_tree.bind("<<TreeviewSelect>>", self._on_module_select)
         
         # 设置默认选中第一个
-        if modules:
-            self.module_tree.selection_set(modules[0][0])
-            self.module_tree.focus(modules[0][0])
+        first_item = self.module_tree.get_children()[0] if self.module_tree.get_children() else None
+        if first_item:
+            self.module_tree.selection_set(first_item)
+            self.module_tree.focus(first_item)
+            # 初始化当前模块ID
+            self.current_module_id = first_item
         
-        # 中间：配置面板
-        self.config_frame = ttk.LabelFrame(main_frame, text="配置选项", padding="12")
-        self.config_frame.grid(row=0, column=1, sticky=(tk.W, tk.E, tk.N, tk.S), padx=(0, 8))
+        # 将左侧面板添加到 PanedWindow（权重较小，占用较少空间）
+        main_paned.add(left_frame, weight=1)
+        
+        # 创建右侧的 PanedWindow（包含中间配置面板和右侧代码预览）
+        right_paned = ttk.PanedWindow(main_paned, orient=tk.HORIZONTAL)
+        
+        # 中间：配置面板（设置初始宽度）
+        self.config_frame = ttk.LabelFrame(right_paned, text="配置选项", padding="12", width=400)
         self.config_frame.columnconfigure(0, weight=1)
         self.config_frame.rowconfigure(0, weight=1)
         
@@ -429,9 +499,11 @@ class CodeGeneratorUI:
         # 存储可滚动框架引用
         self.config_scrollable_frame = config_scrollable_frame
         
-        # 右侧：代码预览
-        right_frame = ttk.LabelFrame(main_frame, text="代码预览", padding="5")
-        right_frame.grid(row=0, column=2, rowspan=2, sticky=(tk.W, tk.E, tk.N, tk.S))
+        # 将中间配置面板添加到右侧 PanedWindow（权重中等）
+        right_paned.add(self.config_frame, weight=2)
+        
+        # 右侧：代码预览（设置初始宽度）
+        right_frame = ttk.LabelFrame(right_paned, text="代码预览", padding="5", width=400)
         right_frame.columnconfigure(0, weight=1)
         right_frame.rowconfigure(0, weight=1)
         
@@ -443,18 +515,97 @@ class CodeGeneratorUI:
                   style="Toolbar.TButton", width=10).pack(side=tk.LEFT, padx=2)
         ttk.Button(code_toolbar, text="导出", command=self._export_code,
                   style="Toolbar.TButton", width=10).pack(side=tk.LEFT, padx=2)
+        # 根据当前选择的模块生成对应代码
+        ttk.Button(code_toolbar, text="生成当前模块", command=self._generate_current_module_code,
+                  style="Toolbar.TButton", width=12).pack(side=tk.LEFT, padx=2)
         ttk.Button(code_toolbar, text="刷新", command=self._generate_all_code,
                   style="Toolbar.TButton", width=10).pack(side=tk.LEFT, padx=2)
+        
+        # 文件列表（显示生成的文件）- 在代码编辑器上方
+        file_list_container = ttk.Frame(right_frame)
+        file_list_container.pack(fill=tk.X, pady=(0, 5))
+        
+        ttk.Label(file_list_container, text="生成的文件:", font=("Arial", 9)).pack(side=tk.LEFT, padx=2)
+        listbox_frame = ttk.Frame(file_list_container)
+        listbox_frame.pack(side=tk.LEFT, fill=tk.X, expand=True, padx=2)
+        
+        file_scrollbar = ttk.Scrollbar(listbox_frame, orient=tk.VERTICAL)
+        self.file_listbox = tk.Listbox(listbox_frame, height=4, font=("Consolas", 9), 
+                                       yscrollcommand=file_scrollbar.set)
+        file_scrollbar.config(command=self.file_listbox.yview)
+        
+        self.file_listbox.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        file_scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+        self.file_listbox.bind("<<ListboxSelect>>", self._on_file_select)
+        
+        # 标记文件列表已创建，避免重复创建
+        self.file_list_frame = file_list_container
         
         # 创建VSCode风格的代码编辑器
         self.code_editor = CodeEditor(right_frame)
         self.code_editor.pack(fill=tk.BOTH, expand=True)
+        
+        # 将右侧代码预览面板添加到右侧 PanedWindow（权重较大，占用更多空间）
+        right_paned.add(right_frame, weight=3)
+        
+        # 将右侧 PanedWindow 添加到主 PanedWindow（权重较大）
+        main_paned.add(right_paned, weight=5)
+        
+        # 设置初始分隔条位置（在窗口显示后设置）
+        def set_initial_sash_positions():
+            """设置初始分隔条位置"""
+            try:
+                # 设置主 PanedWindow 的分隔条位置（左侧面板宽度）
+                if main_paned.panes():
+                    main_paned.sashpos(0, 220)
+                # 设置右侧 PanedWindow 的分隔条位置（中间面板宽度）
+                if len(right_paned.panes()) >= 2:
+                    right_paned.sashpos(0, 400)
+            except:
+                pass  # 如果设置失败，忽略错误
+        
+        # 在窗口显示后设置初始位置
+        self.root.after(100, set_initial_sash_positions)
         
         # 状态栏
         status_frame = ttk.Frame(self.root)
         status_frame.pack(side=tk.BOTTOM, fill=tk.X)
         self.status_label = ttk.Label(status_frame, text="就绪", anchor=tk.W)
         self.status_label.pack(side=tk.LEFT, padx=5)
+    
+    def _refresh_module_tree(self):
+        """刷新模块树（根据芯片类型显示/隐藏模块）"""
+        # 清空现有节点
+        for item in self.module_tree.get_children():
+            self.module_tree.delete(item)
+        
+        # 基础模块（根据芯片类型显示不同的文件名）
+        if self._is_chip_1521():
+            # 1521芯片：使用user.c
+            modules = [
+                ("user", "user.c - 初始化配置"),
+                ("main", "main.c - 基础配置"),
+            ]
+        else:
+            # 2615芯片：使用init.c
+            modules = [
+                ("init", "init.c - 初始化配置"),
+                ("main", "main.c - 基础配置"),
+            ]
+        
+        # ADC 模块（仅 JZ8P2615 支持）
+        if not self._is_chip_1521():
+            modules.append(("adc", "ADC.c - ADC配置"))
+        
+        # 其他模块（所有芯片都支持）
+        modules.extend([
+            ("pwm", "pwm.c - PWM配置"),
+            ("sleep", "sleep.c - 睡眠配置"),
+            ("isr", "isr.c - 中断服务配置")
+        ])
+        
+        for module_id, module_name in modules:
+            self.module_tree.insert("", tk.END, module_id, text=module_name)
     
     def _copy_code(self):
         """复制代码到剪贴板"""
@@ -472,10 +623,20 @@ class CodeGeneratorUI:
             messagebox.showwarning("警告", "请先生成代码！")
             return
         
-        # 选择导出目录
-        export_dir = filedialog.askdirectory(title="选择导出目录")
-        if not export_dir:
-            return
+        # 根据芯片类型确定导出目录
+        if self._is_chip_1521():
+            # 1521芯片：直接保存到 示例项目/1521 目录
+            current_dir = os.path.dirname(os.path.abspath(__file__))
+            export_dir = os.path.join(current_dir, "示例项目", "1521")
+            
+            # 如果目录不存在，创建它
+            if not os.path.exists(export_dir):
+                os.makedirs(export_dir, exist_ok=True)
+        else:
+            # 2615芯片：让用户选择导出目录
+            export_dir = filedialog.askdirectory(title="选择导出目录")
+            if not export_dir:
+                return
         
         try:
             exported_count = 0
@@ -486,7 +647,7 @@ class CodeGeneratorUI:
                 exported_count += 1
             
             self.status_label.config(
-                text=f"? 已导出 {exported_count} 个文件到: {export_dir}", 
+                text=f"已导出 {exported_count} 个文件到: {export_dir}", 
                 foreground="#008000"
             )
             messagebox.showinfo("成功", f"已成功导出 {exported_count} 个文件到:\n{export_dir}")
@@ -501,6 +662,8 @@ class CodeGeneratorUI:
             return
         
         module_id = selection[0]
+        # 保存当前选择的模块ID，用于代码生成
+        self.current_module_id = module_id
         self._show_module_config(module_id)
     
     def _show_module_config(self, module_id: str):
@@ -510,15 +673,23 @@ class CodeGeneratorUI:
             widget.destroy()
         
         # 根据模块ID显示不同的配置界面
-        if module_id == "init":
-            # init.c 配置 - 使用标签页显示所有配置选项
+        if module_id == "init" or module_id == "user":
+            # init.c / user.c 配置 - 使用标签页显示所有配置选项
+            # 1521使用user.c，2615使用init.c，但配置界面相同
             self._create_init_all_config_ui()
         elif module_id == "main":
             # main.c / main.h 基础配置
             self._create_main_basic_config_ui()
         elif module_id == "adc":
-            # ADC.C / ADC.H 配置（单独模块）
-            self._create_adc_init_config_ui()
+            # ADC.C / ADC.H 配置（单独模块，JZ8P1521不支持）
+            if not self._is_chip_1521():
+                self._create_adc_init_config_ui()
+            else:
+                # JZ8P1521 不支持 ADC，显示提示信息
+                no_adc_label = ttk.Label(self.config_scrollable_frame, 
+                                        text="当前芯片不支持 ADC 功能", 
+                                        foreground="gray", font=("Arial", 12))
+                no_adc_label.pack(anchor=tk.CENTER, pady=50)
         elif module_id == "pwm":
             # pwm.c / pwm.h 配置（单独模块）
             self._create_pwm_config_ui()
@@ -554,184 +725,43 @@ class CodeGeneratorUI:
     
     def _create_main_basic_config_ui(self):
         """创建 main.c / main.h 的基础配置界面"""
-        cfg_timer = self.controller.get_config()["timer"]["TC0"]
-        cfg_isr = self.controller.get_config().get("isr", {})
+        # 清空配置面板
+        for widget in self.config_scrollable_frame.winfo_children():
+            widget.destroy()
+
+        if self._is_chip_1521():
+            # JZ8P1521芯片不需要此配置
+            info_label = ttk.Label(self.config_scrollable_frame, 
+                                   text="JZ8P1521 的相关宏定义已在 user.h 中配置，\n无需在此处单独设置。",
+                                   font=("Arial", 10), foreground="gray")
+            info_label.pack(pady=20, padx=10)
+            return
         
-        title = ttk.Label(self.config_scrollable_frame, text="main.c / main.h - 基础配置",
-                         font=("Arial", 12, "bold"))
-        title.pack(anchor=tk.W, pady=(5, 10))
-        
-        # TCC_NUM 配置（实际存储在 TC0 的 count_value 中）
-        tcc_frame = ttk.LabelFrame(self.config_scrollable_frame, text="TC0 计数常量 (TCC_NUM)", padding="10")
-        tcc_frame.pack(fill=tk.X, padx=5, pady=5)
-        
-        ttk.Label(tcc_frame, text="TCC_NUM:").grid(row=0, column=0, sticky=tk.W)
-        tcc_var = tk.IntVar(value=cfg_timer["count_value"])
-        spin = ttk.Spinbox(tcc_frame, from_=0, to=255, width=10, textvariable=tcc_var)
-        spin.grid(row=0, column=1, sticky=tk.W, padx=5)
-        tcc_var.trace_add("write",
-                          lambda *args: self._update_timer_count("TC0", tcc_var.get()))
-        
-        ttk.Label(tcc_frame, text="说明: 对应 isr.c 中 TC0C += TCC_NUM 的增量").grid(
-            row=1, column=0, columnspan=2, sticky=tk.W, pady=(4, 0))
-        
-        # 标志变量宏名（与 isr / main.h 联动）
-        flag_frame = ttk.LabelFrame(self.config_scrollable_frame, text="时间标志宏 (main.h)", padding="10")
-        flag_frame.pack(fill=tk.X, padx=5, pady=5)
-        
-        ttk.Label(flag_frame, text="10ms 标志宏名:").grid(row=0, column=0, sticky=tk.W, pady=2)
-        t10_flag_var = tk.StringVar(value=cfg_isr.get("time_10ms_flag", "Time_10ms"))
-        ttk.Entry(flag_frame, textvariable=t10_flag_var, width=20).grid(row=0, column=1, sticky=tk.W, pady=2)
-        t10_flag_var.trace_add("write",
-                               lambda *args: self._update_isr_config("time_10ms_flag", t10_flag_var.get()))
-        
-        ttk.Label(flag_frame, text="200us 标志宏名:").grid(row=1, column=0, sticky=tk.W, pady=2)
-        t200_flag_var = tk.StringVar(value=cfg_isr.get("time_200us_flag", "Time_200us"))
-        ttk.Entry(flag_frame, textvariable=t200_flag_var, width=20).grid(row=1, column=1, sticky=tk.W, pady=2)
-        t200_flag_var.trace_add("write",
-                                lambda *args: self._update_isr_config("time_200us_flag", t200_flag_var.get()))
-        
-        desc = ("main.h 中会生成对应的宏，例如:\n"
-                "  #define {10ms宏名}   (U_Flage1.SYS_Flg.bit0)\n"
-                "  #define {200us宏名}  (U_Flage1.SYS_Flg.bit1)")
-        ttk.Label(flag_frame, text=desc, justify=tk.LEFT).grid(
-            row=2, column=0, columnspan=2, sticky=tk.W, pady=(4, 0))
+        component = MainConfigComponent(self.controller, self.config_scrollable_frame)
+        component.create_config_ui(self.config_scrollable_frame)
     
     def _create_isr_config_ui(self):
         """创建isr.c配置界面"""
-        cfg = self.controller.get_config()["isr"]
+        # 清空配置面板
+        for widget in self.config_scrollable_frame.winfo_children():
+            widget.destroy()
         
-        ttk.Label(self.config_scrollable_frame, text="isr.c - 中断服务程序配置",
-                  font=("Arial", 12, "bold")).pack(anchor=tk.W, pady=(5, 10))
-        
-        content_frame = ttk.Frame(self.config_scrollable_frame)
-        content_frame.pack(fill=tk.BOTH, expand=True)
-        
-        # 10ms计时配置
-        block1 = ttk.LabelFrame(content_frame, text="10ms计数配置", padding="10")
-        block1.pack(fill=tk.X, padx=5, pady=5)
-        
-        t10_enable_var = tk.BooleanVar(value=cfg["enable_time_10ms"])
-        ttk.Checkbutton(block1, text="启用10ms计时", variable=t10_enable_var,
-                        command=lambda: self._update_isr_config("enable_time_10ms", t10_enable_var.get())
-                        ).grid(row=0, column=0, sticky=tk.W)
-        
-        # 计数变量名
-        ttk.Label(block1, text="计数变量名:").grid(row=1, column=0, sticky=tk.W, pady=2)
-        t10_reg_var = tk.StringVar(value=cfg.get("reg_10ms_name", "reg_10ms"))
-        ttk.Entry(block1, textvariable=t10_reg_var, width=20).grid(row=1, column=1, sticky=tk.W, pady=2)
-        t10_reg_var.trace_add("write",
-                              lambda *args: self._update_isr_config("reg_10ms_name", t10_reg_var.get()))
-        
-        ttk.Label(block1, text="阈值:").grid(row=2, column=0, sticky=tk.W, pady=2)
-        t10_threshold_var = tk.IntVar(value=cfg["time_10ms_threshold"])
-        t10_spin = ttk.Spinbox(block1, from_=1, to=1000, width=10,
-                               textvariable=t10_threshold_var)
-        t10_spin.grid(row=2, column=1, sticky=tk.W, pady=2)
-        t10_threshold_var.trace_add("write",
-                                    lambda *args: self._update_isr_int_var("time_10ms_threshold", t10_threshold_var))
-        
-        ttk.Label(block1, text="标志变量:").grid(row=3, column=0, sticky=tk.W, pady=2)
-        t10_flag_var = tk.StringVar(value=cfg["time_10ms_flag"])
-        ttk.Entry(block1, textvariable=t10_flag_var, width=20).grid(row=3, column=1, sticky=tk.W, pady=2)
-        t10_flag_var.trace_add("write",
-                               lambda *args: self._update_isr_config("time_10ms_flag", t10_flag_var.get()))
-        
-        # 200us计时配置
-        block2 = ttk.LabelFrame(content_frame, text="200us计数配置", padding="10")
-        block2.pack(fill=tk.X, padx=5, pady=5)
-        
-        t200_enable_var = tk.BooleanVar(value=cfg["enable_time_200us"])
-        ttk.Checkbutton(block2, text="启用200us计时", variable=t200_enable_var,
-                        command=lambda: self._update_isr_config("enable_time_200us", t200_enable_var.get())
-                        ).grid(row=0, column=0, sticky=tk.W)
-        
-        # 计数变量名
-        ttk.Label(block2, text="计数变量名:").grid(row=1, column=0, sticky=tk.W, pady=2)
-        t200_reg_var = tk.StringVar(value=cfg.get("reg_200us_name", "reg_200us"))
-        ttk.Entry(block2, textvariable=t200_reg_var, width=20).grid(row=1, column=1, sticky=tk.W, pady=2)
-        t200_reg_var.trace_add("write",
-                               lambda *args: self._update_isr_config("reg_200us_name", t200_reg_var.get()))
-        
-        ttk.Label(block2, text="阈值:").grid(row=2, column=0, sticky=tk.W, pady=2)
-        t200_threshold_var = tk.IntVar(value=cfg["time_200us_threshold"])
-        t200_spin = ttk.Spinbox(block2, from_=1, to=1000, width=10,
-                                textvariable=t200_threshold_var)
-        t200_spin.grid(row=2, column=1, sticky=tk.W, pady=2)
-        t200_threshold_var.trace_add("write",
-                                     lambda *args: self._update_isr_int_var("time_200us_threshold", t200_threshold_var))
-        
-        ttk.Label(block2, text="标志变量:").grid(row=3, column=0, sticky=tk.W, pady=2)
-        t200_flag_var = tk.StringVar(value=cfg["time_200us_flag"])
-        ttk.Entry(block2, textvariable=t200_flag_var, width=20).grid(row=3, column=1, sticky=tk.W, pady=2)
-        t200_flag_var.trace_add("write",
-                                lambda *args: self._update_isr_config("time_200us_flag", t200_flag_var.get()))
-        
-        # 这里只配置计数和标志变量，暂不包含显示扫描相关配置
+        component = ISRConfigComponent(self.controller, self.config_scrollable_frame)
+        component.create_config_ui(self.config_scrollable_frame)
     
     def _create_sleep_config_ui(self):
         """创建sleep.c配置界面"""
-        cfg = self.controller.get_config()["sleep"]
+        # 清空配置面板
+        for widget in self.config_scrollable_frame.winfo_children():
+            widget.destroy()
         
-        ttk.Label(self.config_scrollable_frame, text="sleep.c - 睡眠配置",
-                  font=("Arial", 12, "bold")).pack(anchor=tk.W, pady=(5, 10))
-        
-        enable_var = tk.BooleanVar(value=cfg["enabled"])
-        ttk.Checkbutton(self.config_scrollable_frame, text="启用睡眠功能", variable=enable_var,
-                       command=lambda: self._update_sleep_config("enabled", enable_var.get())
-                       ).pack(anchor=tk.W, padx=5, pady=5)
-        
-        block = ttk.LabelFrame(self.config_scrollable_frame, text="睡眠参数", padding="10")
-        block.pack(fill=tk.X, padx=5, pady=5)
-        
-        ttk.Label(block, text="计数变量名:").grid(row=0, column=0, sticky=tk.W, pady=2)
-        counter_var = tk.StringVar(value=cfg["counter_name"])
-        ttk.Entry(block, textvariable=counter_var, width=20).grid(row=0, column=1, sticky=tk.W, pady=2)
-        counter_var.trace_add("write",
-                              lambda *args: self._update_sleep_config("counter_name", counter_var.get()))
-        
-        ttk.Label(block, text="阈值:").grid(row=1, column=0, sticky=tk.W, pady=2)
-        threshold_var = tk.IntVar(value=cfg["threshold"])
-        ttk.Spinbox(block, from_=1, to=255, width=10,
-                    textvariable=threshold_var).grid(row=1, column=1, sticky=tk.W, pady=2)
-        threshold_var.trace_add("write",
-                                lambda *args: self._update_sleep_config("threshold", threshold_var.get()))
-        
-        ttk.Label(block, text="进入睡眠条件表达式:").grid(row=2, column=0, sticky=tk.W, pady=2)
-        condition_var = tk.StringVar(value=cfg["condition"])
-        ttk.Entry(block, textvariable=condition_var, width=50).grid(row=2, column=1, sticky=tk.W, pady=2)
-        condition_var.trace_add("write",
-                                lambda *args: self._update_sleep_config("condition", condition_var.get()))
-        
-        wake_frame = ttk.LabelFrame(self.config_scrollable_frame, text="唤醒端口", padding="10")
-        wake_frame.pack(fill=tk.X, padx=5, pady=5)
-        wake_ports = cfg.get("wake_ports", ["P6"])
-        
-        p5_var = tk.BooleanVar(value="P5" in wake_ports)
-        ttk.Checkbutton(wake_frame, text="P5 端口唤醒", variable=p5_var,
-                        command=lambda: self._update_sleep_wake_port("P5", p5_var.get())
-                        ).grid(row=0, column=0, sticky=tk.W, pady=2)
-        
-        p6_var = tk.BooleanVar(value="P6" in wake_ports)
-        ttk.Checkbutton(wake_frame, text="P6 端口唤醒", variable=p6_var,
-                        command=lambda: self._update_sleep_wake_port("P6", p6_var.get())
-                        ).grid(row=0, column=1, sticky=tk.W, pady=2)
+        component = SleepConfigComponent(self.controller, self.config_scrollable_frame)
+        component.create_config_ui(self.config_scrollable_frame)
     
     def _create_gpio_config_content(self, parent):
         """创建GPIO配置内容（用于标签页）"""
-        # 创建Notebook用于切换P5和P6
-        notebook = ttk.Notebook(parent)
-        notebook.pack(fill=tk.BOTH, expand=True, padx=5, pady=5)
-        
-        # P5端口配置
-        p5_frame = ttk.Frame(notebook, padding="10")
-        notebook.add(p5_frame, text="P5端口")
-        self._create_port_config_ui(p5_frame, "P5")
-        
-        # P6端口配置
-        p6_frame = ttk.Frame(notebook, padding="10")
-        notebook.add(p6_frame, text="P6端口")
-        self._create_port_config_ui(p6_frame, "P6", is_p6=True)
+        component = GPIOConfigComponent(self.controller, parent)
+        component.create_config_ui(parent)
     
     def _create_gpio_config_ui(self):
         """创建GPIO配置界面（保留用于兼容）"""
@@ -744,23 +774,22 @@ class CodeGeneratorUI:
                          font=("Arial", 12, "bold"))
         title.pack(pady=(5, 10))
         
-        # 创建Notebook用于切换P5和P6
-        notebook = ttk.Notebook(self.config_scrollable_frame)
-        notebook.pack(fill=tk.BOTH, expand=True, padx=5, pady=5)
-        
-        # P5端口配置
-        p5_frame = ttk.Frame(notebook, padding="10")
-        notebook.add(p5_frame, text="P5端口")
-        self._create_port_config_ui(p5_frame, "P5")
-        
-        # P6端口配置
-        p6_frame = ttk.Frame(notebook, padding="10")
-        notebook.add(p6_frame, text="P6端口")
-        self._create_port_config_ui(p6_frame, "P6", is_p6=True)
+        # 使用组件
+        component = GPIOConfigComponent(self.controller, self.config_scrollable_frame)
+        component.create_config_ui(self.config_scrollable_frame)
     
     def _create_port_config_ui(self, parent, port_name, is_p6=False):
         """创建端口配置界面"""
         config = self.controller.get_config()["gpio"][port_name]
+        
+        # 根据芯片类型和端口类型确定引脚数量
+        if port_name == "P5":
+            if self._is_chip_1521():
+                pin_count = 4  # JZ8P1521 的 P5 只有 4 个引脚（P50-P53）
+            else:
+                pin_count = 8  # JZ8P2615 的 P5 有 8 个引脚
+        else:
+            pin_count = 8  # P6 有 8 个引脚
         
         # 创建表格框架
         table_frame = ttk.Frame(parent)
@@ -770,7 +799,9 @@ class CodeGeneratorUI:
         headers = ["引脚", "方向", "上拉", "下拉"]
         if is_p6:
             headers.extend(["开漏", "弱驱动"])
-        headers.append("唤醒")
+        # JZ8P1521 的 P5 不支持唤醒
+        if not (port_name == "P5" and self._is_chip_1521()):
+            headers.append("唤醒")
         
         for i, header in enumerate(headers):
             label = ttk.Label(table_frame, text=header, font=("Arial", 10, "bold"))
@@ -783,15 +814,20 @@ class CodeGeneratorUI:
             self.gpio_widgets[port_name] = {}
         
         # 为每个引脚创建配置控件
-        for pin in range(8):
+        for pin in range(pin_count):
             row = pin + 1
             pin_name = f"{port_name}{pin}"
             
             # 引脚名称
             ttk.Label(table_frame, text=pin_name).grid(row=row, column=0, padx=5, pady=2)
             
-            # 方向选择（输入/输出）
-            direction_var = tk.StringVar(value="输出" if config["direction"][pin] == 0 else "输入")
+            # 方向选择（输入/输出）- 安全访问，防止索引越界
+            direction_list = config.get("direction", [0] * pin_count)
+            if pin < len(direction_list):
+                direction_value = direction_list[pin]
+            else:
+                direction_value = 0  # 默认输出
+            direction_var = tk.StringVar(value="输出" if direction_value == 0 else "输入")
             direction_combo = ttk.Combobox(table_frame, textvariable=direction_var, 
                                           values=["输出", "输入"], state="readonly", width=8)
             direction_combo.grid(row=row, column=1, padx=5, pady=2)
@@ -799,16 +835,26 @@ class CodeGeneratorUI:
                                lambda e, p=pin, port=port_name: self._update_gpio_direction(p, port, e))
             self.gpio_widgets[port_name][f"direction_{pin}"] = direction_combo
             
-            # 上拉使能
-            pullup_var = tk.BooleanVar(value=config["pullup"][pin] == 0)
+            # 上拉使能 - 安全访问
+            pullup_list = config.get("pullup", [1] * pin_count)
+            if pin < len(pullup_list):
+                pullup_value = pullup_list[pin]
+            else:
+                pullup_value = 1  # 默认禁止
+            pullup_var = tk.BooleanVar(value=pullup_value == 0)
             pullup_check = ttk.Checkbutton(table_frame, variable=pullup_var,
                                           command=lambda p=pin, port=port_name: 
                                           self._update_gpio_pullup(p, port))
             pullup_check.grid(row=row, column=2, padx=5, pady=2)
             self.gpio_widgets[port_name][f"pullup_{pin}"] = pullup_var
             
-            # 下拉使能
-            pulldown_var = tk.BooleanVar(value=config["pulldown"][pin] == 0)
+            # 下拉使能 - 安全访问
+            pulldown_list = config.get("pulldown", [1] * pin_count)
+            if pin < len(pulldown_list):
+                pulldown_value = pulldown_list[pin]
+            else:
+                pulldown_value = 1  # 默认禁止
+            pulldown_var = tk.BooleanVar(value=pulldown_value == 0)
             pulldown_check = ttk.Checkbutton(table_frame, variable=pulldown_var,
                                            command=lambda p=pin, port=port_name: 
                                            self._update_gpio_pulldown(p, port))
@@ -833,21 +879,37 @@ class CodeGeneratorUI:
                 weakdrive_check.grid(row=row, column=5, padx=5, pady=2)
                 self.gpio_widgets[port_name][f"weakdrive_{pin}"] = weakdrive_var
                 
-                # 唤醒使能
-                wakeup_var = tk.BooleanVar(value=config["wakeup"][pin] == 1)
-                wakeup_check = ttk.Checkbutton(table_frame, variable=wakeup_var,
-                                             command=lambda p=pin, port=port_name: 
-                                             self._update_gpio_wakeup(p, port))
-                wakeup_check.grid(row=row, column=6, padx=5, pady=2)
-                self.gpio_widgets[port_name][f"wakeup_{pin}"] = wakeup_var
+                # 唤醒使能（P6支持，P5在JZ8P1521不支持）
+                if port_name == "P5" and self._is_chip_1521():
+                    # JZ8P1521 的 P5 不支持唤醒，跳过
+                    pass
+                else:
+                    wakeup_config = config.get("wakeup", [0] * 8)
+                    if pin < len(wakeup_config):
+                        wakeup_var = tk.BooleanVar(value=wakeup_config[pin] == 1)
+                    else:
+                        wakeup_var = tk.BooleanVar(value=False)
+                    wakeup_check = ttk.Checkbutton(table_frame, variable=wakeup_var,
+                                                 command=lambda p=pin, port=port_name: 
+                                                 self._update_gpio_wakeup(p, port))
+                    wakeup_check.grid(row=row, column=6, padx=5, pady=2)
+                    self.gpio_widgets[port_name][f"wakeup_{pin}"] = wakeup_var
             else:
-                # P5唤醒使能
-                wakeup_var = tk.BooleanVar(value=config["wakeup"][pin] == 1)
-                wakeup_check = ttk.Checkbutton(table_frame, variable=wakeup_var,
-                                             command=lambda p=pin, port=port_name: 
-                                             self._update_gpio_wakeup(p, port))
-                wakeup_check.grid(row=row, column=4, padx=5, pady=2)
-                self.gpio_widgets[port_name][f"wakeup_{pin}"] = wakeup_var
+                # P5唤醒使能（JZ8P1521 的 P5 不支持唤醒）
+                if port_name == "P5" and self._is_chip_1521():
+                    # JZ8P1521 的 P5 不支持唤醒，跳过
+                    pass
+                else:
+                    wakeup_config = config.get("wakeup", [0] * 8)
+                    if pin < len(wakeup_config):
+                        wakeup_var = tk.BooleanVar(value=wakeup_config[pin] == 1)
+                    else:
+                        wakeup_var = tk.BooleanVar(value=False)
+                    wakeup_check = ttk.Checkbutton(table_frame, variable=wakeup_var,
+                                                 command=lambda p=pin, port=port_name: 
+                                                 self._update_gpio_wakeup(p, port))
+                    wakeup_check.grid(row=row, column=4, padx=5, pady=2)
+                    self.gpio_widgets[port_name][f"wakeup_{pin}"] = wakeup_var
     
     def _update_gpio_direction(self, pin, port, event):
         """更新GPIO方向配置"""
@@ -892,7 +954,16 @@ class CodeGeneratorUI:
                               font=("Arial", 9), foreground="gray")
         info_label.pack(anchor=tk.W, padx=10, pady=(5, 10))
         
-        config = self.controller.get_config()["adc"]
+        # JZ8P1521 不支持 ADC，直接返回
+        if self._is_chip_1521():
+            no_adc_label = ttk.Label(parent, text="当前芯片不支持 ADC 功能", 
+                                    foreground="gray", font=("Arial", 10))
+            no_adc_label.pack(anchor=tk.W, padx=10, pady=20)
+            return
+        
+        config = self._get_config_safe("adc", default={"enabled": False, "channels": [], 
+                                                       "reference": "VDD", "clock_div": "Fosc/16", 
+                                                       "calibration": False})
         
         # ADC使能
         adc_enable_var = tk.BooleanVar(value=config["enabled"])
@@ -992,29 +1063,8 @@ class CodeGeneratorUI:
     
     def _create_timer_config_content(self, parent):
         """创建定时器配置内容（用于标签页）"""
-        info_label = ttk.Label(parent, 
-                              text="配置 TC0CON, TC0C, TC1, TC2等",
-                              font=("Arial", 9), foreground="gray")
-        info_label.pack(anchor=tk.W, padx=10, pady=(5, 10))
-        
-        # 创建Notebook用于切换不同定时器
-        notebook = ttk.Notebook(parent)
-        notebook.pack(fill=tk.BOTH, expand=True, padx=5, pady=5)
-        
-        # TC0配置
-        tc0_frame = ttk.Frame(notebook, padding="10")
-        notebook.add(tc0_frame, text="TC0")
-        self._create_tc0_config_ui(tc0_frame)
-        
-        # TC1配置
-        tc1_frame = ttk.Frame(notebook, padding="10")
-        notebook.add(tc1_frame, text="TC1")
-        self._create_tc1_config_ui(tc1_frame)
-        
-        # TC2配置
-        tc2_frame = ttk.Frame(notebook, padding="10")
-        notebook.add(tc2_frame, text="TC2")
-        self._create_tc2_config_ui(tc2_frame)
+        component = TimerConfigComponent(self.controller, parent)
+        component.create_config_ui(parent)
     
     def _create_timer_config_ui(self):
         """创建定时器配置界面（保留用于兼容）"""
@@ -1031,9 +1081,133 @@ class CodeGeneratorUI:
         
         self._create_timer_config_content(self.config_scrollable_frame)
     
+    def _create_tcc_config_ui(self, parent):
+        """创建TCC配置界面（JZ8P1521）"""
+        config = self._get_config_safe("timer", "TCC", default={
+            "enabled": False, "clock_source": "instruction", "prescaler": 0,
+            "count_value": 0, "edge": "rising", "interrupt": False
+        })
+        
+        # 使能
+        enable_var = tk.BooleanVar(value=config.get("enabled", False))
+        ttk.Checkbutton(parent, text="使能TCC", variable=enable_var,
+                       command=lambda: self._update_timer_enabled("TCC", enable_var)).pack(anchor=tk.W, pady=5)
+        
+        # 时钟源
+        ttk.Label(parent, text="时钟源:").pack(anchor=tk.W, pady=5)
+        clk_var = tk.StringVar(value=config.get("clock_source", "instruction"))
+        clk_combo = ttk.Combobox(parent, textvariable=clk_var,
+                                values=["instruction", "system", "external"],
+                                state="readonly", width=15)
+        clk_combo.pack(anchor=tk.W, padx=20, pady=2)
+        clk_combo.bind("<<ComboboxSelected>>",
+                      lambda e: (self._update_timer_config("TCC", "clock_source", clk_var.get()), _update_tcc_period()))
+        
+        # 边沿选择（仅外部时钟时有效）
+        ttk.Label(parent, text="边沿选择（外部时钟）:").pack(anchor=tk.W, pady=5)
+        edge_var = tk.StringVar(value=config.get("edge", "rising"))
+        edge_combo = ttk.Combobox(parent, textvariable=edge_var,
+                                 values=["rising", "falling"],
+                                 state="readonly", width=15)
+        edge_combo.pack(anchor=tk.W, padx=20, pady=2)
+        edge_combo.bind("<<ComboboxSelected>>",
+                       lambda e: self._update_timer_config("TCC", "edge", edge_var.get()))
+        
+        # 预分频
+        ttk.Label(parent, text="预分频:").pack(anchor=tk.W, pady=5)
+        prescaler_var = tk.IntVar(value=config.get("prescaler", 0))
+        prescaler_spin = ttk.Spinbox(parent, from_=0, to=7, width=10, textvariable=prescaler_var)
+        prescaler_spin.pack(anchor=tk.W, padx=20, pady=2)
+        prescaler_var.trace_add("write",
+                               lambda *args: (self._update_timer_config("TCC", "prescaler", prescaler_var.get()), _update_tcc_period()))
+        
+        # 计数初值
+        ttk.Label(parent, text="计数初值:").pack(anchor=tk.W, pady=5)
+        count_var = tk.IntVar(value=config.get("count_value", 0))
+        count_spin = ttk.Spinbox(parent, from_=0, to=255, width=10, textvariable=count_var)
+        count_spin.pack(anchor=tk.W, padx=20, pady=2)
+        count_var.trace_add("write",
+                           lambda *args: (self._update_timer_config("TCC", "count_value", count_var.get()), _update_tcc_period()))
+        
+        # 中断使能
+        interrupt_var = tk.BooleanVar(value=config.get("interrupt", False))
+        ttk.Checkbutton(parent, text="使能中断", variable=interrupt_var,
+                       command=lambda: self._update_timer_config("TCC", "interrupt", interrupt_var.get())).pack(anchor=tk.W, pady=5)
+
+        # 结果显示
+        result_label = ttk.Label(parent, text="预计溢出周期: -", foreground="#555")
+        result_label.pack(anchor=tk.W, padx=10, pady=8)
+
+        def _parse_freq_to_hz(freq_str: str) -> float:
+            if not isinstance(freq_str, str):
+                return 0.0
+            s = freq_str.strip().upper().replace("HZ", "")
+            try:
+                if s.endswith("MHZ"):
+                    return float(s[:-3]) * 1_000_000.0
+                if s.endswith("KHZ"):
+                    return float(s[:-3]) * 1_000.0
+                # 纯数字（Hz）
+                return float(s)
+            except Exception:
+                # 常见格式："8MHz", "6MHz", "5.4MHz", "4.8MHz", "3.4MHz", "1MHz"
+                s = s.replace("MH", "").replace("K", "")
+                try:
+                    return float(s) * 1_000_000.0
+                except Exception:
+                    return 0.0
+
+        def _get_prescaler_factor(val: int) -> int:
+            table = {0:2, 1:4, 2:8, 3:16, 4:32, 5:64, 6:128, 7:256}
+            return table.get(int(val) & 0x7, 2)
+
+        def _format_us(ms):
+            # 根据数量级格式化
+            if ms >= 1:
+                return f"{ms:.3f} ms"
+            else:
+                return f"{ms*1000:.3f} us"
+
+        def _update_tcc_period():
+            cfg = self.controller.get_config()
+            tcc_cfg = cfg.get("timer", {}).get("TCC", {})
+            if not tcc_cfg.get("enabled"):
+                result_label.config(text="预计溢出周期: 未使能")
+                return
+            clock_src = tcc_cfg.get("clock_source", "instruction")
+            prescaler = _get_prescaler_factor(tcc_cfg.get("prescaler", 0))
+            cnt_init = int(tcc_cfg.get("count_value", 0)) & 0xFF
+            ticks = max(1, 256 - cnt_init)
+            if clock_src == "external":
+                result_label.config(text=f"预计溢出周期: presc({prescaler}) * {ticks} / Fext")
+                return
+            # 系统频率
+            sys_clock = cfg.get("system", {}).get("clock", {})
+            fosc = _parse_freq_to_hz(sys_clock.get("frequency", "8MHz"))
+            if fosc <= 0:
+                result_label.config(text="预计溢出周期: 频率未知")
+                return
+            if clock_src == "instruction":
+                divider = sys_clock.get("divider", 2) or 2
+                fin = fosc / float(divider)
+            else:  # system
+                fin = fosc
+            if fin <= 0:
+                result_label.config(text="预计溢出周期: 频率未知")
+                return
+            period_s = (prescaler * ticks) / fin
+            period_ms = period_s * 1000
+            result_label.config(text=f"预计溢出周期: {_format_us(period_ms)}  (presc={prescaler}, ticks={ticks})")
+
+        # 初始化显示
+        _update_tcc_period()
+    
     def _create_tc0_config_ui(self, parent):
         """创建TC0配置界面"""
-        config = self.controller.get_config()["timer"]["TC0"]
+        config = self._get_config_safe("timer", "TC0", default={
+            "enabled": False, "clock_source": "system", "prescaler": 0,
+            "count_value": 206, "interrupt": False
+        })
         
         # 使能
         enable_var = tk.BooleanVar(value=config["enabled"])
@@ -1090,7 +1264,10 @@ class CodeGeneratorUI:
     
     def _create_tc1_config_ui(self, parent):
         """创建TC1配置界面"""
-        config = self.controller.get_config()["timer"]["TC1"]
+        config = self._get_config_safe("timer", "TC1", default={
+            "enabled": False, "mode": "10bit", "prescaler": 0,
+            "period": 1000, "pwm_enabled": False, "interrupt": False
+        })
         
         enable_var = tk.BooleanVar(value=config["enabled"])
         ttk.Checkbutton(parent, text="使能TC1", variable=enable_var,
@@ -1122,7 +1299,10 @@ class CodeGeneratorUI:
     
     def _create_tc2_config_ui(self, parent):
         """创建TC2配置界面"""
-        config = self.controller.get_config()["timer"]["TC2"]
+        config = self._get_config_safe("timer", "TC2", default={
+            "enabled": False, "mode": "10bit", "prescaler": 0,
+            "period": 1000, "pwm_enabled": False, "interrupt": False
+        })
         
         enable_var = tk.BooleanVar(value=config["enabled"])
         ttk.Checkbutton(parent, text="使能TC2", variable=enable_var,
@@ -1154,7 +1334,26 @@ class CodeGeneratorUI:
     
     def _update_timer_enabled(self, timer, var):
         """更新定时器使能"""
+        if timer not in self.controller.config_data.get("timer", {}):
+            # 如果定时器不存在，创建默认配置
+            if timer == "TCC":
+                self.controller.config_data.setdefault("timer", {})[timer] = {
+                    "enabled": False, "clock_source": "instruction", "prescaler": 0,
+                    "count_value": 0, "edge": "rising", "interrupt": False
+                }
         self.controller.config_data["timer"][timer]["enabled"] = var.get()
+        self._generate_all_code()
+    
+    def _update_timer_config(self, timer, key, value):
+        """更新定时器配置（通用方法）"""
+        if timer not in self.controller.config_data.get("timer", {}):
+            if timer == "TCC":
+                self.controller.config_data.setdefault("timer", {})[timer] = {
+                    "enabled": False, "clock_source": "instruction", "prescaler": 0,
+                    "count_value": 0, "edge": "rising", "interrupt": False
+                }
+        self.controller.config_data["timer"][timer][key] = value
+        self._generate_all_code()
     
     def _update_timer_clock_source(self, timer, value):
         """更新定时器时钟源"""
@@ -1186,109 +1385,8 @@ class CodeGeneratorUI:
     
     def _create_pwm_config_content(self, parent):
         """创建PWM配置内容（用于标签页）"""
-        info_label = ttk.Label(parent, 
-                              text="配置 PWM相关寄存器",
-                              font=("Arial", 9), foreground="gray")
-        info_label.pack(anchor=tk.W, padx=10, pady=(5, 10))
-        
-        config = self.controller.get_config()["pwm"]
-        
-        # 创建表格
-        table_frame = ttk.Frame(parent)
-        table_frame.pack(fill=tk.BOTH, expand=True, padx=10, pady=5)
-        
-        # 表头
-        headers = ["PWM通道", "使能", "周期(TCxPRD)", "占空比(%)", "输出引脚映射", "PWM时钟"]
-        for i, header in enumerate(headers):
-            ttk.Label(table_frame, text=header, font=("Arial", 10, "bold")).grid(
-                row=0, column=i, padx=10, pady=5)
-        
-        # PWM通道配置
-        clock_display_map = {"instruction": "指令周期", "system": "系统时钟"}
-        reverse_clock_map = {v: k for k, v in clock_display_map.items()}
-        
-        for idx, pwm_name in enumerate(["PWM1", "PWM2", "PWM3", "PWM4"], 1):
-            row = idx
-            pwm_config = config[pwm_name]
-            
-            # 通道名
-            ttk.Label(table_frame, text=pwm_name).grid(row=row, column=0, padx=10, pady=5)
-            
-            # 使能
-            enable_var = tk.BooleanVar(value=pwm_config["enabled"])
-            ttk.Checkbutton(table_frame, variable=enable_var,
-                           command=lambda p=pwm_name, v=enable_var: 
-                           self._update_pwm_enabled(p, v)).grid(row=row, column=1, padx=10, pady=5)
-
-            # 周期
-            period_var = tk.IntVar(value=pwm_config["period"])
-            period_spin = ttk.Spinbox(
-                table_frame,
-                from_=0,
-                to=1023,
-                textvariable=period_var,
-                width=10,
-            )
-            period_spin.grid(row=row, column=2, padx=10, pady=5)
-            # 通过 trace 保证键盘输入也能实时更新配置
-            period_var.trace_add(
-                "write",
-                lambda *args, p=pwm_name, v=period_var: self._update_pwm_period(p, v.get()),
-            )
-
-            # 占空比
-            duty_var = tk.IntVar(value=pwm_config["duty"])
-            duty_spin = ttk.Spinbox(
-                table_frame,
-                from_=0,
-                to=100,
-                textvariable=duty_var,
-                width=10,
-            )
-            duty_spin.grid(row=row, column=3, padx=10, pady=5)
-            duty_var.trace_add(
-                "write",
-                lambda *args, p=pwm_name, v=duty_var: self._update_pwm_duty(p, v.get()),
-            )
-
-            # 引脚映射（依据数据手册 PWMIS 配置）
-            if pwm_name == "PWM1":
-                options = ["P60", "P52"]
-            elif pwm_name == "PWM2":
-                options = ["P61", "P53"]
-            elif pwm_name == "PWM3":
-                options = ["P62", "P54"]
-            else:  # PWM4
-                options = ["P63", "P55"]
-
-            mapping_var = tk.StringVar(value=pwm_config.get("mapping", options[0]))
-            mapping_combo = ttk.Combobox(
-                table_frame,
-                textvariable=mapping_var,
-                values=options,
-                state="readonly",
-                width=8,
-            )
-            mapping_combo.grid(row=row, column=4, padx=10, pady=5)
-            mapping_combo.bind(
-                "<<ComboboxSelected>>",
-                lambda e, p=pwm_name, v=mapping_var: self._update_pwm_mapping(p, v.get()),
-            )
-            
-            clock_key = pwm_config.get("clock_source", "instruction")
-            clock_var = tk.StringVar(value=clock_display_map.get(clock_key, "指令周期"))
-            clock_combo = ttk.Combobox(
-                table_frame,
-                textvariable=clock_var,
-                values=list(clock_display_map.values()),
-                state="readonly",
-                width=10,
-            )
-            clock_combo.grid(row=row, column=5, padx=10, pady=5)
-            clock_combo.bind(
-                "<<ComboboxSelected>>",
-                lambda e, p=pwm_name, cv=clock_var: self._update_pwm_clock_source(p, reverse_clock_map.get(cv.get(), "instruction")),
-            )
+        component = PWMConfigComponent(self.controller, parent)
+        component.create_config_ui(parent)
     
     def _create_pwm_config_ui(self):
         """创建PWM配置界面（保留用于兼容）"""
@@ -1415,6 +1513,23 @@ class CodeGeneratorUI:
     
     def _update_sleep_config(self, key, value):
         """更新睡眠配置"""
+        if "sleep" not in self.controller.config_data:
+            # 如果 sleep 配置不存在，创建默认配置
+            if self._is_chip_1521():
+                self.controller.config_data["sleep"] = {
+                    "enabled": False,
+                    "mode": "sleep",
+                    "wakeup": {"wdt": False, "port_change": False, "tcc": False, "pwm": False},
+                    "wake_ports": []
+                }
+            else:
+                self.controller.config_data["sleep"] = {
+                    "enabled": False,
+                    "counter_name": "sleep_cnt",
+                    "threshold": 5,
+                    "condition": "",
+                    "wake_ports": ["P6"]
+                }
         self.controller.config_data["sleep"][key] = value
     
     def _update_sleep_wake_port(self, port, enabled):
@@ -1427,126 +1542,76 @@ class CodeGeneratorUI:
             wake_ports.add(port)
         self.controller.config_data["sleep"]["wake_ports"] = list(wake_ports)
     
+    def _update_include_comments(self, var):
+        """更新是否包含注释的配置"""
+        if "code_generation" not in self.controller.config_data:
+            self.controller.config_data["code_generation"] = {}
+        self.controller.config_data["code_generation"]["include_comments"] = var.get()
+    
+    def _on_chip_changed(self, event=None):
+        """芯片选择改变事件"""
+        selected_display = self.chip_var.get()
+        chip_name = self.chip_name_map.get(selected_display)
+        
+        if not chip_name:
+            return
+        
+        # 确认切换芯片
+        if hasattr(self, 'generated_files') and self.generated_files:
+            from tkinter import messagebox
+            result = messagebox.askyesno(
+                "切换芯片",
+                f"切换芯片将重置所有配置，是否继续？\n\n当前芯片: {self.controller.chip_name}\n目标芯片: {selected_display}"
+            )
+            if not result:
+                # 恢复原来的选择
+                current_display = self.controller.get_available_chips().get(self.controller.chip_name, "JZ8P2615")
+                self.chip_var.set(current_display)
+                return
+        
+        # 切换芯片
+        success = self.controller.switch_chip(chip_name)
+        if success:
+            # 更新窗口标题
+            self.root.title(f"{selected_display} 代码生成工具 v1.1")
+            # 刷新模块树
+            self._refresh_module_tree()
+            # 刷新UI
+            self._refresh_ui()
+            # 更新芯片状态
+            self._update_chip_status()
+        
+        # 切换芯片
+        if self.controller.switch_chip(chip_name):
+            # 刷新UI
+            self._refresh_ui()
+            self._update_chip_status()
+            self.status_label.config(text=f"已切换到芯片: {selected_display}", foreground="#008000")
+            
+            # 清空代码预览
+            if hasattr(self, 'code_editor'):
+                self.code_editor.text_widget.delete(1.0, tk.END)
+                self.code_editor.insert(1.0, "// 请选择模块并配置参数，然后生成代码")
+            
+            # 清空生成的文件
+            if hasattr(self, 'generated_files'):
+                self.generated_files = {}
+            if hasattr(self, 'file_listbox'):
+                self._update_file_list([])
+        else:
+            self.status_label.config(text="切换芯片失败", foreground="#ff0000")
+    
+    def _update_chip_status(self):
+        """更新芯片状态显示"""
+        chip_name = getattr(self.controller, 'chip_name', 'JZ8P2615')
+        available_chips = self.controller.get_available_chips()
+        display_name = available_chips.get(chip_name, chip_name)
+        self.chip_status_label.config(text=display_name)
+    
     def _create_interrupt_register_config_content(self, parent):
         """创建中断寄存器配置内容（用于标签页）"""
-        info_label = ttk.Label(parent, 
-                              text="配置 WDTCON, INTE0, INTE1, INTF0, INTF1",
-                              font=("Arial", 9), foreground="gray")
-        info_label.pack(anchor=tk.W, padx=10, pady=(5, 10))
-        
-        config = self.controller.get_config()["interrupt"]
-        
-        # WDTCON寄存器配置
-        wdtcon_frame = ttk.LabelFrame(parent, text="WDTCON - 外部中断控制寄存器", padding="10")
-        wdtcon_frame.pack(fill=tk.X, padx=10, pady=5)
-        
-        wdtcon_config = config["wdtcon"]
-        
-        # WDT使能
-        wdt_enable_var = tk.BooleanVar(value=wdtcon_config["wdt_enabled"])
-        ttk.Checkbutton(wdtcon_frame, text="WDT使能 (Bit7)", variable=wdt_enable_var,
-                       command=lambda: self._update_wdtcon_wdt(wdt_enable_var)).pack(anchor=tk.W, pady=2)
-        
-        # INT0配置
-        int0_frame = ttk.Frame(wdtcon_frame)
-        int0_frame.pack(fill=tk.X, pady=2)
-        int0_enable_var = tk.BooleanVar(value=wdtcon_config["int0_enabled"])
-        ttk.Checkbutton(int0_frame, text="INT0使能 (P60, Bit6)", variable=int0_enable_var,
-                       command=lambda: self._update_wdtcon_int0_enable(int0_enable_var)).pack(side=tk.LEFT, padx=5)
-        int0_edge_var = tk.StringVar(value=wdtcon_config["int0_edge"])
-        ttk.Label(int0_frame, text="触发边沿:").pack(side=tk.LEFT, padx=5)
-        ttk.Combobox(int0_frame, textvariable=int0_edge_var, values=["rising", "falling"],
-                    state="readonly", width=10).pack(side=tk.LEFT, padx=5)
-        int0_edge_var.trace("w", lambda *args: self._update_wdtcon_int0_edge(int0_edge_var.get()))
-        
-        # INT1配置
-        int1_frame = ttk.Frame(wdtcon_frame)
-        int1_frame.pack(fill=tk.X, pady=2)
-        int1_enable_var = tk.BooleanVar(value=wdtcon_config["int1_enabled"])
-        ttk.Checkbutton(int1_frame, text="INT1使能 (P53, Bit5)", variable=int1_enable_var,
-                       command=lambda: self._update_wdtcon_int1_enable(int1_enable_var)).pack(side=tk.LEFT, padx=5)
-        int1_edge_var = tk.StringVar(value=wdtcon_config["int1_edge"])
-        ttk.Label(int1_frame, text="触发边沿:").pack(side=tk.LEFT, padx=5)
-        ttk.Combobox(int1_frame, textvariable=int1_edge_var, values=["rising", "falling"],
-                    state="readonly", width=10).pack(side=tk.LEFT, padx=5)
-        int1_edge_var.trace("w", lambda *args: self._update_wdtcon_int1_edge(int1_edge_var.get()))
-        
-        # 内部基准输出
-        vfoe_var = tk.BooleanVar(value=wdtcon_config["vfoe"])
-        ttk.Checkbutton(wdtcon_frame, text="内部基准输出使能 (Bit4)", variable=vfoe_var,
-                       command=lambda: self._update_wdtcon_vfoe(vfoe_var)).pack(anchor=tk.W, pady=2)
-        
-        # INTE0寄存器配置
-        inte0_frame = ttk.LabelFrame(parent, text="INTE0 - 中断使能控制寄存器0", padding="10")
-        inte0_frame.pack(fill=tk.X, padx=10, pady=5)
-        
-        inte0_config = config["inte0"]
-        
-        ad_ie_var = tk.BooleanVar(value=inte0_config["ad_ie"])
-        ttk.Checkbutton(inte0_frame, text="ADC中断使能 (Bit5)", variable=ad_ie_var,
-                       command=lambda: self._update_inte0_ad_ie(ad_ie_var)).pack(anchor=tk.W, pady=2)
-        
-        ex1_ie_var = tk.BooleanVar(value=inte0_config["ex1_ie"])
-        ttk.Checkbutton(inte0_frame, text="INT1中断使能 (Bit4)", variable=ex1_ie_var,
-                       command=lambda: self._update_inte0_ex1_ie(ex1_ie_var)).pack(anchor=tk.W, pady=2)
-        
-        ex0_ie_var = tk.BooleanVar(value=inte0_config["ex0_ie"])
-        ttk.Checkbutton(inte0_frame, text="INT0中断使能 (Bit3)", variable=ex0_ie_var,
-                       command=lambda: self._update_inte0_ex0_ie(ex0_ie_var)).pack(anchor=tk.W, pady=2)
-        
-        p6ic_ie_var = tk.BooleanVar(value=inte0_config["p6ic_ie"])
-        ttk.Checkbutton(inte0_frame, text="P6端口变化中断使能 (Bit2)", variable=p6ic_ie_var,
-                       command=lambda: self._update_inte0_p6ic_ie(p6ic_ie_var)).pack(anchor=tk.W, pady=2)
-        
-        p5ic_ie_var = tk.BooleanVar(value=inte0_config["p5ic_ie"])
-        ttk.Checkbutton(inte0_frame, text="P5端口变化中断使能 (Bit1)", variable=p5ic_ie_var,
-                       command=lambda: self._update_inte0_p5ic_ie(p5ic_ie_var)).pack(anchor=tk.W, pady=2)
-        
-        tc0_ie_var = tk.BooleanVar(value=inte0_config["tc0_ie"])
-        ttk.Checkbutton(inte0_frame, text="TC0中断使能 (Bit0)", variable=tc0_ie_var,
-                       command=lambda: self._update_inte0_tc0_ie(tc0_ie_var)).pack(anchor=tk.W, pady=2)
-        
-        # INTE1寄存器配置
-        inte1_frame = ttk.LabelFrame(parent, text="INTE1 - 中断使能控制寄存器1", padding="10")
-        inte1_frame.pack(fill=tk.X, padx=10, pady=5)
-        
-        inte1_config = config["inte1"]
-        
-        dt4_ie_var = tk.BooleanVar(value=inte1_config["dt4_ie"])
-        ttk.Checkbutton(inte1_frame, text="DT4中断使能 (Bit5)", variable=dt4_ie_var,
-                       command=lambda: self._update_inte1_dt4_ie(dt4_ie_var)).pack(anchor=tk.W, pady=2)
-        
-        dt3_ie_var = tk.BooleanVar(value=inte1_config["dt3_ie"])
-        ttk.Checkbutton(inte1_frame, text="DT3中断使能 (Bit4)", variable=dt3_ie_var,
-                       command=lambda: self._update_inte1_dt3_ie(dt3_ie_var)).pack(anchor=tk.W, pady=2)
-        
-        dt2_ie_var = tk.BooleanVar(value=inte1_config["dt2_ie"])
-        ttk.Checkbutton(inte1_frame, text="DT2中断使能 (Bit3)", variable=dt2_ie_var,
-                       command=lambda: self._update_inte1_dt2_ie(dt2_ie_var)).pack(anchor=tk.W, pady=2)
-        
-        dt1_ie_var = tk.BooleanVar(value=inte1_config["dt1_ie"])
-        ttk.Checkbutton(inte1_frame, text="DT1中断使能 (Bit2)", variable=dt1_ie_var,
-                       command=lambda: self._update_inte1_dt1_ie(dt1_ie_var)).pack(anchor=tk.W, pady=2)
-        
-        tc2_ie_var = tk.BooleanVar(value=inte1_config["tc2_ie"])
-        ttk.Checkbutton(inte1_frame, text="TC2中断使能 (Bit1)", variable=tc2_ie_var,
-                       command=lambda: self._update_inte1_tc2_ie(tc2_ie_var)).pack(anchor=tk.W, pady=2)
-        
-        tc1_ie_var = tk.BooleanVar(value=inte1_config["tc1_ie"])
-        ttk.Checkbutton(inte1_frame, text="TC1中断使能 (Bit0)", variable=tc1_ie_var,
-                       command=lambda: self._update_inte1_tc1_ie(tc1_ie_var)).pack(anchor=tk.W, pady=2)
-        
-        # 存储控件引用
-        if not hasattr(self, 'interrupt_register_widgets'):
-            self.interrupt_register_widgets = {}
-        self.interrupt_register_widgets['wdtcon'] = {
-            'wdt_enabled': wdt_enable_var,
-            'int0_enabled': int0_enable_var,
-            'int0_edge': int0_edge_var,
-            'int1_enabled': int1_enable_var,
-            'int1_edge': int1_edge_var,
-            'vfoe': vfoe_var
-        }
+        component = InterruptConfigComponent(self.controller, parent)
+        component.create_config_ui(parent)
     
     def _update_wdtcon_wdt(self, var):
         """更新WDTCON WDT使能"""
@@ -1709,8 +1774,20 @@ class CodeGeneratorUI:
     
     def _refresh_ui(self):
         """刷新UI显示"""
-        # TODO: 根据配置数据更新UI
-        pass
+        # 刷新模块树（根据芯片类型显示/隐藏模块）
+        self._refresh_module_tree()
+        
+        # 刷新当前选中的模块配置
+        selected = self.module_tree.selection()
+        if selected:
+            self._show_module_config(selected[0])
+        else:
+            # 如果没有选中，选中第一个
+            first_item = self.module_tree.get_children()[0] if self.module_tree.get_children() else None
+            if first_item:
+                self.module_tree.selection_set(first_item)
+                self.module_tree.focus(first_item)
+                self._show_module_config(first_item)
     
     def _new_config(self):
         """新建配置"""
@@ -1753,6 +1830,55 @@ class CodeGeneratorUI:
             self._refresh_ui()
             self.status_label.config(text="已重置为默认配置")
     
+    def _generate_current_module_code(self):
+        """生成当前选择模块的代码"""
+        if not hasattr(self, 'current_module_id'):
+            messagebox.showwarning("提示", "请先选择一个配置模块")
+            return
+        
+        module_id = self.current_module_id
+        code = ""
+        file_name = ""
+        
+        if module_id == "init" or module_id == "user":
+            # 初始化代码（1521是user.c，2615是init.c）
+            code = self.controller.generate_init_code()
+            file_name = "user.c" if self._is_chip_1521() else "init.c"
+        elif module_id == "main":
+            # 主程序代码
+            code = self.controller.generate_main_code()
+            file_name = "main.c"
+        elif module_id == "pwm":
+            # PWM代码
+            code = self.controller.generate_pwm_code()
+            file_name = "pwm.c"
+        elif module_id == "sleep":
+            # 睡眠代码
+            code = self.controller.generate_sleep_code()
+            file_name = "sleep.c"
+        elif module_id == "isr":
+            # 中断服务代码
+            code = self.controller.generate_isr_code()
+            file_name = "isr.c"
+        elif module_id == "adc":
+            # ADC代码（仅2615）
+            if not self._is_chip_1521():
+                code = self.controller.generate_adc_code()
+                file_name = "ADC.C"
+            else:
+                messagebox.showwarning("提示", "当前芯片不支持ADC功能")
+                return
+        else:
+            messagebox.showwarning("提示", f"模块 {module_id} 的代码生成功能未实现")
+            return
+        
+        # 显示生成的代码
+        self.code_editor.text_widget.delete(1.0, tk.END)
+        self.code_editor.insert(1.0, code)
+        self.code_editor.text_widget.see(1.0)
+        self.code_editor.text_widget.mark_set(tk.INSERT, 1.0)
+        self.status_label.config(text=f"{file_name} 代码已生成")
+    
     def _generate_init_code(self):
         """生成初始化代码"""
         code = self.controller.generate_init_code()
@@ -1761,7 +1887,8 @@ class CodeGeneratorUI:
         # 生成后自动滚动到顶部
         self.code_editor.text_widget.see(1.0)
         self.code_editor.text_widget.mark_set(tk.INSERT, 1.0)
-        self.status_label.config(text="初始化代码已生成")
+        file_name = "user.c" if self._is_chip_1521() else "init.c"
+        self.status_label.config(text=f"{file_name} 代码已生成")
     
     def _generate_main_code(self):
         """生成主程序代码"""
@@ -1788,44 +1915,28 @@ class CodeGeneratorUI:
         # 更新文件列表
         self._update_file_list(list(files.keys()))
         
-        # 默认显示init.c
-        if "init.c" in files:
-            self._show_file_content("init.c", files["init.c"])
-        elif files:
-            # 如果没有init.c，显示第一个文件
-            first_file = list(files.keys())[0]
-            self._show_file_content(first_file, files[first_file])
+        # 默认显示文件（根据芯片类型）
+        if self._is_chip_1521():
+            # 1521芯片：优先显示user.c
+            if "user.c" in files:
+                self._show_file_content("user.c", files["user.c"])
+            elif files:
+                first_file = list(files.keys())[0]
+                self._show_file_content(first_file, files[first_file])
+        else:
+            # 2615芯片：优先显示init.c
+            if "init.c" in files:
+                self._show_file_content("init.c", files["init.c"])
+            elif files:
+                first_file = list(files.keys())[0]
+                self._show_file_content(first_file, files[first_file])
         
         self.status_label.config(text=f"已生成 {len(files)} 个文件", foreground="#008000")
     
     def _create_file_list_panel(self):
-        """创建文件列表面板"""
-        # 找到代码预览框架
-        # 在代码预览区域上方添加文件列表
-        # 需要找到right_frame，它在_create_main_ui中创建
-        # 我们通过查找包含代码编辑器的框架来定位
-        if hasattr(self, 'code_editor'):
-            # 找到代码编辑器的父框架（right_frame）
-            parent = self.code_editor.master
-            if parent:
-                # 创建文件列表框架
-                file_list_frame = ttk.LabelFrame(parent, text="生成的文件", padding="5")
-                file_list_frame.pack(fill=tk.X, pady=(0, 5), before=self.code_editor)
-                
-                # 文件列表
-                listbox_frame = ttk.Frame(file_list_frame)
-                listbox_frame.pack(fill=tk.BOTH, expand=True)
-                
-                scrollbar = ttk.Scrollbar(listbox_frame)
-                scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
-                
-                self.file_listbox = tk.Listbox(listbox_frame, yscrollcommand=scrollbar.set, height=4)
-                self.file_listbox.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
-                scrollbar.config(command=self.file_listbox.yview)
-                
-                self.file_listbox.bind('<<ListboxSelect>>', self._on_file_select)
-                
-                self.file_list_frame = file_list_frame
+        """创建文件列表面板（如果尚未创建）"""
+        # 文件列表已在 _create_main_ui 中创建，这里只需要确保 generated_files 存在
+        if not hasattr(self, 'generated_files'):
                 self.generated_files = {}
     
     def _update_file_list(self, file_names):
